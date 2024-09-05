@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as i,a2 as t}from"./chunks/framework.CL2JQ_2X.js";const F=JSON.parse('{"title":"Doc proposal","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","filePath":"README.md"}'),e={name:"README.md"},n=t("",5),p=[n];function l(h,o,d,c,r,k){return i(),a("div",null,p)}const _=s(e,[["render",l]]);export{F as __pageData,_ as default};
