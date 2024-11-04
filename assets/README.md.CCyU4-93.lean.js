@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as s,a3 as t}from"./chunks/framework.o8T5S5EX.js";const m=JSON.parse('{"title":"rby1-docs","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","filePath":"README.md"}'),o={name:"README.md"},n=t("",10),l=[n];function c(d,r,i,p,h,u){return s(),e("div",null,l)}const _=a(o,[["render",c]]);export{m as __pageData,_ as default};

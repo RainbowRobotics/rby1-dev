@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.o8T5S5EX.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"docs/whitepaper/index.md","filePath":"docs/whitepaper/index.md"}'),r={name:"docs/whitepaper/index.md"};function o(n,s,c,d,i,p){return a(),t("div")}const f=e(r,[["render",o]]);export{m as __pageData,f as default};
