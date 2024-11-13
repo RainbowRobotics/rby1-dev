@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.Bl9iQvl_.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"ko/docs/whitepaper/index.md","filePath":"ko/docs/whitepaper/index.md"}'),o={name:"ko/docs/whitepaper/index.md"};function r(n,s,c,d,i,p){return a(),t("div")}const f=e(o,[["render",r]]);export{m as __pageData,f as default};
