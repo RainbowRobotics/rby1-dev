@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.Dpo7o-4l.js";const x=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"docs/appendix/index.md","filePath":"docs/appendix/index.md"}'),n={name:"docs/appendix/index.md"};function d(o,s,c,r,i,p){return a(),t("div")}const m=e(n,[["render",d]]);export{x as __pageData,m as default};

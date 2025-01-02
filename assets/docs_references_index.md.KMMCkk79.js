@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r}from"./chunks/framework.Dpo7o-4l.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"docs/references/index.md","filePath":"docs/references/index.md"}'),n={name:"docs/references/index.md"};function s(c,a,o,d,i,f){return r(),t("div")}const m=e(n,[["render",s]]);export{_ as __pageData,m as default};
