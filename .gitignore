@@ -1,0 +1,5 @@
+node_modules
+.DS_Store
+*.zip
+.vitepress/dist
+protoc-21.12
