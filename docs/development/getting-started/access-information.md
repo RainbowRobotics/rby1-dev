@@ -8,23 +8,26 @@ This section provides details about how to connect to the Robot PC from the User
 ## Network Information:
 
 * Robot PC IP Address (User PC to Robot PC): 192.168.30.1
-* Robot PC IP Address (Hotspot Connection): 192.168.12.1
-    * Hotspot SSID: RBY1
-    * Hotspot Password: [Provided separately to licensed users]
 
-    > :warning: If you are a licensed user and do not know the default password, please contact rby.support@rainbow-robotics.com for assistance. We will verify your license and provide the necessary information.
-
-    > :key: Press the HOTSPOT button on the top of the robot's backpack for the hotspot to function. You can also connect via the QR code displayed when the button is pressed.
+* Robot PC IP Address (Hotspot Connection: `192.168.12.1`  
+  - Hotspot SSID: `RBY1`  
+  - Hotspot Password: The password can be viewed after connecting via QR code.  
+    > :key: **Connecting via QR Code**
+    > 1. Press the **HOTSPOT button** on the top of the robot's backpack to activate the hotspot.  
+    > 2. A QR code will be displayed; scan it to automatically connect to the network.  
+    > - The hotspot will remain active **only while the HOTSPOT button is pressed**.  
+    > - Ensure the button is not pressed again during robot operation, as this will deactivate the hotspot and disrupt communication with the robot.  
 
 ## Web UI Access
-* User PC to Robot PC: 192.168.30.1:5173
+* User PC(UPC) to Robot PC(RPC): 192.168.30.1:5173
 * Hotspot Connection: 192.168.12.1:5173
 
 ## Access Credentials
-* User PC Username: [Provided separately to licensed users]
-* User PC Password: [Provided separately to licensed users]
-> :warning: If you are a licensed user and do not know the default password, please contact rby.support@rainbow-robotics.com for assistance. We will verify your license and provide the necessary information.
+- User PC Username: `nvidia`  
+- User PC Password: `nvidia`  
 
+> :warning: **Note**  
+> The default credentials are standard for Nvidia Jetson devices.  
 
 ## Command Information
 * Command Port: 50051 (Use this port to send commands to the Robot PC.)
@@ -63,9 +66,23 @@ There are two methods to send commands to the Robot PC from another PC:
 </figure>
 
 ## LiDAR Information
+
 You can access the LiDAR sensors via the following IP addresses:
 
-* **Left LiDAR IP Address:** 192.168.30.10
-* **Right LiDAR IP Address:** 192.168.30.11
+- **Left LiDAR IP Address:** `192.168.30.10`  
+- **Right LiDAR IP Address:** `192.168.30.11`  
 
 Use these addresses to connect to the respective LiDAR sensors for data collection and monitoring.
+
+### Additional Information
+
+- The LiDAR sensors used in this system are **LakiBeam 1L**.  
+- For more details and documentation, visit the official site:  
+  [RichBeam LakiBeam 1L Documentation](https://www.richbeam.com/en/download)  
+
+### Example Code
+
+A simple example code for printing LiDAR data is available at the following repository:  
+[RainbowRobotics/lakibeam-1l-test](https://github.com/RainbowRobotics/lakibeam-1l-test.git)  
+
+This example demonstrates basic usage of the LakiBeam 1L LiDAR sensors.  
