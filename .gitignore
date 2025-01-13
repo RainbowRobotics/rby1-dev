@@ -3,3 +3,4 @@ node_modules
 *.zip
 .vitepress/dist
 protoc-21.12
+.vitepress/cache
