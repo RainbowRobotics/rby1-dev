@@ -97,11 +97,13 @@ export default defineConfig({
       {text: "RBY1-SDK",
         collapsed: false,
         items: [
-          {text: "Model", link: "/docs/development/rby1-sdk/model"},
+          {text: "Model", link: "/docs/development/rby1-sdk/models/A", items:[
+            {text: "A", link: "/docs/development/rby1-sdk/models/A"},
+          ]},
           {text: "Prameters", link: "/docs/development/rby1-sdk/parameters"},
           {text: "Robot and Command", link: "/docs/development/rby1-sdk/robot-and-command"},
-          {text: "Protos", link: "/docs/development/rby1-sdk/protos/protos-v0.2.1", items:[
-            {text: "v0.2.0, v0.2.1", link: "/docs/development/rby1-sdk/protos/protos-v0.2.1"},
+          {text: "Protos", link: "/docs/development/rby1-sdk/protos/protos-v0.3.0", items:[
+            {text: "v0.3.0", link: "/docs/development/rby1-sdk/protos/protos-v0.3.0"},
             {text: "Before v0.2.0", link: "/docs/development/rby1-sdk/protos/protos-before-v0.2.0"}, 
           ]},
           {text: "Controllers", link: "/docs/development/rby1-sdk/controllers/command-and-control-architecture.md", items:[

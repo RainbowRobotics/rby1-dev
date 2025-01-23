@@ -39,3 +39,28 @@ The indexes related to the body parts are as follows:
 ## Head Indexes
 The indexes related to the head parts are as follows:
 - **Head Indexes**: 22, 23
+
+## Brake and Motor Information
+### Components Without Brakes
+The following components do not have brakes:
+- **Wheels**: `right_wheel`, `left_wheel`
+- **Head**: `head_0`, `head_1`
+- **Right Arm**: `right_arm_6`
+- **Left Arm**: `left_arm_6`
+
+### Components Without Physical Brake Buttons
+The following components have brakes but do not have physical buttons for releasing them (can only be released electronically):
+- **Torso**: `torso_3`, `torso_4`, `torso_5`
+- **Right Arm**: `right_arm_4`, `right_arm_5`
+- **Left Arm**: `left_arm_4`, `left_arm_5`
+
+### Components With Physical Brake Buttons
+The following components have brakes and include physical buttons for releasing them:
+- **Torso**: `torso_0`, `torso_1`, `torso_2`
+- **Right Arm**: `right_arm_0`, `right_arm_1`, `right_arm_2`, `right_arm_3`
+- **Left Arm**: `left_arm_0`, `left_arm_1`, `left_arm_2`, `left_arm_3`
+
+## Motor Types
+The motor types for each component are as follows:
+- **Dynamixel Motors**: Used in the Head (`head_0`, `head_1`)
+- **RBMotors**: Used in all other components (Torso, Wheels, Right Arm, Left Arm)
