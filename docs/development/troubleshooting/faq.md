@@ -125,18 +125,3 @@ If you don't want to use `sudo` every time you execute the command, follow the s
    ```
 
 ---
-### Q: How can I disassemble the robot arm?
-
-**A:**  
-Please refer to the attached GIF for an easy step-by-step guide.
-1.	Ensure the robot is powered off before proceeding.
-2.	Remove the 4 bolts and detach the rear cover.
-3.	Disassemble the robot arm and prepare it for your next task.
-
-
-<figure>
-    <img src="/images/arm_disassembly.gif" alt="Arm Disassembly Guide" />
-</figure>
-
-
----

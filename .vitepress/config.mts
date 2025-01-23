@@ -125,6 +125,7 @@ export default defineConfig({
         items: [
           {text: "Build Issue", link: "/docs/development/troubleshooting/build-issue"},
           {text: "Error Reporting", link: "/docs/development/troubleshooting/error-reporting"},
+          {text: "Robot Detaching Guide", link: "/docs/development/troubleshooting/robot_detaching_guide"},
           {text: "FAQ", link: "/docs/development/troubleshooting/faq"}
         ]
       },  
