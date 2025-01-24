@@ -52,3 +52,40 @@ The `log_backup` tool allows you to back up RPC logs directly through the UPC. E
 
 After running the command, `tar.gz` log file will be generated in the same directory where you executed the program.
 Please attach this file when contacting us for analysis, as it will greatly assist in troubleshooting.
+
+
+## How to Check CAN Communication
+
+The `can_checker` tool allows you to verify whether the CAN communication is functioning correctly. 
+> ⚠️ WARNING
+> Ensure that the robot’s main power is turned on before proceeding.
+
+### Downloads
+- can_checker(for UPC) : [Download](https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/Ec5JW4ye3HRLnkzzDQMc6ZwBAVMw2PLQ_3kE5Olx1vAm3g?e=CbKBz0)
+
+### Usage
+```bash
+# Make the tool executable
+chmod +x can_checker
+
+# Run the tool
+./can_checker <RPC IP address>
+
+# Example
+./can_checker 192.168.30.1
+```
+
+If the communication is functioning correctly, you will see output similar to the following. **The process typically takes around 1-2 minutes to complete.**
+```bash
+Checking can0 (right_arm)...
+[SUCCESS] can0 (right_arm) is communicating!
+Checking can1 (left_arm)...
+[SUCCESS] can1 (left_arm) is communicating!
+Checking can2 (torso)...
+[SUCCESS] can2 (torso) is communicating!
+Checking can3 (wheel)...
+[SUCCESS] can3 (wheel) is communicating!
+```
+If any issues arise, please save the output and attach it when contacting us for further analysis.
+
+
