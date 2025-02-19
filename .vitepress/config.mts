@@ -49,7 +49,7 @@ export default defineConfig({
       { text: "Documentations", link: "/docs/introduction/hello-rby1/" },
       { text: "Simulators", link: "/docs/simulators/" },
       { text: "RPC Management Tools", link: "/docs/rpc-release/" },
-      // { text: "Support", link: "/docs/support/"},
+      { text: "Downloads", link: "/docs/downloads/"},
     ],
 
     sidebar: [
