@@ -1,23 +1,23 @@
 ---
-title: Model A
+title: Model M
 outline: deep
 ---
 
-# Model A Overview
+# Model M Overview
 
-> :bulb: **Note:** The most accurate information regarding the model can be found in the [URDF files under the models directory](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.4.1/models/rby1a/urdf/model.urdf) of the Rainbow Robotics SDK repository. It is highly recommended to refer to this source for the latest updates and details.
+> :bulb: **Note:** The most accurate information regarding the model can be found in the [URDF files under the models directory](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.4.1/models/rby1m/urdf/model.urdf) of the Rainbow Robotics SDK repository. It is highly recommended to refer to this source for the latest updates and details.
 
 ## Model Name
-**A**
+**M**
 
 ## Degrees of Freedom (DOF)
-- **Total DOF**: 24
+- **Total DOF**: 26
 
 ## Joint Names
 
-The joint names of the A model are as follows:
+The joint names of the M model are as follows:
 
-- **Wheels**: `right_wheel`, `left_wheel`
+- **Wheels**: `wheel_fr`, `wheel_fl`, `wheel_rr`, `wheel_rl`
 - **Torso**: `torso_0`, `torso_1`, `torso_2`, `torso_3`, `torso_4`, `torso_5`
 - **Right Arm**: `right_arm_0`, `right_arm_1`, `right_arm_2`, `right_arm_3`, `right_arm_4`, `right_arm_5`, `right_arm_6`
 - **Left Arm**: `left_arm_0`, `left_arm_1`, `left_arm_2`, `left_arm_3`, `left_arm_4`, `left_arm_5`, `left_arm_6`
@@ -26,24 +26,26 @@ The joint names of the A model are as follows:
 ## Mobility Indexes
 The indexes related to mobility are as follows:
 
-- **Right Wheel Index**: 0
-- **Left Wheel Index**: 1
+- **Wheel FR(Front-Right) Index**: 0
+- **Wheel FL(Front-Left) Index**: 1
+- **Wheel RR(Rear-Right) Index**: 2
+- **Wheel RL(Rear-Left) Index**: 3
 
 ## Body Indexes
 The indexes related to the body parts are as follows:
 
-- **Torso Indexes**: 2, 3, 4, 5, 6, 7
-- **Right Arm Indexes**: 8, 9, 10, 11, 12, 13, 14
-- **Left Arm Indexes**: 15, 16, 17, 18, 19, 20, 21
+- **Torso Indexes**: 4, 5, 6, 7, 8, 9
+- **Right Arm Indexes**: 10, 11, 12, 13, 14, 15, 16
+- **Left Arm Indexes**: 17, 18, 19, 20, 21, 22, 23
 
 ## Head Indexes
 The indexes related to the head parts are as follows:
-- **Head Indexes**: 22, 23
+- **Head Indexes**: 24, 25
 
 ## Brake and Motor Information
 ### Components Without Brakes
 The following components do not have brakes:
-- **Wheels**: `right_wheel`, `left_wheel`
+- **Wheels**: `wheel_fr`, `wheel_fl`, `wheel_rr`, `wheel_rl`
 - **Head**: `head_0`, `head_1`
 - **Right Arm**: `right_arm_6`
 - **Left Arm**: `left_arm_6`
@@ -70,7 +72,7 @@ The motor types for each component are as follows:
 
 | Parameter Name                                                        | Default Value                | Min Value          | Max Value          | Unit   |
 |-----------------------------------------------------------------------|------------------------------|--------------------|--------------------|--------|
-| `robot_model_name`                                                    | "rby1a"                      | -                  | -                  |        |
+| `robot_model_name`                                                    | "rby1m"                      | -                  | -                  |        |
 | `model_name`                                                          | ""                           | -                  | -                  |        |
 | `battery_config` *(type, cutoff_voltage, fully_charged_voltage, ...)*  | [0, 44.7, 58.6, 1123.0, -61.587, 1.0168, -0.0045] | -  | -                  |        |
 | `soft_stop_enabled`                                                   | 0                            | 0                  | 1                  |        |
@@ -100,4 +102,3 @@ The motor types for each component are as follows:
 | `joint_velocity_command.canceling_time`                               | 0.1                          | 1e-3               | 1.0                | sec    |
 | `joint_velocity_command.torque_saturation_time`                       | 0.1                          | 1e-3               | 1.0                | sec    |
 | `se2_velocity_command.canceling_time`                                 | 0.1                          | 1e-3               | 1.0                | sec    |
-

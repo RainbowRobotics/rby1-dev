@@ -1,5 +1,10 @@
 import re
-import tomllib
+
+# Python 3.11 이상에서는 tomllib 사용, 그 미만에서는 tomli 사용
+try:
+    import tomllib  # Python 3.11+
+except ModuleNotFoundError:
+    import tomli as tomllib  # Python 3.10 이하
 
 # pyproject.toml에서 버전 정보 읽기
 pyproject_path = "../../../../rby1-sdk/pyproject.toml"

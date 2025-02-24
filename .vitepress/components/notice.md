@@ -1,7 +1,7 @@
-## 🔔 What’s New
+## 🔔 **What's New** _(2025-02-24)_
 
-🎉 The **RPC program** has been updated! Check it out [**here**](/docs/rpc-release/).
+✨ **Model T5** & **M** — **Now Available!**  
+Check it out [**here**](https://github.com/RainbowRobotics/rby1-release/releases) 🚀  
 
-🐳 The **simulator** is also updated. Pull the latest Docker image to stay up-to-date.
-
-Thank you for being a valued member of our community! 🙌
+**Powerful features and enhanced performance**—  
+The wait is over. **Experience it now!** 🙌  
