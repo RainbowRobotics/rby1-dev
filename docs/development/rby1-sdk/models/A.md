@@ -101,3 +101,12 @@ The motor types for each component are as follows:
 | `joint_velocity_command.torque_saturation_time`                       | 0.1                          | 1e-3               | 1.0                | sec    |
 | `se2_velocity_command.canceling_time`                                 | 0.1                          | 1e-3               | 1.0                | sec    |
 
+## Example Usage in Python
+
+```python
+# Set parameters using the dot notation, following the provided examples
+robot.set_parameter("default.acceleration_limit_scaling", "0.8")
+robot.set_parameter("joint_position_command.cutoff_frequency", "5")
+robot.set_parameter("cartesian_command.cutoff_frequency", "5")
+robot.set_parameter("default.linear_acceleration_limit", "5")
+```
