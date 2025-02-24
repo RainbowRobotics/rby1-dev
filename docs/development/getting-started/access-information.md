@@ -7,7 +7,7 @@ This section provides details about how to connect to the Robot PC from the User
 
 ## Network Information:
 
-* Robot PC IP Address (User PC to Robot PC): 192.168.30.1
+* Robot PC IP Address (User PC to Robot PC): `192.168.30.1`
 
 * Robot PC IP Address (Hotspot Connection: `192.168.12.1`  
   - Hotspot SSID: `RBY1`  
