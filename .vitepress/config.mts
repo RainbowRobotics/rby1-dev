@@ -67,7 +67,8 @@ export default defineConfig({
         items: [
           {text: "Overview", link: "/docs/introduction/hw/overview.md"},
           {text: "Mechanical Part", link: "/docs/introduction/hw/mechanical-part.md"},
-          {text: "Electrical Part", link: "/docs/introduction/hw/electrical-part.md"}
+          {text: "Electrical Part", link: "/docs/introduction/hw/electrical-part.md"},
+          {text: "Battery Charger", link: "/docs/introduction/hw/battery-charger.md"},
         ]
       },
       {

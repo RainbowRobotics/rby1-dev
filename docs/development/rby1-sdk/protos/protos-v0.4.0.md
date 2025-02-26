@@ -1,6 +1,6 @@
 # Protocol Documentation
 ## Compatible Version
-- **RBY1-RPC version**: [v0.4.0](https://github.com/RainbowRobotics/rby1-release/releases/tag/v0.4.0)
+- **RBY1-RPC version**: [v0.4.0](https://github.com/RainbowRobotics/rby1-release/releases/tag/v0.4.0), [v0.4.1](https://github.com/RainbowRobotics/rby1-release/releases/tag/v0.4.1)
 - **RBY1-SDK version**: v0.4.1 ([e0362f5](https://github.com/RainbowRobotics/rby1-sdk/commit/e0362f5c71164faf1e72e333307dc7516dbcdb4a))
 <a name="top"></a>
 

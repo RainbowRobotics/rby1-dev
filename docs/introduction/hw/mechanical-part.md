@@ -45,7 +45,7 @@ This table details the torque performance of various motor types. It includes co
 
 
 ## Robot Dimensions
-The diagrams show the front and side views of the robot with detailed measurements. The total height of the robot is 1470 mm, and the arm span is 566.67 mm, with a 140-degree range of motion. The base dimensions are 662.62 mm in length and 580 mm in width. These measurements provide an understanding of the physical space the robot occupies, as well as its potential reach and movement range.
+The diagrams show the front and side views of the robot with detailed measurements. The total height of the robot is 1470 mm, and the width is 566.67 mm, with a 140-degree range of motion. The base dimensions are 662.62 mm in length and 580 mm in width. These measurements provide an understanding of the physical space the robot occupies, as well as its potential reach and movement range.
 
 > :warning: **Note:** Physical limits and control limits may differ. For detailed operation ranges, please refer to the [URDF files](https://github.com/RainbowRobotics/rby1-sdk/tree/main/models/rby1a/urdf).
 
