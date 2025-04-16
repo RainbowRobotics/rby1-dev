@@ -11,22 +11,23 @@ next: false
 Please use the provided `updater` program to update your RPC. During the update, the RPC will shut down, so make sure to put the robot in a **safe position** and connect the **charger** before proceeding.
 
 ### Downloads
-- updater(for UPC) : [Download](https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/ETcDpUXsFxNJs69e2TzKxqcBp_kATrQ7jrGgmBQFfQjHOw?e=hRMg1s)
-- updater_x86_64 : [Download](https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/EUHYdUtTEMxPpcaxeuc_ycgBt-ko0vaa0Xf7fnUDWNxwHQ?e=8hcp6d)
+- updater : [Download](https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/EQrH2XjLvJ9EohytH915Kn0BO4bG8FKaNz1rNG5YD3GcIA?e=aFhdo0)
 - You can check the latest RPC updates and release notes at the following link:
 [RPC Release Notes on GitHub](https://github.com/RainbowRobotics/rby1-release/releases)
 
 ### Usage
   ```bash
   sudo apt-get install -y sshpass
-
-  # Program usage
+  tar -xvf updater.tar
+  cd updater_dist
   chmod +x updater
   ./updater <update file name> <RPC IP address>
 
   # Example
+  ./updater rby1_a_0.3.0.tar.gz 192.168.30.1
   ./updater rby1_a_0.3.0.tar 192.168.30.1
   ```
+
 ## How to Extract Logs
 
 The `log_backup` tool allows you to back up RPC logs directly through the UPC. Ensure the UPC is powered on and ready before proceeding.
