@@ -1,7 +1,7 @@
-## 🔔 **What's New** _(2025-02-24)_
+## 🔔 **What's New** _(2025-04-16)_
 
-✨ **Model T5** & **M** — **Now Available!**  
-Check it out [**here**](https://github.com/RainbowRobotics/rby1-release/releases/tag/v0.4.1) 🚀  
+✨ **v0.5.1** — **Now Available!**  
+Check it out [**here**](https://github.com/RainbowRobotics/rby1-release/releases/tag/v0.5.1) 🚀  
 
-**Powerful features and enhanced performance**—  
+**Improved fault handling, controller performance, and SDK version visibility on OLED!**—  
 The wait is over. **Experience it now!** 🙌  
