@@ -105,7 +105,8 @@ export default defineConfig({
           ]},
           
           {text: "Robot and Command", link: "/docs/development/rby1-sdk/robot-and-command"},
-          {text: "Protos", link: "/docs/development/rby1-sdk/protos/protos-v0.4.0", items:[
+          {text: "Protos", link: "/docs/development/rby1-sdk/protos/protos-v0.5.0", items:[
+            {text: "v0.5.0", link: "/docs/development/rby1-sdk/protos/protos-v0.5.0"},
             {text: "v0.4.0", link: "/docs/development/rby1-sdk/protos/protos-v0.4.0"},
             {text: "v0.3.0", link: "/docs/development/rby1-sdk/protos/protos-v0.3.0"},
             {text: "Before v0.2.0", link: "/docs/development/rby1-sdk/protos/protos-before-v0.2.0"}, 
