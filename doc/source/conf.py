@@ -31,12 +31,16 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
     "sphinx.ext.autosectionlabel",
+
     # Docstring parser (Napoleon: NumPy/Google 스타일)
     "sphinx.ext.napoleon",
+
     # Markdown
     "myst_parser",
+
     # C++ via Doxygen XML
     "breathe",
+
     # UX
     "sphinx_copybutton",
 ]
@@ -57,12 +61,11 @@ myst_heading_anchors = 3
 # -- Autosummary / Autodoc options ---------------------------------------
 autosummary_generate = True
 autosummary_imported_members = True
-autodoc_use_pluggable_templates = True
-autodoc_member_order = "bysource"
+autodoc_member_order = "groupwise"
 autodoc_typehints = "description"
 autodoc_inherit_docstrings = True
 add_module_names = False
-autoclass_content = "class"
+autoclass_content = "class" 
 autodoc_default_options = {
     "members": True,
     "undoc-members": False,
@@ -126,8 +129,8 @@ napoleon_type_aliases = {
 }
 
 # -- Python Code Block ---------------------------------------------------
-pygments_style = "sphinx"
-pygments_dark_style = "monokai"
+pygments_style = 'sphinx'
+pygments_dark_style = 'monokai'
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Pybind11: make public objects show as rby1_sdk.* (not rby1_sdk._bindings.*)
@@ -161,6 +164,7 @@ pygments_dark_style = "monokai"
 #         _patch_module_names(smod)
 
 # _remap_pybind_modules()
+
 
 
 # ──────────────────────────────────────────────────────────────────────────────
