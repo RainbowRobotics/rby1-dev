@@ -1,0 +1,2845 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 --><title>Index - RB-Y1 Documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">RB-Y1 Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">RB-Y1 Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="getting-started/index.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting Started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/unboxing.html">1. Unboxing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/hotspot-and-webui.html">2. Connect to Hotspot &amp; Check Web UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/connect-external-ap.html">3. Connect to an External Access Point (AP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/sdk-install-and-state.html">4. SDK Installation and Read State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/estop-basics.html">5. E‑Stop Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/troubleshooting.html">6. Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/faq.html">7. FAQ</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware/index.html">Hardware Manual</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="software/index.html">Software Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/index.html">Robot Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="options/index.html">Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SDK</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="sdk/index.html">SDK</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of SDK</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sdk/python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Python API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.create_robot.html">rby1_sdk.create_robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.create_robot_a.html">rby1_sdk.create_robot_a</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.create_robot_m.html">rby1_sdk.create_robot_m</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.create_robot_ub.html">rby1_sdk.create_robot_ub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Model_A.html">rby1_sdk.Model_A</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_A.html">rby1_sdk.Robot_A</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html">rby1_sdk.Robot_A_CommandHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html">rby1_sdk.Robot_A_CommandStreamHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html">rby1_sdk.Robot_A_ControlState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html">rby1_sdk.Robot_A_ControlInput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.RobotState_A.html">rby1_sdk.RobotState_A</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Model_M.html">rby1_sdk.Model_M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_M.html">rby1_sdk.Robot_M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html">rby1_sdk.Robot_M_CommandHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html">rby1_sdk.Robot_M_CommandStreamHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html">rby1_sdk.Robot_M_ControlState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html">rby1_sdk.Robot_M_ControlInput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.RobotState_M.html">rby1_sdk.RobotState_M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Model_UB.html">rby1_sdk.Model_UB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_UB.html">rby1_sdk.Robot_UB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html">rby1_sdk.Robot_UB_CommandHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html">rby1_sdk.Robot_UB_CommandStreamHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html">rby1_sdk.Robot_UB_ControlState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html">rby1_sdk.Robot_UB_ControlInput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.RobotState_UB.html">rby1_sdk.RobotState_UB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.RobotCommandBuilder.html">rby1_sdk.RobotCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.WholeBodyCommandBuilder.html">rby1_sdk.WholeBodyCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.ComponentBasedCommandBuilder.html">rby1_sdk.ComponentBasedCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.HeadCommandBuilder.html">rby1_sdk.HeadCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.MobilityCommandBuilder.html">rby1_sdk.MobilityCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.BodyCommandBuilder.html">rby1_sdk.BodyCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandBuilder.html">rby1_sdk.BodyComponentBasedCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.TorsoCommandBuilder.html">rby1_sdk.TorsoCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.ArmCommandBuilder.html">rby1_sdk.ArmCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.StopCommandBuilder.html">rby1_sdk.StopCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.SE2VelocityCommandBuilder.html">rby1_sdk.SE2VelocityCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html">rby1_sdk.JogCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointVelocityCommandBuilder.html">rby1_sdk.JointVelocityCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html">rby1_sdk.ImpedanceControlCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html">rby1_sdk.CartesianImpedanceControlCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html">rby1_sdk.CartesianCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.GravityCompensationCommandBuilder.html">rby1_sdk.GravityCompensationCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html">rby1_sdk.OptimalControlCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html">rby1_sdk.JointImpedanceControlCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html">rby1_sdk.JointGroupPositionCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html">rby1_sdk.JointPositionCommandBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.CommandHeaderBuilder.html">rby1_sdk.CommandHeaderBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html">rby1_sdk.RobotCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.WholeBodyCommandFeedback.html">rby1_sdk.WholeBodyCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.ComponentBasedCommandFeedback.html">rby1_sdk.ComponentBasedCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.HeadCommandFeedback.html">rby1_sdk.HeadCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.MobilityCommandFeedback.html">rby1_sdk.MobilityCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html">rby1_sdk.BodyCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandFeedback.html">rby1_sdk.BodyComponentBasedCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html">rby1_sdk.TorsoCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html">rby1_sdk.ArmCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.StopCommandFeedback.html">rby1_sdk.StopCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.SE2VelocityCommandFeedback.html">rby1_sdk.SE2VelocityCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JogCommandFeedback.html">rby1_sdk.JogCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointVelocityCommandFeedback.html">rby1_sdk.JointVelocityCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandFeedback.html">rby1_sdk.ImpedanceControlCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandFeedback.html">rby1_sdk.CartesianImpedanceControlCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html">rby1_sdk.CartesianCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.GravityCompensationCommandFeedback.html">rby1_sdk.GravityCompensationCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.OptimalControlCommandFeedback.html">rby1_sdk.OptimalControlCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandFeedback.html">rby1_sdk.JointImpedanceControlCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandFeedback.html">rby1_sdk.JointGroupPositionCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.JointPositionCommandFeedback.html">rby1_sdk.JointPositionCommandFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.CommandHeaderFeedback.html">rby1_sdk.CommandHeaderFeedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.math.html">rby1_sdk.math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.upc.html">rby1_sdk.upc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.dynamics.html">rby1_sdk.dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.set_printoptions.html">rby1_sdk.set_printoptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.printoptions.html">rby1_sdk.printoptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdk/python/generated/rby1_sdk.DynamixelBus.html">rby1_sdk.DynamixelBus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sdk/c%2B%2B/index.html">C++ API Reference</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sdk/protos/index.html">Protobuf Schemas</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Protobuf Schemas</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sdk/protos/generated/protos.html">Protocol Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="_" class="genindex-section">
+  <h2>_</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandBuilder.html#rby1_sdk.ArmCommandBuilder.__init__">__init__() (ArmCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback.__init__">(ArmCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandBuilder.html#rby1_sdk.BodyCommandBuilder.__init__">(BodyCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.__init__">(BodyCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandBuilder.html#rby1_sdk.BodyComponentBasedCommandBuilder.__init__">(BodyComponentBasedCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandFeedback.html#rby1_sdk.BodyComponentBasedCommandFeedback.__init__">(BodyComponentBasedCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.__init__">(CartesianCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.__init__">(CartesianCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.__init__">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandFeedback.html#rby1_sdk.CartesianImpedanceControlCommandFeedback.__init__">(CartesianImpedanceControlCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder.__init__">(CommandHeaderBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.CommandHeaderFeedback.html#rby1_sdk.CommandHeaderFeedback.__init__">(CommandHeaderFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder.__init__">(ComponentBasedCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandFeedback.html#rby1_sdk.ComponentBasedCommandFeedback.__init__">(ComponentBasedCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.__init__">(DynamixelBus method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.GravityCompensationCommandBuilder.html#rby1_sdk.GravityCompensationCommandBuilder.__init__">(GravityCompensationCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.GravityCompensationCommandFeedback.html#rby1_sdk.GravityCompensationCommandFeedback.__init__">(GravityCompensationCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.HeadCommandBuilder.html#rby1_sdk.HeadCommandBuilder.__init__">(HeadCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.HeadCommandFeedback.html#rby1_sdk.HeadCommandFeedback.__init__">(HeadCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.__init__">(ImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandFeedback.html#rby1_sdk.ImpedanceControlCommandFeedback.__init__">(ImpedanceControlCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.__init__">(JogCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JogCommandFeedback.html#rby1_sdk.JogCommandFeedback.__init__">(JogCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder.__init__">(JointGroupPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandFeedback.html#rby1_sdk.JointGroupPositionCommandFeedback.__init__">(JointGroupPositionCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.__init__">(JointImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandFeedback.html#rby1_sdk.JointImpedanceControlCommandFeedback.__init__">(JointImpedanceControlCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.__init__">(JointPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandFeedback.html#rby1_sdk.JointPositionCommandFeedback.__init__">(JointPositionCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder.__init__">(JointVelocityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandFeedback.html#rby1_sdk.JointVelocityCommandFeedback.__init__">(JointVelocityCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.MobilityCommandBuilder.html#rby1_sdk.MobilityCommandBuilder.__init__">(MobilityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.MobilityCommandFeedback.html#rby1_sdk.MobilityCommandFeedback.__init__">(MobilityCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.__init__">(Model_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.__init__">(Model_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.__init__">(Model_UB method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.__init__">(OptimalControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandFeedback.html#rby1_sdk.OptimalControlCommandFeedback.__init__">(OptimalControlCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.printoptions.html#rby1_sdk.printoptions.__init__">(printoptions method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.__init__">(Robot_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler.__init__">(Robot_A_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler.__init__">(Robot_A_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#rby1_sdk.Robot_A_ControlInput.__init__">(Robot_A_ControlInput method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState.__init__">(Robot_A_ControlState method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.__init__">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler.__init__">(Robot_M_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler.__init__">(Robot_M_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#rby1_sdk.Robot_M_ControlInput.__init__">(Robot_M_ControlInput method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState.__init__">(Robot_M_ControlState method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.__init__">(Robot_UB method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler.__init__">(Robot_UB_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler.__init__">(Robot_UB_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#rby1_sdk.Robot_UB_ControlInput.__init__">(Robot_UB_ControlInput method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState.__init__">(Robot_UB_ControlState method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotCommandBuilder.html#rby1_sdk.RobotCommandBuilder.__init__">(RobotCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.__init__">(RobotCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.__init__">(RobotState_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.__init__">(RobotState_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.__init__">(RobotState_UB method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder.__init__">(SE2VelocityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandFeedback.html#rby1_sdk.SE2VelocityCommandFeedback.__init__">(SE2VelocityCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.StopCommandBuilder.html#rby1_sdk.StopCommandBuilder.__init__">(StopCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.StopCommandFeedback.html#rby1_sdk.StopCommandFeedback.__init__">(StopCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandBuilder.html#rby1_sdk.TorsoCommandBuilder.__init__">(TorsoCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.__init__">(TorsoCommandFeedback method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.WholeBodyCommandBuilder.html#rby1_sdk.WholeBodyCommandBuilder.__init__">(WholeBodyCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.WholeBodyCommandFeedback.html#rby1_sdk.WholeBodyCommandFeedback.__init__">(WholeBodyCommandFeedback method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.acceleration_limit">acceleration_limit (JointPositionCommandBuilder attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.add_cartesian_target">add_cartesian_target() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_limit">add_joint_limit() (CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.add_joint_position_target">add_joint_position_target() (CartesianCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_position_target">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.add_joint_position_target">(OptimalControlCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.add_target">add_target() (CartesianCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_target">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id0">AddrCurrentTemperature (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrCurrentTemperature">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id1">AddrGoalCurrent (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrGoalCurrent">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id2">AddrGoalPosition (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrGoalPosition">[1]</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id3">AddrGoalVibrationLevel (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrGoalVibrationLevel">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id4">AddrOperatingMode (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrOperatingMode">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id5">AddrPositionDGain (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrPositionDGain">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id6">AddrPositionIGain (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrPositionIGain">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id7">AddrPositionPGain (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrPositionPGain">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id8">AddrPresentButtonState (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrPresentButtonState">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id9">AddrPresentCurrent (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrPresentCurrent">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id10">AddrPresentPosition (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrPresentPosition">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id11">AddrPresentVelocity (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrPresentVelocity">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id12">AddrTorqueEnable (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.AddrTorqueEnable">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandBuilder.html#rby1_sdk.ArmCommandBuilder">ArmCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback">ArmCommandFeedback (class in rby1_sdk)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.battery_state">battery_state (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id0">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.battery_state">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id0">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.battery_state">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id0">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandFeedback.html#rby1_sdk.ComponentBasedCommandFeedback.body_command">body_command (ComponentBasedCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.body_component_based_command">body_component_based_command (BodyCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.body_idx">body_idx (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id0">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.body_idx">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id0">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.body_idx">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id0">(Model_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyCommandBuilder.html#rby1_sdk.BodyCommandBuilder">BodyCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback">BodyCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandBuilder.html#rby1_sdk.BodyComponentBasedCommandBuilder">BodyComponentBasedCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandFeedback.html#rby1_sdk.BodyComponentBasedCommandFeedback">BodyComponentBasedCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.break_engage">break_engage() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.break_engage">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.break_engage">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.break_release">break_release() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.break_release">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.break_release">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.ButtonState.button">button (DynamixelBus.ButtonState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id13">(DynamixelBus.ButtonState property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler.cancel">cancel() (Robot_A_CommandHandler method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler.cancel">(Robot_A_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler.cancel">(Robot_M_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler.cancel">(Robot_M_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler.cancel">(Robot_UB_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler.cancel">(Robot_UB_CommandStreamHandler method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.cancel_control">cancel_control() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.cancel_control">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.cancel_control">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.Canceled">Canceled (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback.cartesian_command">cartesian_command (ArmCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.cartesian_command">(BodyCommandFeedback property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.cartesian_command">(TorsoCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandFeedback.html#rby1_sdk.OptimalControlCommandFeedback.cartesian_costs">cartesian_costs (OptimalControlCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback.cartesian_impedance_control_command">cartesian_impedance_control_command (ArmCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.cartesian_impedance_control_command">(BodyCommandFeedback property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.cartesian_impedance_control_command">(TorsoCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder">CartesianCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback">CartesianCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.TrackingError">CartesianCommandFeedback.TrackingError (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandFeedback.html#rby1_sdk.CartesianImpedanceControlCommandFeedback">CartesianImpedanceControlCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.center_of_mass">center_of_mass (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id1">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.center_of_mass">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id1">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.center_of_mass">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id1">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandFeedback.html#rby1_sdk.OptimalControlCommandFeedback.center_of_mass_cost">center_of_mass_cost (OptimalControlCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.collisions">collisions (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id2">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.collisions">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id2">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.collisions">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id2">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.command_header">command_header (JointPositionCommandBuilder attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder">CommandHeaderBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CommandHeaderFeedback.html#rby1_sdk.CommandHeaderFeedback">CommandHeaderFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.component_based_command">component_based_command (RobotCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder">ComponentBasedCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandFeedback.html#rby1_sdk.ComponentBasedCommandFeedback">ComponentBasedCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.connect">connect() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.connect">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.connect">(Robot_UB method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.connect_wifi">connect_wifi() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.connect_wifi">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.connect_wifi">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.control">control() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.control">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.control">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder.control_hold_time">control_hold_time (CommandHeaderBuilder attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.control_period">control_period (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id1">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.control_period">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id1">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.control_period">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id1">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.ControlManagerFault">ControlManagerFault (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.ControlManagerIdle">ControlManagerIdle (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.create">create() (Robot_A static method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.create">(Robot_M static method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.create">(Robot_UB static method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.create_command_stream">create_command_stream() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.create_command_stream">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.create_command_stream">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.create_robot.html#rby1_sdk.create_robot">create_robot() (in module rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.create_robot_a.html#rby1_sdk.create_robot_a">create_robot_a() (in module rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.create_robot_m.html#rby1_sdk.create_robot_m">create_robot_m() (in module rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.create_robot_ub.html#rby1_sdk.create_robot_ub">create_robot_ub() (in module rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.MotorState.current">current (DynamixelBus.MotorState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id18">(DynamixelBus.MotorState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState.current">(Robot_A_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#id0">(Robot_A_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState.current">(Robot_M_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#id0">(Robot_M_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState.current">(Robot_UB_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#id0">(Robot_UB_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.current">(RobotState_A attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id3">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.current">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id3">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.current">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id3">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id15">CurrentBasedPositionControlMode (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.CurrentBasedPositionControlMode">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id16">CurrentControlMode (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.CurrentControlMode">[1]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.PIDGain.d_gain">d_gain (DynamixelBus.PIDGain attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id24">(DynamixelBus.PIDGain property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id17">DefaultBaudrate (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.DefaultBaudrate">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.disable_control_manager">disable_control_manager() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.disable_control_manager">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.disable_control_manager">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.disconnect">disconnect() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.disconnect">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.disconnect">(Robot_UB method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.disconnect_wifi">disconnect_wifi() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.disconnect_wifi">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.disconnect_wifi">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.download_file">download_file() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.download_file">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.download_file">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus">DynamixelBus (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.ButtonState">DynamixelBus.ButtonState (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.MotorState">DynamixelBus.MotorState (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.PIDGain">DynamixelBus.PIDGain (class in rby1_sdk)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.emo_states">emo_states (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id4">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.emo_states">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id4">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.emo_states">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id4">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.enable_control_manager">enable_control_manager() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.enable_control_manager">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.enable_control_manager">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandFeedback.html#rby1_sdk.JointImpedanceControlCommandFeedback.error">error (JointImpedanceControlCommandFeedback property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.factory_reset_all_parameters">factory_reset_all_parameters() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.factory_reset_all_parameters">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.factory_reset_all_parameters">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.factory_reset_parameter">factory_reset_parameter() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.factory_reset_parameter">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.factory_reset_parameter">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id2">feedback_gain (Robot_A_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#rby1_sdk.Robot_A_ControlInput.feedback_gain">[1]</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id5">(Robot_A_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id2">(Robot_M_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#rby1_sdk.Robot_M_ControlInput.feedback_gain">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id5">(Robot_M_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id2">(Robot_UB_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#rby1_sdk.Robot_UB_ControlInput.feedback_gain">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id5">(Robot_UB_ControlInput property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id3">feedforward_torque (Robot_A_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#rby1_sdk.Robot_A_ControlInput.feedforward_torque">[1]</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id6">(Robot_A_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id3">(Robot_M_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#rby1_sdk.Robot_M_ControlInput.feedforward_torque">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id6">(Robot_M_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id3">(Robot_UB_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#rby1_sdk.Robot_UB_ControlInput.feedforward_torque">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id6">(Robot_UB_ControlInput property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id4">finish (Robot_A_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#rby1_sdk.Robot_A_ControlInput.finish">[1]</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id7">(Robot_A_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id4">(Robot_M_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#rby1_sdk.Robot_M_ControlInput.finish">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id7">(Robot_M_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id4">(Robot_UB_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#rby1_sdk.Robot_UB_ControlInput.finish">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id7">(Robot_UB_ControlInput property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.finish_code">finish_code (RobotCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CommandHeaderFeedback.html#rby1_sdk.CommandHeaderFeedback.finished">finished (CommandHeaderFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.Status.Finished">Finished (RobotCommandFeedback.Status attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.ft_sensor_left">ft_sensor_left (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id5">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.ft_sensor_left">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id5">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.ft_sensor_left">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id5">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.ft_sensor_right">ft_sensor_right (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id6">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.ft_sensor_right">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id6">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.ft_sensor_right">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id6">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler.get">get() (Robot_A_CommandHandler method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler.get">(Robot_M_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler.get">(Robot_UB_CommandHandler method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_control_manager_state">get_control_manager_state() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_control_manager_state">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_control_manager_state">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_dynamics">get_dynamics() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_dynamics">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_dynamics">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_fault_log_list">get_fault_log_list() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_fault_log_list">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_fault_log_list">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_head_position_pid_gains">get_head_position_pid_gains() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_head_position_pid_gains">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_head_position_pid_gains">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_last_log">get_last_log() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_last_log">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_last_log">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_left_arm_position_pid_gains">get_left_arm_position_pid_gains() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_left_arm_position_pid_gains">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_left_arm_position_pid_gains">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.get_motor_states">get_motor_states() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_parameter">get_parameter() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_parameter">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_parameter">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_parameter_list">get_parameter_list() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_parameter_list">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_parameter_list">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.get_position_d_gain">get_position_d_gain() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.get_position_i_gain">get_position_i_gain() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.get_position_p_gain">get_position_p_gain() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.get_position_pid_gain">get_position_pid_gain() (DynamixelBus method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_position_pid_gain">(Robot_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_position_pid_gain">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_position_pid_gain">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_right_arm_position_pid_gains">get_right_arm_position_pid_gains() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_right_arm_position_pid_gains">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_right_arm_position_pid_gains">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_robot_info">get_robot_info() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_robot_info">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_robot_info">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_robot_model">get_robot_model() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_robot_model">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_robot_model">(Robot_UB method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_serial_device_list">get_serial_device_list() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_serial_device_list">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_serial_device_list">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_state">get_state() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_state">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_state">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler.get_status">get_status() (Robot_A_CommandHandler method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler.get_status">(Robot_M_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler.get_status">(Robot_UB_CommandHandler method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_system_time">get_system_time() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_system_time">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_system_time">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_time_scale">get_time_scale() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_time_scale">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_time_scale">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_torso_position_pid_gains">get_torso_position_pid_gains() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_torso_position_pid_gains">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_torso_position_pid_gains">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.get_wifi_status">get_wifi_status() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.get_wifi_status">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.get_wifi_status">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.gravity">gravity (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id7">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.gravity">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id7">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.gravity">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id7">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback.gravity_compensation_command">gravity_compensation_command (ArmCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.gravity_compensation_command">(BodyCommandFeedback property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.gravity_compensation_command">(TorsoCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.GravityCompensationCommandBuilder.html#rby1_sdk.GravityCompensationCommandBuilder">GravityCompensationCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.GravityCompensationCommandFeedback.html#rby1_sdk.GravityCompensationCommandFeedback">GravityCompensationCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_fast_sync_read">group_fast_sync_read() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_fast_sync_read_encoder">group_fast_sync_read_encoder() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_fast_sync_read_operating_mode">group_fast_sync_read_operating_mode() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_fast_sync_read_torque_enable">group_fast_sync_read_torque_enable() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_sync_write_operating_mode">group_sync_write_operating_mode() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_sync_write_send_position">group_sync_write_send_position() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_sync_write_send_torque">group_sync_write_send_torque() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.group_sync_write_torque_enable">group_sync_write_torque_enable() (DynamixelBus method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.has_established_time_sync">has_established_time_sync() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.has_established_time_sync">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.has_established_time_sync">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandFeedback.html#rby1_sdk.ComponentBasedCommandFeedback.head_command">head_command (ComponentBasedCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.head_idx">head_idx (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id2">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.head_idx">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id2">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.head_idx">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id2">(Model_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.HeadCommandBuilder.html#rby1_sdk.HeadCommandBuilder">HeadCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.HeadCommandFeedback.html#rby1_sdk.HeadCommandFeedback">HeadCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.home_offset_reset">home_offset_reset() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.home_offset_reset">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.home_offset_reset">(Robot_UB method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.PIDGain.i_gain">i_gain (DynamixelBus.PIDGain attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id25">(DynamixelBus.PIDGain property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.Status.Idle">Idle (RobotCommandFeedback.Status attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback.impedance_control_command">impedance_control_command (ArmCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.impedance_control_command">(TorsoCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder">ImpedanceControlCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandFeedback.html#rby1_sdk.ImpedanceControlCommandFeedback">ImpedanceControlCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandFeedback.html#rby1_sdk.ImpedanceControlCommandFeedback.TrackingError">ImpedanceControlCommandFeedback.TrackingError (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.import_robot_model">import_robot_model() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.import_robot_model">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.import_robot_model">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.InitializationFailed">InitializationFailed (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.Status.Initializing">Initializing (RobotCommandFeedback.Status attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.is_connected">is_connected() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.is_connected">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.is_connected">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler.is_done">is_done (Robot_A_CommandStreamHandler attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler.is_done">(Robot_M_CommandStreamHandler attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler.is_done">(Robot_UB_CommandStreamHandler attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler.is_done">is_done() (Robot_A_CommandHandler method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#id0">(Robot_A_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler.is_done">(Robot_M_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#id0">(Robot_M_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler.is_done">(Robot_UB_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#id0">(Robot_UB_CommandStreamHandler method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.is_power_on">is_power_on() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.is_power_on">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.is_power_on">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState.is_ready">is_ready (Robot_A_ControlState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#id1">(Robot_A_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState.is_ready">(Robot_M_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#id1">(Robot_M_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState.is_ready">(Robot_UB_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#id1">(Robot_UB_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.is_ready">(RobotState_A attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id8">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.is_ready">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id8">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.is_ready">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id8">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.is_servo_on">is_servo_on() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.is_servo_on">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.is_servo_on">(Robot_UB method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.jog_command">jog_command (RobotCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder">JogCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.AbsolutePosition">JogCommandBuilder.AbsolutePosition (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.OneStep">JogCommandBuilder.OneStep (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.RelativePosition">JogCommandBuilder.RelativePosition (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandFeedback.html#rby1_sdk.JogCommandFeedback">JogCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.joint_group_position_command">joint_group_position_command (TorsoCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback.joint_impedance_control_command">joint_impedance_control_command (ArmCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.joint_impedance_control_command">(BodyCommandFeedback property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.joint_impedance_control_command">(TorsoCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandFeedback.html#rby1_sdk.JointGroupPositionCommandFeedback.joint_indices">joint_indices (JointGroupPositionCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandFeedback.html#rby1_sdk.ArmCommandFeedback.joint_position_command">joint_position_command (ArmCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.joint_position_command">(BodyCommandFeedback property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.HeadCommandFeedback.html#rby1_sdk.HeadCommandFeedback.joint_position_command">(HeadCommandFeedback property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.joint_position_command">(TorsoCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandFeedback.html#rby1_sdk.OptimalControlCommandFeedback.joint_position_costs">joint_position_costs (OptimalControlCommandFeedback property)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.joint_position_tracking_errors">joint_position_tracking_errors (CartesianCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.joint_states">joint_states (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id9">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.joint_states">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id9">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.joint_states">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id9">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.MobilityCommandFeedback.html#rby1_sdk.MobilityCommandFeedback.joint_velocity_command">joint_velocity_command (MobilityCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder">JointGroupPositionCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandFeedback.html#rby1_sdk.JointGroupPositionCommandFeedback">JointGroupPositionCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandFeedback.html#rby1_sdk.JointImpedanceControlCommandFeedback">JointImpedanceControlCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder">JointPositionCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandFeedback.html#rby1_sdk.JointPositionCommandFeedback">JointPositionCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder">JointVelocityCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandFeedback.html#rby1_sdk.JointVelocityCommandFeedback">JointVelocityCommandFeedback (class in rby1_sdk)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandFeedback.html#rby1_sdk.BodyComponentBasedCommandFeedback.left_arm_command">left_arm_command (BodyComponentBasedCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.left_arm_idx">left_arm_idx (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id3">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.left_arm_idx">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id3">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.left_arm_idx">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id3">(Model_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.manipulability">manipulability (CartesianCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandFeedback.html#rby1_sdk.CartesianImpedanceControlCommandFeedback.manipulability">(CartesianImpedanceControlCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.minimum_time">minimum_time (JointPositionCommandBuilder attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandFeedback.html#rby1_sdk.ComponentBasedCommandFeedback.mobility_command">mobility_command (ComponentBasedCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.mobility_idx">mobility_idx (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id4">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.mobility_idx">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id4">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.mobility_idx">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id4">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.MobilityCommandBuilder.html#rby1_sdk.MobilityCommandBuilder">MobilityCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.MobilityCommandFeedback.html#rby1_sdk.MobilityCommandFeedback">MobilityCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id0">mode (Robot_A_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#rby1_sdk.Robot_A_ControlInput.mode">[1]</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id8">(Robot_A_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id0">(Robot_M_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#rby1_sdk.Robot_M_ControlInput.mode">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id8">(Robot_M_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id0">(Robot_UB_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#rby1_sdk.Robot_UB_ControlInput.mode">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id8">(Robot_UB_ControlInput property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.model">model (Robot_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.model">(Robot_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.model">(Robot_UB attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#id0">model() (Robot_A static method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#id0">(Robot_M static method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#id0">(Robot_UB static method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A">Model_A (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M">Model_M (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.model_name">model_name (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id5">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.model_name">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id5">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.model_name">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id5">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB">Model_UB (class in rby1_sdk)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.dynamics.html#module-rby1_sdk.dynamics">rby1_sdk.dynamics</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.math.html#module-rby1_sdk.math">rby1_sdk.math</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.upc.html#module-rby1_sdk.upc">rby1_sdk.upc</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.name">name (RobotCommandFeedback.FinishCode property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.Status.name">(RobotCommandFeedback.Status property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.odometry">odometry (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id10">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.odometry">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id10">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.odometry">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id10">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.Ok">Ok (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.open_port">open_port() (DynamixelBus method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.open_serial_stream">open_serial_stream() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.open_serial_stream">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.open_serial_stream">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyCommandFeedback.html#rby1_sdk.BodyCommandFeedback.optimal_control_command">optimal_control_command (BodyCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback.optimal_control_command">(TorsoCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder">OptimalControlCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandFeedback.html#rby1_sdk.OptimalControlCommandFeedback">OptimalControlCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.TrackingError.orientation_error">orientation_error (CartesianCommandFeedback.TrackingError property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.PIDGain.p_gain">p_gain (DynamixelBus.PIDGain attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id26">(DynamixelBus.PIDGain property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.ping">ping() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.MotorState.position">position (DynamixelBus.MotorState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id19">(DynamixelBus.MotorState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.position">(JointPositionCommandBuilder attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState.position">(Robot_A_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#id2">(Robot_A_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState.position">(Robot_M_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#id2">(Robot_M_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState.position">(Robot_UB_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#id2">(Robot_UB_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.position">(RobotState_A attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id11">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.position">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id11">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.position">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id11">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandFeedback.html#rby1_sdk.JointGroupPositionCommandFeedback.position_based_progress">position_based_progress (JointGroupPositionCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandFeedback.html#rby1_sdk.JointPositionCommandFeedback.position_based_progress">(JointPositionCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.TrackingError.position_error">position_error (CartesianCommandFeedback.TrackingError property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandFeedback.html#rby1_sdk.ImpedanceControlCommandFeedback.TrackingError.position_error">(ImpedanceControlCommandFeedback.TrackingError property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.power_off">power_off() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.power_off">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.power_off">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.power_on">power_on() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.power_on">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.power_on">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.power_states">power_states (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id12">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.power_states">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id12">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.power_states">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id12">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.Preempted">Preempted (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.printoptions.html#rby1_sdk.printoptions">printoptions (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id27">ProtocolVersion (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.ProtocolVersion">[1]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    rby1_sdk.dynamics
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.dynamics.html#module-rby1_sdk.dynamics">module</a>
+</li>
+        </ul></li>
+        <li>
+    rby1_sdk.math
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.math.html#module-rby1_sdk.math">module</a>
+</li>
+        </ul></li>
+        <li>
+    rby1_sdk.upc
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.upc.html#module-rby1_sdk.upc">module</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.read_button_status">read_button_status() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.read_encoder">read_encoder() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.read_operating_mode">read_operating_mode() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.read_temperature">read_temperature() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.read_torque_enable">read_torque_enable() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.remain_time">remain_time (CartesianCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandFeedback.html#rby1_sdk.CartesianImpedanceControlCommandFeedback.remain_time">(CartesianImpedanceControlCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler.request_feedback">request_feedback() (Robot_A_CommandStreamHandler method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler.request_feedback">(Robot_M_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler.request_feedback">(Robot_UB_CommandStreamHandler method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_all_parameters">reset_all_parameters() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_all_parameters">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_all_parameters">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_all_parameters_to_default">reset_all_parameters_to_default() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_all_parameters_to_default">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_all_parameters_to_default">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_battery_config">reset_battery_config() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_battery_config">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_battery_config">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_fault_control_manager">reset_fault_control_manager() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_fault_control_manager">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_fault_control_manager">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_network_setting">reset_network_setting() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_network_setting">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_network_setting">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_odometry">reset_odometry() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_odometry">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_odometry">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_parameter">reset_parameter() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_parameter">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_parameter">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.reset_parameter_to_default">reset_parameter_to_default() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.reset_parameter_to_default">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.reset_parameter_to_default">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandFeedback.html#rby1_sdk.BodyComponentBasedCommandFeedback.right_arm_command">right_arm_command (BodyComponentBasedCommandFeedback property)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.right_arm_idx">right_arm_idx (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id6">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.right_arm_idx">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id6">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.right_arm_idx">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id6">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A">Robot_A (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler">Robot_A_CommandHandler (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler">Robot_A_CommandStreamHandler (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#rby1_sdk.Robot_A_ControlInput">Robot_A_ControlInput (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState">Robot_A_ControlState (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.robot_dof">robot_dof (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id7">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.robot_dof">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id7">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.robot_dof">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id7">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.robot_joint_names">robot_joint_names (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id8">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.robot_joint_names">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id8">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.robot_joint_names">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id8">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M">Robot_M (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler">Robot_M_CommandHandler (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler">Robot_M_CommandStreamHandler (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#rby1_sdk.Robot_M_ControlInput">Robot_M_ControlInput (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState">Robot_M_ControlState (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB">Robot_UB (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler">Robot_UB_CommandHandler (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler">Robot_UB_CommandStreamHandler (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#rby1_sdk.Robot_UB_ControlInput">Robot_UB_ControlInput (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState">Robot_UB_ControlState (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandBuilder.html#rby1_sdk.RobotCommandBuilder">RobotCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback">RobotCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode">RobotCommandFeedback.FinishCode (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.Status">RobotCommandFeedback.Status (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A">RobotState_A (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M">RobotState_M (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB">RobotState_UB (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandFeedback.html#rby1_sdk.ImpedanceControlCommandFeedback.TrackingError.rotation_error">rotation_error (ImpedanceControlCommandFeedback.TrackingError property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.Status.Running">Running (RobotCommandFeedback.Status attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.scan_wifi">scan_wifi() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.scan_wifi">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.scan_wifi">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.MobilityCommandFeedback.html#rby1_sdk.MobilityCommandFeedback.se2_velocity_command">se2_velocity_command (MobilityCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder">SE2VelocityCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandFeedback.html#rby1_sdk.SE2VelocityCommandFeedback">SE2VelocityCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandFeedback.html#rby1_sdk.CartesianCommandFeedback.se3_pose_tracking_errors">se3_pose_tracking_errors (CartesianCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.send_command">send_command() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler.send_command">(Robot_A_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.send_command">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler.send_command">(Robot_M_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.send_command">(Robot_UB method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler.send_command">(Robot_UB_CommandStreamHandler method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.send_current">send_current() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.send_goal_position">send_goal_position() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.send_operating_mode">send_operating_mode() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.send_torque">send_torque() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.send_torque_enable">send_torque_enable() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.send_vibration">send_vibration() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.servo_off">servo_off() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.servo_off">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.servo_off">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.servo_on">servo_on() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.servo_on">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.servo_on">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.set_acceleration_limit">set_acceleration_limit() (JogCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder.set_acceleration_limit">(JointGroupPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_acceleration_limit">(JointImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.set_acceleration_limit">(JointPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder.set_acceleration_limit">(JointVelocityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder.set_acceleration_limit">(SE2VelocityCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_acceleration_limit_scaling">set_acceleration_limit_scaling() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_battery_config">set_battery_config() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_battery_config">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_battery_config">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_battery_level">set_battery_level() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_battery_level">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_battery_level">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.set_baud_rate">set_baud_rate() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder.set_body_command">set_body_command() (ComponentBasedCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_center_of_mass_target">set_center_of_mass_target() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ArmCommandBuilder.html#rby1_sdk.ArmCommandBuilder.set_command">set_command() (ArmCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.BodyCommandBuilder.html#rby1_sdk.BodyCommandBuilder.set_command">(BodyCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.HeadCommandBuilder.html#rby1_sdk.HeadCommandBuilder.set_command">(HeadCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.set_command">(JogCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.MobilityCommandBuilder.html#rby1_sdk.MobilityCommandBuilder.set_command">(MobilityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotCommandBuilder.html#rby1_sdk.RobotCommandBuilder.set_command">(RobotCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandBuilder.html#rby1_sdk.TorsoCommandBuilder.set_command">(TorsoCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.WholeBodyCommandBuilder.html#rby1_sdk.WholeBodyCommandBuilder.set_command">(WholeBodyCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.set_command_header">set_command_header() (CartesianCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_command_header">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.GravityCompensationCommandBuilder.html#rby1_sdk.GravityCompensationCommandBuilder.set_command_header">(GravityCompensationCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.set_command_header">(ImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.set_command_header">(JogCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder.set_command_header">(JointGroupPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_command_header">(JointImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.set_command_header">(JointPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder.set_command_header">(JointVelocityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_command_header">(OptimalControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder.set_command_header">(SE2VelocityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.StopCommandBuilder.html#rby1_sdk.StopCommandBuilder.set_command_header">(StopCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder.set_control_hold_time">set_control_hold_time() (CommandHeaderBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.set_damping_ratio">set_damping_ratio() (ImpedanceControlCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_damping_ratio">(JointImpedanceControlCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_error_scaling">set_error_scaling() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder.set_head_command">set_head_command() (ComponentBasedCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_damping_ratio">set_joint_damping_ratio() (CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.set_joint_name">set_joint_name() (JogCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder.set_joint_names">set_joint_names() (JointGroupPositionCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_stiffness">set_joint_stiffness() (CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_torque_limit">set_joint_torque_limit() (CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_led_color">set_led_color() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_led_color">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_led_color">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandBuilder.html#rby1_sdk.BodyComponentBasedCommandBuilder.set_left_arm_command">set_left_arm_command() (BodyComponentBasedCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.set_link_name">set_link_name() (ImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_min_delta_cost">set_min_delta_cost() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.set_minimum_time">set_minimum_time() (CartesianCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_minimum_time">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder.set_minimum_time">(JointGroupPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_minimum_time">(JointImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.set_minimum_time">(JointPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder.set_minimum_time">(JointVelocityCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder.set_minimum_time">(SE2VelocityCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder.set_mobility_command">set_mobility_command() (ComponentBasedCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.GravityCompensationCommandBuilder.html#rby1_sdk.GravityCompensationCommandBuilder.set_on">set_on() (GravityCompensationCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_parameter">set_parameter() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_parameter">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_parameter">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_patience">set_patience() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandFeedback.html#rby1_sdk.CartesianImpedanceControlCommandFeedback.set_position">set_position (CartesianImpedanceControlCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandFeedback.html#rby1_sdk.JointImpedanceControlCommandFeedback.set_position">(JointImpedanceControlCommandFeedback property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder.set_position">set_position() (JointGroupPositionCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_position">(JointImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.set_position">(JointPositionCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.set_position_d_gain">set_position_d_gain() (DynamixelBus method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_position_d_gain">(Robot_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_position_d_gain">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_position_d_gain">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.set_position_i_gain">set_position_i_gain() (DynamixelBus method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_position_i_gain">(Robot_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_position_i_gain">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_position_i_gain">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.set_position_p_gain">set_position_p_gain() (DynamixelBus method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_position_p_gain">(Robot_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_position_p_gain">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_position_p_gain">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.set_position_pid_gain">set_position_pid_gain() (DynamixelBus method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_position_pid_gain">(Robot_A method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_position_pid_gain">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_position_pid_gain">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_preset_position">set_preset_position() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_preset_position">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_preset_position">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.set_printoptions.html#rby1_sdk.set_printoptions">set_printoptions() (in module rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.set_reference_link_name">set_reference_link_name() (ImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_reset_reference">set_reset_reference() (CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandBuilder.html#rby1_sdk.BodyComponentBasedCommandBuilder.set_right_arm_command">set_right_arm_command() (BodyComponentBasedCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.set_rotation_weight">set_rotation_weight() (ImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_stiffness">set_stiffness() (JointImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_stop_cost">set_stop_cost() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.set_stop_joint_position_tracking_error">set_stop_joint_position_tracking_error() (CartesianCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_joint_position_tracking_error">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.set_stop_orientation_tracking_error">set_stop_orientation_tracking_error() (CartesianCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_orientation_tracking_error">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder.set_stop_position_tracking_error">set_stop_position_tracking_error() (CartesianCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_position_tracking_error">(CartesianImpedanceControlCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_system_time">set_system_time() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_system_time">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_system_time">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_time_scale">set_time_scale() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_time_scale">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_time_scale">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_tool_flange_digital_output">set_tool_flange_digital_output() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_tool_flange_digital_output">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_tool_flange_digital_output">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_tool_flange_digital_output_dual">set_tool_flange_digital_output_dual() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_tool_flange_digital_output_dual">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_tool_flange_digital_output_dual">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.set_tool_flange_output_voltage">set_tool_flange_output_voltage() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.set_tool_flange_output_voltage">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.set_tool_flange_output_voltage">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.set_torque_constant">set_torque_constant() (DynamixelBus method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_torque_limit">set_torque_limit() (JointImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandBuilder.html#rby1_sdk.BodyComponentBasedCommandBuilder.set_torso_command">set_torso_command() (BodyComponentBasedCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.set_transformation">set_transformation() (ImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder.set_translation_weight">set_translation_weight() (ImpedanceControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder.set_velocity">set_velocity() (JointVelocityCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder.set_velocity">(SE2VelocityCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.set_velocity_limit">set_velocity_limit() (JogCommandBuilder method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandBuilder.html#rby1_sdk.JointGroupPositionCommandBuilder.set_velocity_limit">(JointGroupPositionCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder.set_velocity_limit">(JointImpedanceControlCommandBuilder method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.set_velocity_limit">(JointPositionCommandBuilder method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandBuilder.html#rby1_sdk.OptimalControlCommandBuilder.set_velocity_limit_scaling">set_velocity_limit_scaling() (OptimalControlCommandBuilder method)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.start_log_stream">start_log_stream() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.start_log_stream">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.start_log_stream">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.start_state_update">start_state_update() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.start_state_update">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.start_state_update">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.start_time_sync">start_time_sync() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.start_time_sync">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.start_time_sync">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.status">status (RobotCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.WholeBodyCommandFeedback.html#rby1_sdk.WholeBodyCommandFeedback.stop_command">stop_command (WholeBodyCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.stop_log_stream">stop_log_stream() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.stop_log_stream">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.stop_log_stream">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.stop_state_update">stop_state_update() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.stop_state_update">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.stop_state_update">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.stop_time_sync">stop_time_sync() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.stop_time_sync">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.stop_time_sync">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.StopCommandBuilder.html#rby1_sdk.StopCommandBuilder">StopCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.StopCommandFeedback.html#rby1_sdk.StopCommandFeedback">StopCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.sync_time">sync_time() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.sync_time">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.sync_time">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.system_stat">system_stat (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id13">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.system_stat">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id13">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.system_stat">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id13">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState.t">t (Robot_A_ControlState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#id3">(Robot_A_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState.t">(Robot_M_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#id3">(Robot_M_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState.t">(Robot_UB_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#id3">(Robot_UB_ControlState property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id1">target (Robot_A_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#rby1_sdk.Robot_A_ControlInput.target">[1]</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlInput.html#id9">(Robot_A_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id1">(Robot_M_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#rby1_sdk.Robot_M_ControlInput.target">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlInput.html#id9">(Robot_M_ControlInput property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id1">(Robot_UB_ControlInput attribute)</a>, <a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#rby1_sdk.Robot_UB_ControlInput.target">[1]</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlInput.html#id9">(Robot_UB_ControlInput property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.target_feedback_gain">target_feedback_gain (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id14">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.target_feedback_gain">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id14">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.target_feedback_gain">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id14">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.target_feedforward_torque">target_feedforward_torque (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id15">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.target_feedforward_torque">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id15">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.target_feedforward_torque">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id15">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandFeedback.html#rby1_sdk.JogCommandFeedback.target_joint_name">target_joint_name (JogCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.target_position">target_position (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id16">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.target_position">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id16">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.target_position">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id16">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.target_velocity">target_velocity (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id17">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.target_velocity">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id17">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.target_velocity">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id17">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.MotorState.temperature">temperature (DynamixelBus.MotorState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id20">(DynamixelBus.MotorState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.temperature">(RobotState_A attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id18">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.temperature">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id18">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.temperature">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id18">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointGroupPositionCommandFeedback.html#rby1_sdk.JointGroupPositionCommandFeedback.time_based_progress">time_based_progress (JointGroupPositionCommandFeedback property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandFeedback.html#rby1_sdk.JointPositionCommandFeedback.time_based_progress">(JointPositionCommandFeedback property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.timestamp">timestamp (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id19">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.timestamp">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id19">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.timestamp">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id19">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.tool_flange_left">tool_flange_left (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id20">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.tool_flange_left">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id20">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.tool_flange_left">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id20">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.tool_flange_right">tool_flange_right (RobotState_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id21">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.tool_flange_right">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id21">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.tool_flange_right">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id21">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.MotorState.torque">torque (DynamixelBus.MotorState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id21">(DynamixelBus.MotorState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState.torque">(Robot_A_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#id4">(Robot_A_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState.torque">(Robot_M_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#id4">(Robot_M_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState.torque">(Robot_UB_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#id4">(Robot_UB_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.torque">(RobotState_A attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id22">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.torque">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id22">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.torque">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id22">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.MotorState.torque_enable">torque_enable (DynamixelBus.MotorState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id22">(DynamixelBus.MotorState property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id28">TorqueDisable (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.TorqueDisable">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id29">TorqueEnable (DynamixelBus attribute)</a>, <a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.TorqueEnable">[1]</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.BodyComponentBasedCommandFeedback.html#rby1_sdk.BodyComponentBasedCommandFeedback.torso_command">torso_command (BodyComponentBasedCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.torso_idx">torso_idx (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id9">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.torso_idx">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id9">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.torso_idx">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id9">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandBuilder.html#rby1_sdk.TorsoCommandBuilder">TorsoCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.TorsoCommandFeedback.html#rby1_sdk.TorsoCommandFeedback">TorsoCommandFeedback (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.OptimalControlCommandFeedback.html#rby1_sdk.OptimalControlCommandFeedback.total_cost">total_cost (OptimalControlCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.ImpedanceControlCommandFeedback.html#rby1_sdk.ImpedanceControlCommandFeedback.tracking_error">tracking_error (ImpedanceControlCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.ButtonState.trigger">trigger (DynamixelBus.ButtonState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id14">(DynamixelBus.ButtonState property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.UnexpectedState">UnexpectedState (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.Unknown">Unknown (RobotCommandFeedback.FinishCode attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.FinishCode.value">value (RobotCommandFeedback.FinishCode property)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.Status.value">(RobotCommandFeedback.Status property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.AbsolutePosition.value">value() (JogCommandBuilder.AbsolutePosition method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.OneStep.value">(JogCommandBuilder.OneStep method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder.RelativePosition.value">(JogCommandBuilder.RelativePosition method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#rby1_sdk.DynamixelBus.MotorState.velocity">velocity (DynamixelBus.MotorState attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.DynamixelBus.html#id23">(DynamixelBus.MotorState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#rby1_sdk.Robot_A_ControlState.velocity">(Robot_A_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_ControlState.html#id5">(Robot_A_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#rby1_sdk.Robot_M_ControlState.velocity">(Robot_M_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_ControlState.html#id5">(Robot_M_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#rby1_sdk.Robot_UB_ControlState.velocity">(Robot_UB_ControlState attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_ControlState.html#id5">(Robot_UB_ControlState property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#rby1_sdk.RobotState_A.velocity">(RobotState_A attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_A.html#id23">(RobotState_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#rby1_sdk.RobotState_M.velocity">(RobotState_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_M.html#id23">(RobotState_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#rby1_sdk.RobotState_UB.velocity">(RobotState_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.RobotState_UB.html#id23">(RobotState_UB property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#rby1_sdk.Model_A.velocity_estimation_required_idx">velocity_estimation_required_idx (Model_A attribute)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_A.html#id10">(Model_A property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#rby1_sdk.Model_M.velocity_estimation_required_idx">(Model_M attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_M.html#id10">(Model_M property)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#rby1_sdk.Model_UB.velocity_estimation_required_idx">(Model_UB attribute)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Model_UB.html#id10">(Model_UB property)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder.velocity_limit">velocity_limit (JointPositionCommandBuilder attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler.wait">wait() (Robot_A_CommandHandler method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler.wait">(Robot_A_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler.wait">(Robot_M_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler.wait">(Robot_M_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler.wait">(Robot_UB_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler.wait">(Robot_UB_CommandStreamHandler method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandHandler.html#rby1_sdk.Robot_A_CommandHandler.wait_for">wait_for() (Robot_A_CommandHandler method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_A_CommandStreamHandler.html#rby1_sdk.Robot_A_CommandStreamHandler.wait_for">(Robot_A_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandHandler.html#rby1_sdk.Robot_M_CommandHandler.wait_for">(Robot_M_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M_CommandStreamHandler.html#rby1_sdk.Robot_M_CommandStreamHandler.wait_for">(Robot_M_CommandStreamHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandHandler.html#rby1_sdk.Robot_UB_CommandHandler.wait_for">(Robot_UB_CommandHandler method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB_CommandStreamHandler.html#rby1_sdk.Robot_UB_CommandStreamHandler.wait_for">(Robot_UB_CommandStreamHandler method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="sdk/python/generated/rby1_sdk.Robot_A.html#rby1_sdk.Robot_A.wait_for_control_ready">wait_for_control_ready() (Robot_A method)</a>
+
+        <ul>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_M.html#rby1_sdk.Robot_M.wait_for_control_ready">(Robot_M method)</a>
+</li>
+          <li><a href="sdk/python/generated/rby1_sdk.Robot_UB.html#rby1_sdk.Robot_UB.wait_for_control_ready">(Robot_UB method)</a>
+</li>
+        </ul></li>
+        <li><a href="sdk/python/generated/rby1_sdk.RobotCommandFeedback.html#rby1_sdk.RobotCommandFeedback.whole_body_command">whole_body_command (RobotCommandFeedback property)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.WholeBodyCommandBuilder.html#rby1_sdk.WholeBodyCommandBuilder">WholeBodyCommandBuilder (class in rby1_sdk)</a>
+</li>
+        <li><a href="sdk/python/generated/rby1_sdk.WholeBodyCommandFeedback.html#rby1_sdk.WholeBodyCommandFeedback">WholeBodyCommandFeedback (class in rby1_sdk)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Rainbow Robotics
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=c6e86fd7"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=ccdb6887"></script>
+    </body>
+</html>
