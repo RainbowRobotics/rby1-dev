@@ -356,9 +356,56 @@
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImpedanceControlCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Cartesian impedance control command builder.</p>
+<p>Builds a Cartesian impedance command for a given link in a reference frame.
+The control is formulated in the <strong>se(3)</strong> space with a 6D error
+<span class="math notranslate nohighlight">\(\xi = [\,\Delta x;\,\Delta\phi\,] \in \mathbb{R}^6\)</span> (translation and
+rotation in the Lie algebra), yielding the wrench:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[w = K\,\xi \;+\; D\,\dot{\xi}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(K \in \mathbb{R}^{6\times 6}\)</span> is the stiffness matrix and
+<span class="math notranslate nohighlight">\(D \in \mathbb{R}^{6\times 6}\)</span> is the damping matrix.</p>
+<p class="rubric">Notes</p>
+<ul>
+<li><p>The stiffness matrix <span class="math notranslate nohighlight">\(K\)</span> is assumed <strong>block-diagonal</strong>:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[K \;=\; \mathrm{diag}(K_t,\; K_r), \qquad
+K_t, K_r \in \mathbb{R}^{3\times 3}\ \text{(diagonal)}\]</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set_translation_weight([k_x,k_y,k_z])</span></code> fills <span class="math notranslate nohighlight">\(K_t=\mathrm{diag}(k_x,k_y,k_z)\)</span>,
+and <code class="docutils literal notranslate"><span class="pre">set_rotation_weight([k_{rx},k_{ry},k_{rz}])</span></code> fills
+<span class="math notranslate nohighlight">\(K_r=\mathrm{diag}(k_{rx},k_{ry},k_{rz})\)</span>.</p>
+</li>
+<li><p>Damping is derived from a dimensionless ratio <span class="math notranslate nohighlight">\(\zeta\)</span>:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[D \;=\; \zeta \left(\sqrt{M}\sqrt{K} \;+\; \sqrt{K}\sqrt{M}\right),\]</div>
+</div>
+<p>with <span class="math notranslate nohighlight">\(M \in \mathbb{R}^{6\times 6}\)</span> the Cartesian inertia matrix.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_reference_link_name</span></code> and <code class="docutils literal notranslate"><span class="pre">set_link_name</span></code> must be set before
+applying the target pose (<code class="docutils literal notranslate"><span class="pre">set_transformation</span></code>).</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.30</span>  <span class="c1"># desired pose, 30 cm forward</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>  <span class="n">rby</span><span class="o">.</span><span class="n">ImpedanceControlCommandBuilder</span><span class="p">()</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_reference_link_name</span><span class="p">(</span><span class="s2">&quot;base_link&quot;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_link_name</span><span class="p">(</span><span class="s2">&quot;right_wrist&quot;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_transformation</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_translation_weight</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1200.0</span><span class="p">,</span> <span class="mf">1200.0</span><span class="p">,</span> <span class="mf">1600.0</span><span class="p">]))</span>  <span class="c1"># N/m</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_rotation_weight</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">60.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">]))</span>           <span class="c1"># Nm/rad</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_damping_ratio</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -369,63 +416,154 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_command_header" title="rby1_sdk.ImpedanceControlCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
-<td><p></p></td>
+<td><p>Attach a command header.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_damping_ratio" title="rby1_sdk.ImpedanceControlCommandBuilder.set_damping_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_damping_ratio</span></code></a>(self, damping_ratio)</p></td>
-<td><p></p></td>
+<td><p>Set the (dimensionless) damping ratio used to build the 6×6 damping matrix.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_link_name" title="rby1_sdk.ImpedanceControlCommandBuilder.set_link_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_link_name</span></code></a>(self, link_name)</p></td>
-<td><p></p></td>
+<td><p>Set the controlled link name.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_reference_link_name" title="rby1_sdk.ImpedanceControlCommandBuilder.set_reference_link_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_reference_link_name</span></code></a>(self, ...)</p></td>
-<td><p></p></td>
+<td><p>Set the reference frame (link) name in which the pose is expressed.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_rotation_weight" title="rby1_sdk.ImpedanceControlCommandBuilder.set_rotation_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_rotation_weight</span></code></a>(self, weight)</p></td>
-<td><p></p></td>
+<td><p>Set rotational stiffness (fills the rotational block of K).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_transformation" title="rby1_sdk.ImpedanceControlCommandBuilder.set_transformation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_transformation</span></code></a>(self, T)</p></td>
-<td><p></p></td>
+<td><p>Set the desired Cartesian pose (homogeneous transform).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_translation_weight" title="rby1_sdk.ImpedanceControlCommandBuilder.set_translation_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_translation_weight</span></code></a>(self, weight)</p></td>
-<td><p></p></td>
+<td><p>Set translational stiffness (fills the translational block of K).</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
+<dd><p>Attach a command header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header configuration (e.g., control hold time).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.set_damping_ratio">
-<span class="sig-name descname"><span class="pre">set_damping_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_damping_ratio" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_damping_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_damping_ratio" title="Link to this definition">¶</a></dt>
+<dd><p>Set the (dimensionless) damping ratio used to build the 6×6 damping matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>damping_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Damping ratio <span class="math notranslate nohighlight">\(\zeta\)</span> (typically <span class="math notranslate nohighlight">\(0 &lt; \zeta \le 1.5\)</span>).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul>
+<li><p>Damping in se(3) space is computed from <span class="math notranslate nohighlight">\(K\)</span> and the Cartesian inertia
+(reflective inertia) <span class="math notranslate nohighlight">\(M\)</span> as:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[D \;=\; \zeta \left(\sqrt{M}\sqrt{K} \;+\; \sqrt{K}\sqrt{M}\right).\]</div>
+</div>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\zeta=1\)</span> approximates critical damping; lower/higher values yield
+under/over-damped responses.</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.set_link_name">
-<span class="sig-name descname"><span class="pre">set_link_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_link_name" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_link_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_link_name" title="Link to this definition">¶</a></dt>
+<dd><p>Set the controlled link name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>link_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of the robot link to be regulated in Cartesian impedance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.set_reference_link_name">
-<span class="sig-name descname"><span class="pre">set_reference_link_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_reference_link_name" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_reference_link_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_reference_link_name" title="Link to this definition">¶</a></dt>
+<dd><p>Set the reference frame (link) name in which the pose is expressed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reference_link_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Reference link/frame name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.set_rotation_weight">
-<span class="sig-name descname"><span class="pre">set_rotation_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_rotation_weight" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_rotation_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_rotation_weight" title="Link to this definition">¶</a></dt>
+<dd><p>Set rotational stiffness (fills the rotational block of K).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(3,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Per-axis rotational stiffness (Nm/rad), used to form
+<span class="math notranslate nohighlight">\(K_r=\mathrm{diag}(k_{rx},k_{ry},k_{rz})\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The rotational wrench component is <span class="math notranslate nohighlight">\(\tau = K_r\,\Delta\phi\)</span>.</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.set_transformation">
-<span class="sig-name descname"><span class="pre">set_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_transformation" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_transformation" title="Link to this definition">¶</a></dt>
+<dd><p>Set the desired Cartesian pose (homogeneous transform).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>T</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(4,4)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Desired pose <span class="math notranslate nohighlight">\({}^{ref}\!T^{link}_d\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The se(3) error <span class="math notranslate nohighlight">\(\xi = [\Delta x;\Delta\phi]\)</span> is computed from
+<span class="math notranslate nohighlight">\(T_d\)</span> and the current pose.</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ImpedanceControlCommandBuilder.set_translation_weight">
-<span class="sig-name descname"><span class="pre">set_translation_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk._bindings.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk._bindings.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_translation_weight" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_translation_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.ImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ImpedanceControlCommandBuilder.set_translation_weight" title="Link to this definition">¶</a></dt>
+<dd><p>Set translational stiffness (fills the translational block of K).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(3,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Per-axis translational stiffness (N/m), used to form
+<span class="math notranslate nohighlight">\(K_t=\mathrm{diag}(k_x,k_y,k_z)\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The 6×6 stiffness matrix is <span class="math notranslate nohighlight">\(K=\mathrm{diag}(K_t,K_r)\)</span>.</p></li>
+<li><p>The translational wrench component is <span class="math notranslate nohighlight">\(F = K_t\,\Delta x\)</span>.</p></li>
+</ul>
+</dd></dl>
 
 </dd></dl>
 
@@ -515,5 +653,6 @@
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=ccdb6887"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

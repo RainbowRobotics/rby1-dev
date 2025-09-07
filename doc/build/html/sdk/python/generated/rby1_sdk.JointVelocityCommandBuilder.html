@@ -356,9 +356,32 @@
 <dt class="sig sig-object py" id="rby1_sdk.JointVelocityCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">JointVelocityCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Joint velocity command builder.</p>
+<p>Builds a joint-space velocity command with optional acceleration limits.
+When a target velocity vector <span class="math notranslate nohighlight">\(v_d\)</span> is set, the command generates a
+linear ramp from the current velocity <span class="math notranslate nohighlight">\(v_{curr}\)</span> to <span class="math notranslate nohighlight">\(v_d\)</span>,
+considering both acceleration limits and the specified minimum time.</p>
+<p>The controller’s objective is to <strong>reach the target velocity</strong>.
+If you need the robot to <strong>hold the target velocity after reaching it, you
+must specify a control hold time in the command header.</strong></p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Ramp torso joints to 0.5 rad/s with acceleration limits</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">JointVelocityCommandBuilder</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_acceleration_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># To maintain the velocity after reaching 0.5 rad/s,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># add a CommandHeader with control_hold_time.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">header</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">CommandHeaderBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_control_hold_time</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span><span class="o">.</span><span class="n">set_command_header</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointVelocityCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -369,39 +392,93 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder.set_acceleration_limit" title="rby1_sdk.JointVelocityCommandBuilder.set_acceleration_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit</span></code></a>(self, acceleration_limit)</p></td>
-<td><p></p></td>
+<td><p>Set per-joint acceleration limits.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder.set_command_header" title="rby1_sdk.JointVelocityCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
-<td><p></p></td>
+<td><p>Attach a command header.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder.set_minimum_time" title="rby1_sdk.JointVelocityCommandBuilder.set_minimum_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_minimum_time</span></code></a>(self, minimum_time)</p></td>
-<td><p></p></td>
+<td><p>Set the minimum execution time.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder.set_velocity" title="rby1_sdk.JointVelocityCommandBuilder.set_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity</span></code></a>(self, velocity)</p></td>
-<td><p></p></td>
+<td><p>Set desired joint velocities.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointVelocityCommandBuilder.set_acceleration_limit">
-<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
+<dd><p>Set per-joint acceleration limits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>acceleration_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(N,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Maximum allowable accelerations [rad/s²].
+Length <span class="math notranslate nohighlight">\(N\)</span> must equal the number of joints in the targeted component.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointVelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>These limits shape the linear ramp profile toward the target velocity.</p></li>
+<li><p>If not set, URDF defaults are used (see <code class="docutils literal notranslate"><span class="pre">get_robot_model</span></code>).</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointVelocityCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
+<dd><p>Attach a command header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header configuration (e.g., control hold time).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointVelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">control_hold_time</span></code> to maintain the commanded velocity once reached.</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointVelocityCommandBuilder.set_minimum_time">
-<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
+<dd><p>Set the minimum execution time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>minimum_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Minimum execution time in seconds. Ensures the ramping process to the
+target velocity is stretched at least over this duration.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointVelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointVelocityCommandBuilder.set_velocity">
-<span class="sig-name descname"><span class="pre">set_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk._bindings.JointVelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_velocity" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><span class="pre">rby1_sdk.JointVelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointVelocityCommandBuilder.set_velocity" title="Link to this definition">¶</a></dt>
+<dd><p>Set desired joint velocities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>velocity</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(N,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Per-joint target velocities [rad/s].
+Length <span class="math notranslate nohighlight">\(N\)</span> must equal the number of joints in the targeted component.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointVelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The command ramps linearly from the current velocity to the target velocity.</p></li>
+<li><p>To <strong>hold</strong> the target velocity after reaching it, add a command header with
+a control hold time.</p></li>
+</ul>
+</dd></dl>
 
 </dd></dl>
 
@@ -488,5 +565,6 @@
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=ccdb6887"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

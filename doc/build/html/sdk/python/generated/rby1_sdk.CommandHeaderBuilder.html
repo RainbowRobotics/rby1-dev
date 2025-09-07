@@ -358,20 +358,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Command header builder.</p>
 <p>Builds command headers with control hold time settings.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.CommandHeaderBuilder.control_hold_time">
-<span class="sig-name descname"><span class="pre">control_hold_time</span></span><a class="headerlink" href="#rby1_sdk.CommandHeaderBuilder.control_hold_time" title="Link to this definition">¶</a></dt>
-<dd><p>Control hold time in seconds.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">header</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">CommandHeaderBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_control_hold_time</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Use this header in any command builder:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command_header</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Control hold time keeps the command active for 5 seconds</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.CommandHeaderBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.CommandHeaderBuilder.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.CommandHeaderBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Construct a CommandHeaderBuilder instance.</p>
 </dd></dl>
 
@@ -383,16 +380,15 @@
 <td><p>Construct a CommandHeaderBuilder instance.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder.set_control_hold_time" title="rby1_sdk.CommandHeaderBuilder.set_control_hold_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_control_hold_time</span></code></a>(self, control_hold_time)</p></td>
-<td><p>set_control_hold_time(control_hold_time)</p></td>
+<td><p>Set the control hold time.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.CommandHeaderBuilder.set_control_hold_time">
-<span class="sig-name descname"><span class="pre">set_control_hold_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_hold_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CommandHeaderBuilder.set_control_hold_time" title="Link to this definition">¶</a></dt>
-<dd><p>set_control_hold_time(control_hold_time)</p>
-<p>Set the control hold time.</p>
+<span class="sig-name descname"><span class="pre">set_control_hold_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_hold_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CommandHeaderBuilder.set_control_hold_time" title="Link to this definition">¶</a></dt>
+<dd><p>Set the control hold time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>control_hold_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Control hold time in seconds.</p>
@@ -401,15 +397,6 @@
 <dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a> – Self reference for method chaining.</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">CommandHeaderBuilder</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create command header with control hold time</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">header</span> <span class="o">=</span> <span class="n">CommandHeaderBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_control_hold_time</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Use in command builders</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">command</span> <span class="o">=</span> <span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command_header</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Control hold time keeps the command active for 5 seconds</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </dd></dl>
@@ -473,7 +460,6 @@
             <ul>
 <li><a class="reference internal" href="#">rby1_sdk.CommandHeaderBuilder</a><ul>
 <li><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder"><code class="docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder.control_hold_time"><code class="docutils literal notranslate"><span class="pre">CommandHeaderBuilder.control_hold_time</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">CommandHeaderBuilder.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.CommandHeaderBuilder.set_control_hold_time"><code class="docutils literal notranslate"><span class="pre">CommandHeaderBuilder.set_control_hold_time()</span></code></a></li>
 </ul>

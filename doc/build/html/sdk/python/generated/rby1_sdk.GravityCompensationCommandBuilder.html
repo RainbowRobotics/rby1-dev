@@ -356,36 +356,70 @@
 <dt class="sig sig-object py" id="rby1_sdk.GravityCompensationCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GravityCompensationCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.GravityCompensationCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Gravity compensation command builder.</p>
+<p>Creates a command that enables or disables gravity compensation on a
+component (e.g., an arm or the whole body). When enabled, the controller
+generates feed-forward torques to cancel the effect of gravity so the
+robot feels weightless.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Enable gravity compensation for the right arm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">GravityCompensationCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_on</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">ArmCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">gc</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(cmd, priority=1).get()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.GravityCompensationCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk._bindings.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk._bindings.GravityCompensationCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.GravityCompensationCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk.GravityCompensationCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.GravityCompensationCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Construct a GravityCompensationCommandBuilder instance.</p>
+</dd></dl>
 
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder.__init__" title="rby1_sdk.GravityCompensationCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
-<td><p></p></td>
+<td><p>Construct a GravityCompensationCommandBuilder instance.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder.set_command_header" title="rby1_sdk.GravityCompensationCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, ...)</p></td>
-<td><p></p></td>
+<td><p>Attach a command header.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder.set_on" title="rby1_sdk.GravityCompensationCommandBuilder.set_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_on</span></code></a>(self, on)</p></td>
-<td><p></p></td>
+<td><p>Enable or disable gravity compensation.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.GravityCompensationCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk._bindings.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk._bindings.GravityCompensationCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gravity_compensation_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk._bindings.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk._bindings.GravityCompensationCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.GravityCompensationCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk.GravityCompensationCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gravity_compensation_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk.GravityCompensationCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.GravityCompensationCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
+<dd><p>Attach a command header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gravity_compensation_command_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header configuration (e.g., control hold time).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GravityCompensationCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.GravityCompensationCommandBuilder.set_on">
-<span class="sig-name descname"><span class="pre">set_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk._bindings.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk._bindings.GravityCompensationCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk._bindings.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk._bindings.GravityCompensationCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.GravityCompensationCommandBuilder.set_on" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk.GravityCompensationCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><span class="pre">rby1_sdk.GravityCompensationCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.GravityCompensationCommandBuilder.set_on" title="Link to this definition">¶</a></dt>
+<dd><p>Enable or disable gravity compensation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>on</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> to enable gravity compensation, <code class="docutils literal notranslate"><span class="pre">False</span></code> to disable.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GravityCompensationCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

@@ -1,0 +1,27 @@
+# Doxyfile (최소 예시, C++ 전용)
+PROJECT_NAME           = "rby1-sdk"
+OUTPUT_DIRECTORY       = build/doxygen
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+GENERATE_HTML          = NO
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = NO
+
+# 소스 경로 (원하는 경로로 바꾸세요)
+INPUT                  = ../external/rby1-sdk
+FILE_PATTERNS          = *.h *.hpp *.hh *.ipp *.cpp *.cc
+RECURSIVE              = YES
+
+# 심볼/프라이빗 처리(필요시 조정)
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+HIDE_UNDOC_MEMBERS     = NO
+
+# 매크로/프리프로세스
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = NO
+
+# 한글 파일명/주석 안전장치(필요시)
+ALWAYS_DETAILED_SEC    = NO

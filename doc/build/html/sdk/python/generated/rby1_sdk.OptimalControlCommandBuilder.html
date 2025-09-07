@@ -356,9 +356,43 @@
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OptimalControlCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Optimal control command builder.</p>
+<p>Constructs an optimal control objective composed of Cartesian pose costs,
+center-of-mass (COM) costs, and joint position costs, with global error and
+limit scalings.</p>
+<p class="rubric">Notes</p>
+<ul>
+<li><p>The overall objective can be viewed as a weighted least-squares form:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[J \;=\; \sum_{i} w_t^{(i)} \,\|\, p^{(i)}_d - p^{(i)} \,\|^2
+\;+\; \sum_{i} w_r^{(i)} \,\|\, r^{(i)}_d \ominus r^{(i)} \,\|^2
+\;+\; w_{\mathrm{com}} \,\|\, c_d - c \,\|^2
+\;+\; \sum_j w_q^{(j)} \,(q^{(j)}_d - q^{(j)})^2\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(p, r\)</span> denote translation and rotation of a link in a reference
+frame, <span class="math notranslate nohighlight">\(c\)</span> is the COM position, and <span class="math notranslate nohighlight">\(q\)</span> are joint positions.</p>
+</li>
+<li><p>Velocity/acceleration limit <strong>scalings</strong> multiply internal limits used by the
+optimizer; they do <strong>not</strong> redefine hardware limits.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>Set a right-wrist Cartesian target and a joint hint, with moderate limit scalings:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.35</span><span class="p">;</span> <span class="n">T</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.55</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oc</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>  <span class="n">rby</span><span class="o">.</span><span class="n">OptimalControlCommandBuilder</span><span class="p">()</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">add_cartesian_target</span><span class="p">(</span><span class="s2">&quot;base_link&quot;</span><span class="p">,</span> <span class="s2">&quot;ee_right&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">translation_weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">rotation_weight</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">add_joint_position_target</span><span class="p">(</span><span class="s2">&quot;right_arm_4&quot;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_velocity_limit_scaling</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_acceleration_limit_scaling</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="o">.</span><span class="n">set_error_scaling</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -369,87 +403,240 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.add_cartesian_target" title="rby1_sdk.OptimalControlCommandBuilder.add_cartesian_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_cartesian_target</span></code></a>(self, ref_link_name, ...)</p></td>
-<td><p></p></td>
+<td><p>Add a Cartesian pose target for a link.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.add_joint_position_target" title="rby1_sdk.OptimalControlCommandBuilder.add_joint_position_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_joint_position_target</span></code></a>(self, joint_name, ...)</p></td>
-<td><p></p></td>
+<td><p>Add a joint position target.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_acceleration_limit_scaling" title="rby1_sdk.OptimalControlCommandBuilder.set_acceleration_limit_scaling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit_scaling</span></code></a>(self, ...)</p></td>
-<td><p></p></td>
+<td><p>Scale internal joint acceleration limits used by the optimizer.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_center_of_mass_target" title="rby1_sdk.OptimalControlCommandBuilder.set_center_of_mass_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_center_of_mass_target</span></code></a>(self, ...)</p></td>
-<td><p></p></td>
+<td><p>Set a center-of-mass (COM) position target.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_command_header" title="rby1_sdk.OptimalControlCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
-<td><p></p></td>
+<td><p>Attach a command header to this builder.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_error_scaling" title="rby1_sdk.OptimalControlCommandBuilder.set_error_scaling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_error_scaling</span></code></a>(self, error_scaling)</p></td>
-<td><p></p></td>
+<td><p>Set a global error scaling applied to cost terms.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_min_delta_cost" title="rby1_sdk.OptimalControlCommandBuilder.set_min_delta_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_min_delta_cost</span></code></a>(self, min_delta_cost)</p></td>
-<td><p></p></td>
+<td><p>Set the minimum required improvement in cost between iterations.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_patience" title="rby1_sdk.OptimalControlCommandBuilder.set_patience"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_patience</span></code></a>(self, patience)</p></td>
-<td><p></p></td>
+<td><p>Set the iteration patience before stopping on small improvements.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_stop_cost" title="rby1_sdk.OptimalControlCommandBuilder.set_stop_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stop_cost</span></code></a>(self, stop_cost)</p></td>
-<td><p></p></td>
+<td><p>Set the absolute objective threshold to consider the problem &quot;solved&quot;.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder.set_velocity_limit_scaling" title="rby1_sdk.OptimalControlCommandBuilder.set_velocity_limit_scaling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity_limit_scaling</span></code></a>(self, ...)</p></td>
-<td><p></p></td>
+<td><p>Scale internal joint velocity limits used by the optimizer.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.add_cartesian_target">
-<span class="sig-name descname"><span class="pre">add_cartesian_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.add_cartesian_target" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">add_cartesian_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.add_cartesian_target" title="Link to this definition">¶</a></dt>
+<dd><p>Add a Cartesian pose target for a link.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ref_link_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Reference frame (link) name in which the target pose is expressed.</p></li>
+<li><p><strong>link_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Controlled link name.</p></li>
+<li><p><strong>T</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(4,4)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Target homogeneous transform <span class="math notranslate nohighlight">\({}^{ref}\!T^{link}_d\)</span>.</p></li>
+<li><p><strong>translation_weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Weight <span class="math notranslate nohighlight">\(w_t\)</span> for translational error.</p></li>
+<li><p><strong>rotation_weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Weight <span class="math notranslate nohighlight">\(w_r\)</span> for rotational error.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul>
+<li><p>The cost terms are typically of the form</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[J_t = w_t \, \|\, p_d - p \,\|^2, \qquad
+J_r = w_r \, \|\, r_d \ominus r \,\|^2,\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(p\)</span> is position and <span class="math notranslate nohighlight">\(r\)</span> is orientation (e.g., axis-angle error)
+of <code class="docutils literal notranslate"><span class="pre">link_name</span></code> measured in <code class="docutils literal notranslate"><span class="pre">ref_link_name</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.add_joint_position_target">
-<span class="sig-name descname"><span class="pre">add_joint_position_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.add_joint_position_target" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">add_joint_position_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.add_joint_position_target" title="Link to this definition">¶</a></dt>
+<dd><p>Add a joint position target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>joint_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Joint name.</p></li>
+<li><p><strong>target_position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Desired joint position <span class="math notranslate nohighlight">\(q_d\)</span> [rad].</p></li>
+<li><p><strong>weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Weight <span class="math notranslate nohighlight">\(w_q\)</span> for this joint’s position error.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul>
+<li><p>The joint cost term is:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[J_q \;=\; w_q \,(q_d - q)^2 .\]</div>
+</div>
+</li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_acceleration_limit_scaling">
-<span class="sig-name descname"><span class="pre">set_acceleration_limit_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_acceleration_limit_scaling" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_acceleration_limit_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_acceleration_limit_scaling" title="Link to this definition">¶</a></dt>
+<dd><p>Scale internal joint acceleration limits used by the optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>acceleration_limit_scaling</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Scaling factor <span class="math notranslate nohighlight">\(\alpha_a &gt; 0\)</span>. The internal acceleration limits become
+<span class="math notranslate nohighlight">\(\alpha_a \cdot a_{\max}\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Like velocity scaling, this only affects internal optimization constraints.</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_center_of_mass_target">
-<span class="sig-name descname"><span class="pre">set_center_of_mass_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_center_of_mass_target" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_center_of_mass_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_center_of_mass_target" title="Link to this definition">¶</a></dt>
+<dd><p>Set a center-of-mass (COM) position target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ref_link_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Reference frame (link) name for the COM target.</p></li>
+<li><p><strong>pose</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(3,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Desired COM position <span class="math notranslate nohighlight">\(c_d = [x,y,z]^\\top\)</span> in meters, expressed in <code class="docutils literal notranslate"><span class="pre">ref_link_name</span></code>.</p></li>
+<li><p><strong>weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Weight <span class="math notranslate nohighlight">\(w_{\mathrm{com}}\)</span> for COM position error.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul>
+<li><p>The COM cost is:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[J_{\mathrm{com}} \;=\; w_{\mathrm{com}} \,\|\, c_d - c \,\|^2 .\]</div>
+</div>
+</li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
+<dd><p>Attach a command header to this builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header configuration (e.g., control hold time).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_error_scaling">
-<span class="sig-name descname"><span class="pre">set_error_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_error_scaling" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_error_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_error_scaling" title="Link to this definition">¶</a></dt>
+<dd><p>Set a global error scaling applied to cost terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>error_scaling</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – A positive scalar multiplying error magnitudes internally (e.g., to balance
+different unit scales).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Conceptually, this scales error vectors before squaring, e.g., <span class="math notranslate nohighlight">\(e \leftarrow \alpha e\)</span>,
+which yields <span class="math notranslate nohighlight">\(\alpha^2\)</span> scaling on quadratic costs.</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_min_delta_cost">
-<span class="sig-name descname"><span class="pre">set_min_delta_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delta_cost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_min_delta_cost" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_min_delta_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delta_cost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_min_delta_cost" title="Link to this definition">¶</a></dt>
+<dd><p>Set the minimum required improvement in cost between iterations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>min_delta_cost</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – If the reduction <span class="math notranslate nohighlight">\(\Delta J\)</span> between iterations drops below this value,
+the optimizer may stop (convergence).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_patience">
-<span class="sig-name descname"><span class="pre">set_patience</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_patience" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_patience</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_patience" title="Link to this definition">¶</a></dt>
+<dd><p>Set the iteration patience before stopping on small improvements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>patience</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of iterations to tolerate without sufficient cost improvement
+(in combination with <code class="docutils literal notranslate"><span class="pre">set_min_delta_cost</span></code>).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_stop_cost">
-<span class="sig-name descname"><span class="pre">set_stop_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_cost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_stop_cost" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_stop_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_cost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_stop_cost" title="Link to this definition">¶</a></dt>
+<dd><p>Set the absolute objective threshold to consider the problem “solved”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stop_cost</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – If the total cost <span class="math notranslate nohighlight">\(J\)</span> falls below this value, the optimizer may terminate early.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.OptimalControlCommandBuilder.set_velocity_limit_scaling">
-<span class="sig-name descname"><span class="pre">set_velocity_limit_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_limit_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk._bindings.OptimalControlCommandBuilder"><span class="pre">rby1_sdk._bindings.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_velocity_limit_scaling" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_velocity_limit_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_limit_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><span class="pre">rby1_sdk.OptimalControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.OptimalControlCommandBuilder.set_velocity_limit_scaling" title="Link to this definition">¶</a></dt>
+<dd><p>Scale internal joint velocity limits used by the optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>velocity_limit_scaling</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Scaling factor <span class="math notranslate nohighlight">\(\alpha_v &gt; 0\)</span>. The internal velocity limits become
+<span class="math notranslate nohighlight">\(\alpha_v \cdot v_{\max}\)</span>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandBuilder" title="rby1_sdk.OptimalControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalControlCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>This does <strong>not</strong> change hardware limits; it affects only the optimization’s
+internal constraints and trajectory shaping.</p></li>
+</ul>
+</dd></dl>
 
 </dd></dl>
 
@@ -542,5 +729,6 @@
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=ccdb6887"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

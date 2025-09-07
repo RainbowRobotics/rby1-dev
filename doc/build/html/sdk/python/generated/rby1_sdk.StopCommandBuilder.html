@@ -356,28 +356,51 @@
 <dt class="sig sig-object py" id="rby1_sdk.StopCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StopCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.StopCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Stop command builder.</p>
+<p>Generates a stop command that halts all robot motion immediately.
+Typically used in whole-body command contexts to enforce a safe and
+deterministic stop.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stop</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">StopCommandBuilder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">WholeBodyCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(cmd, priority=1).get()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.StopCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.StopCommandBuilder" title="rby1_sdk._bindings.StopCommandBuilder"><span class="pre">rby1_sdk._bindings.StopCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.StopCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.StopCommandBuilder" title="rby1_sdk.StopCommandBuilder"><span class="pre">rby1_sdk.StopCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.StopCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Construct a StopCommandBuilder instance.</p>
+</dd></dl>
 
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.StopCommandBuilder.__init__" title="rby1_sdk.StopCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
-<td><p></p></td>
+<td><p>Construct a StopCommandBuilder instance.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.StopCommandBuilder.set_command_header" title="rby1_sdk.StopCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, stop_command_builder)</p></td>
-<td><p></p></td>
+<td><p>Attach a command header.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.StopCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.StopCommandBuilder" title="rby1_sdk._bindings.StopCommandBuilder"><span class="pre">rby1_sdk._bindings.StopCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.StopCommandBuilder" title="rby1_sdk._bindings.StopCommandBuilder"><span class="pre">rby1_sdk._bindings.StopCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.StopCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.StopCommandBuilder" title="rby1_sdk.StopCommandBuilder"><span class="pre">rby1_sdk.StopCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.StopCommandBuilder" title="rby1_sdk.StopCommandBuilder"><span class="pre">rby1_sdk.StopCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.StopCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
+<dd><p>Attach a command header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stop_command_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header configuration (e.g., control hold time).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.StopCommandBuilder" title="rby1_sdk.StopCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

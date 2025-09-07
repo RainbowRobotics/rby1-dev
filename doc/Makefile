@@ -35,7 +35,7 @@ help:
 	@echo "  protoc-doc     Generate Markdown docs from .proto using Docker (protoc-gen-doc)"
 	@echo "  clean-proto    Remove generated proto docs"
 
-.PHONY: help Makefile protoc-doc clean-proto
+.PHONY: help Makefile protoc-doc clean-proto doxygen-doc clean-doxygen
 
 # ------------------------------------------------------------------------------
 # Generate proto docs (Docker)
@@ -66,15 +66,31 @@ clean-proto:
 	@rm -f "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
 
 # ------------------------------------------------------------------------------
+# Doxygen (C++) settings
+# ------------------------------------------------------------------------------
+DOXYGEN           ?= doxygen
+DOXYFILE          ?= $(CURDIR)/Doxyfile
+DOXYGEN_XML_DIR   ?= $(CURDIR)/build/doxygen/xml
+
+doxygen-doc:
+	@echo "[doxygen] Using DOXYFILE=$(DOXYFILE)"
+	@$(DOXYGEN) "$(DOXYFILE)"
+	@echo "[doxygen] XML generated at $(DOXYGEN_XML_DIR)"
+
+clean-doxygen:
+	@echo "[doxygen] Removing $(DOXYGEN_XML_DIR)"
+	@rm -rf "$(DOXYGEN_XML_DIR)"
+
+# ------------------------------------------------------------------------------
 # Sphinx "make mode" (default catch-all)
 # ------------------------------------------------------------------------------
 
 # html 빌드 전에 proto 문서를 자동 생성하고 싶다면, html 규칙을 래핑합니다.
 # (이 규칙이 있으면 아래의 catch-all 대신 이 규칙이 실행됩니다)
-html: protoc-doc
+html: protoc-doc doxygen-doc
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-clean: clean-proto
+clean: clean-proto clean-doxygen
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # 다른 타깃(dirhtml 등)은 필요하면 같은 방식으로 감싸세요.

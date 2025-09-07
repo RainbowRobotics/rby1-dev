@@ -357,108 +357,38 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">JointPositionCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Joint position command builder.</p>
-<p>Builds joint position commands with position, velocity, and acceleration limits.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.command_header">
-<span class="sig-name descname"><span class="pre">command_header</span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.command_header" title="Link to this definition">¶</a></dt>
-<dd><p>Command header configuration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.minimum_time">
-<span class="sig-name descname"><span class="pre">minimum_time</span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.minimum_time" title="Link to this definition">¶</a></dt>
-<dd><p>Minimum execution time in seconds.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.position">
-<span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.position" title="Link to this definition">¶</a></dt>
-<dd><p>Target joint positions in radians.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.velocity_limit">
-<span class="sig-name descname"><span class="pre">velocity_limit</span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.velocity_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Joint velocity limits in rad/s.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.acceleration_limit">
-<span class="sig-name descname"><span class="pre">acceleration_limit</span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.acceleration_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Joint acceleration limits in rad/s².</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
+<p>Builds joint position commands with optional velocity/acceleration limits and a minimum execution time.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><strong>Vector length rule</strong>: For any vector argument (e.g., <code class="docutils literal notranslate"><span class="pre">position</span></code>, <code class="docutils literal notranslate"><span class="pre">velocity_limit</span></code>, <code class="docutils literal notranslate"><span class="pre">acceleration_limit</span></code>),
+the length <strong>N must equal the DOF of the component this builder commands</strong>.
+Examples:
+- <code class="docutils literal notranslate"><span class="pre">set_right_arm_command(...)</span></code> on model <code class="docutils literal notranslate"><span class="pre">A</span></code> → right arm N = 7
+- <code class="docutils literal notranslate"><span class="pre">set_body_command(...)</span></code> on model <code class="docutils literal notranslate"><span class="pre">A</span></code> → body N = 20</p></li>
+</ul>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">movej</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">torso</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_arm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_arm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">minimum_time</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="gp">... </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Move robot joints to specified positions.&quot;&quot;&quot;</span>
-<span class="gp">... </span>    <span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">BodyComponentBasedCommandBuilder</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">torso</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">rc</span><span class="o">.</span><span class="n">set_torso_command</span><span class="p">(</span>
-<span class="gp">... </span>            <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span>
-<span class="gp">... </span>            <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="n">minimum_time</span><span class="p">)</span>
-<span class="gp">... </span>            <span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">torso</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="p">)</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">right_arm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">rc</span><span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span>
-<span class="gp">... </span>            <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span>
-<span class="gp">... </span>            <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="n">minimum_time</span><span class="p">)</span>
-<span class="gp">... </span>            <span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">right_arm</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="p">)</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">left_arm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">rc</span><span class="o">.</span><span class="n">set_left_arm_command</span><span class="p">(</span>
-<span class="gp">... </span>            <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span>
-<span class="gp">... </span>            <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="n">minimum_time</span><span class="p">)</span>
-<span class="gp">... </span>            <span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">left_arm</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="p">)</span>
-<span class="gp">... </span>    <span class="c1"># Send the command and wait for completion</span>
-<span class="gp">... </span>    <span class="n">handler</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">send_command</span><span class="p">(</span>
-<span class="gp">... </span>        <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span>
-<span class="gp">... </span>            <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_body_command</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="p">),</span>
-<span class="gp">... </span>        <span class="mi">1</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="p">)</span>
-<span class="gp">... </span>    <span class="n">rv</span> <span class="o">=</span> <span class="n">handler</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">rv</span><span class="o">.</span><span class="n">finish_code</span> <span class="o">!=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandFeedback</span><span class="o">.</span><span class="n">FinishCode</span><span class="o">.</span><span class="n">Ok</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Failed to conduct movej.&quot;</span><span class="p">)</span>
-<span class="gp">... </span>        <span class="k">return</span> <span class="kc">False</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="kc">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">movej</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">robot</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">torso</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
-<span class="gp">... </span>    <span class="n">right_arm</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
-<span class="gp">... </span>    <span class="n">left_arm</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
-<span class="gp">... </span>    <span class="n">minimum_time</span><span class="o">=</span><span class="mf">5.0</span>
+<p>Move the right arm to zero with limits and a 3-second minimum time:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>                      <span class="c1"># N=7 (right arm)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_velocity_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>          <span class="c1"># rad/s</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_acceleration_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>        <span class="c1"># rad/s^2</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">body</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">BodyComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">ArmCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">jp</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_body_command</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Send with priority 10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(rc, 10).get()</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Construct a JointPositionCommandBuilder instance.</p>
 </dd></dl>
 
@@ -470,44 +400,56 @@
 <td><p>Construct a JointPositionCommandBuilder instance.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.set_acceleration_limit" title="rby1_sdk.JointPositionCommandBuilder.set_acceleration_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit</span></code></a>(self, acceleration_limit)</p></td>
-<td><p>Set the joint acceleration limits.</p></td>
+<td><p>Set joint acceleration limits.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.set_command_header" title="rby1_sdk.JointPositionCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
 <td><p>Set the command header.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.set_minimum_time" title="rby1_sdk.JointPositionCommandBuilder.set_minimum_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_minimum_time</span></code></a>(self, minimum_time)</p></td>
-<td><p>Set the minimum execution time.</p></td>
+<td><p>Set the minimum execution time in seconds.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.set_position" title="rby1_sdk.JointPositionCommandBuilder.set_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_position</span></code></a>(self, position)</p></td>
-<td><p>Set the target joint positions.</p></td>
+<td><p>Set the target joint positions in radians.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.set_velocity_limit" title="rby1_sdk.JointPositionCommandBuilder.set_velocity_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity_limit</span></code></a>(self, velocity_limit)</p></td>
-<td><p>Set the joint velocity limits.</p></td>
+<td><p>Set joint velocity limits.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.set_acceleration_limit">
-<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set the joint acceleration limits.</p>
+<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
+<dd><p>Set joint acceleration limits.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>acceleration_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Acceleration limits in rad/s².</p>
+<dd class="field-odd"><p><strong>acceleration_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(N,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Per-joint acceleration limits [rad/s²].</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a> – Self reference for method chaining.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><strong>Vector length rule</strong>: <code class="docutils literal notranslate"><span class="pre">N</span></code> must equal the DOF of the commanded component
+(e.g., model <code class="docutils literal notranslate"><span class="pre">A</span></code> right arm <code class="docutils literal notranslate"><span class="pre">N=7</span></code>, full body <code class="docutils literal notranslate"><span class="pre">N=20</span></code>).</p></li>
+<li><p>If not set, URDF limits for the current robot model are used (see <code class="docutils literal notranslate"><span class="pre">get_robot_model</span></code>).</p></li>
+<li><p>Values beyond hardware limits may be accepted for profiling; actual tracking is not guaranteed.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_acceleration_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
 <dd><p>Set the command header.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header configuration.</p>
+<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header builder.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a> – Self reference for method chaining.</p>
@@ -517,8 +459,8 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.set_minimum_time">
-<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
-<dd><p>Set the minimum execution time.</p>
+<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
+<dd><p>Set the minimum execution time in seconds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>minimum_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Minimum time in seconds. This parameter provides an additional degree
@@ -536,50 +478,50 @@ stopping if it arrives too early before the next command.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.set_position">
-<span class="sig-name descname"><span class="pre">set_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_position" title="Link to this definition">¶</a></dt>
-<dd><p>Set the target joint positions.
-The size of the array must match the number of joints in the corresponding component.</p>
+<span class="sig-name descname"><span class="pre">set_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_position" title="Link to this definition">¶</a></dt>
+<dd><p>Set the target joint positions in radians.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>position</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Target positions in radians.</p>
+<dd class="field-odd"><p><strong>position</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(N,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Target joint positions [rad]</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a> – Self reference for method chaining.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><strong>Vector length rule</strong>: <code class="docutils literal notranslate"><span class="pre">N</span></code> must equal the DOF of the commanded component.
+Examples on model <code class="docutils literal notranslate"><span class="pre">A</span></code>: right arm → <code class="docutils literal notranslate"><span class="pre">N=7</span></code>; full body → <code class="docutils literal notranslate"><span class="pre">N=20</span></code>.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">right_arm_command</span> <span class="o">=</span> <span class="p">(</span>
-<span class="gp">... </span>    <span class="n">JointPositionCommandBuilder</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-<span class="gp">... </span>    <span class="o">.</span><span class="n">set_velocity_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]</span> <span class="o">*</span> <span class="mi">7</span><span class="p">))</span>
-<span class="gp">... </span>    <span class="o">.</span><span class="n">set_acceleration_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">7</span><span class="p">))</span>
-<span class="gp">... </span>    <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">robot</span><span class="o">.</span><span class="n">send_command</span><span class="p">(</span>
-<span class="gp">... </span>     <span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span>
-<span class="gp">... </span>          <span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_body_command</span><span class="p">(</span>
-<span class="gp">... </span>               <span class="n">BodyComponentBasedCommandBuilder</span><span class="p">()</span>
-<span class="gp">... </span>               <span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span><span class="n">right_arm_command</span><span class="p">)</span>
-<span class="gp">... </span>          <span class="p">)</span>
-<span class="gp">... </span>     <span class="p">),</span>
-<span class="gp">... </span>     <span class="mi">10</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>  <span class="c1"># right arm</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.JointPositionCommandBuilder.set_velocity_limit">
-<span class="sig-name descname"><span class="pre">set_velocity_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_velocity_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set the joint velocity limits.</p>
+<span class="sig-name descname"><span class="pre">set_velocity_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointPositionCommandBuilder.set_velocity_limit" title="Link to this definition">¶</a></dt>
+<dd><p>Set joint velocity limits.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>velocity_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Velocity limits in rad/s.</p>
+<dd class="field-odd"><p><strong>velocity_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(N,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Per-joint velocity limits [rad/s].</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a> – Self reference for method chaining.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><strong>Vector length rule</strong>: <code class="docutils literal notranslate"><span class="pre">N</span></code> must equal the DOF of the commanded component
+(e.g., model <code class="docutils literal notranslate"><span class="pre">A</span></code> right arm <code class="docutils literal notranslate"><span class="pre">N=7</span></code>, full body <code class="docutils literal notranslate"><span class="pre">N=20</span></code>).</p></li>
+<li><p>If not set, URDF limits for the current robot model are used (see <code class="docutils literal notranslate"><span class="pre">get_robot_model</span></code>).</p></li>
+<li><p>Values beyond hardware limits may be accepted for profiling; actual tracking is not guaranteed.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_velocity_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -643,11 +585,6 @@ The size of the array must match the number of joints in the corresponding compo
             <ul>
 <li><a class="reference internal" href="#">rby1_sdk.JointPositionCommandBuilder</a><ul>
 <li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.command_header"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.command_header</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.minimum_time"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.minimum_time</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.position"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.position</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.velocity_limit"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.velocity_limit</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.acceleration_limit"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.acceleration_limit</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.set_acceleration_limit"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.set_acceleration_limit()</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.JointPositionCommandBuilder.set_command_header"><code class="docutils literal notranslate"><span class="pre">JointPositionCommandBuilder.set_command_header()</span></code></a></li>

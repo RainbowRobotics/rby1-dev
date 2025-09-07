@@ -356,15 +356,58 @@
 <dt class="sig sig-object py" id="rby1_sdk.MobilityCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MobilityCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.MobilityCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Mobility command builder.</p>
+<p>Wraps commands for the robot’s mobility subsystem.
+It supports both joint-space velocity commands (e.g., differential/mecanum wheels)
+and planar SE(2) velocity commands.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Typically used inside <code class="docutils literal notranslate"><span class="pre">set_mobility_command(...)</span></code> of a ComponentBasedCommandBuilder.</p></li>
+<li><p>You do not need to explicitly construct MobilityCommandBuilder if passing
+a JointVelocityCommandBuilder or SE2VelocityCommandBuilder, as implicit casting
+will wrap them automatically.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example 1: Joint velocity mobility (e.g., wheel joints)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vel</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointVelocityCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mobility</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">MobilityCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">vel</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_mobility_command</span><span class="p">(</span><span class="n">mobility</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(rc, priority=1).get()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example 2: SE(2) velocity mobility</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">se2</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">SE2VelocityCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># vx=0.2 m/s, yaw=0.1 rad/s</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_mobility_command</span><span class="p">(</span><span class="n">se2</span><span class="p">)</span>  <span class="c1"># implicit wrap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.MobilityCommandBuilder.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.MobilityCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>__init__(self: rby1_sdk._bindings.MobilityCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.MobilityCommandBuilder, arg0: rby1_sdk._bindings.JointVelocityCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.MobilityCommandBuilder, arg0: rby1_sdk._bindings.SE2VelocityCommandBuilder) -&gt; None</p></li>
+<li><p>__init__(self: rby1_sdk.MobilityCommandBuilder) -&gt; None</p></li>
 </ol>
+<p>Construct a MobilityCommandBuilder instance.</p>
+<ol class="arabic simple" start="2">
+<li><p>__init__(self: rby1_sdk.MobilityCommandBuilder, joint_velocity_command_builder: rby1_sdk.JointVelocityCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct a MobilityCommandBuilder from a joint velocity command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_velocity_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointVelocityCommandBuilder</span></code></a>) – Joint-space velocity command (e.g., wheel joint velocities).</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>__init__(self: rby1_sdk.MobilityCommandBuilder, se2_velocity_command_builder: rby1_sdk.SE2VelocityCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct a MobilityCommandBuilder from an SE(2) velocity command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>se2_velocity_command_builder</strong> (<a class="reference internal" href="rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">SE2VelocityCommandBuilder</span></code></a>) – Planar velocity command in SE(2).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -385,9 +428,29 @@
 <span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.MobilityCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>set_command(self: rby1_sdk._bindings.MobilityCommandBuilder, joint_velocity_command_builder: rby1_sdk._bindings.JointVelocityCommandBuilder) -&gt; rby1_sdk._bindings.MobilityCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.MobilityCommandBuilder, se2_velocity_command_builder: rby1_sdk._bindings.SE2VelocityCommandBuilder) -&gt; rby1_sdk._bindings.MobilityCommandBuilder</p></li>
+<li><p>set_command(self: rby1_sdk.MobilityCommandBuilder, joint_velocity_command_builder: rby1_sdk.JointVelocityCommandBuilder) -&gt; rby1_sdk.MobilityCommandBuilder</p></li>
 </ol>
+<p>Assign a joint velocity command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_velocity_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointVelocityCommandBuilder.html#rby1_sdk.JointVelocityCommandBuilder" title="rby1_sdk.JointVelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointVelocityCommandBuilder</span></code></a>) – Joint-space velocity command (rad/s for each mobility joint).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.MobilityCommandBuilder" title="rby1_sdk.MobilityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">MobilityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="2">
+<li><p>set_command(self: rby1_sdk.MobilityCommandBuilder, se2_velocity_command_builder: rby1_sdk.SE2VelocityCommandBuilder) -&gt; rby1_sdk.MobilityCommandBuilder</p></li>
+</ol>
+<p>Assign an SE(2) velocity command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>se2_velocity_command_builder</strong> (<a class="reference internal" href="rby1_sdk.SE2VelocityCommandBuilder.html#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">SE2VelocityCommandBuilder</span></code></a>) – Planar velocity command with linear [m/s] and angular [rad/s] components.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.MobilityCommandBuilder" title="rby1_sdk.MobilityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">MobilityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

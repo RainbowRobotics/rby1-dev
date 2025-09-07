@@ -356,52 +356,125 @@
 <dt class="sig sig-object py" id="rby1_sdk.SE2VelocityCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SE2VelocityCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>SE(2) velocity command builder.</p>
+<p>Defines planar velocity commands in SE(2) space (x, y translation and yaw rotation).
+The target velocity is reached by linear ramp-up/ramp-down subject to acceleration
+limits and the specified minimum execution time.</p>
+<p class="rubric">Examples</p>
+<p>Move forward at 0.5 m/s while yawing at 0.2 rad/s, with limits and minimum time:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">se2</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">SE2VelocityCommandBuilder</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="mf">0.2</span><span class="p">)</span>        <span class="c1"># [vx, vy], wz</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_acceleration_limit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]),</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># (Optional) hold the commanded velocity after ramping:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">header</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">CommandHeaderBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_control_hold_time</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">se2</span><span class="o">.</span><span class="n">set_command_header</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_mobility_command</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">rby</span><span class="o">.</span><span class="n">MobilityCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">se2</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(cmd, priority=1).get()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.SE2VelocityCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Construct a SE2VelocityCommandBuilder instance.</p>
+</dd></dl>
 
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder.__init__" title="rby1_sdk.SE2VelocityCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
-<td><p></p></td>
+<td><p>Construct a SE2VelocityCommandBuilder instance.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder.set_acceleration_limit" title="rby1_sdk.SE2VelocityCommandBuilder.set_acceleration_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit</span></code></a>(self, linear, angular)</p></td>
-<td><p></p></td>
+<td><p>Set maximum acceleration limits for the SE(2) command.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder.set_command_header" title="rby1_sdk.SE2VelocityCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
-<td><p></p></td>
+<td><p>Attach a command header.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder.set_minimum_time" title="rby1_sdk.SE2VelocityCommandBuilder.set_minimum_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_minimum_time</span></code></a>(self, minimum_time)</p></td>
-<td><p></p></td>
+<td><p>Set the minimum execution time.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder.set_velocity" title="rby1_sdk.SE2VelocityCommandBuilder.set_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity</span></code></a>(self, linear, angular)</p></td>
-<td><p></p></td>
+<td><p>Set the target SE(2) velocity.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.SE2VelocityCommandBuilder.set_acceleration_limit">
-<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
+<dd><p>Set maximum acceleration limits for the SE(2) command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>linear</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(2,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Maximum linear accelerations along x and y axes [m/s²].</p></li>
+<li><p><strong>angular</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Maximum angular acceleration around the z-axis [rad/s²].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">SE2VelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.SE2VelocityCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk._bindings.CommandHeaderBuilder"><span class="pre">rby1_sdk._bindings.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
+<dd><p>Attach a command header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code></a>) – Command header configuration (e.g., control hold time).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">SE2VelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.SE2VelocityCommandBuilder.set_minimum_time">
-<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
+<dd><p>Set the minimum execution time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>minimum_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Minimum execution time [s]. Ensures the ramp toward the target velocity
+spans at least this duration.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">SE2VelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.SE2VelocityCommandBuilder.set_velocity">
-<span class="sig-name descname"><span class="pre">set_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk._bindings.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk._bindings.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_velocity" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><span class="pre">rby1_sdk.SE2VelocityCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.SE2VelocityCommandBuilder.set_velocity" title="Link to this definition">¶</a></dt>
+<dd><p>Set the target SE(2) velocity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>linear</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">shape</span> <span class="pre">(2,)</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dtype=float64</span></code>) – Linear velocity along x and y axes [m/s].</p></li>
+<li><p><strong>angular</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Angular velocity around the z-axis [rad/s].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.SE2VelocityCommandBuilder" title="rby1_sdk.SE2VelocityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">SE2VelocityCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>To maintain the commanded velocity after reaching it, set a control hold time
+via <code class="docutils literal notranslate"><span class="pre">CommandHeaderBuilder</span></code> and attach it with <code class="docutils literal notranslate"><span class="pre">set_command_header</span></code>.</p></li>
+</ul>
+</dd></dl>
 
 </dd></dl>
 

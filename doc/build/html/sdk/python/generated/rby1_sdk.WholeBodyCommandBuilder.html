@@ -356,14 +356,40 @@
 <dt class="sig sig-object py" id="rby1_sdk.WholeBodyCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WholeBodyCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.WholeBodyCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Whole-body command builder.</p>
+<p>Provides a builder interface to construct commands that apply to the <strong>entire robot</strong>.
+Currently, its primary role is to wrap and send a StopCommand to halt all motion.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>While ComponentBasedCommandBuilder targets subsystems (mobility, body, head),
+WholeBodyCommandBuilder applies at the global level.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Construct a stop command for the whole robot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stop</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">StopCommandBuilder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">whole</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">WholeBodyCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">whole</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(cmd, priority=0).get()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.WholeBodyCommandBuilder.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.WholeBodyCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>__init__(self: rby1_sdk._bindings.WholeBodyCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.WholeBodyCommandBuilder, arg0: rby1_sdk._bindings.StopCommandBuilder) -&gt; None</p></li>
+<li><p>__init__(self: rby1_sdk.WholeBodyCommandBuilder) -&gt; None</p></li>
 </ol>
+<p>Construct a WholeBodyCommandBuilder instance.</p>
+<ol class="arabic simple" start="2">
+<li><p>__init__(self: rby1_sdk.WholeBodyCommandBuilder, stop_command_builder: rby1_sdk.StopCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct a WholeBodyCommandBuilder with an initial stop command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stop_command_builder</strong> (<a class="reference internal" href="rby1_sdk.StopCommandBuilder.html#rby1_sdk.StopCommandBuilder" title="rby1_sdk.StopCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopCommandBuilder</span></code></a>) – Stop command to initialize this builder with.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -374,15 +400,24 @@
 <td><p>Overloaded function.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.WholeBodyCommandBuilder.set_command" title="rby1_sdk.WholeBodyCommandBuilder.set_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command</span></code></a>(self, stop_command_builder)</p></td>
-<td><p></p></td>
+<td><p>Assign a stop command to the whole body.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.WholeBodyCommandBuilder.set_command">
-<span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk._bindings.WholeBodyCommandBuilder"><span class="pre">rby1_sdk._bindings.WholeBodyCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.StopCommandBuilder.html#rby1_sdk.StopCommandBuilder" title="rby1_sdk._bindings.StopCommandBuilder"><span class="pre">rby1_sdk._bindings.StopCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk._bindings.WholeBodyCommandBuilder"><span class="pre">rby1_sdk._bindings.WholeBodyCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.WholeBodyCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk.WholeBodyCommandBuilder"><span class="pre">rby1_sdk.WholeBodyCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.StopCommandBuilder.html#rby1_sdk.StopCommandBuilder" title="rby1_sdk.StopCommandBuilder"><span class="pre">rby1_sdk.StopCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk.WholeBodyCommandBuilder"><span class="pre">rby1_sdk.WholeBodyCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.WholeBodyCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
+<dd><p>Assign a stop command to the whole body.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stop_command_builder</strong> (<a class="reference internal" href="rby1_sdk.StopCommandBuilder.html#rby1_sdk.StopCommandBuilder" title="rby1_sdk.StopCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopCommandBuilder</span></code></a>) – Stop command to apply globally.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk.WholeBodyCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">WholeBodyCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

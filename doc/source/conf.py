@@ -31,16 +31,12 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
     "sphinx.ext.autosectionlabel",
-
     # Docstring parser (Napoleon: NumPy/Google 스타일)
     "sphinx.ext.napoleon",
-
     # Markdown
     "myst_parser",
-
     # C++ via Doxygen XML
     "breathe",
-
     # UX
     "sphinx_copybutton",
 ]
@@ -65,7 +61,7 @@ autodoc_member_order = "groupwise"
 autodoc_typehints = "description"
 autodoc_inherit_docstrings = True
 add_module_names = False
-autoclass_content = "class" 
+autoclass_content = "class"
 autodoc_default_options = {
     "members": True,
     "undoc-members": False,
@@ -97,13 +93,24 @@ nitpicky = False
 suppress_warnings = ["myst.header", "ref.citation"]
 
 # -- Breathe (C++ from Doxygen XML) --------------------------------------
-# Set DOXYGEN_XML env var to the XML folder, else default path
-# _breathe_xml = os.environ.get(
-#     "DOXYGEN_XML",
-#     str(ROOT / "build" / "doxygen" / "xml")
-# )
-# breathe_projects = {"rby1_cpp": _breathe_xml}
-# breathe_default_project = "rby1_cpp"
+import pathlib
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent  # docs/ 기준 상위(루트) 추정
+_breathe_xml = os.environ.get(
+    "DOXYGEN_XML",
+    str(ROOT / "docs" / "build" / "doxygen" / "xml")  # Doxyfile의 OUTPUT_DIRECTORY/XML_OUTPUT에 맞춤
+)
+
+breathe_projects = {"rby1-sdk": _breathe_xml}
+breathe_default_project = "rby1-sdk"
+
+breathe_domain_by_extension = {
+    "h": "cpp", "hpp": "cpp", "hh": "cpp", "ipp": "cpp",
+    "c": "c", "cc": "cpp", "cpp": "cpp"
+}
+
+# 선택: 멤버 표시 정책
+breathe_default_members = ("members", "undoc-members")
 
 # -- Copybutton ----------------------------------------------------------
 copybutton_prompt_text = r">>> |\.\.\. "
@@ -129,42 +136,43 @@ napoleon_type_aliases = {
 }
 
 # -- Python Code Block ---------------------------------------------------
-pygments_style = 'sphinx'
-pygments_dark_style = 'monokai'
+pygments_style = "sphinx"
+pygments_dark_style = "monokai"
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Pybind11: make public objects show as rby1_sdk.* (not rby1_sdk._bindings.*)
 # ──────────────────────────────────────────────────────────────────────────────
-# import importlib
+import importlib
 
-# def _remap_pybind_modules():
-#     try:
-#         import rby1_sdk
-#     except Exception:
-#         return
 
-#     def _patch_module_names(mod):
-#         for attr, obj in vars(mod).items():
-#             m = getattr(obj, "__module__", None)
-#             if isinstance(m, str) and m.startswith("rby1_sdk._bindings"):
-#                 try:
-#                     obj.__module__ = m.replace("rby1_sdk._bindings", "rby1_sdk", 1)
-#                 except Exception:
-#                     pass
+def _remap_pybind_modules():
+    try:
+        import rby1_sdk
+    except Exception:
+        return
 
-#     # top-level
-#     _patch_module_names(rby1_sdk)
+    def _patch_module_names(mod):
+        for attr, obj in vars(mod).items():
+            m = getattr(obj, "__module__", None)
+            if isinstance(m, str) and m.startswith("rby1_sdk._bindings"):
+                try:
+                    obj.__module__ = m.replace("rby1_sdk._bindings", "rby1_sdk", 1)
+                except Exception:
+                    pass
 
-#     # 하위 모듈도 가능하면 불러와서 패치
-#     for sub in ("math", "upc", "dynamics"):
-#         try:
-#             smod = importlib.import_module(f"rby1_sdk.{sub}")
-#         except Exception:
-#             continue
-#         _patch_module_names(smod)
+    # top-level
+    # _patch_module_names(rby1_sdk)
 
-# _remap_pybind_modules()
+    # 하위 모듈도 가능하면 불러와서 패치
+    for sub in ("math", "upc", "dynamics"):
+        try:
+            smod = importlib.import_module(f"rby1_sdk.{sub}")
+        except Exception:
+            continue
+        _patch_module_names(smod)
 
+
+_remap_pybind_modules()
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -182,3 +190,17 @@ pygments_dark_style = 'monokai'
 
 # def setup(app):
 #     app.connect("autodoc-skip-member", skip_member)
+
+# conf.py
+def _strip_bindings_in_signature(app, what, name, obj, options, signature, return_annotation):
+    def rep(s):
+        return s.replace("._bindings", "") if s else s
+    return rep(signature), rep(return_annotation)
+
+def _strip_bindings_in_docstring(app, what, name, obj, options, lines):
+    for i, line in enumerate(lines):
+        lines[i] = line.replace("._bindings", "")
+
+def setup(app):
+    app.connect("autodoc-process-signature", _strip_bindings_in_signature)
+    app.connect("autodoc-process-docstring", _strip_bindings_in_docstring)

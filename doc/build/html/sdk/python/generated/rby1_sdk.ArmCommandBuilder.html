@@ -356,19 +356,108 @@
 <dt class="sig sig-object py" id="rby1_sdk.ArmCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArmCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.ArmCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Arm command builder.</p>
+<p>Wraps a command for an arm component.
+This builder accepts multiple command types, such as joint position,
+gravity compensation, Cartesian impedance, or joint impedance commands,
+and provides a unified interface to send them to an arm.</p>
+<p class="rubric">Notes</p>
+<ul>
+<li><p>In practice, you often do <strong>not</strong> need to explicitly construct an
+ArmCommandBuilder.
+Functions like <code class="docutils literal notranslate"><span class="pre">set_right_arm_command(...)</span></code> or <code class="docutils literal notranslate"><span class="pre">set_left_arm_command(...)</span></code>
+automatically cast and wrap a command (e.g., JointPositionCommandBuilder)
+into an ArmCommandBuilder.
+For example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">body</span><span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span><span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">body</span><span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span><span class="n">rby</span><span class="o">.</span><span class="n">ArmCommandBuilder</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="o">...</span><span class="p">)))</span>
+</pre></div>
+</div>
+</li>
+<li><p>Therefore, explicitly constructing ArmCommandBuilder is usually unnecessary
+unless you want to be explicit; repeatedly wrapping it is inefficient.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Send a joint position command to the right arm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_minimum_time</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">body</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">BodyComponentBasedCommandBuilder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Implicit wrapping into ArmCommandBuilder</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">body</span><span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span><span class="n">jp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(cmd, priority=1).get()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ArmCommandBuilder.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.ArmCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>__init__(self: rby1_sdk._bindings.ArmCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.ArmCommandBuilder, arg0: rby1_sdk._bindings.JointPositionCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.ArmCommandBuilder, arg0: rby1_sdk._bindings.GravityCompensationCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.ArmCommandBuilder, arg0: rby1_sdk._bindings.CartesianCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.ArmCommandBuilder, arg0: rby1_sdk._bindings.ImpedanceControlCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.ArmCommandBuilder, arg0: rby1_sdk._bindings.JointImpedanceControlCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.ArmCommandBuilder, arg0: rby1_sdk._bindings.CartesianImpedanceControlCommandBuilder) -&gt; None</p></li>
+<li><p>__init__(self: rby1_sdk.ArmCommandBuilder) -&gt; None</p></li>
 </ol>
+<p>Construct an empty ArmCommandBuilder instance.</p>
+<ol class="arabic simple" start="2">
+<li><p>__init__(self: rby1_sdk.ArmCommandBuilder, joint_position_command_builder: rby1_sdk.JointPositionCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct an ArmCommandBuilder with a joint position command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_position_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a>) – Joint position command to wrap.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>__init__(self: rby1_sdk.ArmCommandBuilder, gravity_compensation_command_builder: rby1_sdk.GravityCompensationCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct an ArmCommandBuilder with a gravity compensation command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gravity_compensation_command_builder</strong> (<a class="reference internal" href="rby1_sdk.GravityCompensationCommandBuilder.html#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GravityCompensationCommandBuilder</span></code></a>) – Gravity compensation command to wrap.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="4">
+<li><p>__init__(self: rby1_sdk.ArmCommandBuilder, cartesian_command_builder: rby1_sdk.CartesianCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct an ArmCommandBuilder with a Cartesian command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cartesian_command_builder</strong> (<a class="reference internal" href="rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder" title="rby1_sdk.CartesianCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CartesianCommandBuilder</span></code></a>) – Cartesian command to wrap.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="5">
+<li><p>__init__(self: rby1_sdk.ArmCommandBuilder, impedance_control_command_builder: rby1_sdk.ImpedanceControlCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct an ArmCommandBuilder with a Impedance control command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>impedance_control_command_builder</strong> (<a class="reference internal" href="rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a>) – Cartesian impedance command to wrap.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="6">
+<li><p>__init__(self: rby1_sdk.ArmCommandBuilder, joint_impedance_control_command_builder: rby1_sdk.JointImpedanceControlCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct an ArmCommandBuilder with a joint impedance control command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_impedance_control_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder</span></code></a>) – Joint impedance control command to wrap.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="7">
+<li><p>__init__(self: rby1_sdk.ArmCommandBuilder, cartesian_impedance_control_command_builder: rby1_sdk.CartesianImpedanceControlCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct an ArmCommandBuilder with a Cartesian impedance control command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cartesian_impedance_control_command_builder</strong> (<a class="reference internal" href="rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder</span></code></a>) – Cartesian impedance control command to wrap.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -389,13 +478,77 @@
 <span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.ArmCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>set_command(self: rby1_sdk._bindings.ArmCommandBuilder, joint_position_command_builder: rby1_sdk._bindings.JointPositionCommandBuilder) -&gt; rby1_sdk._bindings.ArmCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.ArmCommandBuilder, gravity_compensation_command_builder: rby1_sdk._bindings.GravityCompensationCommandBuilder) -&gt; rby1_sdk._bindings.ArmCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.ArmCommandBuilder, cartesian_command_builder: rby1_sdk._bindings.CartesianCommandBuilder) -&gt; rby1_sdk._bindings.ArmCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.ArmCommandBuilder, impedance_control_command_builder: rby1_sdk._bindings.ImpedanceControlCommandBuilder) -&gt; rby1_sdk._bindings.ArmCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.ArmCommandBuilder, joint_impedance_control_command_builder: rby1_sdk._bindings.JointImpedanceControlCommandBuilder) -&gt; rby1_sdk._bindings.ArmCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.ArmCommandBuilder, cartesian_impedance_control_command_builder: rby1_sdk._bindings.CartesianImpedanceControlCommandBuilder) -&gt; rby1_sdk._bindings.ArmCommandBuilder</p></li>
+<li><p>set_command(self: rby1_sdk.ArmCommandBuilder, joint_position_command_builder: rby1_sdk.JointPositionCommandBuilder) -&gt; rby1_sdk.ArmCommandBuilder</p></li>
 </ol>
+<p>Set a joint position command for the arm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_position_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a>) – Joint position command to wrap.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArmCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="2">
+<li><p>set_command(self: rby1_sdk.ArmCommandBuilder, gravity_compensation_command_builder: rby1_sdk.GravityCompensationCommandBuilder) -&gt; rby1_sdk.ArmCommandBuilder</p></li>
+</ol>
+<p>Set a gravity compensation command for the arm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gravity_compensation_command_builder</strong> (<a class="reference internal" href="rby1_sdk.GravityCompensationCommandBuilder.html#rby1_sdk.GravityCompensationCommandBuilder" title="rby1_sdk.GravityCompensationCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GravityCompensationCommandBuilder</span></code></a>) – Gravity compensation command to wrap.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArmCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>set_command(self: rby1_sdk.ArmCommandBuilder, cartesian_command_builder: rby1_sdk.CartesianCommandBuilder) -&gt; rby1_sdk.ArmCommandBuilder</p></li>
+</ol>
+<p>Set a Cartesian command for the arm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cartesian_command_builder</strong> (<a class="reference internal" href="rby1_sdk.CartesianCommandBuilder.html#rby1_sdk.CartesianCommandBuilder" title="rby1_sdk.CartesianCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CartesianCommandBuilder</span></code></a>) – Cartesian command to wrap.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArmCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="4">
+<li><p>set_command(self: rby1_sdk.ArmCommandBuilder, impedance_control_command_builder: rby1_sdk.ImpedanceControlCommandBuilder) -&gt; rby1_sdk.ArmCommandBuilder</p></li>
+</ol>
+<p>Set a Impedance control command for the arm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>impedance_control_command_builder</strong> (<a class="reference internal" href="rby1_sdk.ImpedanceControlCommandBuilder.html#rby1_sdk.ImpedanceControlCommandBuilder" title="rby1_sdk.ImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImpedanceControlCommandBuilder</span></code></a>) – Cartesian impedance control command to wrap.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArmCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="5">
+<li><p>set_command(self: rby1_sdk.ArmCommandBuilder, joint_impedance_control_command_builder: rby1_sdk.JointImpedanceControlCommandBuilder) -&gt; rby1_sdk.ArmCommandBuilder</p></li>
+</ol>
+<p>Set a joint impedance control command for the arm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_impedance_control_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointImpedanceControlCommandBuilder.html#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder</span></code></a>) – Joint impedance control command to wrap.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArmCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="6">
+<li><p>set_command(self: rby1_sdk.ArmCommandBuilder, cartesian_impedance_control_command_builder: rby1_sdk.CartesianImpedanceControlCommandBuilder) -&gt; rby1_sdk.ArmCommandBuilder</p></li>
+</ol>
+<p>Set a Cartesian impedance control command for the arm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cartesian_impedance_control_command_builder</strong> (<a class="reference internal" href="rby1_sdk.CartesianImpedanceControlCommandBuilder.html#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder</span></code></a>) – Cartesian impedance control command to wrap.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArmCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

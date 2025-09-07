@@ -356,44 +356,113 @@
 <dt class="sig sig-object py" id="rby1_sdk.ComponentBasedCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ComponentBasedCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Component-based command builder.</p>
+<p>Provides a unified builder interface to compose commands for the robot’s
+main subsystems: mobility, body, and head.
+Each setter accepts either the corresponding <em>CommandBuilder wrapper</em>
+(e.g., MobilityCommandBuilder, BodyCommandBuilder, HeadCommandBuilder)
+or lower-level builders (e.g., JointVelocityCommandBuilder, JointPositionCommandBuilder),
+which are automatically cast into the appropriate wrapper.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>This is typically used inside a RobotCommandBuilder to assemble
+subsystem-level commands into a single robot command.</p></li>
+<li><p>Automatic casting removes the need to explicitly wrap builders,
+simplifying code.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Mobility: send SE2 velocity</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span><span class="o">.</span><span class="n">set_mobility_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">SE2VelocityCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Body: send a joint position command to the right arm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span><span class="o">.</span><span class="n">set_body_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">BodyComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Head: send a joint position command to head joints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span><span class="o">.</span><span class="n">set_head_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(cmd, priority=1).get()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ComponentBasedCommandBuilder.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk._bindings.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk._bindings.ComponentBasedCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk.ComponentBasedCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Construct a ComponentBasedCommandBuilder instance.</p>
+</dd></dl>
 
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder.__init__" title="rby1_sdk.ComponentBasedCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
-<td><p></p></td>
+<td><p>Construct a ComponentBasedCommandBuilder instance.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder.set_body_command" title="rby1_sdk.ComponentBasedCommandBuilder.set_body_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_body_command</span></code></a>(self, body_command_builder)</p></td>
-<td><p></p></td>
+<td><p>Assign a body command.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder.set_head_command" title="rby1_sdk.ComponentBasedCommandBuilder.set_head_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_head_command</span></code></a>(self, head_command_builder)</p></td>
-<td><p></p></td>
+<td><p>Assign a head command.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder.set_mobility_command" title="rby1_sdk.ComponentBasedCommandBuilder.set_mobility_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mobility_command</span></code></a>(self, ...)</p></td>
-<td><p></p></td>
+<td><p>Assign a mobility command.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ComponentBasedCommandBuilder.set_body_command">
-<span class="sig-name descname"><span class="pre">set_body_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk._bindings.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk._bindings.ComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">body_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.BodyCommandBuilder.html#rby1_sdk.BodyCommandBuilder" title="rby1_sdk._bindings.BodyCommandBuilder"><span class="pre">rby1_sdk._bindings.BodyCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk._bindings.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk._bindings.ComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.set_body_command" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_body_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk.ComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">body_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.BodyCommandBuilder.html#rby1_sdk.BodyCommandBuilder" title="rby1_sdk.BodyCommandBuilder"><span class="pre">rby1_sdk.BodyCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk.ComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.set_body_command" title="Link to this definition">¶</a></dt>
+<dd><p>Assign a body command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>body_command_builder</strong> (<a class="reference internal" href="rby1_sdk.BodyCommandBuilder.html#rby1_sdk.BodyCommandBuilder" title="rby1_sdk.BodyCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BodyCommandBuilder</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">compatible</span> <span class="pre">builder</span></code>) – Command for the body subsystem. If a lower-level builder is provided
+(e.g., BodyComponentBasedCommandBuilder, JointPositionCommandBuilder),
+it will be automatically wrapped into a BodyCommandBuilder.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentBasedCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ComponentBasedCommandBuilder.set_head_command">
-<span class="sig-name descname"><span class="pre">set_head_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk._bindings.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk._bindings.ComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.HeadCommandBuilder.html#rby1_sdk.HeadCommandBuilder" title="rby1_sdk._bindings.HeadCommandBuilder"><span class="pre">rby1_sdk._bindings.HeadCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk._bindings.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk._bindings.ComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.set_head_command" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_head_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk.ComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.HeadCommandBuilder.html#rby1_sdk.HeadCommandBuilder" title="rby1_sdk.HeadCommandBuilder"><span class="pre">rby1_sdk.HeadCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk.ComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.set_head_command" title="Link to this definition">¶</a></dt>
+<dd><p>Assign a head command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>head_command_builder</strong> (<a class="reference internal" href="rby1_sdk.HeadCommandBuilder.html#rby1_sdk.HeadCommandBuilder" title="rby1_sdk.HeadCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeadCommandBuilder</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">compatible</span> <span class="pre">builder</span></code>) – Command for the head subsystem. If a lower-level builder is provided
+(e.g., JointPositionCommandBuilder),
+it will be automatically wrapped into a HeadCommandBuilder.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentBasedCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.ComponentBasedCommandBuilder.set_mobility_command">
-<span class="sig-name descname"><span class="pre">set_mobility_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk._bindings.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk._bindings.ComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mobility_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.MobilityCommandBuilder.html#rby1_sdk.MobilityCommandBuilder" title="rby1_sdk._bindings.MobilityCommandBuilder"><span class="pre">rby1_sdk._bindings.MobilityCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk._bindings.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk._bindings.ComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.set_mobility_command" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_mobility_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk.ComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mobility_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.MobilityCommandBuilder.html#rby1_sdk.MobilityCommandBuilder" title="rby1_sdk.MobilityCommandBuilder"><span class="pre">rby1_sdk.MobilityCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><span class="pre">rby1_sdk.ComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.ComponentBasedCommandBuilder.set_mobility_command" title="Link to this definition">¶</a></dt>
+<dd><p>Assign a mobility command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mobility_command_builder</strong> (<a class="reference internal" href="rby1_sdk.MobilityCommandBuilder.html#rby1_sdk.MobilityCommandBuilder" title="rby1_sdk.MobilityCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">MobilityCommandBuilder</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">compatible</span> <span class="pre">builder</span></code>) – Command for the mobility subsystem. If a lower-level builder is provided
+(e.g., SE2VelocityCommandBuilder, JointVelocityCommandBuilder),
+it will be automatically wrapped into a MobilityCommandBuilder.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentBasedCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

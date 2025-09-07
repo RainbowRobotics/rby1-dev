@@ -352,17 +352,23 @@
 
 <span class="c1"># from ._robot_command import *</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">overload</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">overload</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Union</span>
 
 
 <span class="nd">@overload</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Robot_A</span><span class="p">:</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_A</span><span class="p">:</span> <span class="o">...</span>
 <span class="nd">@overload</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Robot_M</span><span class="p">:</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_M</span><span class="p">:</span> <span class="o">...</span>
 <span class="nd">@overload</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Robot_T5</span><span class="p">:</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;t5&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_T5</span><span class="p">:</span> <span class="o">...</span>
 <span class="nd">@overload</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Robot_UB</span><span class="p">:</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;ub&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_UB</span><span class="p">:</span> <span class="o">...</span>
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_robot</span><span class="p">(</span>
+    <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_A</span><span class="p">,</span> <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_M</span><span class="p">,</span> <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_T5</span><span class="p">,</span> <span class="n">_bindings</span><span class="o">.</span><span class="n">Robot_UB</span>
+<span class="p">]:</span> <span class="o">...</span>
 
 
 <div class="viewcode-block" id="create_robot">
@@ -381,14 +387,14 @@
 <span class="sd">        Network address of the robot, e.g. &quot;192.168.1.100:50051&quot;.</span>
 <span class="sd">    model_name : str</span>
 <span class="sd">        Robot model identifier (case-insensitive). Supported values are:</span>
-<span class="sd">        </span>
+
 <span class="sd">            - &quot;a&quot;   → Robot_A</span>
 <span class="sd">            - &quot;m&quot;   → Robot_M</span>
 <span class="sd">            - &quot;ub&quot;  → Robot_UB</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    Robot_A or Robot_M or Robot_UB</span>
+<span class="sd">    Robot_A or Robot_M or Robot_T5 or Robot_UB</span>
 <span class="sd">        Configured robot instance corresponding to the specified model.</span>
 
 <span class="sd">    Raises</span>

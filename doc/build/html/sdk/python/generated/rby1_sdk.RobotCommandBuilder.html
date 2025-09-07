@@ -356,16 +356,78 @@
 <dt class="sig sig-object py" id="rby1_sdk.RobotCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RobotCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.RobotCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Robot command builder.</p>
+<p>Top-level builder that aggregates all types of commands into a single
+robot command.
+It can wrap a <strong>WholeBodyCommandBuilder</strong>, <strong>ComponentBasedCommandBuilder</strong>, or
+<strong>JogCommandBuilder</strong>, and is the final object passed to
+<code class="docutils literal notranslate"><span class="pre">robot.send_command(...)</span></code>.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Typically, you do not build this manually for each subsystem.
+Instead, construct subsystem builders (e.g., ComponentBasedCommandBuilder
+with body/head/mobility commands) and wrap them in RobotCommandBuilder.</p></li>
+<li><p>Jog commands can also be wrapped directly for lightweight incremental motions.</p></li>
+<li><p>Implicit casting is supported, so passing compatible builders automatically
+creates the appropriate wrapper.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example 1: Full stop</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stop</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">StopCommandBuilder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">whole</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">WholeBodyCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">whole</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(rc, priority=0).get()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example 2: Move right arm with a joint position command</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">body</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">BodyComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_right_arm_command</span><span class="p">(</span><span class="n">jp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_body_command</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(rc, priority=1).get()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example 3: Send a jog command</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jog</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JogCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_joint_name</span><span class="p">(</span><span class="s2">&quot;right_arm_0&quot;</span><span class="p">)</span> \
+<span class="gp">... </span>    <span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">rby</span><span class="o">.</span><span class="n">JogCommandBuilder</span><span class="o">.</span><span class="n">RelativePosition</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">jog</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(rc, priority=1).get()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.RobotCommandBuilder.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.RobotCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>__init__(self: rby1_sdk._bindings.RobotCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.RobotCommandBuilder, arg0: rby1_sdk._bindings.WholeBodyCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.RobotCommandBuilder, arg0: rby1_sdk._bindings.ComponentBasedCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.RobotCommandBuilder, arg0: rby1_sdk._bindings.JogCommandBuilder) -&gt; None</p></li>
+<li><p>__init__(self: rby1_sdk.RobotCommandBuilder) -&gt; None</p></li>
 </ol>
+<p>Construct a RobotCommandBuilder instance.</p>
+<ol class="arabic simple" start="2">
+<li><p>__init__(self: rby1_sdk.RobotCommandBuilder, whole_body_command_builder: rby1_sdk.WholeBodyCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct a RobotCommandBuilder from a WholeBodyCommandBuilder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>whole_body_command_builder</strong> (<a class="reference internal" href="rby1_sdk.WholeBodyCommandBuilder.html#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk.WholeBodyCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">WholeBodyCommandBuilder</span></code></a>) – Whole-body command wrapper.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>__init__(self: rby1_sdk.RobotCommandBuilder, component_based_command_builder: rby1_sdk.ComponentBasedCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct a RobotCommandBuilder from a ComponentBasedCommandBuilder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component_based_command_builder</strong> (<a class="reference internal" href="rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentBasedCommandBuilder</span></code></a>) – Component-based command wrapper (mobility, body, head).</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="4">
+<li><p>__init__(self: rby1_sdk.RobotCommandBuilder, jog_command_builder: rby1_sdk.JogCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct a RobotCommandBuilder from a JogCommandBuilder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jog_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JogCommandBuilder</span></code></a>) – Jog command wrapper for single-joint incremental motion.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -386,10 +448,41 @@
 <span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.RobotCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>set_command(self: rby1_sdk._bindings.RobotCommandBuilder, whole_body_command_builder: rby1_sdk._bindings.WholeBodyCommandBuilder) -&gt; rby1_sdk._bindings.RobotCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.RobotCommandBuilder, component_based_command_builder: rby1_sdk._bindings.ComponentBasedCommandBuilder) -&gt; rby1_sdk._bindings.RobotCommandBuilder</p></li>
-<li><p>set_command(self: rby1_sdk._bindings.RobotCommandBuilder, jog_command_builder: rby1_sdk._bindings.JogCommandBuilder) -&gt; rby1_sdk._bindings.RobotCommandBuilder</p></li>
+<li><p>set_command(self: rby1_sdk.RobotCommandBuilder, whole_body_command_builder: rby1_sdk.WholeBodyCommandBuilder) -&gt; rby1_sdk.RobotCommandBuilder</p></li>
 </ol>
+<p>Assign a whole-body command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>whole_body_command_builder</strong> (<a class="reference internal" href="rby1_sdk.WholeBodyCommandBuilder.html#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk.WholeBodyCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">WholeBodyCommandBuilder</span></code></a>) – Command to apply to the entire robot.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder" title="rby1_sdk.RobotCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">RobotCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="2">
+<li><p>set_command(self: rby1_sdk.RobotCommandBuilder, component_based_command_builder: rby1_sdk.ComponentBasedCommandBuilder) -&gt; rby1_sdk.RobotCommandBuilder</p></li>
+</ol>
+<p>Assign a component-based command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component_based_command_builder</strong> (<a class="reference internal" href="rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentBasedCommandBuilder</span></code></a>) – Command to apply to subsystems (mobility, body, head).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder" title="rby1_sdk.RobotCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">RobotCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>set_command(self: rby1_sdk.RobotCommandBuilder, jog_command_builder: rby1_sdk.JogCommandBuilder) -&gt; rby1_sdk.RobotCommandBuilder</p></li>
+</ol>
+<p>Assign a jog command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jog_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JogCommandBuilder</span></code></a>) – Jog command for single-joint incremental motion.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder" title="rby1_sdk.RobotCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">RobotCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

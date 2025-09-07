@@ -356,14 +356,50 @@
 <dt class="sig sig-object py" id="rby1_sdk.HeadCommandBuilder">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HeadCommandBuilder</span></span><a class="headerlink" href="#rby1_sdk.HeadCommandBuilder" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<p>Head command builder.</p>
+<p>Wraps commands for the robot head.
+Currently, it supports <strong>JointPositionCommandBuilder</strong> to control the head joints.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>You can pass a JointPositionCommandBuilder directly into
+<code class="docutils literal notranslate"><span class="pre">set_head_command(...)</span></code> without explicitly wrapping it in a HeadCommandBuilder,
+since implicit casting is provided.</p></li>
+<li><p>Explicit construction is only needed if you want to be verbose; otherwise,
+<code class="docutils literal notranslate"><span class="pre">set_head_command(JointPositionCommandBuilder(...))</span></code> is sufficient.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">rby1_sdk</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example 1: Explicit HeadCommandBuilder</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># assume 2 DOF head</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">head</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">HeadCommandBuilder</span><span class="p">(</span><span class="n">jp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_head_command</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># robot.send_command(rc, priority=1).get()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example 2: Implicit wrapping (preferred)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">ComponentBasedCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_head_command</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">rby</span><span class="o">.</span><span class="n">JointPositionCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">RobotCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.HeadCommandBuilder.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.HeadCommandBuilder.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
-<li><p>__init__(self: rby1_sdk._bindings.HeadCommandBuilder) -&gt; None</p></li>
-<li><p>__init__(self: rby1_sdk._bindings.HeadCommandBuilder, arg0: rby1_sdk._bindings.JointPositionCommandBuilder) -&gt; None</p></li>
+<li><p>__init__(self: rby1_sdk.HeadCommandBuilder) -&gt; None</p></li>
 </ol>
+<p>Construct a HeadCommandBuilder instance.</p>
+<ol class="arabic simple" start="2">
+<li><p>__init__(self: rby1_sdk.HeadCommandBuilder, joint_position_command_builder: rby1_sdk.JointPositionCommandBuilder) -&gt; None</p></li>
+</ol>
+<p>Construct a HeadCommandBuilder from a joint position command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_position_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a>) – Command specifying target joint positions for the head.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -374,15 +410,24 @@
 <td><p>Overloaded function.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.HeadCommandBuilder.set_command" title="rby1_sdk.HeadCommandBuilder.set_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command</span></code></a>(self, joint_position_command_builder)</p></td>
-<td><p></p></td>
+<td><p>Assign a joint position command to the head.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.HeadCommandBuilder.set_command">
-<span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.HeadCommandBuilder" title="rby1_sdk._bindings.HeadCommandBuilder"><span class="pre">rby1_sdk._bindings.HeadCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_position_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk._bindings.JointPositionCommandBuilder"><span class="pre">rby1_sdk._bindings.JointPositionCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.HeadCommandBuilder" title="rby1_sdk._bindings.HeadCommandBuilder"><span class="pre">rby1_sdk._bindings.HeadCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.HeadCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.HeadCommandBuilder" title="rby1_sdk.HeadCommandBuilder"><span class="pre">rby1_sdk.HeadCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_position_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><span class="pre">rby1_sdk.JointPositionCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.HeadCommandBuilder" title="rby1_sdk.HeadCommandBuilder"><span class="pre">rby1_sdk.HeadCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.HeadCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
+<dd><p>Assign a joint position command to the head.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>joint_position_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JointPositionCommandBuilder.html#rby1_sdk.JointPositionCommandBuilder" title="rby1_sdk.JointPositionCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointPositionCommandBuilder</span></code></a>) – Joint position command for the head.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rby1_sdk.HeadCommandBuilder" title="rby1_sdk.HeadCommandBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeadCommandBuilder</span></code></a> – Self reference for method chaining.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
