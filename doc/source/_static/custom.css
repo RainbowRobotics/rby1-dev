@@ -1,0 +1,68 @@
+.sd-card.tight-pad .sd-card-body {
+    padding: 0.5rem;
+}
+
+.sd-card.tight-pad .sd-card-header {
+    padding: 0.35rem 0.5rem;
+}
+
+.sd-card.tight-pad iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    border: 0;
+    display: block;
+}
+
+.rb-version-row {
+  margin-bottom: 0.8rem;
+  padding-left: var(--sidebar-item-padding-horizontal, 1rem);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-foreground-primary);
+  opacity: 0.9;
+}
+
+/* "SDK Version:" 라벨 */
+.rb-version-label {
+  font-weight: 500;
+}
+
+/* select 스타일 */
+#rb-version-select {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--color-foreground-border, rgba(0,0,0,.15));
+  background: var(--color-background-secondary, #f7f7f8);
+  color: var(--color-foreground-primary, #111);
+}
+
+#rb-version-select:hover {
+  border-color: var(--color-brand-primary, rgba(0,0,0,.3));
+}
+
+/* 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  #rb-version-select {
+    background: var(--color-background-secondary);
+    color: var(--color-foreground-primary);
+    border-color: rgba(255,255,255,.15);
+  }
+}
+
+.sidebar-scroll {
+  visibility: visible;
+  /* scroll-behavior: auto !important; */
+}
+
+/* .sidebar-scroll {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sidebar-scroll.sidebar-ready {
+  opacity: 1;
+} */

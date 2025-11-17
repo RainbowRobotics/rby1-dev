@@ -76,6 +76,7 @@ Robot Command Builder
    :nosignatures:
 
    RobotCommandBuilder
+   CommandHeaderBuilder
    WholeBodyCommandBuilder
    ComponentBasedCommandBuilder
    HeadCommandBuilder
@@ -96,7 +97,6 @@ Robot Command Builder
    JointImpedanceControlCommandBuilder
    JointGroupPositionCommandBuilder
    JointPositionCommandBuilder
-   CommandHeaderBuilder
 
 Robot Command Feedback
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -105,6 +105,9 @@ Robot Command Feedback
    :toctree: generated
    :nosignatures:
 
+   Feedback
+   CommandHeaderFeedback
+   CommandFeedback
    RobotCommandFeedback
    WholeBodyCommandFeedback
    ComponentBasedCommandFeedback
@@ -126,7 +129,6 @@ Robot Command Feedback
    JointImpedanceControlCommandFeedback
    JointGroupPositionCommandFeedback
    JointPositionCommandFeedback
-   CommandHeaderFeedback
 
 Modules
 -------

@@ -1,55 +1,83 @@
 # Minimal makefile for Sphinx documentation
-#
 
-# You can set these variables from the command line, and also
-# from the environment for the first two.
+# ------------------------------------------------------------------------------
+# Sphinx 기본 설정
+# ------------------------------------------------------------------------------
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = source
-BUILDDIR      = build
+SOURCEDIR      = source
+BUILDDIR       = build
 
 # ------------------------------------------------------------------------------
-# protoc-gen-doc (Docker) settings
+# SDK 버전별 빌드 설정 (버전 폴더 출력 + external SDK 태그 고정)
 # ------------------------------------------------------------------------------
-DOCKER              ?= docker
-PROTOC_IMAGE        ?= pseudomuto/protoc-gen-doc:latest
+SDK_TAG ?= dev
 
-# rby1-sdk proto 소스 경로 (문서 레포 기준 상대경로: ../external/rby1-sdk/protos)
-# 필요 시: make html PROTO_SRC=/abs/path/to/rby1-sdk/protos
-PROTO_SRC           ?= $(abspath $(CURDIR)/../external/rby1-sdk/protos)
+REPO_ROOT        := $(abspath $(CURDIR)/..)
+EXTERNAL_SDK_DIR := $(REPO_ROOT)/external/rby1-sdk
 
-# 생성물(md) 출력 디렉토리와 파일명
-PROTO_OUT_DIR       ?= $(CURDIR)/$(SOURCEDIR)/sdk/protos/generated
-PROTO_DOC_NAME      ?= protos.md
-
-# 어떤 proto들을 문서화할지 (기본: rb/api/*.proto)
-# 전체를 원하면: make html PROTO_GLOB='**/*.proto'
-PROTO_GLOB          ?= rb/api/*.proto
+OUTDIR       = $(BUILDDIR)/html/$(SDK_TAG)
+DOCTREES_DIR = $(BUILDDIR)/doctrees-$(SDK_TAG)
 
 # ------------------------------------------------------------------------------
-# Put it first so that "make" without argument is like "make help".
+# Python / pip
+# ------------------------------------------------------------------------------
+PYTHON ?= python3
+PIP    ?= $(PYTHON) -m pip
+
+# 커밋 캐시 파일(여기에 마지막 설치한 커밋을 저장)
+STAMPS_DIR        := $(BUILDDIR)/.stamps
+SDK_COMMIT_FILE   := $(STAMPS_DIR)/rby1-sdk.commit
+
+# ------------------------------------------------------------------------------
+# protoc-gen-doc (Docker)
+# ------------------------------------------------------------------------------
+DOCKER        ?= docker
+PROTOC_IMAGE  ?= pseudomuto/protoc-gen-doc:latest
+PROTO_SRC     ?= $(abspath $(CURDIR)/../external/rby1-sdk/protos)
+PROTO_OUT_DIR ?= $(CURDIR)/$(SOURCEDIR)/sdk/protos/generated
+PROTO_DOC_NAME ?= protos.md
+PROTO_GLOB    ?= rb/api/*.proto
+
+# ------------------------------------------------------------------------------
+# Doxygen (C++)
+# ------------------------------------------------------------------------------
+DOXYFILE        ?= $(CURDIR)/Doxyfile
+DOXYGEN_XML_DIR ?= $(CURDIR)/build/doxygen/xml
+
+# ------------------------------------------------------------------------------
+# PHONY
+# ------------------------------------------------------------------------------
+.PHONY: help protoc-doc clean-proto doxygen-doc clean-doxygen \
+        html html-version sdk-pin sdk-install clean clean-version
+
+# ------------------------------------------------------------------------------
+# Help
+# ------------------------------------------------------------------------------
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo
 	@echo "Extra targets:"
-	@echo "  protoc-doc     Generate Markdown docs from .proto using Docker (protoc-gen-doc)"
-	@echo "  clean-proto    Remove generated proto docs"
-
-.PHONY: help Makefile protoc-doc clean-proto doxygen-doc clean-doxygen
+	@echo "  html              Build docs for SDK_TAG into build/html/SDK_TAG (versioned)"
+	@echo "  clean             Clean Sphinx build + generated artifacts"
+	@echo "  clean-version     Clean only current SDK_TAG outputs"
+	@echo "  protoc-doc        Generate Markdown docs from .proto using Docker"
+	@echo "  clean-proto       Remove generated proto docs"
+	@echo "  doxygen-doc       Generate Doxygen XML"
+	@echo "  clean-doxygen     Remove Doxygen outputs"
+	@echo
+	@echo "Variables:"
+	@echo "  SDK_TAG=v0.9.0 (default)"
+	@echo "  PROTO_SRC=...             # Path to rby1-sdk/protos"
+	@echo "  PROTO_GLOB=rb/api/*.proto # Which protos to include"
 
 # ------------------------------------------------------------------------------
 # Generate proto docs (Docker)
-# - mounts:
-#   $(PROTO_OUT_DIR) -> /out
-#   $(PROTO_SRC)     -> /protos
-# - shell:
-#   bash -lc 'shopt -s globstar nullglob; protoc ... /protos/$(PROTO_GLOB)'
-#   (globstar로 **/*.proto 같은 패턴도 확장 가능)
 # ------------------------------------------------------------------------------
 protoc-doc:
 	@mkdir -p "$(PROTO_OUT_DIR)"
 	@echo "[protoc-doc] Using PROTO_SRC=$(PROTO_SRC)"
-	@echo "[protoc-doc] Writing to   PROTO_OUT_DIR=$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
+	@echo "[protoc-doc] Writing to $(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
 	@$(DOCKER) run --rm \
 	  -v "$(PROTO_OUT_DIR):/out" \
 	  -v "$(PROTO_SRC):/protos" \
@@ -66,38 +94,67 @@ clean-proto:
 	@rm -f "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
 
 # ------------------------------------------------------------------------------
-# Doxygen (C++) settings
+# Doxygen (C++) via container
 # ------------------------------------------------------------------------------
-DOXYGEN           ?= doxygen
-DOXYFILE          ?= $(CURDIR)/Doxyfile
-DOXYGEN_XML_DIR   ?= $(CURDIR)/build/doxygen/xml
-
 doxygen-doc:
 	@echo "[doxygen] Using DOXYFILE=$(DOXYFILE)"
-	@$(DOXYGEN) "$(DOXYFILE)"
-	@echo "[doxygen] XML generated at $(DOXYGEN_XML_DIR)"
+	@echo "[doxygen] Writing to DOXYGEN_XML_DIR=$(DOXYGEN_XML_DIR)"
+	@$(DOCKER) run --rm \
+	  -v "$(CURDIR):/data" \
+	  -v "$(CURDIR)/../external:/external" \
+	  nakatt/doxygen
 
 clean-doxygen:
 	@echo "[doxygen] Removing $(DOXYGEN_XML_DIR)"
 	@rm -rf "$(DOXYGEN_XML_DIR)"
 
 # ------------------------------------------------------------------------------
-# Sphinx "make mode" (default catch-all)
+# SDK 태그 고정 (submodule fetch & checkout)
 # ------------------------------------------------------------------------------
+sdk-pin:
+	@echo "[sdk-pin] Using EXTERNAL_SDK_DIR=$(EXTERNAL_SDK_DIR)"
+	@git -C "$(REPO_ROOT)" submodule update --init --recursive external/rby1-sdk
+	@git -C "$(EXTERNAL_SDK_DIR)" fetch --tags --prune
+	@git -C "$(EXTERNAL_SDK_DIR)" checkout --recurse-submodules "$(SDK_TAG)"
+	@echo "[sdk-pin] Checked out $(SDK_TAG)"
 
-# html 빌드 전에 proto 문서를 자동 생성하고 싶다면, html 규칙을 래핑합니다.
-# (이 규칙이 있으면 아래의 catch-all 대신 이 규칙이 실행됩니다)
-html: protoc-doc doxygen-doc
-	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+# ------------------------------------------------------------------------------
+# SDK 설치 (Poetry 백엔드 호환: 일반 설치) — 커밋 비교로 스킵
+# ------------------------------------------------------------------------------
+sdk-install: sdk-pin
+	@mkdir -p "$(STAMPS_DIR)"
+	@CUR_COMMIT=$$(git -C "$(EXTERNAL_SDK_DIR)" rev-parse --short=12 HEAD 2>/dev/null || echo unknown); \
+	if [ -f "$(SDK_COMMIT_FILE)" ] && [ "$$(cat $(SDK_COMMIT_FILE))" = "$$CUR_COMMIT" ]; then \
+		echo "[sdk-install] skip (rby1-sdk @ $$CUR_COMMIT already installed)"; \
+	else \
+		echo "[sdk-install] installing rby1-sdk @ $(SDK_TAG) (commit $$CUR_COMMIT)"; \
+		$(PIP) install --no-deps "$(EXTERNAL_SDK_DIR)"; \
+		echo "$$CUR_COMMIT" > "$(SDK_COMMIT_FILE)"; \
+	fi
 
+# ------------------------------------------------------------------------------
+# Versioned HTML build
+# ------------------------------------------------------------------------------
+html: html-version
+
+html-version: sdk-pin sdk-install protoc-doc doxygen-doc
+	@echo "[sphinx] Build SDK_TAG=$(SDK_TAG) -> $(OUTDIR)"
+	@mkdir -p "$(OUTDIR)"
+	@SDK_VERSION=$(SDK_TAG) \
+	  $(SPHINXBUILD) -b html -d "$(DOCTREES_DIR)" "$(SOURCEDIR)" "$(OUTDIR)" $(SPHINXOPTS)
+
+# ------------------------------------------------------------------------------
+# Clean
+# ------------------------------------------------------------------------------
 clean: clean-proto clean-doxygen
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-# 다른 타깃(dirhtml 등)은 필요하면 같은 방식으로 감싸세요.
-# 예) dirhtml: protoc-doc
-#       @$(SPHINXBUILD) -M dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+clean-version:
+	@echo "[clean-version] Removing $(OUTDIR) and $(DOCTREES_DIR)"
+	@rm -rf "$(OUTDIR)" "$(DOCTREES_DIR)"
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+# ------------------------------------------------------------------------------
+# Catch-all
+# ------------------------------------------------------------------------------
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

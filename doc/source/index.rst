@@ -1,31 +1,130 @@
-.. RB-Y1 documentation master file
+.. meta::
+   :description: RB-Y1 Dual-Arm Mobile Manipulator — Developer & Expert Manual
+   :keywords: Rainbow Robotics, RB-Y1, dual-arm, manipulator, SDK, real-time control, robotics
 
-RB-Y1 Manual & SDK
-==================
+.. title:: RB-Y1 Developer Manual
+
+===============================
+RB-Y1 Developer & Expert Manual
+===============================
+
+.. image:: _static/images/brand/hero-image.png
+   :alt: RB-Y1
+   :align: center
+   :width: 800px
+
+Designed for **developers**, this manual covers the RB-Y1 dual-arm mobile manipulator——its real-time software stack, 
+APIs, setup workflows, and integration guidelines. The RB-Y1 provides *two 7-DoF arms* for coordinated manipulation, high-precision 
+actuation and sensing, and a modular architecture suitable for research and production environments.
+
+.. note::
+   **Audience** — This documentation targets **robotics developers, integrators, and researchers** who require low-level access, deterministic behavior, and clear contracts between hardware, control, and client applications.
+
+What’s in this manual
+---------------------
+
+This site is organized around the complete lifecycle of using RB-Y1:
+
+- **Getting started** — Unboxing, power & safety basics, hotspot/WebUI access, and first motion
+  (see :doc:`getting-started/index`).
+- **Software & SDKs** — C++/Python SDK concepts, data models, real-time streaming, command semantics,
+  examples, and troubleshooting (see :doc:`software/index`).
+- **Models** — URDF, meshes, and visualization assets for simulators and viewers
+  (see :doc:`models/overview`).
+- **Examples** — End-to-end samples and best practices for control, logging, and integration
+  (see :doc:`examples/index`).
+
+Quick links
+-----------
+
+- :doc:`getting-started/unboxing`
+- :doc:`getting-started/hotspot-and-webui`
+- :doc:`getting-started/estop-basics`
+- :doc:`getting-started/sdk-install-and-state`
+- :doc:`sdk/cpp/index`
+- :doc:`sdk/protos/index`
+- :doc:`getting-started/troubleshooting`
+
+System highlights
+-----------------
+
+- **Dual-arm manipulation** — Two 7-DoF arms enable simultaneous, complex tasks.
+- **Precision & stability** — High-precision actuators/encoders for accurate, repeatable motion.
+- **Modular design** — Scalable structure adaptable to varied requirements.
+- **Real-time control & integration** — Deterministic communication/control, clean integration points
+  to higher-level systems and policies.
+
+Before you begin
+----------------
+
+- **Safety first** — Review :doc:`getting-started/estop-basics` and site safety policies.
+- **Environment** — Ensure a supported Linux/Windows development host with real-time requirements
+  where applicable.
+- **Network** — Confirm access via RB-Y1 hotspot or your site network (:doc:`getting-started/hotspot-and-webui`).
+- **SDK** — Install the SDK and verify state streaming (:doc:`sdk/install-and-state`).
+
+Support & licensing
+-------------------
+
+- **License** — *rby1-sdk* is released under **Apache 2.0**.
+- **Issues & help** — Use your support channel or contact your Rainbow Robotics representative with
+  logs, repro steps, and software versions.
+
+——
+
+*© 2024-2025 Rainbow Robotics. All rights reserved.*
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
+   :maxdepth: 1
    :caption: Getting Started
 
+   getting-started/hello_rby1
    getting-started/index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Hardware
+   :hidden:
+   :maxdepth: 1
+   :caption: Models
 
-   hardware/index
+   models/overview
+   models/options_and_accessories
+   models/model_a
+   models/model_m
+   models/model_ub
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
+   :maxdepth: 1
+   :caption: Hardware
+
+   hardware/overview
+   hardware/mechanical_part
+   hardware/electronical_part
+   hardware/motor_driver
+   hardware/battery
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
    :caption: Software
 
    software/index
-   models/index
-   options/index
+   software/simulation
    examples/index
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
+   :maxdepth: 1
+   :caption: Maintenance
+
+   maintenance/index
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
    :caption: SDK
 
-   sdk/index
+   sdk/python/index
+   sdk/cpp/index
+   sdk/protos/index

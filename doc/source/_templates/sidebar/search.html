@@ -1,0 +1,32 @@
+<div class="rb-version-row">
+  <span class="rb-version-label">SDK Version:</span>
+  {% if available_versions and version_base_prefix is defined %}
+    <select id="rb-version-select" aria-label="SDK/Doc version">
+      {% for v in available_versions %}
+        <option value="{{ v }}" {% if v == sdk_version %}selected{% endif %}>{{ v }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <span class="rb-version-text">{{ sdk_version }}</span>
+  {% endif %}
+</div>
+
+<form class="sidebar-search-container" method="get" action="{{ pathto('search') }}" role="search">
+  <input class="sidebar-search" placeholder="{{ _(" Search") }}" name="q" aria-label="{{ _(" Search" ) }}">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div>
+
+<script>
+  (function(){
+    var sel = document.getElementById('rb-version-select');
+    if (!sel) return;
+    sel.addEventListener('change', function(){
+      var v = sel.value;
+      var prefix = "{{ version_base_prefix }}";
+      if (!prefix.endsWith("/")) prefix += "/";
+      window.location.href = prefix + v + "/";
+    });
+  })();
+</script>

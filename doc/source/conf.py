@@ -1,29 +1,26 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
 from __future__ import annotations
 import os
 import sys
+import pathlib
+import importlib
 
-# -- Environment setup ---------------------------------------------------
-# RBY1_DOCS_VERSION
-# RBY1_SDK_VERSION
+# ── 환경변수에서 SDK 버전 수신 ──────────────────────────────────────
+SDK_VERSION = os.getenv("SDK_VERSION", os.getenv("RBY1_SDK_VERSION", "dev"))
+AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "main dev").split()
+VERSION_BASE_PREFIX = os.getenv("VERSION_BASE_PREFIX", "/")
 
-# -- Project information -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-
+# ── Project information ───────────────────────────────────────────────
 project = "RB-Y1 Hardware & SDK Manual"
-copyright = "2025, Rainbow Robotics"
-release = os.environ.get("RBY1_DOCS_VERSION", "latest")
 author = "Rainbow Robotics"
+copyright = "2025, Rainbow Robotics"
 
+# 문서 버전 표기는 SDK 기준
+version = SDK_VERSION
+release = SDK_VERSION
+html_title = f"RB-Y1 Documentation"
 
-# -- General configuration -----------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+# ── General configuration ─────────────────────────────────────────────
 extensions = [
-    # core
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
@@ -31,20 +28,17 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
     "sphinx.ext.autosectionlabel",
-    # Docstring parser (Napoleon: NumPy/Google 스타일)
     "sphinx.ext.napoleon",
-    # Markdown
     "myst_parser",
-    # C++ via Doxygen XML
     "breathe",
-    # UX
     "sphinx_copybutton",
+    "sphinx_design",
 ]
 
 templates_path = ["_templates"]
 exclude_patterns = []
 
-# -- MyST parser options -------------------------------------------------
+# ── MyST parser options ───────────────────────────────────────────────
 myst_enable_extensions = [
     "colon_fence",
     "deflist",
@@ -54,7 +48,7 @@ myst_enable_extensions = [
 ]
 myst_heading_anchors = 3
 
-# -- Autosummary / Autodoc options ---------------------------------------
+# ── Autodoc / Autosummary ─────────────────────────────────────────────
 autosummary_generate = True
 autosummary_imported_members = True
 autodoc_member_order = "groupwise"
@@ -69,82 +63,50 @@ autodoc_default_options = {
     "show-inheritance": False,
 }
 
-# -- Intersphinx options -------------------------------------------------
+# ── Intersphinx mapping ───────────────────────────────────────────────
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
     "scipy": ("https://docs.scipy.org/doc/scipy/", None),
-    "typing": ("https://docs.python.org/3/library/typing.html", None),
 }
 
-# -- HTML/Furo theme options ---------------------------------------------
+# ── HTML Theme (Furo) ─────────────────────────────────────────────────
 html_theme = "furo"
 html_static_path = ["_static"]
-html_css_files = [
-    # "numpydoc-tweaks.css",   # optional: see file below
-]
-html_title = "RB-Y1 Documentation"
-html_theme_options = {
-    # "announcement": "<em>Important</em> announcement!",
+html_css_files = ["custom.css"]
+html_js_files = ["sidebar-scroll-to-clicked.js"]
+html_theme_options = {}
+
+# 검색창 아래에 표시할 SDK 버전 컨텍스트
+html_context = {
+    "sdk_version": SDK_VERSION,
+    "available_versions": AVAILABLE_VERSIONS,
+    "version_base_prefix": VERSION_BASE_PREFIX,
 }
 
-# -- Warnings / nitpicky -------------------------------------------------
-nitpicky = False
-suppress_warnings = ["myst.header", "ref.citation"]
+# RST/Markdown 내에서 |sdk_version| 사용 가능
+rst_epilog = f"""
+.. |sdk_version| replace:: {SDK_VERSION}
+"""
 
-# -- Breathe (C++ from Doxygen XML) --------------------------------------
-import pathlib
-
-ROOT = pathlib.Path(__file__).resolve().parent.parent  # docs/ 기준 상위(루트) 추정
-_breathe_xml = os.environ.get(
-    "DOXYGEN_XML",
-    str(ROOT / "docs" / "build" / "doxygen" / "xml")  # Doxyfile의 OUTPUT_DIRECTORY/XML_OUTPUT에 맞춤
-)
-
+# ── Breathe (C++ from Doxygen XML) ────────────────────────────────────
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+_breathe_xml = os.environ.get("DOXYGEN_XML", str(ROOT / "build" / "doxygen" / "xml"))
 breathe_projects = {"rby1-sdk": _breathe_xml}
 breathe_default_project = "rby1-sdk"
-
+breathe_use_project_refids = True
 breathe_domain_by_extension = {
-    "h": "cpp", "hpp": "cpp", "hh": "cpp", "ipp": "cpp",
-    "c": "c", "cc": "cpp", "cpp": "cpp"
+    "h": "cpp",
+    "hpp": "cpp",
+    "hh": "cpp",
+    "ipp": "cpp",
+    "c": "c",
+    "cc": "cpp",
+    "cpp": "cpp",
 }
 
-# 선택: 멤버 표시 정책
-breathe_default_members = ("members", "undoc-members")
 
-# -- Copybutton ----------------------------------------------------------
-copybutton_prompt_text = r">>> |\.\.\. "
-copybutton_prompt_is_regexp = True
-
-# -- Make toctree refs unique across files -------------------------------
-autosectionlabel_prefix_document = True
-
-# -- Napoleon options ----------------------------------------------------
-napoleon_numpy_docstring = True
-napoleon_google_docstring = False
-napoleon_preprocess_types = True
-napoleon_use_param = True
-napoleon_use_rtype = False
-napoleon_attr_annotations = True
-napoleon_type_aliases = {
-    "ndarray": "numpy.ndarray",
-    "ArrayLike": "numpy.typing.ArrayLike",
-    "Dict": "typing.Dict",
-    "List": "typing.List",
-    "Tuple": "typing.Tuple",
-    "Optional": "typing.Optional",
-}
-
-# -- Python Code Block ---------------------------------------------------
-pygments_style = "sphinx"
-pygments_dark_style = "monokai"
-
-# ──────────────────────────────────────────────────────────────────────────────
-# Pybind11: make public objects show as rby1_sdk.* (not rby1_sdk._bindings.*)
-# ──────────────────────────────────────────────────────────────────────────────
-import importlib
-
-
+# ── Pybind11 remap ───────────────────────────────────────────────────
 def _remap_pybind_modules():
     try:
         import rby1_sdk
@@ -160,10 +122,6 @@ def _remap_pybind_modules():
                 except Exception:
                     pass
 
-    # top-level
-    # _patch_module_names(rby1_sdk)
-
-    # 하위 모듈도 가능하면 불러와서 패치
     for sub in ("math", "upc", "dynamics"):
         try:
             smod = importlib.import_module(f"rby1_sdk.{sub}")
@@ -175,31 +133,20 @@ def _remap_pybind_modules():
 _remap_pybind_modules()
 
 
-# ──────────────────────────────────────────────────────────────────────────────
-# Autodoc: skip private attrs & compiled internals
-# ──────────────────────────────────────────────────────────────────────────────
-# def skip_member(app, what, name, obj, skip, options):
-#     # Hide internal compiled namespaces such as rby1_sdk._bindings.*
-#     if name.startswith("_") and not name.startswith("__"):
-#         return True
-#     mod = getattr(obj, "__module__", "") if obj is not None else ""
-#     if isinstance(mod, str) and mod.startswith("rby1_sdk._bindings"):
-#         return False  # still show public symbols remapped above
-#     return skip
-
-
-# def setup(app):
-#     app.connect("autodoc-skip-member", skip_member)
-
-# conf.py
-def _strip_bindings_in_signature(app, what, name, obj, options, signature, return_annotation):
+# ── Autodoc Hooks ─────────────────────────────────────────────────────
+def _strip_bindings_in_signature(
+    app, what, name, obj, options, signature, return_annotation
+):
     def rep(s):
         return s.replace("._bindings", "") if s else s
+
     return rep(signature), rep(return_annotation)
+
 
 def _strip_bindings_in_docstring(app, what, name, obj, options, lines):
     for i, line in enumerate(lines):
         lines[i] = line.replace("._bindings", "")
+
 
 def setup(app):
     app.connect("autodoc-process-signature", _strip_bindings_in_signature)

@@ -19,6 +19,7 @@
     - [CartesianImpedanceControlCommand.Feedback](#rb-api-CartesianImpedanceControlCommand-Feedback)
     - [CartesianImpedanceControlCommand.JointLimit](#rb-api-CartesianImpedanceControlCommand-JointLimit)
     - [CartesianImpedanceControlCommand.JointPositionTarget](#rb-api-CartesianImpedanceControlCommand-JointPositionTarget)
+    - [CartesianImpedanceControlCommand.NullspaceJointTarget](#rb-api-CartesianImpedanceControlCommand-NullspaceJointTarget)
     - [CartesianImpedanceControlCommand.Request](#rb-api-CartesianImpedanceControlCommand-Request)
     - [CartesianImpedanceControlCommand.SE3PoseTarget](#rb-api-CartesianImpedanceControlCommand-SE3PoseTarget)
     - [GravityCompensationCommand](#rb-api-GravityCompensationCommand)
@@ -619,6 +620,25 @@
 
 
 
+<a name="rb-api-CartesianImpedanceControlCommand-NullspaceJointTarget"></a>
+
+### CartesianImpedanceControlCommand.NullspaceJointTarget
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target_position | [double](#double) | repeated | Length: DOF |
+| weight | [double](#double) | repeated | Length: DOF, [0, inf), default = 1 |
+| k_p | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  | default = 0.2 |
+| k_d | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  | default = 0.2 |
+| cost_weight | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  | default = 1e-3 |
+
+
+
+
+
+
 <a name="rb-api-CartesianImpedanceControlCommand-Request"></a>
 
 ### CartesianImpedanceControlCommand.Request
@@ -639,6 +659,7 @@
 | joint_torque_limit | [double](#double) | repeated |  |
 | joint_limits | [CartesianImpedanceControlCommand.JointLimit](#rb-api-CartesianImpedanceControlCommand-JointLimit) | repeated |  |
 | reset_reference | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  | default = false |
+| nullspace_joint_target | [CartesianImpedanceControlCommand.NullspaceJointTarget](#rb-api-CartesianImpedanceControlCommand-NullspaceJointTarget) |  |  |
 
 
 

@@ -28,12 +28,10 @@
       Robot
       RobotConfiguration
       Robot_18
-      Robot_23
       Robot_24
       Robot_26
       State
       State_18
-      State_23
       State_24
       State_26
    
