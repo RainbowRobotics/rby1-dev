@@ -1,12 +1,15 @@
 # Overview
-<!-- ```{figure} /images/robot-joint-configuration.png
-:align: center
-:width: 80%
 
-Robot joint configuration
-``` -->
+```{figure} ../_static/images/hardware/overview/robot-joint-configuration.png
+   :alt: robot joint configuration
+   :align: center
+   :width: 400px
+   :class: white_bg
+   ```
 
+---
 ## Technical Specifications
+<br>
 
 ### General Specifications
 | **Attribute**                        | **Value**                        |
@@ -17,13 +20,14 @@ Robot joint configuration
 | **Weight**                           | 131 kg                           |
 | **Arm Payload**                      | 3 kg (per arm)                   |
 | **Arm Reach**                        | 600 mm (to wrist) + hand         |
-| **Joint Maximum Speed, Angle Range** | See below                        |
+| **Joint Maximum Speed, Angle Range** | See [Joint Maximum Speed and Angle Range](#joint-maximum-speed-and-angle-range)|
 | **Power Supply Voltage**             | 48 VDC                           |
 | **Ambient Operating Temperature**    | Up to 40 °C                      |
 | **Arm Repeatability**                | < ±0.05 mm                       |
 | **Exterior Materials**               | Aluminum                         |
 | **Mobile Base Speed**                | 1.5 m/s                          |
 
+---
 ### Degrees of Freedom
 | **Part**  | **# of DOF** |
 | --------- | ------------ |
@@ -33,6 +37,7 @@ Robot joint configuration
 | Head      | 2 DOF        |
 | **Total** | **24 DOF**   |
 
+---
 ### Weight
 | **Part**    | **Weight (kg)**           |
 | ----------- | ------------------------- |
@@ -41,6 +46,7 @@ Robot joint configuration
 | Mobile base | 51                        |
 | **Total**   | **131**                   |
 
+---
 ### Joint Maximum Speed and Angle Range
 | **Joint**                | **Speed** | **Range**                           |
 | ------------------------ | --------- | ----------------------------------- |
@@ -59,9 +65,3 @@ Robot joint configuration
 | *_arm_6 (Wrist yaw2)     | 180°/s    | -170° ~ 170°                        |
 | head_0 (Pan)             | 180°/s    | -30° ~ 30°                          |
 | head_1 (Tilt)            | 180°/s    | -20° ~ 90°                          |
-
----
-
-```{note}
-The "Degrees of Freedom", "Weight", and "Joint Maximum Speed and Angle Range" sections above provide detailed breakdowns referenced in the General Specifications table.
-```

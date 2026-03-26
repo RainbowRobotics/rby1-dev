@@ -82,16 +82,16 @@ Support & licensing
    getting-started/hello_rby1
    getting-started/index
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Models
+.. .. toctree:
+..    :hidden:
+..    :maxdepth: 1
+..    :caption: Models
 
-   models/overview
-   models/options_and_accessories
-   models/model_a
-   models/model_m
-   models/model_ub
+..    models/overview
+..    models/model_a
+..    models/model_m
+..    models/model_ub
+..    models/model_version
 
 .. toctree::
    :hidden:
@@ -101,7 +101,9 @@ Support & licensing
    hardware/overview
    hardware/mechanical_part
    hardware/electronical_part
-   hardware/motor_driver
+
+   .. hardware/motor_driver
+
    hardware/battery
 
 .. toctree::
@@ -109,22 +111,44 @@ Support & licensing
    :maxdepth: 1
    :caption: Software
 
-   software/index
-   software/simulation
-   examples/index
+   .. software/index
+
+   software/architecture
+   software/robot_main_program
+
+   .. examples/index
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Options
+
+   options/gripper
+   options/master_arm
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Maintenance
 
-   maintenance/index
+   maintenance/detaching_guide
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: SDK
 
+   sdk/models/index
    sdk/python/index
    sdk/cpp/index
    sdk/protos/index
+   sdk/controllers/index
+   sdk/trobuleshooting/index
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Examples
+
+   examples/c++_ex
+   examples/python_ex

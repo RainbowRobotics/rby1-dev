@@ -88,10 +88,16 @@ protoc-doc:
 	      --doc_out=/out \
 	      --doc_opt=markdown,$(PROTO_DOC_NAME) \
 	      /protos/$(PROTO_GLOB)'
+	@sudo python3 scripts/patch_protos_md.py "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
+	@sudo python3 scripts/generate_proto_type_pages.py
+	@sudo python3 scripts/generate_proto_catalog.py
+	
 
 clean-proto:
 	@echo "[clean-proto] Removing $(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
 	@rm -f "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
+	@rm -f "$(PROTO_OUT_DIR)/proto_types.rst"
+	@rm -rf "$(PROTO_OUT_DIR)/types"
 
 # ------------------------------------------------------------------------------
 # Doxygen (C++) via container

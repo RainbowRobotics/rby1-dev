@@ -8,7 +8,7 @@ Rainbow Robotics has core robot technology accumulated while developing humanoid
 
 ```{note}
 No camera is included with this product. The camera-like object on the wrist is a **motor pulley**, not a camera.  
-Videos may show demo cameras; these are **not** included with the product.
+Videos may show demo cameras, these are **not** included with the product.
 ```
 
 ::::{card-carousel} 2

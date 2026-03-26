@@ -15,7 +15,7 @@ This section guides you through unboxing and preparing your robot for its first 
 For shipping, the connection between the battery and the PDU is disconnected to prevent battery discharge.
 Before operating the robot, the first step is to reconnect the power cables.
 
-### 1. Open Front Body Cover
+### Open Front Body Cover
 
 Unscrew the two bolts near the head to open the body's front cover.
 
@@ -25,7 +25,7 @@ Unscrew the two bolts near the head to open the body's front cover.
 :width: 400px
 ```
 
-### 2. Connect the Cables
+### Connect the Cables
 
 Connect the two connectors as shown below.
 
@@ -39,7 +39,7 @@ Sparks may occur during connection. This is normal.
 :width: 400px
 ```
 
-### 3. (Optional) Connect the Charger
+### (Optional) Connect the Charger
 
 The robot normally operates on battery power. It can also be powered while connected to the charger.
 

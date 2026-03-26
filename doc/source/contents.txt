@@ -1,0 +1,89 @@
+
+RB-Y1 Documentation
+
+* Getting Started
+
+    1. Hello, RB-Y1
+
+    2. Getting Started
+        - Unboxing
+        - Connect to Hotspot & Check Web UI
+        - Connect to an External Access Point (AP)
+        - SDK Installation and Read State
+        - E‑Stop Basics
+        - Troubleshooting
+        - FAQ
+
+* Models
+
+    1. Overview
+
+    2. Model A
+
+    3. Model M
+
+    4. Model UB
+
+    5. Robot Model Version
+        - Version 1.0
+        - Version 1.1
+        - Version 1.2
+        - Version 1.3
+
+* Options
+
+    1. Gripper
+
+    2. Master Arm
+
+    3. Camera
+        - Head Camera
+        - Wrist Camera
+
+
+* Hardware
+
+    1. Overview
+
+    2. Mechanical Part
+
+    3. Electronical Part
+
+    4. Motor Driver
+        - Actuator Spec
+        - Brake System
+
+    5. Battery
+
+* Software
+
+    1. Software Overview
+
+    2. Simulation
+
+    3. Examples
+        - teleoperation master arm
+        - C++ Examples
+        - Python Examples
+
+* Web UI
+
+    1. Web UI
+
+* Maintenance
+
+    2. Maintenance
+
+* SDK
+
+    1. Installation
+
+    2. Python API Reference
+
+    3. C++ API Reference
+
+    4. Protobuf Schemas
+
+    5. Controllers
+        -Command and Control Architecture
+        -Control Hold Time and Minimum Time
