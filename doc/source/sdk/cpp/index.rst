@@ -1,5 +1,60 @@
+.. _cpp_api:
+
 C++ API Reference
 =================
 
-.. doxygenindex::
-   :project: rby1-sdk
+This section is the curated C++ class reference for the public headers under
+``external/rby1-sdk/include/rby1-sdk``. It follows the same broad pattern used
+by industrial SDK references such as ROBOTIS DYNAMIXEL: open a category page,
+pick one class or struct, then read a compact member summary followed by the
+generated Doxygen block.
+
+For installation, environment setup, and first-connection checks, start with
+:doc:`/getting-started/sdk-install-and-state`. When you want runnable entry
+points before reading declarations, open :doc:`cpp-examples`.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 34 46
+
+   * - Section
+     - Main types
+     - Description
+   * - :doc:`client/index`
+     - ``rb::Robot<T>``, command handlers, control-loop structs
+     - High-level client entry points for connecting to a robot, streaming
+       state, and sending commands.
+   * - :doc:`builders/index`
+     - ``RobotCommandBuilder`` and all subsystem or primitive builders
+     - Command-composition classes for body, arm, torso, head, mobility, and
+       real-time control requests.
+   * - :doc:`feedback/index`
+     - ``RobotCommandFeedback`` and child feedback classes
+     - Result and progress objects returned from submitted commands.
+   * - :doc:`state/index`
+     - ``RobotState<T>``, ``RobotInfo``, ``ControlManagerState``, ``Log``
+     - Live state snapshots, static metadata, faults, and structured log
+       records.
+   * - :doc:`models/index`
+     - model descriptors, ``rb::dyn::*``, ``rb::math::*``
+     - Compile-time model descriptors, rigid-body dynamics, Lie-group math,
+       and solver helpers.
+   * - :doc:`utilities/index`
+     - ``DynamixelBus``, ``MasterArm``, UDP, threading, and timing helpers
+     - Lower-level hardware utilities, protocol-facing helpers, and runtime
+       support classes.
+   * - :doc:`full-api`
+     - raw Doxygen site
+     - Full generated symbol list outside the curated reference pages.
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   client/index
+   builders/index
+   feedback/index
+   state/index
+   models/index
+   utilities/index
+   full-api

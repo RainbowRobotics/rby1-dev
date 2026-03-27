@@ -12,6 +12,4 @@ hotspot-and-webui
 connect-external-ap
 sdk-install-and-state
 estop-basics
-troubleshooting
-faq
 ```

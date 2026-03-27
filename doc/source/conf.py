@@ -3,10 +3,11 @@ import os
 import sys
 import pathlib
 import importlib
+import shutil
 
 # ── 환경변수에서 SDK 버전 수신 ──────────────────────────────────────
 SDK_VERSION = os.getenv("SDK_VERSION", os.getenv("RBY1_SDK_VERSION", "dev"))
-AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "main dev").split()
+AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "dev").split()
 VERSION_BASE_PREFIX = os.getenv("VERSION_BASE_PREFIX", "/")
 
 # ── Project information ───────────────────────────────────────────────
@@ -37,6 +38,12 @@ extensions = [
 
 templates_path = ["_templates"]
 exclude_patterns = []
+
+# Scaled image를 클릭했을 때 원본 이미지로 링크되는 동작 비활성화
+html_scaled_image_link = False
+
+# 헤딩 앵커 아이콘 설정 #
+html_permalinks_icon = "#"
 
 # ── MyST parser options ───────────────────────────────────────────────
 myst_enable_extensions = [
@@ -147,7 +154,19 @@ def _strip_bindings_in_docstring(app, what, name, obj, options, lines):
     for i, line in enumerate(lines):
         lines[i] = line.replace("._bindings", "")
 
+def _publish_doxygen_html(app, exception):
+    if exception is not None or app.builder.name != "html":
+        return
+
+    source_dir = ROOT / "build" / "doxygen" / "html"
+    if not source_dir.exists():
+        return
+
+    target_dir = pathlib.Path(app.outdir) / "sdk" / "cpp" / "raw-api"
+    shutil.rmtree(target_dir, ignore_errors=True)
+    shutil.copytree(source_dir, target_dir)
 
 def setup(app):
     app.connect("autodoc-process-signature", _strip_bindings_in_signature)
     app.connect("autodoc-process-docstring", _strip_bindings_in_docstring)
+    app.connect("build-finished", _publish_doxygen_html)

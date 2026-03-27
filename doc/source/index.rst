@@ -61,7 +61,7 @@ Before you begin
 - **Environment** — Ensure a supported Linux/Windows development host with real-time requirements
   where applicable.
 - **Network** — Confirm access via RB-Y1 hotspot or your site network (:doc:`getting-started/hotspot-and-webui`).
-- **SDK** — Install the SDK and verify state streaming (:doc:`sdk/install-and-state`).
+- **SDK** — Install the SDK and verify state streaming (`rby1-sdk <https://github.com/RainbowRobotics/rby1-sdk>`_), (:doc:`getting-started/sdk-install-and-state`).
 
 Support & licensing
 -------------------
@@ -85,23 +85,11 @@ Support & licensing
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Models
-
-   models/overview
-   models/options_and_accessories
-   models/model_a
-   models/model_m
-   models/model_ub
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
    :caption: Hardware
 
    hardware/overview
    hardware/mechanical_part
-   hardware/electronical_part
-   hardware/motor_driver
+   hardware/electrical_part
    hardware/battery
 
 .. toctree::
@@ -109,22 +97,55 @@ Support & licensing
    :maxdepth: 1
    :caption: Software
 
-   software/index
-   software/simulation
-   examples/index
+   software/architecture
+   software/robot_main_program
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Options
+
+   options/gripper
+   options/master_arm
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Maintenance
 
-   maintenance/index
+   maintenance/detaching_guide
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: SDK
 
+   sdk/models/index
    sdk/python/index
    sdk/cpp/index
    sdk/protos/index
+   sdk/controllers/index
+   sdk/trobuleshooting/index
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Examples
+
+   examples/c++_ex
+   examples/python_ex
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: simulaotrs
+
+   simulators/simulators
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: RPC Management Tools
+
+   rpc_management_tools/rpc_management_tools
+

@@ -66,3 +66,50 @@
 .sidebar-scroll.sidebar-ready {
   opacity: 1;
 } */
+
+/* 이미지 라운드 */
+.rounded-img {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 이미지 흰색 백그라운드 */
+.white-bg {
+  background-color: #ffffff;
+  padding: 16px;              /* 이미지 주변 여백 */
+  border-radius: 12px;        /* 모서리 둥글게 (선택) */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);  /* 선택 */
+  display: inline-block;
+}
+
+/* headings를 기준(relative)으로 만들기 */
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+
+/* headerlink를 제목 왼쪽에 절대 배치 */
+h1 > a.headerlink,
+h2 > a.headerlink,
+h3 > a.headerlink,
+h4 > a.headerlink,
+h5 > a.headerlink,
+h6 > a.headerlink {
+  position: absolute !important;
+  left: -0.6em;                 /* #를 제목 앞쪽으로 */
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 !important;
+  padding: 0 0.35em 0 0;
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+/* hover 시 더 진하게 */
+h1 > a.headerlink:hover,
+h2 > a.headerlink:hover,
+h3 > a.headerlink:hover,
+h4 > a.headerlink:hover,
+h5 > a.headerlink:hover,
+h6 > a.headerlink:hover {
+  opacity: 1;
+}
