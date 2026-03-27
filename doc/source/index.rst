@@ -61,7 +61,7 @@ Before you begin
 - **Environment** — Ensure a supported Linux/Windows development host with real-time requirements
   where applicable.
 - **Network** — Confirm access via RB-Y1 hotspot or your site network (:doc:`getting-started/hotspot-and-webui`).
-- **SDK** — Install the SDK and verify state streaming (:doc:`sdk/install-and-state`).
+- **SDK** — Install the SDK and verify state streaming (`rby1-sdk <https://github.com/RainbowRobotics/rby1-sdk>`_), (:doc:`getting-started/sdk-install-and-state`).
 
 Support & licensing
 -------------------
@@ -82,17 +82,6 @@ Support & licensing
    getting-started/hello_rby1
    getting-started/index
 
-.. .. toctree:
-..    :hidden:
-..    :maxdepth: 1
-..    :caption: Models
-
-..    models/overview
-..    models/model_a
-..    models/model_m
-..    models/model_ub
-..    models/model_version
-
 .. toctree::
    :hidden:
    :maxdepth: 1
@@ -100,10 +89,7 @@ Support & licensing
 
    hardware/overview
    hardware/mechanical_part
-   hardware/electronical_part
-
-   .. hardware/motor_driver
-
+   hardware/electrical_part
    hardware/battery
 
 .. toctree::
@@ -111,12 +97,8 @@ Support & licensing
    :maxdepth: 1
    :caption: Software
 
-   .. software/index
-
    software/architecture
    software/robot_main_program
-
-   .. examples/index
 
 .. toctree::
    :hidden:
@@ -152,3 +134,18 @@ Support & licensing
 
    examples/c++_ex
    examples/python_ex
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: simulaotrs
+
+   simulators/simulators
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: RPC Management Tools
+
+   rpc_management_tools/rpc_management_tools
+

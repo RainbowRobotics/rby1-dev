@@ -15,7 +15,8 @@ of the Rainbow Robotics SDK repository. It is highly recommended to refer to thi
    :alt: Model A
    :align: center
    :width: 400px
-   ```
+   :class: white_bg
+```
 
 - Differential Wheel
 <br>
@@ -33,7 +34,7 @@ of the Rainbow Robotics SDK repository. It is highly recommended to refer to thi
 The joint names of the A model are as follows:
 
 - Wheels: `right_wheel`, `left_wheel`
-- Torso: `torso_0, torso_1`, `torso_2`, `torso_3`, `torso_4`, torso_5`
+- Torso: `torso_0`, `torso_1`, `torso_2`, `torso_3`, `torso_4`, `torso_5`
 - Right Arm: `right_arm_0`, `right_arm_1`, `right_arm_2`, `right_arm_3`, `right_arm_4`, `right_arm_5`, `right_arm_6`
 - Left Arm: `left_arm_0`, `left_arm_1`, `left_arm_2`, `left_arm_3`, `left_arm_4`, `left_arm_5`, `left_arm_6`
 - Head: `head_0`, `head_1`
@@ -75,7 +76,6 @@ The indexes related to the head parts are as follows:
 The following components do not have brakes:
 
 **Wheels**: `right_wheel`, `left_wheel`
-**Head**: `head_0`, `head_1`
 **Right Arm**: `right_arm_6`
 **Left Arm**: `left_arm_6`
 
@@ -99,14 +99,14 @@ The following components have brakes and include physical buttons for releasing 
 - **Right Arm**: `right_arm_0`, `right_arm_1`, `right_arm_2`, `right_arm_3`
 - **Left Arm**: `left_arm_0`, `left_arm_1`, `left_arm_2`, `left_arm_3`
 
----
+<!-- ---
 ### Motor Types
 <br>
 
 The motor types for each component are as follows:
 
 - **Dynamixel Motors**: Used in the Head (`head_0`, `head_1`)
-- **RBMotors**: Used in all other components (Torso, Wheels, Right Arm, Left Arm)
+- **RBMotors**: Used in all other components (Torso, Wheels, Right Arm, Left Arm) -->
 
 ---
 ### Parameter Lists

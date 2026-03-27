@@ -31,7 +31,7 @@ def write_index(proto_dirs: list[str]) -> None:
         "Pick a proto module to see its message groups.",
         "",
         ".. toctree::",
-        "   :hidden:",
+        # "   :hidden:",
         "   :maxdepth: 2",
         "",
     ]

@@ -7,7 +7,7 @@ import shutil
 
 # ── 환경변수에서 SDK 버전 수신 ──────────────────────────────────────
 SDK_VERSION = os.getenv("SDK_VERSION", os.getenv("RBY1_SDK_VERSION", "dev"))
-AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "main dev").split()
+AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "dev").split()
 VERSION_BASE_PREFIX = os.getenv("VERSION_BASE_PREFIX", "/")
 
 # ── Project information ───────────────────────────────────────────────

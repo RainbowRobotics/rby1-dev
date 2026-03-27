@@ -1,5 +1,5 @@
 # Robot Main Program
-##
+
 <!-- (Robot PC System Overview) -->
 
 ```{note} The diagram below provides an overview of the **Robot Main Program**, which is the core software system responsible for processing commands and controlling the robot's behavior.
@@ -67,13 +67,45 @@
 ```{note} The following LED statuses refer to the LED strip located on the front of the robot. This strip visually indicates the robot's power, control, and system states, allowing users to easily monitor the current status of the robot.
 ```
 
-- **Power ON**: Solid white indicates full power; blinking white indicates partial power.
+- **Power ON**: Solid white indicates full power, while blinking white indicates partial power.
+
+```{image} ../_static/images/software/robot_main_program/led_white.jpg
+   :alt: led_white
+   :align: center
+   :width: 400px
+   :class: white_bg
+```
+
 - **Control Manager Enabled**:
-    - **Idle**: Blue LED.
-    - **Executing/Switching**: Green LED.
+   - **Idle**: Blue LED.
+
+```{image} ../_static/images/software/robot_main_program/led_blue.jpg
+   :alt: led_blue
+   :align: center
+   :width: 400px
+   :class: white_bg
+```
+
+   - **Executing/Switching**: Green LED.
+
+```{image} ../_static/images/software/robot_main_program/led_green.jpg
+   :alt: led_green
+   :align: center
+   :width: 400px
+   :class: white_bg
+```
+
 - **Fault States**:
-    - **Minor Fault**: Blinking red.
-    - **Major Fault**: Solid red.
+   - **Minor Fault**: Blinking red.
+   - **Major Fault**: Solid red.
+
+```{image} ../_static/images/software/robot_main_program/led_red.jpg
+   :alt: led_red
+   :align: center
+   :width: 400px
+   :class: white_bg
+```
+
 
 ---
 ### Service

@@ -43,6 +43,9 @@ This architecture is composed as follows:
     - Impedance Control
     - SE2 Velocity Control
 
+    The controllers listed above are representative examples; additional controllers are also available in the SDK.
+    You can check the latest command/controller definitions in [`robot_command_builder.h`](https://github.com/RainbowRobotics/rby1-sdk/blob/main/include/rby1-sdk/robot_command_builder.h).
+
 - **Realtime command channels**: Focused on low-level, time-sensitive commands with responses at 500Hz using UDP. While currently fixed at 500Hz, future updates will allow for variable frequencies. Users can implement their own position or torque controllers for real-time operations.
 <br>
 

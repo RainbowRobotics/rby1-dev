@@ -33,7 +33,7 @@ print("time:", getattr(state, "time", None),
 
 Further reading: see the SDK repository’s Python example `examples/python/03_robot_state.py` for a more complete state printout.
 
-## TODO
+<!-- ## TODO
 - [ ] Confirm default gRPC port
 - [ ] Document required model key(s)
-- [ ] List common state fields (time, mode, battery, joints, etc.)
+- [ ] List common state fields (time, mode, battery, joints, etc.) -->

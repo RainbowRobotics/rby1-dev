@@ -15,6 +15,7 @@ of the Rainbow Robotics SDK repository. It is highly recommended to refer to thi
    :alt: Model M
    :align: center
    :width: 400px
+   :class: white_bg
 ```
 
 - Mecanum Wheel
@@ -24,6 +25,7 @@ of the Rainbow Robotics SDK repository. It is highly recommended to refer to thi
    :alt: Mecanum Wheel
    :align: center
    :width: 400px
+   :class: white_bg
 ```
 
 ---
@@ -82,7 +84,6 @@ The indexes related to the head parts are as follows:
 The following components do not have brakes:
 
 - **Wheels**: `wheel_fr`, `wheel_fl`, `wheel_rr`, `wheel_rl`
-- **Head**: `head_0`, `head_1`
 - **Right Arm**: `right_arm_6`
 - **Left Arm**: `left_arm_6`
 
@@ -106,14 +107,14 @@ The following components have brakes and include physical buttons for releasing 
 - Right Arm: `right_arm_0`, `right_arm_1`, `right_arm_2`, `right_arm_3`
 - Left Arm: `left_arm_0`, `left_arm_1`, `left_arm_2`, `left_arm_3`
 
----
+<!-- ---
 #### Motor Types
 <br>
 
 The motor types for each component are as follows:
 
 - **Dynamixel Motors**: Used in the Head (`head_0`, `head_1`)
-- **RBMotors**: Used in all other components (Torso, Wheels, Right Arm, Left Arm)
+- **RBMotors**: Used in all other components (Torso, Wheels, Right Arm, Left Arm) -->
 
 ---
 #### Parameter Lists

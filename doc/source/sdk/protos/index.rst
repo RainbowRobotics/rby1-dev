@@ -6,7 +6,6 @@ Protobuf API Reference
 Pick a proto module to see its message groups.
 
 .. toctree::
-   :hidden:
    :maxdepth: 2
 
    generated/arm_command/index

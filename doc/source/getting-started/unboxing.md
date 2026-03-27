@@ -3,7 +3,7 @@
 This section guides you through unboxing and preparing your robot for its first use.
 
 ## Included Items
-- Mobile base + dual-arm manipualtor (model-specific)
+- Mobile base + dual-arm manipualator (model-specific)
 - Power adapter
 - 2x terminal board
 - Remote E-Stop
@@ -23,11 +23,13 @@ Unscrew the two bolts near the head to open the body's front cover.
 :alt: Open the front body cover
 :align: center
 :width: 400px
+:class: white_bg
 ```
 
 ### Connect the Cables
 
 Connect the two connectors as shown below.
+Make sure the connector orientation is correct before mating; do not force the connection if it does not align.
 
 :::{caution}
 Sparks may occur during connection. This is normal.
@@ -37,6 +39,7 @@ Sparks may occur during connection. This is normal.
 :alt: connect the cables
 :align: center
 :width: 400px
+:class: white_bg
 ```
 
 ### (Optional) Connect the Charger
@@ -45,4 +48,23 @@ The robot normally operates on battery power. It can also be powered while conne
 
 Please connect the charger to the robot as shown below.
 
-You can check the charging status through the LED indicators on the charger.
+`````{grid} 2
+:gutter: 2
+
+````{grid-item}
+```{image} ../_static/images/getting-started/charger1.jpg
+    :alt: charger1
+    :width: 100%
+    :class: white_bg
+```
+````
+
+````{grid-item}
+```{image} ../_static/images/getting-started/charger2.jpg
+    :alt: charger2
+    :width: 100%
+    :class: white_bg
+```
+````
+
+`````

@@ -1,7 +1,7 @@
 # Battery
 
 ---
-## Battery Chaerger
+## Battery Charger
 
 ```{note}
 This content is to prevent damage to the user’s safety and property in advance. Please read the following carefully and use it correctly.
@@ -48,8 +48,8 @@ This content is to prevent damage to the user’s safety and property in advance
 :::{grid-item}
 | Parameter  | Value |
 | ---------- | ----- |
-| `parameter`| 10.5A |
-| `V_voost`  | 57.6V |
+| `Constant Current`| 10.5A |
+| `V_boost`  | 57.6V |
 | `V_float`  | 54.4V |
 :::
 ::::

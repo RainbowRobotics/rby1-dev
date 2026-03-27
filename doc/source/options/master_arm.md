@@ -4,19 +4,19 @@ The **Master Arm** is a fully active robotic system, where all joints can move i
 
 <br>
 
-:::{card}  Mater Arm
+:::{card}  Master Arm
 :class-card: tight-pad
-<iframe src="https://www.youtube.com/embed/A6h2GSoIjt8&t" allowfullscreen loading="lazy"></iframe>
+<iframe src="https://www.youtube.com/embed/A6h2GSoIjt8" allowfullscreen loading="lazy"></iframe>
 :::
 
 <br>
 
-With **redundant degrees** of freedom, the Master Arm can perform identical tasks in various postures. Additionally, a single button press lets users switch between **torque control** and **position control** modes. The robot's **gravity compensation** feature ensures smooth movements in torque control mode by negating external forces caused by its weight.
+With **redundant degrees** of freedom, the Master Arm can perform identical tasks in various postures. For Master Arm control, press and hold the button to move the Master Arm in a gravity-compensated state, and release it to hold the current pose.
 
 <br>
 
 ```{image} ../_static/images/options/master_arm/master_arm1.png
-   :alt: mater_arm1
+   :alt: master_arm1
    :align: center
    :width: 600px
    :class: white-bg
@@ -25,7 +25,7 @@ With **redundant degrees** of freedom, the Master Arm can perform identical task
 <br>
 
 ```{image} ../_static/images/options/master_arm/master_arm2.png
-   :alt: mater_arm2
+   :alt: master_arm2
    :align: center
    :width: 600px
    :class: white-bg
@@ -38,7 +38,7 @@ Mounted on a tripod, the system can be easily repositioned to control the robot 
 <br>
 
 ```{image} ../_static/images/options/master_arm/master-arm4.png
-   :alt: mater_arm4
+   :alt: master_arm4
    :align: center
    :width: 600px
    :class: white-bg
@@ -46,12 +46,12 @@ Mounted on a tripod, the system can be easily repositioned to control the robot 
 
 <br>
 
-This robotic system also features an intuitive handle equipped with a **trigger** and a **button**. Pressing the button makes the robot follow the user's movements, and releasing the button engages a **position lock**, allowing precise control during teleoperation. The **trigger** is mapped to the gripper, making it easy to control.
+This robotic system also features an intuitive handle equipped with a **trigger** and a **button**. Pressing the button makes the robot follow the **Master Arm** motion, and releasing the button engages a **position lock**, allowing precise control during teleoperation. The **trigger** is mapped to the gripper, making it easy to control.
 
 <br>
 
 ```{image} ../_static/images/options/master_arm/master-arm5.png
-   :alt: mater_arm5
+   :alt: master_arm5
    :align: center
    :width: 600px
    :class: white-bg
@@ -59,12 +59,12 @@ This robotic system also features an intuitive handle equipped with a **trigger*
 
 <br>
 
-The tripod allows the **Master Arm** to be freely moved and repositioned. This design gives operators the flexibility to control the robot from various positions and perspectives. By adjusting the tripod's height and angle, users can set up the system optimally for their tasks.
+The tripod makes it easy to place and reposition the **Master Arm** setup. This design gives operators the flexibility to control the robot from various positions and perspectives. By adjusting the tripod's height and angle, users can set up the system optimally for their tasks.
 
 <br>
 
 ```{image} ../_static/images/options/master_arm/master-arm6.png
-   :alt: mater_arm1
+   :alt: master_arm1
    :align: center
    :width: 600px
    :class: white-bg
