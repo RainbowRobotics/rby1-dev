@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/python/generated/rby1_sdk.upc.rst.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,7 +919,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="module-rby1_sdk.upc">
-<span id="rby1-sdk-upc"></span><h1>rby1_sdk.upc<a class="headerlink" href="#module-rby1_sdk.upc" title="Link to this heading">#</a></h1>
+<span id="rby1-sdk-upc"></span><h1>rby1_sdk.upc<a class="headerlink" href="#module-rby1_sdk.upc" title="Link to this heading">¶</a></h1>
 <p>Module for controlling and communicating with devices.</p>
 <p>Provides utilities for controlling master arm and other devices.</p>
 <p class="rubric">Functions</p>
@@ -948,7 +944,7 @@
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MasterArm</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MasterArm</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Master arm control interface.</p>
 <p>This class provides control interface for a master arm device
@@ -956,7 +952,7 @@ with 14 degrees of freedom, including joint control, gravity compensation,
 and button/trigger input handling.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.DOF">
-<span class="sig-name descname"><span class="pre">DOF</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.DOF" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DOF</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.DOF" title="Link to this definition">¶</a></dt>
 <dd><p>Number of degrees of freedom (14).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -967,7 +963,7 @@ and button/trigger input handling.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.DeviceCount">
-<span class="sig-name descname"><span class="pre">DeviceCount</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.DeviceCount" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DeviceCount</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.DeviceCount" title="Link to this definition">¶</a></dt>
 <dd><p>Total number of devices including tools (16).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -978,7 +974,7 @@ and button/trigger input handling.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.TorqueScaling">
-<span class="sig-name descname"><span class="pre">TorqueScaling</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.TorqueScaling" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">TorqueScaling</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.TorqueScaling" title="Link to this definition">¶</a></dt>
 <dd><p>Torque scaling factor for gravity compensation (0.5).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -989,7 +985,7 @@ and button/trigger input handling.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.MaximumTorque">
-<span class="sig-name descname"><span class="pre">MaximumTorque</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.MaximumTorque" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">MaximumTorque</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.MaximumTorque" title="Link to this definition">¶</a></dt>
 <dd><p>Maximum allowed torque in Nm (4.0).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1000,7 +996,7 @@ and button/trigger input handling.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.RightToolId">
-<span class="sig-name descname"><span class="pre">RightToolId</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.RightToolId" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">RightToolId</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.RightToolId" title="Link to this definition">¶</a></dt>
 <dd><p>Device ID for right tool (0x80).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1011,7 +1007,7 @@ and button/trigger input handling.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.LeftToolId">
-<span class="sig-name descname"><span class="pre">LeftToolId</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.LeftToolId" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">LeftToolId</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.LeftToolId" title="Link to this definition">¶</a></dt>
 <dd><p>Device ID for left tool (0x81).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1022,14 +1018,14 @@ and button/trigger input handling.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.ControlInput">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ControlInput</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ControlInput</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Master arm control input.</p>
 <p>This class represents the control input for the master arm
 including target operating modes, positions, and torques.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.ControlInput.target_operating_mode">
-<span class="sig-name descname"><span class="pre">target_operating_mode</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput.target_operating_mode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">target_operating_mode</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput.target_operating_mode" title="Link to this definition">¶</a></dt>
 <dd><p>Target operating modes for each joint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1040,7 +1036,7 @@ including target operating modes, positions, and torques.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.ControlInput.target_position">
-<span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput.target_position" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput.target_position" title="Link to this definition">¶</a></dt>
 <dd><p>Target positions for each joint [rad].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1051,7 +1047,7 @@ including target operating modes, positions, and torques.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.ControlInput.target_torque">
-<span class="sig-name descname"><span class="pre">target_torque</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput.target_torque" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">target_torque</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.ControlInput.target_torque" title="Link to this definition">¶</a></dt>
 <dd><p>Target torques for each joint [Nm].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1062,31 +1058,31 @@ including target operating modes, positions, and torques.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_operating_mode</span></span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_operating_mode</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id2">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_torque</span></span><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_torque</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">State</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">State</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Master arm state information.</p>
 <p>This class represents the current state of the master arm
 including joint positions, velocities, torques, and tool states.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.q_joint">
-<span class="sig-name descname"><span class="pre">q_joint</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.q_joint" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">q_joint</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.q_joint" title="Link to this definition">¶</a></dt>
 <dd><p>Joint positions [rad].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1097,7 +1093,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.qvel_joint">
-<span class="sig-name descname"><span class="pre">qvel_joint</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.qvel_joint" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">qvel_joint</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.qvel_joint" title="Link to this definition">¶</a></dt>
 <dd><p>Joint velocities [rad/s].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1108,7 +1104,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.torque_joint">
-<span class="sig-name descname"><span class="pre">torque_joint</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.torque_joint" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">torque_joint</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.torque_joint" title="Link to this definition">¶</a></dt>
 <dd><p>Joint torques [Nm].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1119,7 +1115,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.gravity_term">
-<span class="sig-name descname"><span class="pre">gravity_term</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.gravity_term" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">gravity_term</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.gravity_term" title="Link to this definition">¶</a></dt>
 <dd><p>Gravity compensation terms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1130,7 +1126,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.operating_mode">
-<span class="sig-name descname"><span class="pre">operating_mode</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.operating_mode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">operating_mode</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.operating_mode" title="Link to this definition">¶</a></dt>
 <dd><p>Operating modes for each joint.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1141,7 +1137,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.button_right">
-<span class="sig-name descname"><span class="pre">button_right</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.button_right" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">button_right</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.button_right" title="Link to this definition">¶</a></dt>
 <dd><p>Right tool button and trigger state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1152,7 +1148,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.button_left">
-<span class="sig-name descname"><span class="pre">button_left</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.button_left" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">button_left</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.button_left" title="Link to this definition">¶</a></dt>
 <dd><p>Left tool button and trigger state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1163,7 +1159,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.T_right">
-<span class="sig-name descname"><span class="pre">T_right</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.T_right" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">T_right</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.T_right" title="Link to this definition">¶</a></dt>
 <dd><p>Right tool transformation matrix (SE(3)) with respect to the master arm base.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1174,7 +1170,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.T_left">
-<span class="sig-name descname"><span class="pre">T_left</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.T_left" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">T_left</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.T_left" title="Link to this definition">¶</a></dt>
 <dd><p>Left tool transformation matrix (SE(3)) with respect to the master arm base.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1185,71 +1181,71 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id3">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">T_left</span></span><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">T_left</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id4">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">T_right</span></span><a class="headerlink" href="#id4" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">T_right</span></span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id5">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button_left</span></span><a class="headerlink" href="#id5" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button_left</span></span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id6">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button_right</span></span><a class="headerlink" href="#id6" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button_right</span></span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id7">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gravity_term</span></span><a class="headerlink" href="#id7" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gravity_term</span></span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id8">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">operating_mode</span></span><a class="headerlink" href="#id8" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">operating_mode</span></span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id9">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">q_joint</span></span><a class="headerlink" href="#id9" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">q_joint</span></span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id10">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">qvel_joint</span></span><a class="headerlink" href="#id10" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">qvel_joint</span></span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.State.target_position">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.target_position" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.State.target_position" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id11">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">torque_joint</span></span><a class="headerlink" href="#id11" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">torque_joint</span></span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.disable_torque">
-<span class="sig-name descname"><span class="pre">disable_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.disable_torque" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">disable_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.disable_torque" title="Link to this definition">¶</a></dt>
 <dd><p>Disable torque of motors</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.enable_torque">
-<span class="sig-name descname"><span class="pre">enable_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.enable_torque" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">enable_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.enable_torque" title="Link to this definition">¶</a></dt>
 <dd><p>Enable torque of motors</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.initialize" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.initialize" title="Link to this definition">¶</a></dt>
 <dd><p>Initialize the master arm and detect active devices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1266,7 +1262,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.set_control_period">
-<span class="sig-name descname"><span class="pre">set_control_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.set_control_period" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_control_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.set_control_period" title="Link to this definition">¶</a></dt>
 <dd><p>Set the control update period.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1277,7 +1273,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.set_model_path">
-<span class="sig-name descname"><span class="pre">set_model_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.set_model_path" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_model_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.set_model_path" title="Link to this definition">¶</a></dt>
 <dd><p>Set the path to the URDF model file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1288,7 +1284,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.set_torque_constant">
-<span class="sig-name descname"><span class="pre">set_torque_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FixedSize</span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">14</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.set_torque_constant" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_torque_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FixedSize</span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">14</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.set_torque_constant" title="Link to this definition">¶</a></dt>
 <dd><p>Set torque constant.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1302,7 +1298,7 @@ including joint positions, velocities, torques, and tool states.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.start_control">
-<span class="sig-name descname"><span class="pre">start_control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rby1_sdk.upc.MasterArm.State" title="rby1_sdk.upc.MasterArm.State"><span class="pre">rby1_sdk.upc.MasterArm.State</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rby1_sdk.upc.MasterArm.ControlInput" title="rby1_sdk.upc.MasterArm.ControlInput"><span class="pre">rby1_sdk.upc.MasterArm.ControlInput</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.start_control" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">start_control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rby1_sdk.upc.MasterArm.State" title="rby1_sdk.upc.MasterArm.State"><span class="pre">rby1_sdk.upc.MasterArm.State</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rby1_sdk.upc.MasterArm.ControlInput" title="rby1_sdk.upc.MasterArm.ControlInput"><span class="pre">rby1_sdk.upc.MasterArm.ControlInput</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.start_control" title="Link to this definition">¶</a></dt>
 <dd><p>Start the control loop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1343,7 +1339,7 @@ If None, no control is applied.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.upc.MasterArm.stop_control">
-<span class="sig-name descname"><span class="pre">stop_control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_disable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.stop_control" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">stop_control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.upc.MasterArm" title="rby1_sdk.upc.MasterArm"><span class="pre">rby1_sdk.upc.MasterArm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_disable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.MasterArm.stop_control" title="Link to this definition">¶</a></dt>
 <dd><p>Stop the control loop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1357,39 +1353,39 @@ If None, no control is applied.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id12">
-<span class="sig-name descname"><span class="pre">DOF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#id12" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DOF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id13">
-<span class="sig-name descname"><span class="pre">DeviceCount</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#id13" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DeviceCount</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id14">
-<span class="sig-name descname"><span class="pre">LeftToolId</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">129</span></em><a class="headerlink" href="#id14" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">LeftToolId</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">129</span></em><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id15">
-<span class="sig-name descname"><span class="pre">MaximumTorque</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4.0</span></em><a class="headerlink" href="#id15" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">MaximumTorque</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4.0</span></em><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id16">
-<span class="sig-name descname"><span class="pre">RightToolId</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="headerlink" href="#id16" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">RightToolId</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id17">
-<span class="sig-name descname"><span class="pre">TorqueScaling</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.5</span></em><a class="headerlink" href="#id17" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">TorqueScaling</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.5</span></em><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rby1_sdk.upc.initialize_device">
-<span class="sig-name descname"><span class="pre">initialize_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.initialize_device" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">initialize_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.upc.initialize_device" title="Link to this definition">¶</a></dt>
 <dd><p>initialize_device(device_name)</p>
 <p>Initialize a device with the given name.</p>
 <p>Sets the latency timer of the device to 1.</p>
@@ -1537,6 +1533,6 @@ If None, no control is applied.</p>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/controllers/generated/command_and_control_architecture.md.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,11 +919,11 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="command-and-control-architecture">
-<h1>Command and Control Architecture<a class="headerlink" href="#command-and-control-architecture" title="Link to this heading">#</a></h1>
+<h1>Command and Control Architecture<a class="headerlink" href="#command-and-control-architecture" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h3>
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h3>
 <p>The robot commands are divided into three main types:</p>
 <ol class="arabic simple">
 <li><p><strong>WholeBodyCommand</strong>: Controls the entire robot with 24 degrees of freedom (DOF) in a single command.</p></li>
@@ -938,26 +934,26 @@
 <hr class="docutils" />
 </section>
 <section id="wholebodycommand">
-<h3>WholeBodyCommand<a class="headerlink" href="#wholebodycommand" title="Link to this heading">#</a></h3>
+<h3>WholeBodyCommand<a class="headerlink" href="#wholebodycommand" title="Link to this heading">¶</a></h3>
 <p>This command controls all the major components of the robot, including arms, torso, and legs. It supports various controllers for managing the full body of the robot. The primary use case is for synchronized movements where multiple parts of the robot are involved. This command sends a <strong>24 DOF</strong> control signal all at once.</p>
 <img alt="mermaid_wholebody_command" class="rounded-img align-center" src="../../../_images/mermaid_wholebody_command.png" style="width: 400px;" />
 <hr class="docutils" />
 </section>
 <section id="componentbasedcommand">
-<h3>ComponentBasedCommand<a class="headerlink" href="#componentbasedcommand" title="Link to this heading">#</a></h3>
+<h3>ComponentBasedCommand<a class="headerlink" href="#componentbasedcommand" title="Link to this heading">¶</a></h3>
 <p>The <strong>ComponentBasedCommand</strong> is responsible for controlling the core components of the robot, such as the <strong>Mobility</strong>, <strong>Body</strong>, and <strong>Head</strong>. It provides a flexible architecture for handling different sections of the robot individually. Each of these components can be controlled using specialized commands, allowing precise control over the robot’s movement and actions. This structure typically supports multiple controllers to handle specific parts of the robot efficiently.</p>
 <img alt="mermaid_component_based" class="rounded-img align-center" src="../../../_images/mermaid_component_based.png" style="width: 600px;" />
 <hr class="docutils" />
 </section>
 <section id="bodycommand-structure">
-<h3>BodyCommand Structure<a class="headerlink" href="#bodycommand-structure" title="Link to this heading">#</a></h3>
+<h3>BodyCommand Structure<a class="headerlink" href="#bodycommand-structure" title="Link to this heading">¶</a></h3>
 <p>The <strong>BodyCommand</strong> allows for detailed control of the robot’s body and arms. It is divided into <strong>BodyComponentBasedCommand</strong>, under which <strong>TorsoCommand</strong> and <strong>ArmCommand</strong> exist. The arms can be controlled individually through <strong>LeftArmCommand</strong> and <strong>RightArmCommand</strong>, providing finer control over each arm.</p>
 <p>In the diagram below, the Controller nodes follow the structure defined in the Controllers section, where each Controller node represents the available controllers for joint position, Cartesian motion, impedance control, gravity compensation, and optimal control.</p>
 <img alt="mermaid_body_component" class="rounded-img align-center" src="../../../_images/mermaid_body_component.png" style="width: 600px;" />
 <hr class="docutils" />
 </section>
 <section id="controllers">
-<h3>Controllers<a class="headerlink" href="#controllers" title="Link to this heading">#</a></h3>
+<h3>Controllers<a class="headerlink" href="#controllers" title="Link to this heading">¶</a></h3>
 <p>The following controllers are used throughout different commands like <strong>WholeBodyCommand</strong>, <strong>ComponentBasedCommand</strong>, and their subcommands.</p>
 <ul class="simple">
 <li><p><strong>JointPositionController</strong>: Manages the position of each joint.</p></li>
@@ -997,7 +993,7 @@
 <hr class="docutils" />
 </section>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example_joint_position_command_1</span><span class="p">(</span><span class="n">robot</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;joint position command example 1&quot;</span><span class="p">)</span>
 
@@ -1160,6 +1156,6 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/cpp/client/robot-command-handler.rst.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,7 +919,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="robotcommandhandler">
-<h1>RobotCommandHandler<a class="headerlink" href="#robotcommandhandler" title="Link to this heading">#</a></h1>
+<h1>RobotCommandHandler<a class="headerlink" href="#robotcommandhandler" title="Link to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">rb::RobotCommandHandler&lt;T&gt;</span></code> is the one-shot command handle returned by
 <code class="docutils literal notranslate"><span class="pre">Robot::SendCommand()</span></code>. It is the simplest way to wait for completion, cancel
 the request, or retrieve the resulting feedback object.</p>
@@ -1016,7 +1012,7 @@ the request, or retrieve the resulting feedback object.</p>
 <p class="rubric">Detailed Reference</p>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN2rb19RobotCommandHandlerE">
-<span id="_CPPv3I0EN2rb19RobotCommandHandlerE"></span><span id="_CPPv2I0EN2rb19RobotCommandHandlerE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RobotCommandHandler</span></span></span><a class="headerlink" href="#_CPPv4I0EN2rb19RobotCommandHandlerE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3I0EN2rb19RobotCommandHandlerE"></span><span id="_CPPv2I0EN2rb19RobotCommandHandlerE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RobotCommandHandler</span></span></span><a class="headerlink" href="#_CPPv4I0EN2rb19RobotCommandHandlerE" title="Link to this definition">¶</a><br /></dt>
 <dd><p><a class="reference internal" href="robot.html#rby1-sdkclassrb_1_1_robot"><span class="std std-ref">Robot</span></a> command handler. </p>
 <p>Handles robot command execution and provides status monitoring.</p>
 <dl class="field-list simple">
@@ -1028,18 +1024,18 @@ the request, or retrieve the resulting feedback object.</p>
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb19RobotCommandHandlerD0Ev">
-<span id="_CPPv3N2rb19RobotCommandHandlerD0Ev"></span><span id="_CPPv2N2rb19RobotCommandHandlerD0Ev"></span><span id="rb::RobotCommandHandler::~RobotCommandHandler"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1ada2350a61de2d574152f18ed6adc0dd9"></span><span class="sig-name descname"><span class="n"><span class="pre">~RobotCommandHandler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandlerD0Ev" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb19RobotCommandHandlerD0Ev"></span><span id="_CPPv2N2rb19RobotCommandHandlerD0Ev"></span><span id="rb::RobotCommandHandler::~RobotCommandHandler"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1ada2350a61de2d574152f18ed6adc0dd9"></span><span class="sig-name descname"><span class="n"><span class="pre">~RobotCommandHandler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandlerD0Ev" title="Link to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb19RobotCommandHandler6CancelEv">
-<span id="_CPPv3N2rb19RobotCommandHandler6CancelEv"></span><span id="_CPPv2N2rb19RobotCommandHandler6CancelEv"></span><span id="rb::RobotCommandHandler::Cancel"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a6ca591286c9442155c000dae35f225d2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cancel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler6CancelEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb19RobotCommandHandler6CancelEv"></span><span id="_CPPv2N2rb19RobotCommandHandler6CancelEv"></span><span id="rb::RobotCommandHandler::Cancel"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a6ca591286c9442155c000dae35f225d2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cancel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler6CancelEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Cancel the command execution. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb19RobotCommandHandler3GetEv">
-<span id="_CPPv3N2rb19RobotCommandHandler3GetEv"></span><span id="_CPPv2N2rb19RobotCommandHandler3GetEv"></span><span id="rb::RobotCommandHandler::Get"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1af4f0c1c39f8da092249ce2a0142b3608"></span><a class="reference internal" href="../feedback/robot-command-feedback.html#_CPPv4N2rb20RobotCommandFeedbackE" title="rb::RobotCommandFeedback"><span class="n"><span class="pre">RobotCommandFeedback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler3GetEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb19RobotCommandHandler3GetEv"></span><span id="_CPPv2N2rb19RobotCommandHandler3GetEv"></span><span id="rb::RobotCommandHandler::Get"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1af4f0c1c39f8da092249ce2a0142b3608"></span><a class="reference internal" href="../feedback/robot-command-feedback.html#_CPPv4N2rb20RobotCommandFeedbackE" title="rb::RobotCommandFeedback"><span class="n"><span class="pre">RobotCommandFeedback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler3GetEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Wait for the command execution and get feedback. </p>
 <p>Waits for command completion and returns detailed controller feedback including position errors, control status, and final execution results.</p>
 <dl class="field-list simple">
@@ -1051,7 +1047,7 @@ the request, or retrieve the resulting feedback object.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb19RobotCommandHandler9GetStatusEv">
-<span id="_CPPv3NK2rb19RobotCommandHandler9GetStatusEv"></span><span id="_CPPv2NK2rb19RobotCommandHandler9GetStatusEv"></span><span id="rb::RobotCommandHandler::GetStatusC"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a3826f6ddd2e056ccbc9fa905e069a0dd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetStatus</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb19RobotCommandHandler9GetStatusEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb19RobotCommandHandler9GetStatusEv"></span><span id="_CPPv2NK2rb19RobotCommandHandler9GetStatusEv"></span><span id="rb::RobotCommandHandler::GetStatusC"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a3826f6ddd2e056ccbc9fa905e069a0dd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetStatus</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb19RobotCommandHandler9GetStatusEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Get gRPC status. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1062,7 +1058,7 @@ the request, or retrieve the resulting feedback object.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb19RobotCommandHandler6IsDoneEv">
-<span id="_CPPv3NK2rb19RobotCommandHandler6IsDoneEv"></span><span id="_CPPv2NK2rb19RobotCommandHandler6IsDoneEv"></span><span id="rb::RobotCommandHandler::IsDoneC"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a8c4dbcb8f950e1c81957370125a0d567"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsDone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb19RobotCommandHandler6IsDoneEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb19RobotCommandHandler6IsDoneEv"></span><span id="_CPPv2NK2rb19RobotCommandHandler6IsDoneEv"></span><span id="rb::RobotCommandHandler::IsDoneC"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a8c4dbcb8f950e1c81957370125a0d567"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsDone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb19RobotCommandHandler6IsDoneEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Check if the command execution is complete. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1073,14 +1069,14 @@ the request, or retrieve the resulting feedback object.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb19RobotCommandHandler4WaitEv">
-<span id="_CPPv3N2rb19RobotCommandHandler4WaitEv"></span><span id="_CPPv2N2rb19RobotCommandHandler4WaitEv"></span><span id="rb::RobotCommandHandler::Wait"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a5aa751dac9a5126591d04e778be336da"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wait</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler4WaitEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb19RobotCommandHandler4WaitEv"></span><span id="_CPPv2N2rb19RobotCommandHandler4WaitEv"></span><span id="rb::RobotCommandHandler::Wait"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1a5aa751dac9a5126591d04e778be336da"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wait</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler4WaitEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Wait for the command execution to complete. </p>
 <p>This method blocks until the command is done or cancelled. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb19RobotCommandHandler7WaitForEi">
-<span id="_CPPv3N2rb19RobotCommandHandler7WaitForEi"></span><span id="_CPPv2N2rb19RobotCommandHandler7WaitForEi"></span><span id="rb::RobotCommandHandler::WaitFor__i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1ac98d66b368ff3438519516d5207ece2f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WaitFor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler7WaitForEi" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb19RobotCommandHandler7WaitForEi"></span><span id="_CPPv2N2rb19RobotCommandHandler7WaitForEi"></span><span id="rb::RobotCommandHandler::WaitFor__i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_handler_1ac98d66b368ff3438519516d5207ece2f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WaitFor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb19RobotCommandHandler7WaitForEi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Wait for the command execution with timeout. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1193,6 +1189,6 @@ waiting for it to finish.</p></li>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

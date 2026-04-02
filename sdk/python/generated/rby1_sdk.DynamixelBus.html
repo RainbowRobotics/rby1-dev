@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/python/generated/rby1_sdk.DynamixelBus.rst.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,17 +919,17 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="rby1-sdk-dynamixelbus">
-<h1>rby1_sdk.DynamixelBus<a class="headerlink" href="#rby1-sdk-dynamixelbus" title="Link to this heading">#</a></h1>
+<h1>rby1_sdk.DynamixelBus<a class="headerlink" href="#rby1-sdk-dynamixelbus" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DynamixelBus</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DynamixelBus</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Dynamixel bus communication interface.</p>
 <p>This class provides low-level communication with Dynamixel servos
 including motor control, PID tuning, and status monitoring.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.ProtocolVersion">
-<span class="sig-name descname"><span class="pre">ProtocolVersion</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ProtocolVersion" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ProtocolVersion</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ProtocolVersion" title="Link to this definition">¶</a></dt>
 <dd><p>Dynamixel protocol version (2.0).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -944,7 +940,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.DefaultBaudrate">
-<span class="sig-name descname"><span class="pre">DefaultBaudrate</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.DefaultBaudrate" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DefaultBaudrate</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.DefaultBaudrate" title="Link to this definition">¶</a></dt>
 <dd><p>Default communication baudrate (2000000).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -955,7 +951,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrTorqueEnable">
-<span class="sig-name descname"><span class="pre">AddrTorqueEnable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrTorqueEnable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrTorqueEnable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrTorqueEnable" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for torque enable/disable (64).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -966,7 +962,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrPresentCurrent">
-<span class="sig-name descname"><span class="pre">AddrPresentCurrent</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentCurrent" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentCurrent</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentCurrent" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for current reading (126).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -977,7 +973,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrPresentVelocity">
-<span class="sig-name descname"><span class="pre">AddrPresentVelocity</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentVelocity" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentVelocity</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentVelocity" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for velocity reading (128).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -988,7 +984,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrPresentPosition">
-<span class="sig-name descname"><span class="pre">AddrPresentPosition</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentPosition" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentPosition</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentPosition" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for position reading (132).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -999,7 +995,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrGoalCurrent">
-<span class="sig-name descname"><span class="pre">AddrGoalCurrent</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrGoalCurrent" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrGoalCurrent</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrGoalCurrent" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for current goal setting (102).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1010,7 +1006,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrGoalPosition">
-<span class="sig-name descname"><span class="pre">AddrGoalPosition</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrGoalPosition" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrGoalPosition</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrGoalPosition" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for position goal setting (104).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1021,7 +1017,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrOperatingMode">
-<span class="sig-name descname"><span class="pre">AddrOperatingMode</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrOperatingMode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrOperatingMode</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrOperatingMode" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for operating mode setting (11).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1032,7 +1028,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrPresentButtonState">
-<span class="sig-name descname"><span class="pre">AddrPresentButtonState</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentButtonState" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentButtonState</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPresentButtonState" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for button state reading (12).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1043,7 +1039,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrGoalVibrationLevel">
-<span class="sig-name descname"><span class="pre">AddrGoalVibrationLevel</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrGoalVibrationLevel" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrGoalVibrationLevel</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrGoalVibrationLevel" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for vibration level setting (13).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1054,7 +1050,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrPositionPGain">
-<span class="sig-name descname"><span class="pre">AddrPositionPGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPositionPGain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPositionPGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPositionPGain" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for position P gain (80).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1065,7 +1061,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrPositionIGain">
-<span class="sig-name descname"><span class="pre">AddrPositionIGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPositionIGain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPositionIGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPositionIGain" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for position I gain (81).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1076,7 +1072,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrPositionDGain">
-<span class="sig-name descname"><span class="pre">AddrPositionDGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPositionDGain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPositionDGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrPositionDGain" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for position D gain (82).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1087,7 +1083,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.TorqueEnable">
-<span class="sig-name descname"><span class="pre">TorqueEnable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.TorqueEnable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">TorqueEnable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.TorqueEnable" title="Link to this definition">¶</a></dt>
 <dd><p>Value to enable torque (1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1098,7 +1094,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.TorqueDisable">
-<span class="sig-name descname"><span class="pre">TorqueDisable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.TorqueDisable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">TorqueDisable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.TorqueDisable" title="Link to this definition">¶</a></dt>
 <dd><p>Value to disable torque (0).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1109,7 +1105,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.CurrentControlMode">
-<span class="sig-name descname"><span class="pre">CurrentControlMode</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.CurrentControlMode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">CurrentControlMode</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.CurrentControlMode" title="Link to this definition">¶</a></dt>
 <dd><p>Operating mode for current control (0).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1120,7 +1116,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.CurrentBasedPositionControlMode">
-<span class="sig-name descname"><span class="pre">CurrentBasedPositionControlMode</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.CurrentBasedPositionControlMode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">CurrentBasedPositionControlMode</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.CurrentBasedPositionControlMode" title="Link to this definition">¶</a></dt>
 <dd><p>Operating mode for current-based position control (5).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1131,7 +1127,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.AddrCurrentTemperature">
-<span class="sig-name descname"><span class="pre">AddrCurrentTemperature</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrCurrentTemperature" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrCurrentTemperature</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.AddrCurrentTemperature" title="Link to this definition">¶</a></dt>
 <dd><p>Memory address for temperature reading (146).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1142,7 +1138,7 @@ including motor control, PID tuning, and status monitoring.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.__init__" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Construct a DynamixelBus instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1323,14 +1319,14 @@ including motor control, PID tuning, and status monitoring.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.ButtonState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ButtonState</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ButtonState" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ButtonState</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ButtonState" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Button state information for gripper devices.</p>
 <p>This class represents the state of buttons and triggers
 on gripper or tool devices.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.ButtonState.button">
-<span class="sig-name descname"><span class="pre">button</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ButtonState.button" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">button</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ButtonState.button" title="Link to this definition">¶</a></dt>
 <dd><p>Button state: 0 (released) or 1 (pressed).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1341,7 +1337,7 @@ on gripper or tool devices.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.ButtonState.trigger">
-<span class="sig-name descname"><span class="pre">trigger</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ButtonState.trigger" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">trigger</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ButtonState.trigger" title="Link to this definition">¶</a></dt>
 <dd><p>Trigger value ranging from 0 to 255.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1352,26 +1348,26 @@ on gripper or tool devices.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button</span></span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">button</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger</span></span><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.MotorState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MotorState</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MotorState</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>Motor state information.</p>
 <p>This class represents the current state of a Dynamixel motor
 including position, velocity, current, and temperature.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.MotorState.torque_enable">
-<span class="sig-name descname"><span class="pre">torque_enable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.torque_enable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">torque_enable</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.torque_enable" title="Link to this definition">¶</a></dt>
 <dd><p>Whether torque is currently enabled.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1382,7 +1378,7 @@ including position, velocity, current, and temperature.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.MotorState.position">
-<span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.position" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.position" title="Link to this definition">¶</a></dt>
 <dd><p>Current position [rad].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1393,7 +1389,7 @@ including position, velocity, current, and temperature.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.MotorState.velocity">
-<span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.velocity" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.velocity" title="Link to this definition">¶</a></dt>
 <dd><p>Current velocity [rad/s].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1404,7 +1400,7 @@ including position, velocity, current, and temperature.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.MotorState.current">
-<span class="sig-name descname"><span class="pre">current</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.current" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">current</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.current" title="Link to this definition">¶</a></dt>
 <dd><p>Current current [A].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1415,7 +1411,7 @@ including position, velocity, current, and temperature.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.MotorState.torque">
-<span class="sig-name descname"><span class="pre">torque</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.torque" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">torque</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.torque" title="Link to this definition">¶</a></dt>
 <dd><p>Current torque [Nm].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1426,7 +1422,7 @@ including position, velocity, current, and temperature.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.MotorState.temperature">
-<span class="sig-name descname"><span class="pre">temperature</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.temperature" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">temperature</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.MotorState.temperature" title="Link to this definition">¶</a></dt>
 <dd><p>Current temperature in degrees Celsius.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1437,46 +1433,46 @@ including position, velocity, current, and temperature.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id2">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current</span></span><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id3">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id4">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">temperature</span></span><a class="headerlink" href="#id4" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">temperature</span></span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id5">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">torque</span></span><a class="headerlink" href="#id5" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">torque</span></span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id6">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">torque_enable</span></span><a class="headerlink" href="#id6" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">torque_enable</span></span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id7">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#id7" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.PIDGain">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PIDGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PIDGain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <p>PID gain parameters for position control.</p>
 <p>This class represents the proportional, integral, and derivative
 gains used for position control of Dynamixel motors.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.PIDGain.p_gain">
-<span class="sig-name descname"><span class="pre">p_gain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain.p_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">p_gain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain.p_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Proportional gain (0-65535).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1487,7 +1483,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.PIDGain.i_gain">
-<span class="sig-name descname"><span class="pre">i_gain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain.i_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">i_gain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain.i_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Integral gain (0-65535).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1498,7 +1494,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.PIDGain.d_gain">
-<span class="sig-name descname"><span class="pre">d_gain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain.d_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">d_gain</span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.PIDGain.d_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Derivative gain (0-65535).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1509,24 +1505,24 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id8">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">d_gain</span></span><a class="headerlink" href="#id8" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">d_gain</span></span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id9">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_gain</span></span><a class="headerlink" href="#id9" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_gain</span></span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="id10">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">p_gain</span></span><a class="headerlink" href="#id10" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">p_gain</span></span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.get_motor_states">
-<span class="sig-name descname"><span class="pre">get_motor_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rby1_sdk.DynamixelBus.MotorState" title="rby1_sdk.DynamixelBus.MotorState"><span class="pre">rby1_sdk.DynamixelBus.MotorState</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_motor_states" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_motor_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rby1_sdk.DynamixelBus.MotorState" title="rby1_sdk.DynamixelBus.MotorState"><span class="pre">rby1_sdk.DynamixelBus.MotorState</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_motor_states" title="Link to this definition">¶</a></dt>
 <dd><p>Get motor states for multiple motors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1543,7 +1539,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.get_position_d_gain">
-<span class="sig-name descname"><span class="pre">get_position_d_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_d_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_position_d_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_d_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Get position D gain for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1560,7 +1556,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.get_position_i_gain">
-<span class="sig-name descname"><span class="pre">get_position_i_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_i_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_position_i_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_i_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Get position I gain for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1577,7 +1573,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.get_position_p_gain">
-<span class="sig-name descname"><span class="pre">get_position_p_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_p_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_position_p_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_p_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Get position P gain for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1594,7 +1590,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.get_position_pid_gain">
-<span class="sig-name descname"><span class="pre">get_position_pid_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.DynamixelBus.PIDGain" title="rby1_sdk.DynamixelBus.PIDGain"><span class="pre">rby1_sdk.DynamixelBus.PIDGain</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_pid_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_position_pid_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.DynamixelBus.PIDGain" title="rby1_sdk.DynamixelBus.PIDGain"><span class="pre">rby1_sdk.DynamixelBus.PIDGain</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.get_position_pid_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Get position PID gains for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1611,7 +1607,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_fast_sync_read">
-<span class="sig-name descname"><span class="pre">group_fast_sync_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_fast_sync_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read" title="Link to this definition">¶</a></dt>
 <dd><p>Perform fast synchronous read for multiple motors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1632,7 +1628,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_fast_sync_read_encoder">
-<span class="sig-name descname"><span class="pre">group_fast_sync_read_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read_encoder" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_fast_sync_read_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read_encoder" title="Link to this definition">¶</a></dt>
 <dd><p>Perform fast synchronous read of encoder values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1649,7 +1645,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_fast_sync_read_operating_mode">
-<span class="sig-name descname"><span class="pre">group_fast_sync_read_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read_operating_mode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_fast_sync_read_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read_operating_mode" title="Link to this definition">¶</a></dt>
 <dd><p>Perform fast synchronous read of operating modes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1669,7 +1665,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_fast_sync_read_torque_enable">
-<span class="sig-name descname"><span class="pre">group_fast_sync_read_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read_torque_enable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_fast_sync_read_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_fast_sync_read_torque_enable" title="Link to this definition">¶</a></dt>
 <dd><p>Perform fast synchronous read of torque enable states.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1686,7 +1682,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_sync_write_operating_mode">
-<span class="sig-name descname"><span class="pre">group_sync_write_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_and_mode_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_operating_mode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_sync_write_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_and_mode_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_operating_mode" title="Link to this definition">¶</a></dt>
 <dd><p>Perform synchronous write of operating modes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1697,7 +1693,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_sync_write_send_position">
-<span class="sig-name descname"><span class="pre">group_sync_write_send_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_and_position_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_send_position" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_sync_write_send_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_and_position_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_send_position" title="Link to this definition">¶</a></dt>
 <dd><p>Perform synchronous write of goal positions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1708,7 +1704,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_sync_write_send_torque">
-<span class="sig-name descname"><span class="pre">group_sync_write_send_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_and_torque_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_send_torque" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_sync_write_send_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_and_torque_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_send_torque" title="Link to this definition">¶</a></dt>
 <dd><p>Perform synchronous write of torque commands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1719,7 +1715,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.group_sync_write_torque_enable">
-<span class="sig-name descname"><span class="pre">group_sync_write_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_torque_enable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">group_sync_write_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.DynamixelBus.group_sync_write_torque_enable" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
 <li><p>group_sync_write_torque_enable(self: rby1_sdk.DynamixelBus, id_and_enable_vector: list[tuple[int, int]]) -&gt; None</p></li>
@@ -1746,7 +1742,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.open_port">
-<span class="sig-name descname"><span class="pre">open_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.open_port" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">open_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.open_port" title="Link to this definition">¶</a></dt>
 <dd><p>Open the communication port.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1760,7 +1756,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.ping">
-<span class="sig-name descname"><span class="pre">ping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ping" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.ping" title="Link to this definition">¶</a></dt>
 <dd><p>Ping a motor to check if it’s responding.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1777,7 +1773,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.read_button_status">
-<span class="sig-name descname"><span class="pre">read_button_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rby1_sdk.DynamixelBus.ButtonState" title="rby1_sdk.DynamixelBus.ButtonState"><span class="pre">rby1_sdk.DynamixelBus.ButtonState</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_button_status" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_button_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rby1_sdk.DynamixelBus.ButtonState" title="rby1_sdk.DynamixelBus.ButtonState"><span class="pre">rby1_sdk.DynamixelBus.ButtonState</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_button_status" title="Link to this definition">¶</a></dt>
 <dd><p>Read button status from a device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1794,7 +1790,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.read_encoder">
-<span class="sig-name descname"><span class="pre">read_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_encoder" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_encoder" title="Link to this definition">¶</a></dt>
 <dd><p>Read encoder position for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1811,7 +1807,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.read_operating_mode">
-<span class="sig-name descname"><span class="pre">read_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_operating_mode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_operating_mode" title="Link to this definition">¶</a></dt>
 <dd><p>Read operating mode for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1831,7 +1827,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.read_temperature">
-<span class="sig-name descname"><span class="pre">read_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_temperature" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_temperature" title="Link to this definition">¶</a></dt>
 <dd><p>Read temperature for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1848,7 +1844,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.read_torque_enable">
-<span class="sig-name descname"><span class="pre">read_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_torque_enable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.read_torque_enable" title="Link to this definition">¶</a></dt>
 <dd><p>Read torque enable state for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1865,7 +1861,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.send_current">
-<span class="sig-name descname"><span class="pre">send_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_current" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">send_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_current" title="Link to this definition">¶</a></dt>
 <dd><p>Send current command to a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1879,7 +1875,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.send_goal_position">
-<span class="sig-name descname"><span class="pre">send_goal_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_goal_position" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">send_goal_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_goal_position" title="Link to this definition">¶</a></dt>
 <dd><p>Send goal position to a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1893,7 +1889,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.send_operating_mode">
-<span class="sig-name descname"><span class="pre">send_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">operating_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_operating_mode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">send_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">operating_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_operating_mode" title="Link to this definition">¶</a></dt>
 <dd><p>Send operating mode to a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1913,7 +1909,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.send_torque">
-<span class="sig-name descname"><span class="pre">send_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_torque" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">send_torque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_torque" title="Link to this definition">¶</a></dt>
 <dd><p>Send torque command to a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1927,7 +1923,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.send_torque_enable">
-<span class="sig-name descname"><span class="pre">send_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">onoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_torque_enable" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">send_torque_enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">onoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_torque_enable" title="Link to this definition">¶</a></dt>
 <dd><p>Enable or disable torque for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1941,7 +1937,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.send_vibration">
-<span class="sig-name descname"><span class="pre">send_vibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_vibration" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">send_vibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.send_vibration" title="Link to this definition">¶</a></dt>
 <dd><p>Send vibration command to a device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1955,7 +1951,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.set_baud_rate">
-<span class="sig-name descname"><span class="pre">set_baud_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_baud_rate" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_baud_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_baud_rate" title="Link to this definition">¶</a></dt>
 <dd><p>Set the communication baudrate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1972,7 +1968,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.set_position_d_gain">
-<span class="sig-name descname"><span class="pre">set_position_d_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_d_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_position_d_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_d_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Set position D gain for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1986,7 +1982,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.set_position_i_gain">
-<span class="sig-name descname"><span class="pre">set_position_i_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_i_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_position_i_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_i_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Set position I gain for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2000,7 +1996,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.set_position_p_gain">
-<span class="sig-name descname"><span class="pre">set_position_p_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_p_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_position_p_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_p_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Set position P gain for a motor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2014,7 +2010,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.set_position_pid_gain">
-<span class="sig-name descname"><span class="pre">set_position_pid_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_pid_gain" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_position_pid_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_position_pid_gain" title="Link to this definition">¶</a></dt>
 <dd><p>Overloaded function.</p>
 <ol class="arabic simple">
 <li><p>set_position_pid_gain(self: rby1_sdk.DynamixelBus, id: int, p_gain: Optional[int], i_gain: Optional[int], d_gain: Optional[int]) -&gt; None</p></li>
@@ -2046,7 +2042,7 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rby1_sdk.DynamixelBus.set_torque_constant">
-<span class="sig-name descname"><span class="pre">set_torque_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_torque_constant" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_torque_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.DynamixelBus" title="rby1_sdk.DynamixelBus"><span class="pre">rby1_sdk.DynamixelBus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.DynamixelBus.set_torque_constant" title="Link to this definition">¶</a></dt>
 <dd><p>Set torque constants for motors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2057,97 +2053,97 @@ gains used for position control of Dynamixel motors.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id11">
-<span class="sig-name descname"><span class="pre">AddrCurrentTemperature</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">146</span></em><a class="headerlink" href="#id11" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrCurrentTemperature</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">146</span></em><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id12">
-<span class="sig-name descname"><span class="pre">AddrGoalCurrent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">102</span></em><a class="headerlink" href="#id12" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrGoalCurrent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">102</span></em><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id13">
-<span class="sig-name descname"><span class="pre">AddrGoalPosition</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">116</span></em><a class="headerlink" href="#id13" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrGoalPosition</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">116</span></em><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id14">
-<span class="sig-name descname"><span class="pre">AddrGoalVibrationLevel</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">102</span></em><a class="headerlink" href="#id14" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrGoalVibrationLevel</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">102</span></em><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id15">
-<span class="sig-name descname"><span class="pre">AddrOperatingMode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#id15" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrOperatingMode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id16">
-<span class="sig-name descname"><span class="pre">AddrPositionDGain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">80</span></em><a class="headerlink" href="#id16" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPositionDGain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">80</span></em><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id17">
-<span class="sig-name descname"><span class="pre">AddrPositionIGain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">82</span></em><a class="headerlink" href="#id17" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPositionIGain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">82</span></em><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id18">
-<span class="sig-name descname"><span class="pre">AddrPositionPGain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84</span></em><a class="headerlink" href="#id18" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPositionPGain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84</span></em><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id19">
-<span class="sig-name descname"><span class="pre">AddrPresentButtonState</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">132</span></em><a class="headerlink" href="#id19" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentButtonState</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">132</span></em><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id20">
-<span class="sig-name descname"><span class="pre">AddrPresentCurrent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">126</span></em><a class="headerlink" href="#id20" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentCurrent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">126</span></em><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id21">
-<span class="sig-name descname"><span class="pre">AddrPresentPosition</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">132</span></em><a class="headerlink" href="#id21" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentPosition</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">132</span></em><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id22">
-<span class="sig-name descname"><span class="pre">AddrPresentVelocity</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="headerlink" href="#id22" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrPresentVelocity</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id23">
-<span class="sig-name descname"><span class="pre">AddrTorqueEnable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#id23" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">AddrTorqueEnable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id24">
-<span class="sig-name descname"><span class="pre">CurrentBasedPositionControlMode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#id24" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">CurrentBasedPositionControlMode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id25">
-<span class="sig-name descname"><span class="pre">CurrentControlMode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id25" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">CurrentControlMode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id26">
-<span class="sig-name descname"><span class="pre">DefaultBaudrate</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2000000</span></em><a class="headerlink" href="#id26" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DefaultBaudrate</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2000000</span></em><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id27">
-<span class="sig-name descname"><span class="pre">ProtocolVersion</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2.0</span></em><a class="headerlink" href="#id27" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ProtocolVersion</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2.0</span></em><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id28">
-<span class="sig-name descname"><span class="pre">TorqueDisable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id28" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">TorqueDisable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id29">
-<span class="sig-name descname"><span class="pre">TorqueEnable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#id29" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">TorqueEnable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2333,6 +2329,6 @@ gains used for position control of Dynamixel motors.</p>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

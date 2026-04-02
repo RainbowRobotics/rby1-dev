@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/cpp/client/serial-stream.rst.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,7 +919,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="serialstream">
-<h1>SerialStream<a class="headerlink" href="#serialstream" title="Link to this heading">#</a></h1>
+<h1>SerialStream<a class="headerlink" href="#serialstream" title="Link to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">rb::SerialStream</span></code> exposes an SDK-managed serial-device connection. It sits
 next to the main robot client and is useful when you need asynchronous serial
 I/O through the same SDK surface.</p>
@@ -1028,19 +1024,19 @@ I/O through the same SDK surface.</p>
 <p class="rubric">Detailed Reference</p>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb12SerialStreamE">
-<span id="_CPPv3N2rb12SerialStreamE"></span><span id="_CPPv2N2rb12SerialStreamE"></span><span id="rb::SerialStream"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SerialStream</span></span></span><a class="headerlink" href="#_CPPv4N2rb12SerialStreamE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb12SerialStreamE"></span><span id="_CPPv2N2rb12SerialStreamE"></span><span id="rb::SerialStream"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SerialStream</span></span></span><a class="headerlink" href="#_CPPv4N2rb12SerialStreamE" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Serial communication stream interface. </p>
 <p>Provides bidirectional serial communication with devices connected to the robot. Supports asynchronous read/write operations with callback-based data handling. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb12SerialStreamD0Ev">
-<span id="_CPPv3N2rb12SerialStreamD0Ev"></span><span id="_CPPv2N2rb12SerialStreamD0Ev"></span><span id="rb::SerialStream::~SerialStream"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1acccdd9e936c8f69b510a3472c2045923"></span><span class="sig-name descname"><span class="n"><span class="pre">~SerialStream</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStreamD0Ev" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb12SerialStreamD0Ev"></span><span id="_CPPv2N2rb12SerialStreamD0Ev"></span><span id="rb::SerialStream::~SerialStream"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1acccdd9e936c8f69b510a3472c2045923"></span><span class="sig-name descname"><span class="n"><span class="pre">~SerialStream</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStreamD0Ev" title="Link to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb12SerialStream7ConnectEb">
-<span id="_CPPv3NK2rb12SerialStream7ConnectEb"></span><span id="_CPPv2NK2rb12SerialStream7ConnectEb"></span><span id="rb::SerialStream::Connect__bC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1af3ceae315fc8a6ecdf5fee83b364a6b0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Connect</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">verbose</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream7ConnectEb" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb12SerialStream7ConnectEb"></span><span id="_CPPv2NK2rb12SerialStream7ConnectEb"></span><span id="rb::SerialStream::Connect__bC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1af3ceae315fc8a6ecdf5fee83b364a6b0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Connect</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">verbose</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream7ConnectEb" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Connect to the serial device. </p>
 <p>Establishes a connection to the serial device with the configured parameters.</p>
 <dl class="field-list simple">
@@ -1055,14 +1051,14 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb12SerialStream10DisconnectEv">
-<span id="_CPPv3NK2rb12SerialStream10DisconnectEv"></span><span id="_CPPv2NK2rb12SerialStream10DisconnectEv"></span><span id="rb::SerialStream::DisconnectC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1ae82274fecc2e828d81a6f663240e5798"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Disconnect</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream10DisconnectEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb12SerialStream10DisconnectEv"></span><span id="_CPPv2NK2rb12SerialStream10DisconnectEv"></span><span id="rb::SerialStream::DisconnectC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1ae82274fecc2e828d81a6f663240e5798"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Disconnect</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream10DisconnectEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Disconnect from the serial device. </p>
 <p>Closes the serial connection and releases associated resources. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb12SerialStream11IsCancelledEv">
-<span id="_CPPv3NK2rb12SerialStream11IsCancelledEv"></span><span id="_CPPv2NK2rb12SerialStream11IsCancelledEv"></span><span id="rb::SerialStream::IsCancelledC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a48bb97a3f1f4b8d072b7bdd418c914af"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsCancelled</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream11IsCancelledEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb12SerialStream11IsCancelledEv"></span><span id="_CPPv2NK2rb12SerialStream11IsCancelledEv"></span><span id="rb::SerialStream::IsCancelledC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a48bb97a3f1f4b8d072b7bdd418c914af"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsCancelled</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream11IsCancelledEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Check if the serial stream has been cancelled. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1073,7 +1069,7 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb12SerialStream6IsDoneEv">
-<span id="_CPPv3NK2rb12SerialStream6IsDoneEv"></span><span id="_CPPv2NK2rb12SerialStream6IsDoneEv"></span><span id="rb::SerialStream::IsDoneC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1ae148761bff738d8bf8dc24129b3e910c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsDone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream6IsDoneEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb12SerialStream6IsDoneEv"></span><span id="_CPPv2NK2rb12SerialStream6IsDoneEv"></span><span id="rb::SerialStream::IsDoneC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1ae148761bff738d8bf8dc24129b3e910c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsDone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream6IsDoneEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Check if the serial stream is done. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1084,7 +1080,7 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb12SerialStream8IsOpenedEv">
-<span id="_CPPv3NK2rb12SerialStream8IsOpenedEv"></span><span id="_CPPv2NK2rb12SerialStream8IsOpenedEv"></span><span id="rb::SerialStream::IsOpenedC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a137290b98762c1fccd781fffd910d761"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsOpened</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream8IsOpenedEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb12SerialStream8IsOpenedEv"></span><span id="_CPPv2NK2rb12SerialStream8IsOpenedEv"></span><span id="rb::SerialStream::IsOpenedC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a137290b98762c1fccd781fffd910d761"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsOpened</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream8IsOpenedEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Check if the serial port is opened. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1095,7 +1091,7 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb12SerialStream15SetReadCallbackERKNSt8functionIFvRKNSt6stringEEEE">
-<span id="_CPPv3N2rb12SerialStream15SetReadCallbackERKNSt8functionIFvRKNSt6stringEEEE"></span><span id="_CPPv2N2rb12SerialStream15SetReadCallbackERKNSt8functionIFvRKNSt6stringEEEE"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a83b2f127e9b174bf83756a7a17a51ff1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetReadCallback</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">cb</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream15SetReadCallbackERKNSt8functionIFvRKNSt6stringEEEE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb12SerialStream15SetReadCallbackERKNSt8functionIFvRKNSt6stringEEEE"></span><span id="_CPPv2N2rb12SerialStream15SetReadCallbackERKNSt8functionIFvRKNSt6stringEEEE"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a83b2f127e9b174bf83756a7a17a51ff1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetReadCallback</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">cb</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream15SetReadCallbackERKNSt8functionIFvRKNSt6stringEEEE" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Set callback function for incoming data. </p>
 <p>Registers a callback function that will be called whenever data is received from the serial device.</p>
 <dl class="field-list simple">
@@ -1107,14 +1103,14 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb12SerialStream4WaitEv">
-<span id="_CPPv3NK2rb12SerialStream4WaitEv"></span><span id="_CPPv2NK2rb12SerialStream4WaitEv"></span><span id="rb::SerialStream::WaitC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1ab4528979e058da87ec44515299e27f38"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wait</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream4WaitEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb12SerialStream4WaitEv"></span><span id="_CPPv2NK2rb12SerialStream4WaitEv"></span><span id="rb::SerialStream::WaitC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1ab4528979e058da87ec44515299e27f38"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wait</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream4WaitEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Wait for the serial stream to complete. </p>
 <p>Blocks until the serial stream is closed or an error occurs. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb12SerialStream7WaitForEi">
-<span id="_CPPv3NK2rb12SerialStream7WaitForEi"></span><span id="_CPPv2NK2rb12SerialStream7WaitForEi"></span><span id="rb::SerialStream::WaitFor__iC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1aacd9e899212c872605a008e1cc0a4b9d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WaitFor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream7WaitForEi" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb12SerialStream7WaitForEi"></span><span id="_CPPv2NK2rb12SerialStream7WaitForEi"></span><span id="rb::SerialStream::WaitFor__iC"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1aacd9e899212c872605a008e1cc0a4b9d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WaitFor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb12SerialStream7WaitForEi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Wait for the serial stream to complete with timeout. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1128,7 +1124,7 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb12SerialStream5WriteEPKc">
-<span id="_CPPv3N2rb12SerialStream5WriteEPKc"></span><span id="_CPPv2N2rb12SerialStream5WriteEPKc"></span><span id="rb::SerialStream::Write__cCP"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a5689340afcfe7429dd6212d6191b7de7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream5WriteEPKc" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb12SerialStream5WriteEPKc"></span><span id="_CPPv2N2rb12SerialStream5WriteEPKc"></span><span id="rb::SerialStream::Write__cCP"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a5689340afcfe7429dd6212d6191b7de7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream5WriteEPKc" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Write null-terminated string data to the serial port. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1142,7 +1138,7 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb12SerialStream5WriteEPKci">
-<span id="_CPPv3N2rb12SerialStream5WriteEPKci"></span><span id="_CPPv2N2rb12SerialStream5WriteEPKci"></span><span id="rb::SerialStream::Write__cCP.i"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a4cc9879ef102bbd2c0603c1cdca11f77"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream5WriteEPKci" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb12SerialStream5WriteEPKci"></span><span id="_CPPv2N2rb12SerialStream5WriteEPKci"></span><span id="rb::SerialStream::Write__cCP.i"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a4cc9879ef102bbd2c0603c1cdca11f77"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream5WriteEPKci" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Write binary data to the serial port. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1159,7 +1155,7 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb12SerialStream5WriteERKNSt6stringE">
-<span id="_CPPv3N2rb12SerialStream5WriteERKNSt6stringE"></span><span id="_CPPv2N2rb12SerialStream5WriteERKNSt6stringE"></span><span id="rb::SerialStream::Write__ssCR"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a6e5b92335dc2825249eba0ab18929c8f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream5WriteERKNSt6stringE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb12SerialStream5WriteERKNSt6stringE"></span><span id="_CPPv2N2rb12SerialStream5WriteERKNSt6stringE"></span><span id="rb::SerialStream::Write__ssCR"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a6e5b92335dc2825249eba0ab18929c8f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream5WriteERKNSt6stringE" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Write string data to the serial port. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1173,7 +1169,7 @@ I/O through the same SDK surface.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb12SerialStream9WriteByteEc">
-<span id="_CPPv3N2rb12SerialStream9WriteByteEc"></span><span id="_CPPv2N2rb12SerialStream9WriteByteEc"></span><span id="rb::SerialStream::WriteByte__c"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a63d81f60c05f5398a22b53621f206170"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WriteByte</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ch</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream9WriteByteEc" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb12SerialStream9WriteByteEc"></span><span id="_CPPv2N2rb12SerialStream9WriteByteEc"></span><span id="rb::SerialStream::WriteByte__c"></span><span class="target" id="rby1-sdkclassrb_1_1_serial_stream_1a63d81f60c05f5398a22b53621f206170"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WriteByte</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ch</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb12SerialStream9WriteByteEc" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Write a single byte to the serial port. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1290,6 +1286,6 @@ involves direct peripheral communication.</p></li>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

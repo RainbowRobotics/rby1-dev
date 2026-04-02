@@ -47,7 +47,7 @@ commands, and read state or logs.
    * - ``PowerOn()``, ``PowerOff()``, ``ServoOn()``, ``ServoOff()``
      - Manage device power and servo state.
      - Device names accept regex-style patterns.
-   * - ``BreakRelease()`` and ``BreakEngage()``
+   * - ``BrakeRelease()`` and ``BrakeEngage()``
      - Manage brakes on the selected devices.
      - Useful in bring-up and service workflows.
    * - ``EnableControlManager()``, ``DisableControlManager()``,

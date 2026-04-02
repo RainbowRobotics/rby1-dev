@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../_sources/hardware/electrical_part.md.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,20 +919,20 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="electrical-part">
-<h1>Electrical Part<a class="headerlink" href="#electrical-part" title="Link to this heading">#</a></h1>
+<h1>Electrical Part<a class="headerlink" href="#electrical-part" title="Link to this heading">¶</a></h1>
 <section id="power-system">
-<h2>Power System<a class="headerlink" href="#power-system" title="Link to this heading">#</a></h2>
+<h2>Power System<a class="headerlink" href="#power-system" title="Link to this heading">¶</a></h2>
 <img alt="power-system1" class="white-bg align-center" src="../_images/power-system1.png" style="width: 200px;" />
 <br>
 <section id="input-source">
-<h3>Input Source<a class="headerlink" href="#input-source" title="Link to this heading">#</a></h3>
+<h3>Input Source<a class="headerlink" href="#input-source" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The system operates using either a <strong>battery</strong> or an <strong>external power source (SMPS)</strong>.</p></li>
 <li><p>The <strong>SMPS</strong> (Switched-Mode Power Supply) requires a <strong>back-EMF</strong> protection device to safeguard against voltage spikes.</p></li>
 </ul>
 </section>
 <section id="power-distribution">
-<h3>Power Distribution<a class="headerlink" href="#power-distribution" title="Link to this heading">#</a></h3>
+<h3>Power Distribution<a class="headerlink" href="#power-distribution" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Power is routed through cables inside the robot’s legs to minimize visible wiring.</p></li>
 <li><p>It is then distributed to different parts of the robot’s body.</p></li>
@@ -944,7 +940,7 @@
 </ul>
 </section>
 <section id="shutdown-methods">
-<h3>Shutdown Methods<a class="headerlink" href="#shutdown-methods" title="Link to this heading">#</a></h3>
+<h3>Shutdown Methods<a class="headerlink" href="#shutdown-methods" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><strong>Emergency Stop Button</strong></p>
 <ul>
@@ -972,12 +968,12 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 </section>
 <hr class="docutils" />
 <section id="backpack">
-<h3>Backpack<a class="headerlink" href="#backpack" title="Link to this heading">#</a></h3>
+<h3>Backpack<a class="headerlink" href="#backpack" title="Link to this heading">¶</a></h3>
 <br>
 <p>The <strong>Backpack</strong> section explains the internal structure and layout of the robot’s control unit. It facilitates external connections, allowing power to flow through bypass ports from the <strong>Tool Flange</strong> to the control unit. Supported power options include <strong>24V</strong>, <strong>12V</strong>, and <strong>5V</strong>, with a current capacity of <strong>8A</strong>. Additionally, the <strong>U-PC</strong> (User PC) has accessible ports: <strong>2 USB</strong>, <strong>2 Ethernet</strong>, and <strong>1 HDMI</strong>. Note that the two Ethernet ports have different speeds: U-PC port supports <strong>10 Gbps</strong>, while the other supports <strong>1 Gbps</strong>. Antennas, power buttons, and the emergency stop (EMO) switch are all positioned for easy access on the backpack. This unit manages power, controls the robot, and allows external devices to connect seamlessly.</p>
 <br>
 <section id="external-power-specifications">
-<h4>External Power Specifications<a class="headerlink" href="#external-power-specifications" title="Link to this heading">#</a></h4>
+<h4>External Power Specifications<a class="headerlink" href="#external-power-specifications" title="Link to this heading">¶</a></h4>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -1015,7 +1011,7 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 </section>
 <hr class="docutils" />
 <section id="u-pc-and-r-pc">
-<h3>U-PC and R-PC<a class="headerlink" href="#u-pc-and-r-pc" title="Link to this heading">#</a></h3>
+<h3>U-PC and R-PC<a class="headerlink" href="#u-pc-and-r-pc" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <strong>U-PC</strong> is powered by a <strong>Jetson AGX Orin Module 64G</strong> paired with a <strong>Carrier Board (AverMedia, D315)</strong>. This setup offers high-performance processing for complex robotics operations.</p></li>
 <li><p>The <strong>R-PC</strong> consists of an <strong>Up Xtreme i12</strong> equipped with a <strong>12th Gen Intel® Core™</strong> processor. This serves as the processing hub for robotic actions.</p></li>
@@ -1023,17 +1019,17 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 <img alt="rpc-upc" class="white-bg align-center" src="../_images/rpc-upc.png" style="width: 600px;" />
 <br>
 <section id="r-pc-robot-pc">
-<h4>R-PC [Robot PC]<a class="headerlink" href="#r-pc-robot-pc" title="Link to this heading">#</a></h4>
+<h4>R-PC [Robot PC]<a class="headerlink" href="#r-pc-robot-pc" title="Link to this heading">¶</a></h4>
 <p>The R-PC, specifically the UP Xtreme i12, receives its input power via a DC-DC converter embedded in the PDU. The power switch for the R-PC is easily accessible on the robot’s top section. Additionally, the R-PC is equipped with a 4-channel M.2 CAN module, serving as the primary interface for CAN communication with each joint.</p>
 </section>
 <section id="u-pc-user-pc">
-<h4>U-PC [User PC]<a class="headerlink" href="#u-pc-user-pc" title="Link to this heading">#</a></h4>
+<h4>U-PC [User PC]<a class="headerlink" href="#u-pc-user-pc" title="Link to this heading">¶</a></h4>
 <p>The U-PC is the Jetson AGX Orin, which can be swapped for another PC if necessary. Its input power is also supplied by a DC-DC converter housed within the PDU. The U-PC switch is located at the top of the body. The U-PC controls the robot’s gripper, and users must connect the correct communication module to operate different types of grippers effectively.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="pdu-power-distribution-unit">
-<h3>PDU (Power Distribution Unit)<a class="headerlink" href="#pdu-power-distribution-unit" title="Link to this heading">#</a></h3>
+<h3>PDU (Power Distribution Unit)<a class="headerlink" href="#pdu-power-distribution-unit" title="Link to this heading">¶</a></h3>
 <br>
 <p>The PDU has around 20 connectors, and incorrect wiring can lead to operational issues. Special caution is necessary when handling the PDU, particularly around its DC-DC converters, as they can become very hot during operation.</p>
 <div class="admonition important">
@@ -1044,7 +1040,7 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 </section>
 <hr class="docutils" />
 <section id="terminal-board-and-fuse-information">
-<h3>Terminal Board and Fuse Information<a class="headerlink" href="#terminal-board-and-fuse-information" title="Link to this heading">#</a></h3>
+<h3>Terminal Board and Fuse Information<a class="headerlink" href="#terminal-board-and-fuse-information" title="Link to this heading">¶</a></h3>
 <br>
 <p>The Terminal Board inside the robot contains four fuses:</p>
 <ul class="simple">
@@ -1056,21 +1052,21 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 </section>
 <hr class="docutils" />
 <section id="cable-connection-board">
-<h3>Cable Connection Board<a class="headerlink" href="#cable-connection-board" title="Link to this heading">#</a></h3>
+<h3>Cable Connection Board<a class="headerlink" href="#cable-connection-board" title="Link to this heading">¶</a></h3>
 <br>
 <p>This board manages the power and signal connections between the robot’s modules.</p>
 <img alt="cable-connection-board" class="white-bg align-center" src="../_images/cable-connection-board.png" style="width: 600px;" />
 </section>
 <hr class="docutils" />
 <section id="tool-flange-connection">
-<h3>Tool Flange Connection<a class="headerlink" href="#tool-flange-connection" title="Link to this heading">#</a></h3>
+<h3>Tool Flange Connection<a class="headerlink" href="#tool-flange-connection" title="Link to this heading">¶</a></h3>
 <br>
 <p>The robot’s tool flange includes Connector A for users, which provides a 6-line bypass connected to the U-PC. Connector B is linked to the tool flange board and routed to the R-PC for robot control. The tool flange also features an I/O interface, supporting direct connections to the robot’s force/torque (F/T) sensor or gripper. Additionally, the Direct Teaching Button allows users to manually guide the robot’s movements.</p>
 <img alt="connection-info" class="white-bg align-center" src="../_images/connection-info.png" style="width: 600px;" />
 </section>
 <hr class="docutils" />
 <section id="communication-system-overview-can">
-<h3>Communication System Overview [CAN]<a class="headerlink" href="#communication-system-overview-can" title="Link to this heading">#</a></h3>
+<h3>Communication System Overview [CAN]<a class="headerlink" href="#communication-system-overview-can" title="Link to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These CAN channels are not accessible to users. They are exclusively managed by the R-PC (Robot-PC).</p>
@@ -1100,31 +1096,31 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 </section>
 <hr class="docutils" />
 <section id="communication-system-overview-lan-bypass">
-<h3>Communication System Overview [LAN &amp; BYPASS]<a class="headerlink" href="#communication-system-overview-lan-bypass" title="Link to this heading">#</a></h3>
+<h3>Communication System Overview [LAN &amp; BYPASS]<a class="headerlink" href="#communication-system-overview-lan-bypass" title="Link to this heading">¶</a></h3>
 <img alt="communication_system" class="rounded-img align-center" src="../_images/communication_system.png" style="width: 200px;" />
 <section id="access-through-u-pc">
-<h4>Access through U-PC:<a class="headerlink" href="#access-through-u-pc" title="Link to this heading">#</a></h4>
+<h4>Access through U-PC:<a class="headerlink" href="#access-through-u-pc" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>The user communicates with the R-PC via LAN.</p></li>
 <li><p>Commands are sent from the U-PC to the R-PC to control the RB-Y1.</p></li>
 </ul>
 </section>
 <section id="r-pc-to-mobile-robot">
-<h4>R-PC to Mobile Robot:<a class="headerlink" href="#r-pc-to-mobile-robot" title="Link to this heading">#</a></h4>
+<h4>R-PC to Mobile Robot:<a class="headerlink" href="#r-pc-to-mobile-robot" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>The R-PC is connected to the mobile robot via LAN.</p></li>
 <li><p>It receives sensor data such as LiDAR for tasks like collision avoidance.</p></li>
 </ul>
 </section>
 <section id="bypass-connection">
-<h4>Bypass Connection:<a class="headerlink" href="#bypass-connection" title="Link to this heading">#</a></h4>
+<h4>Bypass Connection:<a class="headerlink" href="#bypass-connection" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>A direct hardware link exists between the body and the tool flange (TF).</p></li>
 <li><p>This connection allows communication for devices like grippers.</p></li>
 </ul>
 </section>
 <section id="peripheral-devices">
-<h4>Peripheral Devices:<a class="headerlink" href="#peripheral-devices" title="Link to this heading">#</a></h4>
+<h4>Peripheral Devices:<a class="headerlink" href="#peripheral-devices" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>The user can connect additional devices, such as USB-to-serial converters, for extended functionality.</p></li>
 </ul>
@@ -1240,6 +1236,6 @@ This method forcibly shuts down power. Use it with caution and only when necessa
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

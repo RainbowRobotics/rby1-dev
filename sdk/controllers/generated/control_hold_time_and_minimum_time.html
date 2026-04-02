@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/controllers/generated/control_hold_time_and_minimum_time.md.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,20 +919,20 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="control-hold-time-and-minimum-time">
-<h1>Control Hold Time and Minimum Time<a class="headerlink" href="#control-hold-time-and-minimum-time" title="Link to this heading">#</a></h1>
+<h1>Control Hold Time and Minimum Time<a class="headerlink" href="#control-hold-time-and-minimum-time" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <section id="control-state-transition">
-<h3>Control State Transition<a class="headerlink" href="#control-state-transition" title="Link to this heading">#</a></h3>
+<h3>Control State Transition<a class="headerlink" href="#control-state-transition" title="Link to this heading">¶</a></h3>
 <img alt="robot_control_state_transitions.png" class="rounded-img align-center" src="../../../_images/robot_control_state_transitions.png" style="width: 600px;" />
 </section>
 <hr class="docutils" />
 <section id="control-hold-time">
-<h3>Control Hold Time<a class="headerlink" href="#control-hold-time" title="Link to this heading">#</a></h3>
+<h3>Control Hold Time<a class="headerlink" href="#control-hold-time" title="Link to this heading">¶</a></h3>
 <p>Control Hold Time defines the duration for which the robot maintains the target (position/velocity) after reaching it.</p>
 <br>
 <section id="how-it-works">
-<h4>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h4>
+<h4>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>When a control command is sent, the robot moves toward the target while considering constraints such as speed and acceleration limits.</p></li>
 <li><p>Once the target is reached, the robot maintains the target state for the duration of the Control Hold Time.</p></li>
@@ -946,11 +942,11 @@
 </section>
 <hr class="docutils" />
 <section id="minimum-time">
-<h3>Minimum Time<a class="headerlink" href="#minimum-time" title="Link to this heading">#</a></h3>
+<h3>Minimum Time<a class="headerlink" href="#minimum-time" title="Link to this heading">¶</a></h3>
 <p>Minimum Time represents the minimum duration required for the robot to reach the target state.</p>
 <br>
 <section id="id2">
-<h4>How It Works<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<h4>How It Works<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Larger values: The robot reaches the target more slowly.</p></li>
 <li><p>Smaller values: The robot reaches the target more quickly.</p></li>
@@ -961,18 +957,18 @@
 </section>
 <hr class="docutils" />
 <section id="common-mistake">
-<h2>Common Mistake<a class="headerlink" href="#common-mistake" title="Link to this heading">#</a></h2>
+<h2>Common Mistake<a class="headerlink" href="#common-mistake" title="Link to this heading">¶</a></h2>
 <p>One common mistake is setting the Control Hold Time too short, especially in <strong>Stream Mode</strong>. As shown in the diagram, the control remains active only until the <strong>ControlFinished</strong> state is reached. If the Control Hold Time is too short and the stream cycle is too long, the stream may expire, causing the control to end prematurely.</p>
 <p>To better understand how Control Hold Time affects each mode, let’s examine its impact:</p>
 <br>
 <section id="once-mode">
-<h3>Once Mode<a class="headerlink" href="#once-mode" title="Link to this heading">#</a></h3>
+<h3>Once Mode<a class="headerlink" href="#once-mode" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A single control command is sent, and the robot moves toward the target.</p></li>
 <li><p>Once the target is reached, the robot maintains the state (position/velocity) for the duration of the Control Hold Time.</p></li>
 </ul>
 <section id="impact">
-<h4>Impact<a class="headerlink" href="#impact" title="Link to this heading">#</a></h4>
+<h4>Impact<a class="headerlink" href="#impact" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>If the Control Hold Time is too short, the robot may not maintain the target long enough to complete its intended task.
 A well-configured Control Hold Time ensures the robot holds its target state as needed before transitioning to the <strong>ControlFinished</strong> state.</p></li>
@@ -980,19 +976,19 @@ A well-configured Control Hold Time ensures the robot holds its target state as 
 </section>
 </section>
 <section id="stream-mode">
-<h3>Stream Mode<a class="headerlink" href="#stream-mode" title="Link to this heading">#</a></h3>
+<h3>Stream Mode<a class="headerlink" href="#stream-mode" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Commands are sent continuously, allowing dynamic updates to the target while the control remains active.</p></li>
 </ul>
 <section id="id3">
-<h4>Impact<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<h4>Impact<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>If the Control Hold Time is too short and the stream cycle is too long, the control may prematurely transition to the <strong>ControlFinished</strong> state, causing the stream to expire.</p></li>
 <li><p>A properly configured Control Hold Time ensures the robot remains active between stream updates, preventing interruptions.</p></li>
 </ul>
 </section>
 <section id="examples">
-<h4>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h4>
+<h4>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>If the Control Hold Time is set to 1 second, and no new input is received within <strong>1 second</strong>, the control transitions to the finished state.</p></li>
 <li><p>If the Control Hold Time is set to 100 seconds, and the stream cycle operates every <strong>1 second</strong>, the target can be updated dynamically, maintaining continuous control.</p></li>
@@ -1100,6 +1096,6 @@ A well-configured Control Hold Time ensures the robot holds its target state as 
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

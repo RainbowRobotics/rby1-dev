@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/cpp/client/robot-command-stream-handler.rst.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,7 +919,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="robotcommandstreamhandler">
-<h1>RobotCommandStreamHandler<a class="headerlink" href="#robotcommandstreamhandler" title="Link to this heading">#</a></h1>
+<h1>RobotCommandStreamHandler<a class="headerlink" href="#robotcommandstreamhandler" title="Link to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">rb::RobotCommandStreamHandler&lt;T&gt;</span></code> keeps a command stream open so multiple
 commands can be sent over the same stream. Use it when one-shot submission is
 too restrictive or when feedback must be requested incrementally.</p>
@@ -1029,7 +1025,7 @@ execution duration.</p></td>
 <p class="rubric">Detailed Reference</p>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN2rb25RobotCommandStreamHandlerE">
-<span id="_CPPv3I0EN2rb25RobotCommandStreamHandlerE"></span><span id="_CPPv2I0EN2rb25RobotCommandStreamHandlerE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RobotCommandStreamHandler</span></span></span><a class="headerlink" href="#_CPPv4I0EN2rb25RobotCommandStreamHandlerE" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3I0EN2rb25RobotCommandStreamHandlerE"></span><span id="_CPPv2I0EN2rb25RobotCommandStreamHandlerE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RobotCommandStreamHandler</span></span></span><a class="headerlink" href="#_CPPv4I0EN2rb25RobotCommandStreamHandlerE" title="Link to this definition">¶</a><br /></dt>
 <dd><p><a class="reference internal" href="robot.html#rby1-sdkclassrb_1_1_robot"><span class="std std-ref">Robot</span></a> command stream handler for continuous command sending. </p>
 <p>Provides a streaming interface for sending multiple commands to the robot in sequence while maintaining a persistent connection. This is more efficient than creating individual command handlers for each command.</p>
 <dl class="field-list simple">
@@ -1041,17 +1037,17 @@ execution duration.</p></td>
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb25RobotCommandStreamHandlerD0Ev">
-<span id="_CPPv3N2rb25RobotCommandStreamHandlerD0Ev"></span><span id="_CPPv2N2rb25RobotCommandStreamHandlerD0Ev"></span><span id="rb::RobotCommandStreamHandler::~RobotCommandStreamHandler"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1ad9e8b66c1b564913f6ecbdabf01927cf"></span><span class="sig-name descname"><span class="n"><span class="pre">~RobotCommandStreamHandler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandlerD0Ev" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb25RobotCommandStreamHandlerD0Ev"></span><span id="_CPPv2N2rb25RobotCommandStreamHandlerD0Ev"></span><span id="rb::RobotCommandStreamHandler::~RobotCommandStreamHandler"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1ad9e8b66c1b564913f6ecbdabf01927cf"></span><span class="sig-name descname"><span class="n"><span class="pre">~RobotCommandStreamHandler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandlerD0Ev" title="Link to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb25RobotCommandStreamHandler6CancelEv">
-<span id="_CPPv3N2rb25RobotCommandStreamHandler6CancelEv"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler6CancelEv"></span><span id="rb::RobotCommandStreamHandler::Cancel"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1a49c3eae54e1025fff15935e6a687941e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cancel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler6CancelEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb25RobotCommandStreamHandler6CancelEv"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler6CancelEv"></span><span id="rb::RobotCommandStreamHandler::Cancel"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1a49c3eae54e1025fff15935e6a687941e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cancel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler6CancelEv" title="Link to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK2rb25RobotCommandStreamHandler6IsDoneEv">
-<span id="_CPPv3NK2rb25RobotCommandStreamHandler6IsDoneEv"></span><span id="_CPPv2NK2rb25RobotCommandStreamHandler6IsDoneEv"></span><span id="rb::RobotCommandStreamHandler::IsDoneC"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1af2c96822a38f10a255dc5f7e52183c37"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsDone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb25RobotCommandStreamHandler6IsDoneEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3NK2rb25RobotCommandStreamHandler6IsDoneEv"></span><span id="_CPPv2NK2rb25RobotCommandStreamHandler6IsDoneEv"></span><span id="rb::RobotCommandStreamHandler::IsDoneC"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1af2c96822a38f10a255dc5f7e52183c37"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsDone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2rb25RobotCommandStreamHandler6IsDoneEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Check if the command stream is complete. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1062,7 +1058,7 @@ execution duration.</p></td>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb25RobotCommandStreamHandler15RequestFeedbackEi">
-<span id="_CPPv3N2rb25RobotCommandStreamHandler15RequestFeedbackEi"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler15RequestFeedbackEi"></span><span id="rb::RobotCommandStreamHandler::RequestFeedback__i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1ae0655a5f6062e90ef141c7846ee10ddd"></span><a class="reference internal" href="../feedback/robot-command-feedback.html#_CPPv4N2rb20RobotCommandFeedbackE" title="rb::RobotCommandFeedback"><span class="n"><span class="pre">RobotCommandFeedback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RequestFeedback</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1000</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler15RequestFeedbackEi" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb25RobotCommandStreamHandler15RequestFeedbackEi"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler15RequestFeedbackEi"></span><span id="rb::RobotCommandStreamHandler::RequestFeedback__i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1ae0655a5f6062e90ef141c7846ee10ddd"></span><a class="reference internal" href="../feedback/robot-command-feedback.html#_CPPv4N2rb20RobotCommandFeedbackE" title="rb::RobotCommandFeedback"><span class="n"><span class="pre">RobotCommandFeedback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RequestFeedback</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1000</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler15RequestFeedbackEi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Request feedback from the current command stream. </p>
 <p>Requests current controller state information from the ongoing command execution. The feedback includes control errors, target vs actual positions, and execution status.</p>
 <dl class="field-list simple">
@@ -1077,7 +1073,7 @@ execution duration.</p></td>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb25RobotCommandStreamHandler11SendCommandERK19RobotCommandBuilderi">
-<span id="_CPPv3N2rb25RobotCommandStreamHandler11SendCommandERK19RobotCommandBuilderi"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler11SendCommandERK19RobotCommandBuilderi"></span><span id="rb::RobotCommandStreamHandler::SendCommand__RobotCommandBuilderCR.i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1aa5c56abdb26976f093f8c4b975c74172"></span><a class="reference internal" href="../feedback/robot-command-feedback.html#_CPPv4N2rb20RobotCommandFeedbackE" title="rb::RobotCommandFeedback"><span class="n"><span class="pre">RobotCommandFeedback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SendCommand</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../builders/robot-command-builder.html#_CPPv4N2rb19RobotCommandBuilderE" title="rb::RobotCommandBuilder"><span class="n"><span class="pre">RobotCommandBuilder</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">builder</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1000</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler11SendCommandERK19RobotCommandBuilderi" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb25RobotCommandStreamHandler11SendCommandERK19RobotCommandBuilderi"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler11SendCommandERK19RobotCommandBuilderi"></span><span id="rb::RobotCommandStreamHandler::SendCommand__RobotCommandBuilderCR.i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1aa5c56abdb26976f093f8c4b975c74172"></span><a class="reference internal" href="../feedback/robot-command-feedback.html#_CPPv4N2rb20RobotCommandFeedbackE" title="rb::RobotCommandFeedback"><span class="n"><span class="pre">RobotCommandFeedback</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SendCommand</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../builders/robot-command-builder.html#_CPPv4N2rb19RobotCommandBuilderE" title="rb::RobotCommandBuilder"><span class="n"><span class="pre">RobotCommandBuilder</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">builder</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1000</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler11SendCommandERK19RobotCommandBuilderi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Send a command through the stream. </p>
 <p>Sends a command via the established stream connection and waits for feedback. The command is executed asynchronously by the robot, and this method returns current controller state information (e.g., position error, control status).</p>
 <dl class="field-list simple">
@@ -1095,14 +1091,14 @@ execution duration.</p></td>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb25RobotCommandStreamHandler4WaitEv">
-<span id="_CPPv3N2rb25RobotCommandStreamHandler4WaitEv"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler4WaitEv"></span><span id="rb::RobotCommandStreamHandler::Wait"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1a146144205a65b5ed183404efb6e18182"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wait</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler4WaitEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb25RobotCommandStreamHandler4WaitEv"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler4WaitEv"></span><span id="rb::RobotCommandStreamHandler::Wait"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1a146144205a65b5ed183404efb6e18182"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wait</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler4WaitEv" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Wait for the command stream to complete. </p>
 <p>This method blocks until the stream is closed or cancelled. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N2rb25RobotCommandStreamHandler7WaitForEi">
-<span id="_CPPv3N2rb25RobotCommandStreamHandler7WaitForEi"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler7WaitForEi"></span><span id="rb::RobotCommandStreamHandler::WaitFor__i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1a610390131b9f1a50166087b4664b67f5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WaitFor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler7WaitForEi" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N2rb25RobotCommandStreamHandler7WaitForEi"></span><span id="_CPPv2N2rb25RobotCommandStreamHandler7WaitForEi"></span><span id="rb::RobotCommandStreamHandler::WaitFor__i"></span><span class="target" id="rby1-sdkclassrb_1_1_robot_command_stream_handler_1a610390131b9f1a50166087b4664b67f5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WaitFor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2rb25RobotCommandStreamHandler7WaitForEi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Wait for the command stream to complete with timeout. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1214,6 +1210,6 @@ against a longer-lived command path.</p></li>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

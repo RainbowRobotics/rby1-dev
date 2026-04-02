@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=df1efade" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=36d0c40f" />
     
     
 
@@ -903,12 +903,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/sdk/trobuleshooting/generated/faq.md.txt" title="View this page">
-    <svg><use href="#svg-eye"></use></svg>
-    <span class="visually-hidden">View this page</span>
-  </a>
-</div>
+          
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -923,11 +919,11 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="faq">
-<h1>FAQ<a class="headerlink" href="#faq" title="Link to this heading">#</a></h1>
+<h1>FAQ<a class="headerlink" href="#faq" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <section id="q-when-i-press-the-enable-button-in-the-control-nothing-happens-and-the-control-mode-remains-in-the-idle-state-what-could-be-the-cause-and-how-can-i-resolve-it">
-<h3>Q: When I press the enable button in the control, nothing happens, and the control mode remains in the <code class="docutils literal notranslate"><span class="pre">idle</span></code> state. What could be the cause, and how can I resolve it?<a class="headerlink" href="#q-when-i-press-the-enable-button-in-the-control-nothing-happens-and-the-control-mode-remains-in-the-idle-state-what-could-be-the-cause-and-how-can-i-resolve-it" title="Link to this heading">#</a></h3>
+<h3>Q: When I press the enable button in the control, nothing happens, and the control mode remains in the <code class="docutils literal notranslate"><span class="pre">idle</span></code> state. What could be the cause, and how can I resolve it?<a class="headerlink" href="#q-when-i-press-the-enable-button-in-the-control-nothing-happens-and-the-control-mode-remains-in-the-idle-state-what-could-be-the-cause-and-how-can-i-resolve-it" title="Link to this heading">¶</a></h3>
 <br>
 <p><strong>A:</strong>
 This issue may occur when the robot is near a joint limit. If a
@@ -948,7 +944,7 @@ To resolve this:</p>
 </section>
 <hr class="docutils" />
 <section id="q-how-can-i-integrate-arm-commands-with-wheel-navigation">
-<h3>Q: How can I integrate arm commands with wheel navigation?<a class="headerlink" href="#q-how-can-i-integrate-arm-commands-with-wheel-navigation" title="Link to this heading">#</a></h3>
+<h3>Q: How can I integrate arm commands with wheel navigation?<a class="headerlink" href="#q-how-can-i-integrate-arm-commands-with-wheel-navigation" title="Link to this heading">¶</a></h3>
 <br>
 <p><strong>A:</strong>
 When the robot is navigating with a controller, other controllers cannot interfere. To perform arm commands simultaneously, it is recommended to use the
@@ -957,7 +953,7 @@ When the robot is navigating with a controller, other controllers cannot interfe
 </section>
 <hr class="docutils" />
 <section id="q-what-happens-when-i-send-a-set-command-to-only-some-joints-while-the-rest-of-the-joints-continue-moving">
-<h3>Q: What happens when I send a set command to only some joints, while the rest of the joints continue moving?<a class="headerlink" href="#q-what-happens-when-i-send-a-set-command-to-only-some-joints-while-the-rest-of-the-joints-continue-moving" title="Link to this heading">#</a></h3>
+<h3>Q: What happens when I send a set command to only some joints, while the rest of the joints continue moving?<a class="headerlink" href="#q-what-happens-when-i-send-a-set-command-to-only-some-joints-while-the-rest-of-the-joints-continue-moving" title="Link to this heading">¶</a></h3>
 <br>
 <p><strong>A:</strong>
 If you send a new command to some joints while another command is already being executed, the new command will be handled according to its priority. There is no simultaneous execution of previous and new commands. If the new command has higher priority, the current position will be locked, and the controller will switch to the new command. If the priority is lower, the command will be refused.</p>
@@ -965,7 +961,7 @@ If you send a new command to some joints while another command is already being 
 </section>
 <hr class="docutils" />
 <section id="q-what-is-the-difference-between-stream-and-send-once">
-<h3>Q: What is the difference between <code class="docutils literal notranslate"><span class="pre">stream</span></code> and <code class="docutils literal notranslate"><span class="pre">send_once</span></code>?<a class="headerlink" href="#q-what-is-the-difference-between-stream-and-send-once" title="Link to this heading">#</a></h3>
+<h3>Q: What is the difference between <code class="docutils literal notranslate"><span class="pre">stream</span></code> and <code class="docutils literal notranslate"><span class="pre">send_once</span></code>?<a class="headerlink" href="#q-what-is-the-difference-between-stream-and-send-once" title="Link to this heading">¶</a></h3>
 <br>
 <p><strong>A:</strong>
 The difference between
@@ -982,7 +978,7 @@ is used to send a single command just once, typically for actions such as moving
 </section>
 <hr class="docutils" />
 <section id="q-what-is-the-meaning-of-send-command-get">
-<h3>Q: What is the meaning of <code class="docutils literal notranslate"><span class="pre">send_command().get()</span></code>?<a class="headerlink" href="#q-what-is-the-meaning-of-send-command-get" title="Link to this heading">#</a></h3>
+<h3>Q: What is the meaning of <code class="docutils literal notranslate"><span class="pre">send_command().get()</span></code>?<a class="headerlink" href="#q-what-is-the-meaning-of-send-command-get" title="Link to this heading">¶</a></h3>
 <br>
 <p><strong>A:</strong>
 <span style="color:red;"><code><code class="docutils literal notranslate"><span class="pre">send_command().get()</span></code></code></span>
@@ -992,14 +988,14 @@ function blocks the execution, ensuring that the command has been completed befo
 </section>
 <hr class="docutils" />
 <section id="q-what-happens-when-a-stream-is-canceled">
-<h3>Q: What happens when a stream is canceled?<a class="headerlink" href="#q-what-happens-when-a-stream-is-canceled" title="Link to this heading">#</a></h3>
+<h3>Q: What happens when a stream is canceled?<a class="headerlink" href="#q-what-happens-when-a-stream-is-canceled" title="Link to this heading">¶</a></h3>
 <br>
 <p><strong>A:</strong>
 When a stream is canceled, the controller switch occurs, and the last encoder position is locked as the reference.</p>
 </section>
 <hr class="docutils" />
 <section id="q-how-can-i-receive-sensor-feedback-while-in-a-stream">
-<h3>Q: How can I receive sensor feedback while in a stream?<a class="headerlink" href="#q-how-can-i-receive-sensor-feedback-while-in-a-stream" title="Link to this heading">#</a></h3>
+<h3>Q: How can I receive sensor feedback while in a stream?<a class="headerlink" href="#q-how-can-i-receive-sensor-feedback-while-in-a-stream" title="Link to this heading">¶</a></h3>
 <br>
 <p><strong>A:</strong>
 To receive sensor feedback in one request, you can use the
@@ -1020,7 +1016,7 @@ and
 </section>
 <hr class="docutils" />
 <section id="q-the-teleoperation-with-joint-mapping-example-is-not-running-what-could-be-the-cause-and-how-can-i-resolve-it">
-<h3>Q: The <code class="docutils literal notranslate"><span class="pre">teleoperation_with_joint_mapping</span></code> example is not running. What could be the cause, and how can I resolve it?<a class="headerlink" href="#q-the-teleoperation-with-joint-mapping-example-is-not-running-what-could-be-the-cause-and-how-can-i-resolve-it" title="Link to this heading">#</a></h3>
+<h3>Q: The <code class="docutils literal notranslate"><span class="pre">teleoperation_with_joint_mapping</span></code> example is not running. What could be the cause, and how can I resolve it?<a class="headerlink" href="#q-the-teleoperation-with-joint-mapping-example-is-not-running-what-could-be-the-cause-and-how-can-i-resolve-it" title="Link to this heading">¶</a></h3>
 <br>
 <p>A:
 There are several potential reasons for this issue. Please check the following:</p>
@@ -1184,6 +1180,6 @@ sudo<span class="w"> </span>udevadm<span class="w"> </span>trigger
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=02ad1f94"></script>
+    <script src="../../../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
     </body>
 </html>

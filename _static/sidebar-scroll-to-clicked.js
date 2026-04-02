@@ -1,7 +1,41 @@
 (function () {
   const STORAGE_KEY = "furo-sidebar-from-click";
+  const NAV_TOGGLE_ID = "__navigation";
 
   console.log("[sidebar-keep-clicked] script loaded");
+
+  function focusSidebarSearch() {
+    const navToggle = document.getElementById(NAV_TOGGLE_ID);
+    if (navToggle && !navToggle.checked) {
+      navToggle.checked = true;
+    }
+
+    const input = document.querySelector(".sidebar-search-container .sidebar-search");
+    if (!input) return;
+
+    // Wait a frame so focusing works reliably right after opening the drawer on mobile.
+    window.requestAnimationFrame(() => {
+      input.focus();
+      input.select();
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    const target = e.target;
+    const isTypingContext =
+      target &&
+      (target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" ||
+        target.isContentEditable);
+
+    if (isTypingContext) return;
+
+    const isCtrlOrCmdK = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k";
+    if (!isCtrlOrCmdK) return;
+
+    e.preventDefault();
+    focusSidebarSearch();
+  });
 
   // 1) 사이드바에서 클릭되었다는 "사실"만 저장 (href 저장 X)
   document.addEventListener("click", (e) => {
