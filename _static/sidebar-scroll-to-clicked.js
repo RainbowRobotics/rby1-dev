@@ -20,6 +20,18 @@
     });
   }
 
+  function closeSidebarSearch() {
+    const input = document.querySelector(".sidebar-search-container .sidebar-search");
+    if (input) {
+      input.blur();
+    }
+
+    const navToggle = document.getElementById(NAV_TOGGLE_ID);
+    if (navToggle && navToggle.checked) {
+      navToggle.checked = false;
+    }
+  }
+
   document.addEventListener("keydown", (e) => {
     const target = e.target;
     const isTypingContext =
@@ -35,6 +47,21 @@
 
     e.preventDefault();
     focusSidebarSearch();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+
+    const activeElement = document.activeElement;
+    const isSidebarSearchFocused =
+      activeElement &&
+      activeElement.matches &&
+      activeElement.matches(".sidebar-search-container .sidebar-search");
+
+    if (!isSidebarSearchFocused) return;
+
+    e.preventDefault();
+    closeSidebarSearch();
   });
 
   // 1) 사이드바에서 클릭되었다는 "사실"만 저장 (href 저장 X)
