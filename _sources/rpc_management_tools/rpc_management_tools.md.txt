@@ -8,6 +8,19 @@ Please use the provided `updater` program to update your RPC. During the update,
 - updater : <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/EQrH2XjLvJ9EohytH915Kn0BO4bG8FKaNz1rNG5YD3GcIA?e=aFhdo0" target="_blank" rel="noopener noreferrer">Download</a>
 - You can check the latest RPC updates and release notes at the following link: <a href="https://github.com/RainbowRobotics/rby1-release/releases" target="_blank" rel="noopener noreferrer">RPC Release Notes on GitHub</a>
 
+
+### Preparation
+
+- Download the updater tool and extract the archive.
+- Download the appropriate RPC update file for your robot model from the release page.
+- Place the downloaded update file into the extracted updater directory.
+
+```{image} ../_static/images/rpc_management_tools/updater.png
+    :width: 100%
+    :align: center
+    :class: white_bg
+```
+
 ### Usage
 
 ```bash
@@ -15,12 +28,31 @@ sudo apt-get install -y sshpass
 tar -xvf updater.tar
 cd updater_dist
 chmod +x updater
+
+# For ARM-based systems
 ./updater <update file name> <RPC IP address>
 
+# For x86_64 systems
+./updater_x86_64 <update file name> <RPC IP address>
+
 # Example
-./updater rby1_a_0.3.0.tar.gz 192.168.30.1
-./updater rby1_a_0.3.0.tar 192.168.30.1
+./updater rby1_m_v1.2-0.10.6.tar.gz 192.168.30.1
+./updater rby1_a_v1.0-0.10.6.tar 192.168.30.1
+./updater_x86_64 rby1_a_v1.2-0.10.6.tar 192.168.0.192
 ```
+
+### Result Guide
+
+- If the RPC update is completed successfully, you can verify the updated version in one of the following ways:
+    - Check the version at the bottom of the **Dashboard** page in the Web UI
+    - Check the version displayed on the **backpack OLED**
+
+```{image} ../_static/images/rpc_management_tools/update_result.png
+    :width: 100%
+    :align: center
+    :class: white_bg
+```
+
 
 ---
 ## How to Extract Logs
@@ -47,3 +79,86 @@ chmod +x log_backup
 ```
 
 After running the command, `tar.gz` log file will be generated in the same directory where you executed the program. Please attach this file when contacting us for analysis, as it will greatly assist in troubleshooting.
+
+---
+## How to Check CAN Communication
+
+The can_checker tool allows you to verify whether the CAN communication is functioning correctly.
+
+``` {Warning} Ensure that the robot’s main power is turned on before proceeding.
+```
+
+### Downloads
+- can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/personal/rby_support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools%2Fcan%5Fchecker&parent=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools&ga=1" target="_blank" rel="noopener noreferrer">Download</a>
+
+### Usage
+
+```bash
+# Make the tool executable
+chmod +x can_checker
+
+# Run the tool
+./can_checker <RPC IP address>
+
+# Example
+./can_checker 192.168.30.1
+```
+
+If the communication is functioning correctly, you will see output similar to the following. The process typically takes around 1-2 minutes to complete.
+
+```bash
+Checking can0 (right_arm)...
+[SUCCESS] can0 (right_arm) is communicating!
+Checking can1 (left_arm)...
+[SUCCESS] can1 (left_arm) is communicating!
+Checking can2 (torso)...
+[SUCCESS] can2 (torso) is communicating!
+Checking can3 (wheel)...
+[SUCCESS] can3 (wheel) is communicating!
+```
+
+If any issues arise, please save the output and attach it when contacting us for further analysis.
+
+
+---
+## How to Initialize the FT Sensor
+
+The `ft_initialization` tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.
+
+```{Warning}
+Ensure that the robot’s main power is turned on before proceeding.
+```
+
+### Downloads
+- ft_initialization: <a href="https://rainbowco-my.sharepoint.com/shared?id=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2FRainbowRobotics%5FMBU%5FCS%2FRB%20Y1%20Series%2F4%5FOther%5FResource%2FFT%5FSensor%5FInitialization&listurl=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments&viewid=9e2070fb%2D6f40%2D4ea2%2D8a66%2D05f66cff11ac">Download</a>
+
+### Usage
+
+```bash
+# Install required package
+sudo apt-get install sshpass
+
+# Make the tool executable
+chmod +x ./ft_initialization
+
+## Example
+# For ARM-based systems
+./ft_initialization <RPC_ADDRESS>
+
+# For x86_64 systems
+./ft_initialization_x86_64 <RPC_ADDRESS>
+```
+
+### Result Guide
+
+```{image} ../_static/images/rpc_management_tools/ftsensor_terminal.png
+    :width: 40%
+    :align: center
+    :class: white_bg
+```
+
+- SSAR25 → Latest version. Bias initialization is supported.
+- FAIL → Older version. Bias initialization is not supported.
+
+If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
+   target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>). In this case, an FT sensor firmware update may be required.

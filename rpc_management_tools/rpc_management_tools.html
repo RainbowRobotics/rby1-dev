@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=741836e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=26c5472c" />
     
     
 
@@ -930,19 +930,46 @@
 <li><p>You can check the latest RPC updates and release notes at the following link: <a href="https://github.com/RainbowRobotics/rby1-release/releases" target="_blank" rel="noopener noreferrer">RPC Release Notes on GitHub</a></p></li>
 </ul>
 </section>
+<section id="preparation">
+<h3>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Download the updater tool and extract the archive.</p></li>
+<li><p>Download the appropriate RPC update file for your robot model from the release page.</p></li>
+<li><p>Place the downloaded update file into the extracted updater directory.</p></li>
+</ul>
+<img alt="../_images/updater.png" class="white-bg align-center" src="../_images/updater.png" style="width: 100%;" />
+</section>
 <section id="usage">
 <h3>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sshpass
 tar<span class="w"> </span>-xvf<span class="w"> </span>updater.tar
 <span class="nb">cd</span><span class="w"> </span>updater_dist
 chmod<span class="w"> </span>+x<span class="w"> </span>updater
+
+<span class="c1"># For ARM-based systems</span>
 ./updater<span class="w"> </span>&lt;update<span class="w"> </span>file<span class="w"> </span>name&gt;<span class="w"> </span>&lt;RPC<span class="w"> </span>IP<span class="w"> </span>address&gt;
 
+<span class="c1"># For x86_64 systems</span>
+./updater_x86_64<span class="w"> </span>&lt;update<span class="w"> </span>file<span class="w"> </span>name&gt;<span class="w"> </span>&lt;RPC<span class="w"> </span>IP<span class="w"> </span>address&gt;
+
 <span class="c1"># Example</span>
-./updater<span class="w"> </span>rby1_a_0.3.0.tar.gz<span class="w"> </span><span class="m">192</span>.168.30.1
-./updater<span class="w"> </span>rby1_a_0.3.0.tar<span class="w"> </span><span class="m">192</span>.168.30.1
+./updater<span class="w"> </span>rby1_m_v1.2-0.10.6.tar.gz<span class="w"> </span><span class="m">192</span>.168.30.1
+./updater<span class="w"> </span>rby1_a_v1.0-0.10.6.tar<span class="w"> </span><span class="m">192</span>.168.30.1
+./updater_x86_64<span class="w"> </span>rby1_a_v1.2-0.10.6.tar<span class="w"> </span><span class="m">192</span>.168.0.192
 </pre></div>
 </div>
+</section>
+<section id="result-guide">
+<h3>Result Guide<a class="headerlink" href="#result-guide" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>If the RPC update is completed successfully, you can verify the updated version in one of the following ways:</p>
+<ul>
+<li><p>Check the version at the bottom of the <strong>Dashboard</strong> page in the Web UI</p></li>
+<li><p>Check the version displayed on the <strong>backpack OLED</strong></p></li>
+</ul>
+</li>
+</ul>
+<img alt="../_images/update_result.png" class="white-bg align-center" src="../_images/update_result.png" style="width: 100%;" />
 </section>
 </section>
 <hr class="docutils" />
@@ -970,6 +997,88 @@ chmod<span class="w"> </span>+x<span class="w"> </span>log_backup
 </pre></div>
 </div>
 <p>After running the command, <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> log file will be generated in the same directory where you executed the program. Please attach this file when contacting us for analysis, as it will greatly assist in troubleshooting.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="how-to-check-can-communication">
+<h2>How to Check CAN Communication<a class="headerlink" href="#how-to-check-can-communication" title="Link to this heading">¶</a></h2>
+<p>The can_checker tool allows you to verify whether the CAN communication is functioning correctly.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that the robot’s main power is turned on before proceeding.</p>
+</div>
+<section id="id3">
+<h3>Downloads<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/personal/rby_support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools%2Fcan%5Fchecker&parent=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools&ga=1" target="_blank" rel="noopener noreferrer">Download</a></p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Usage<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the tool executable</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>can_checker
+
+<span class="c1"># Run the tool</span>
+./can_checker<span class="w"> </span>&lt;RPC<span class="w"> </span>IP<span class="w"> </span>address&gt;
+
+<span class="c1"># Example</span>
+./can_checker<span class="w"> </span><span class="m">192</span>.168.30.1
+</pre></div>
+</div>
+<p>If the communication is functioning correctly, you will see output similar to the following. The process typically takes around 1-2 minutes to complete.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Checking<span class="w"> </span>can0<span class="w"> </span><span class="o">(</span>right_arm<span class="o">)</span>...
+<span class="o">[</span>SUCCESS<span class="o">]</span><span class="w"> </span>can0<span class="w"> </span><span class="o">(</span>right_arm<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>communicating!
+Checking<span class="w"> </span>can1<span class="w"> </span><span class="o">(</span>left_arm<span class="o">)</span>...
+<span class="o">[</span>SUCCESS<span class="o">]</span><span class="w"> </span>can1<span class="w"> </span><span class="o">(</span>left_arm<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>communicating!
+Checking<span class="w"> </span>can2<span class="w"> </span><span class="o">(</span>torso<span class="o">)</span>...
+<span class="o">[</span>SUCCESS<span class="o">]</span><span class="w"> </span>can2<span class="w"> </span><span class="o">(</span>torso<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>communicating!
+Checking<span class="w"> </span>can3<span class="w"> </span><span class="o">(</span>wheel<span class="o">)</span>...
+<span class="o">[</span>SUCCESS<span class="o">]</span><span class="w"> </span>can3<span class="w"> </span><span class="o">(</span>wheel<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>communicating!
+</pre></div>
+</div>
+<p>If any issues arise, please save the output and attach it when contacting us for further analysis.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="how-to-initialize-the-ft-sensor">
+<h2>How to Initialize the FT Sensor<a class="headerlink" href="#how-to-initialize-the-ft-sensor" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ft_initialization</span></code> tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that the robot’s main power is turned on before proceeding.</p>
+</div>
+<section id="id5">
+<h3>Downloads<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>ft_initialization: <a href="https://rainbowco-my.sharepoint.com/shared?id=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2FRainbowRobotics%5FMBU%5FCS%2FRB%20Y1%20Series%2F4%5FOther%5FResource%2FFT%5FSensor%5FInitialization&listurl=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments&viewid=9e2070fb%2D6f40%2D4ea2%2D8a66%2D05f66cff11ac">Download</a></p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Usage<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install required package</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>sshpass
+
+<span class="c1"># Make the tool executable</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>./ft_initialization
+
+<span class="c1">## Example</span>
+<span class="c1"># For ARM-based systems</span>
+./ft_initialization<span class="w"> </span>&lt;RPC_ADDRESS&gt;
+
+<span class="c1"># For x86_64 systems</span>
+./ft_initialization_x86_64<span class="w"> </span>&lt;RPC_ADDRESS&gt;
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Result Guide<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<img alt="../_images/ftsensor_terminal.png" class="white-bg align-center" src="../_images/ftsensor_terminal.png" style="width: 40%;" />
+<ul class="simple">
+<li><p>SSAR25 → Latest version. Bias initialization is supported.</p></li>
+<li><p>FAIL → Older version. Bias initialization is not supported.</p></li>
+</ul>
+<p>If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
+   target="_blank" rel="noopener noreferrer">rby.support&#64;rainbow-robotics.com</a>). In this case, an FT sensor firmware update may be required.</p>
 </section>
 </section>
 </section>
@@ -1024,12 +1133,25 @@ chmod<span class="w"> </span>+x<span class="w"> </span>log_backup
 <li><a class="reference internal" href="#">RPC Management Tools</a><ul>
 <li><a class="reference internal" href="#how-to-update-rpc">How to Update RPC</a><ul>
 <li><a class="reference internal" href="#downloads">Downloads</a></li>
+<li><a class="reference internal" href="#preparation">Preparation</a></li>
 <li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#result-guide">Result Guide</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#how-to-extract-logs">How to Extract Logs</a><ul>
 <li><a class="reference internal" href="#id1">Downloads</a></li>
 <li><a class="reference internal" href="#id2">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-check-can-communication">How to Check CAN Communication</a><ul>
+<li><a class="reference internal" href="#id3">Downloads</a></li>
+<li><a class="reference internal" href="#id4">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-initialize-the-ft-sensor">How to Initialize the FT Sensor</a><ul>
+<li><a class="reference internal" href="#id5">Downloads</a></li>
+<li><a class="reference internal" href="#id6">Usage</a></li>
+<li><a class="reference internal" href="#id7">Result Guide</a></li>
 </ul>
 </li>
 </ul>
@@ -1050,6 +1172,6 @@ chmod<span class="w"> </span>+x<span class="w"> </span>log_backup
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script src="../_static/sidebar-scroll-to-clicked.js?v=89167295"></script>
+    <script src="../_static/sidebar-scroll-to-clicked.js?v=be9d28c1"></script>
     </body>
 </html>
