@@ -130,7 +130,7 @@ Ensure that the robot’s main power is turned on before proceeding.
 ```
 
 ### Downloads
-- ft_initialization: <a href="https://rainbowco-my.sharepoint.com/shared?id=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2FRainbowRobotics%5FMBU%5FCS%2FRB%20Y1%20Series%2F4%5FOther%5FResource%2FFT%5FSensor%5FInitialization&listurl=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments&viewid=9e2070fb%2D6f40%2D4ea2%2D8a66%2D05f66cff11ac">Download</a>
+- ft_initialization: <a href="https://rainbowco-my.sharepoint.com/personal/support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2FRainbowRobotics%5FMBU%5FCS%2FRB%20Y1%20Series%2F4%5FOther%5FResource%2FFT%5FSensor%5FInitialization&viewid=9e2070fb%2D6f40%2D4ea2%2D8a66%2D05f66cff11ac">Download</a>
 
 ### Usage
 
