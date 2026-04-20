@@ -1,3 +1,4 @@
+(rb-api-jointstate-initializationstate)=
 # JointState.InitializationState
 
 - Source proto: `rb/api/robot_state.proto`

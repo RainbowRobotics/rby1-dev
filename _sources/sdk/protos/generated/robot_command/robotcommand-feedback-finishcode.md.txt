@@ -1,3 +1,4 @@
+(rb-api-robotcommand-feedback-finishcode)=
 # RobotCommand.Feedback.FinishCode
 
 - Source proto: `rb/api/robot_command.proto`

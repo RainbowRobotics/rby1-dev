@@ -1,3 +1,4 @@
+(rb-api-setpresetpositionresponse)=
 # SetPresetPositionResponse
 
 - Source proto: `rb/api/joint_operation.proto`
@@ -6,4 +7,4 @@ Response for set preset position.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| response_header | [ResponseHeader](../header/responseheader.md#rb-api-responseheader) |  |  |
+| response_header | [ResponseHeader](../header/responseheader.md) |  |  |

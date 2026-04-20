@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="prev" title="Explore the RBY1 Simulator!" href="../simulators/simulators.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Power &amp; Battery" href="../precautions/power_and_battery.html"><link rel="prev" title="Explore the RBY1 Simulator!" href="../simulators/simulators.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
         <title>RPC Management Tools - RB-Y1 Documentation</title>
@@ -885,6 +885,14 @@
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -923,15 +931,15 @@
 <section id="how-to-update-rpc">
 <h2>How to Update RPC<a class="headerlink" href="#how-to-update-rpc" title="Link to this heading">¶</a></h2>
 <p>Please use the provided <code class="docutils literal notranslate"><span class="pre">updater</span></code> program to update your RPC. During the update, the RPC will shut down, so make sure to put the robot in a safe position and connect the charger before proceeding.</p>
-<section id="downloads">
-<h3>Downloads<a class="headerlink" href="#downloads" title="Link to this heading">¶</a></h3>
+<section id="downloads-updater">
+<h3>Downloads (Updater)<a class="headerlink" href="#downloads-updater" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>updater : <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/EQrH2XjLvJ9EohytH915Kn0BO4bG8FKaNz1rNG5YD3GcIA?e=aFhdo0" target="_blank" rel="noopener noreferrer">Download</a></p></li>
 <li><p>You can check the latest RPC updates and release notes at the following link: <a href="https://github.com/RainbowRobotics/rby1-release/releases" target="_blank" rel="noopener noreferrer">RPC Release Notes on GitHub</a></p></li>
 </ul>
 </section>
-<section id="preparation">
-<h3>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">¶</a></h3>
+<section id="preparation-updater">
+<h3>Preparation (Updater)<a class="headerlink" href="#preparation-updater" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Download the updater tool and extract the archive.</p></li>
 <li><p>Download the appropriate RPC update file for your robot model from the release page.</p></li>
@@ -939,8 +947,8 @@
 </ul>
 <img alt="../_images/updater.png" class="white-bg align-center" src="../_images/updater.png" style="width: 100%;" />
 </section>
-<section id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h3>
+<section id="usage-updater">
+<h3>Usage (Updater)<a class="headerlink" href="#usage-updater" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sshpass
 tar<span class="w"> </span>-xvf<span class="w"> </span>updater.tar
 <span class="nb">cd</span><span class="w"> </span>updater_dist
@@ -959,8 +967,8 @@ chmod<span class="w"> </span>+x<span class="w"> </span>updater
 </pre></div>
 </div>
 </section>
-<section id="result-guide">
-<h3>Result Guide<a class="headerlink" href="#result-guide" title="Link to this heading">¶</a></h3>
+<section id="result-guide-updater">
+<h3>Result Guide (Updater)<a class="headerlink" href="#result-guide-updater" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>If the RPC update is completed successfully, you can verify the updated version in one of the following ways:</p>
 <ul>
@@ -976,14 +984,14 @@ chmod<span class="w"> </span>+x<span class="w"> </span>updater
 <section id="how-to-extract-logs">
 <h2>How to Extract Logs<a class="headerlink" href="#how-to-extract-logs" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">log_backup</span></code> tool allows you to back up RPC logs directly through the UPC. Ensure the UPC is powered on and ready before proceeding.</p>
-<section id="id1">
-<h3>Downloads<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<section id="downloads-log-backup">
+<h3>Downloads (Log Backup)<a class="headerlink" href="#downloads-log-backup" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>log_backup(for UPC) : <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/ERiwb3eeqsdKmtmBNwQhRL4BiY0Ww_saFcCZfqvs0OpNaQ?e=knc3bm" target="_blank" rel="noopener noreferrer">Download</a></p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>Usage<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="usage-log-backup">
+<h3>Usage (Log Backup)<a class="headerlink" href="#usage-log-backup" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sshpass
 
 <span class="c1"># Make the tool executable</span>
@@ -1007,14 +1015,14 @@ chmod<span class="w"> </span>+x<span class="w"> </span>log_backup
 <p class="admonition-title">Warning</p>
 <p>Ensure that the robot’s main power is turned on before proceeding.</p>
 </div>
-<section id="id3">
-<h3>Downloads<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="downloads-can-checker">
+<h3>Downloads (CAN Checker)<a class="headerlink" href="#downloads-can-checker" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/personal/rby_support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools%2Fcan%5Fchecker&parent=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools&ga=1" target="_blank" rel="noopener noreferrer">Download</a></p></li>
+<li><p>can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a></p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>Usage<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="usage-can-checker">
+<h3>Usage (CAN Checker)<a class="headerlink" href="#usage-can-checker" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the tool executable</span>
 chmod<span class="w"> </span>+x<span class="w"> </span>can_checker
 
@@ -1047,14 +1055,14 @@ Checking<span class="w"> </span>can3<span class="w"> </span><span class="o">(</s
 <p class="admonition-title">Warning</p>
 <p>Ensure that the robot’s main power is turned on before proceeding.</p>
 </div>
-<section id="id5">
-<h3>Downloads<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<section id="downloads-ft-initialization">
+<h3>Downloads (FT Initialization)<a class="headerlink" href="#downloads-ft-initialization" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>ft_initialization: <a href="https://rainbowco-my.sharepoint.com/personal/support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2FRainbowRobotics%5FMBU%5FCS%2FRB%20Y1%20Series%2F4%5FOther%5FResource%2FFT%5FSensor%5FInitialization&viewid=9e2070fb%2D6f40%2D4ea2%2D8a66%2D05f66cff11ac">Download</a></p></li>
+<li><p>ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a></p></li>
 </ul>
 </section>
-<section id="id6">
-<h3>Usage<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<section id="usage-ft-initialization">
+<h3>Usage (FT Initialization)<a class="headerlink" href="#usage-ft-initialization" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install required package</span>
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>sshpass
 
@@ -1070,8 +1078,8 @@ chmod<span class="w"> </span>+x<span class="w"> </span>./ft_initialization
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h3>Result Guide<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<section id="result-guide-ft-initialization">
+<h3>Result Guide (FT Initialization)<a class="headerlink" href="#result-guide-ft-initialization" title="Link to this heading">¶</a></h3>
 <img alt="../_images/ftsensor_terminal.png" class="white-bg align-center" src="../_images/ftsensor_terminal.png" style="width: 40%;" />
 <ul class="simple">
 <li><p>SSAR25 → Latest version. Bias initialization is supported.</p></li>
@@ -1088,7 +1096,15 @@ chmod<span class="w"> </span>+x<span class="w"> </span>./ft_initialization
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="../precautions/power_and_battery.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Power &amp; Battery</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="../simulators/simulators.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -1132,26 +1148,26 @@ chmod<span class="w"> </span>+x<span class="w"> </span>./ft_initialization
             <ul>
 <li><a class="reference internal" href="#">RPC Management Tools</a><ul>
 <li><a class="reference internal" href="#how-to-update-rpc">How to Update RPC</a><ul>
-<li><a class="reference internal" href="#downloads">Downloads</a></li>
-<li><a class="reference internal" href="#preparation">Preparation</a></li>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-<li><a class="reference internal" href="#result-guide">Result Guide</a></li>
+<li><a class="reference internal" href="#downloads-updater">Downloads (Updater)</a></li>
+<li><a class="reference internal" href="#preparation-updater">Preparation (Updater)</a></li>
+<li><a class="reference internal" href="#usage-updater">Usage (Updater)</a></li>
+<li><a class="reference internal" href="#result-guide-updater">Result Guide (Updater)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#how-to-extract-logs">How to Extract Logs</a><ul>
-<li><a class="reference internal" href="#id1">Downloads</a></li>
-<li><a class="reference internal" href="#id2">Usage</a></li>
+<li><a class="reference internal" href="#downloads-log-backup">Downloads (Log Backup)</a></li>
+<li><a class="reference internal" href="#usage-log-backup">Usage (Log Backup)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#how-to-check-can-communication">How to Check CAN Communication</a><ul>
-<li><a class="reference internal" href="#id3">Downloads</a></li>
-<li><a class="reference internal" href="#id4">Usage</a></li>
+<li><a class="reference internal" href="#downloads-can-checker">Downloads (CAN Checker)</a></li>
+<li><a class="reference internal" href="#usage-can-checker">Usage (CAN Checker)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#how-to-initialize-the-ft-sensor">How to Initialize the FT Sensor</a><ul>
-<li><a class="reference internal" href="#id5">Downloads</a></li>
-<li><a class="reference internal" href="#id6">Usage</a></li>
-<li><a class="reference internal" href="#id7">Result Guide</a></li>
+<li><a class="reference internal" href="#downloads-ft-initialization">Downloads (FT Initialization)</a></li>
+<li><a class="reference internal" href="#usage-ft-initialization">Usage (FT Initialization)</a></li>
+<li><a class="reference internal" href="#result-guide-ft-initialization">Result Guide (FT Initialization)</a></li>
 </ul>
 </li>
 </ul>

@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -1165,7 +1173,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Detected collisions or nearest link pairs (links, closest points, signed distance).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a> of <a class="reference internal" href="rby1_sdk.dynamics.html#rby1_sdk.dynamics.CollisionResult" title="rby1_sdk.dynamics.CollisionResult">CollisionResult</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a> of CollisionResult</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1217,201 +1225,81 @@ where <code class="docutils literal notranslate"><span class="pre">DOF</span> <s
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="rby1_sdk.RobotState_M.battery_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">battery_state</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.battery_state" title="rby1_sdk.RobotState_M.battery_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">battery_state</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id1" title="rby1_sdk.RobotState_M.center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_of_mass</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.center_of_mass" title="rby1_sdk.RobotState_M.center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_of_mass</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id2" title="rby1_sdk.RobotState_M.collisions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">collisions</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.collisions" title="rby1_sdk.RobotState_M.collisions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">collisions</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id3" title="rby1_sdk.RobotState_M.current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.current" title="rby1_sdk.RobotState_M.current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id4" title="rby1_sdk.RobotState_M.emo_states"><code class="xref py py-obj docutils literal notranslate"><span class="pre">emo_states</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.emo_states" title="rby1_sdk.RobotState_M.emo_states"><code class="xref py py-obj docutils literal notranslate"><span class="pre">emo_states</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id5" title="rby1_sdk.RobotState_M.ft_sensor_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ft_sensor_left</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.ft_sensor_left" title="rby1_sdk.RobotState_M.ft_sensor_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ft_sensor_left</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id6" title="rby1_sdk.RobotState_M.ft_sensor_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ft_sensor_right</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.ft_sensor_right" title="rby1_sdk.RobotState_M.ft_sensor_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ft_sensor_right</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id7" title="rby1_sdk.RobotState_M.gravity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gravity</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.gravity" title="rby1_sdk.RobotState_M.gravity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gravity</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id8" title="rby1_sdk.RobotState_M.is_ready"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_ready</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.is_ready" title="rby1_sdk.RobotState_M.is_ready"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_ready</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id9" title="rby1_sdk.RobotState_M.joint_states"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_states</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.joint_states" title="rby1_sdk.RobotState_M.joint_states"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_states</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id10" title="rby1_sdk.RobotState_M.odometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">odometry</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.odometry" title="rby1_sdk.RobotState_M.odometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">odometry</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id11" title="rby1_sdk.RobotState_M.position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">position</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.position" title="rby1_sdk.RobotState_M.position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">position</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id12" title="rby1_sdk.RobotState_M.power_states"><code class="xref py py-obj docutils literal notranslate"><span class="pre">power_states</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.power_states" title="rby1_sdk.RobotState_M.power_states"><code class="xref py py-obj docutils literal notranslate"><span class="pre">power_states</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id13" title="rby1_sdk.RobotState_M.system_stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">system_stat</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.system_stat" title="rby1_sdk.RobotState_M.system_stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">system_stat</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id14" title="rby1_sdk.RobotState_M.target_feedback_gain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_feedback_gain</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.target_feedback_gain" title="rby1_sdk.RobotState_M.target_feedback_gain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_feedback_gain</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id15" title="rby1_sdk.RobotState_M.target_feedforward_torque"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_feedforward_torque</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.target_feedforward_torque" title="rby1_sdk.RobotState_M.target_feedforward_torque"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_feedforward_torque</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id16" title="rby1_sdk.RobotState_M.target_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_position</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.target_position" title="rby1_sdk.RobotState_M.target_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_position</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id17" title="rby1_sdk.RobotState_M.target_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_velocity</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.target_velocity" title="rby1_sdk.RobotState_M.target_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target_velocity</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id18" title="rby1_sdk.RobotState_M.temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temperature</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.temperature" title="rby1_sdk.RobotState_M.temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temperature</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id19" title="rby1_sdk.RobotState_M.timestamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamp</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.timestamp" title="rby1_sdk.RobotState_M.timestamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamp</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id20" title="rby1_sdk.RobotState_M.tool_flange_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tool_flange_left</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.tool_flange_left" title="rby1_sdk.RobotState_M.tool_flange_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tool_flange_left</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id21" title="rby1_sdk.RobotState_M.tool_flange_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tool_flange_right</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.tool_flange_right" title="rby1_sdk.RobotState_M.tool_flange_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tool_flange_right</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id22" title="rby1_sdk.RobotState_M.torque"><code class="xref py py-obj docutils literal notranslate"><span class="pre">torque</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.torque" title="rby1_sdk.RobotState_M.torque"><code class="xref py py-obj docutils literal notranslate"><span class="pre">torque</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id23" title="rby1_sdk.RobotState_M.velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">velocity</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotState_M.velocity" title="rby1_sdk.RobotState_M.velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">velocity</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py property">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">battery_state</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center_of_mass</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id2">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">collisions</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id3">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id4">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">emo_states</span></span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id5">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ft_sensor_left</span></span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id6">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ft_sensor_right</span></span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id7">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gravity</span></span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id8">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_ready</span></span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id9">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">joint_states</span></span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id10">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">odometry</span></span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id11">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id12">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">power_states</span></span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id13">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">system_stat</span></span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id14">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_feedback_gain</span></span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id15">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_feedforward_torque</span></span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id16">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id17">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_velocity</span></span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id18">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">temperature</span></span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id19">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp</span></span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id20">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tool_flange_left</span></span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id21">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tool_flange_right</span></span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id22">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">torque</span></span><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id23">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1498,30 +1386,6 @@ where <code class="docutils literal notranslate"><span class="pre">DOF</span> <s
 <li><a class="reference internal" href="#rby1_sdk.RobotState_M.temperature"><code class="docutils literal notranslate"><span class="pre">RobotState_M.temperature</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.RobotState_M.gravity"><code class="docutils literal notranslate"><span class="pre">RobotState_M.gravity</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.RobotState_M.__init__"><code class="docutils literal notranslate"><span class="pre">RobotState_M.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">RobotState_M.battery_state</span></code></a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">RobotState_M.center_of_mass</span></code></a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">RobotState_M.collisions</span></code></a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">RobotState_M.current</span></code></a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">RobotState_M.emo_states</span></code></a></li>
-<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">RobotState_M.ft_sensor_left</span></code></a></li>
-<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">RobotState_M.ft_sensor_right</span></code></a></li>
-<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">RobotState_M.gravity</span></code></a></li>
-<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">RobotState_M.is_ready</span></code></a></li>
-<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">RobotState_M.joint_states</span></code></a></li>
-<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">RobotState_M.odometry</span></code></a></li>
-<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">RobotState_M.position</span></code></a></li>
-<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">RobotState_M.power_states</span></code></a></li>
-<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">RobotState_M.system_stat</span></code></a></li>
-<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">RobotState_M.target_feedback_gain</span></code></a></li>
-<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">RobotState_M.target_feedforward_torque</span></code></a></li>
-<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">RobotState_M.target_position</span></code></a></li>
-<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">RobotState_M.target_velocity</span></code></a></li>
-<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">RobotState_M.temperature</span></code></a></li>
-<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">RobotState_M.timestamp</span></code></a></li>
-<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">RobotState_M.tool_flange_left</span></code></a></li>
-<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">RobotState_M.tool_flange_right</span></code></a></li>
-<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">RobotState_M.torque</span></code></a></li>
-<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">RobotState_M.velocity</span></code></a></li>
 </ul>
 </li>
 </ul>

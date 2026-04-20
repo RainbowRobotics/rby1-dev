@@ -4,12 +4,12 @@
 
 Please use the provided `updater` program to update your RPC. During the update, the RPC will shut down, so make sure to put the robot in a safe position and connect the charger before proceeding.
 
-### Downloads
+### Downloads (Updater)
 - updater : <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/EQrH2XjLvJ9EohytH915Kn0BO4bG8FKaNz1rNG5YD3GcIA?e=aFhdo0" target="_blank" rel="noopener noreferrer">Download</a>
 - You can check the latest RPC updates and release notes at the following link: <a href="https://github.com/RainbowRobotics/rby1-release/releases" target="_blank" rel="noopener noreferrer">RPC Release Notes on GitHub</a>
 
 
-### Preparation
+### Preparation (Updater)
 
 - Download the updater tool and extract the archive.
 - Download the appropriate RPC update file for your robot model from the release page.
@@ -21,7 +21,7 @@ Please use the provided `updater` program to update your RPC. During the update,
     :class: white_bg
 ```
 
-### Usage
+### Usage (Updater)
 
 ```bash
 sudo apt-get install -y sshpass
@@ -41,7 +41,7 @@ chmod +x updater
 ./updater_x86_64 rby1_a_v1.2-0.10.6.tar 192.168.0.192
 ```
 
-### Result Guide
+### Result Guide (Updater)
 
 - If the RPC update is completed successfully, you can verify the updated version in one of the following ways:
     - Check the version at the bottom of the **Dashboard** page in the Web UI
@@ -59,11 +59,11 @@ chmod +x updater
 
 The `log_backup` tool allows you to back up RPC logs directly through the UPC. Ensure the UPC is powered on and ready before proceeding.
 
-### Downloads
+### Downloads (Log Backup)
 
 - log_backup(for UPC) : <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/ERiwb3eeqsdKmtmBNwQhRL4BiY0Ww_saFcCZfqvs0OpNaQ?e=knc3bm" target="_blank" rel="noopener noreferrer">Download</a>
 
-### Usage
+### Usage (Log Backup)
 
 ```bash
 sudo apt-get install -y sshpass
@@ -88,11 +88,11 @@ The can_checker tool allows you to verify whether the CAN communication is funct
 ``` {Warning} Ensure that the robot’s main power is turned on before proceeding.
 ```
 
-### Downloads
-- can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/personal/rby_support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools%2Fcan%5Fchecker&parent=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools&ga=1" target="_blank" rel="noopener noreferrer">Download</a>
+### Downloads (CAN Checker)
+- can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a>
 
-### Usage
-
+### Usage (CAN Checker)
+ 
 ```bash
 # Make the tool executable
 chmod +x can_checker
@@ -129,10 +129,11 @@ The `ft_initialization` tool allows you to check the FT sensor status and perfor
 Ensure that the robot’s main power is turned on before proceeding.
 ```
 
-### Downloads
-- ft_initialization: <a href="https://rainbowco-my.sharepoint.com/personal/support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2FRainbowRobotics%5FMBU%5FCS%2FRB%20Y1%20Series%2F4%5FOther%5FResource%2FFT%5FSensor%5FInitialization&viewid=9e2070fb%2D6f40%2D4ea2%2D8a66%2D05f66cff11ac">Download</a>
+### Downloads (FT Initialization)
+- ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a>
 
-### Usage
+
+### Usage (FT Initialization)
 
 ```bash
 # Install required package
@@ -149,7 +150,7 @@ chmod +x ./ft_initialization
 ./ft_initialization_x86_64 <RPC_ADDRESS>
 ```
 
-### Result Guide
+### Result Guide (FT Initialization)
 
 ```{image} ../_static/images/rpc_management_tools/ftsensor_terminal.png
     :width: 40%

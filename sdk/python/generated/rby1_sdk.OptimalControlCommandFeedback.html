@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -989,19 +997,19 @@
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="rby1_sdk.OptimalControlCommandFeedback.cartesian_costs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartesian_costs</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandFeedback.cartesian_costs" title="rby1_sdk.OptimalControlCommandFeedback.cartesian_costs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartesian_costs</span></code></a></p></td>
 <td><p>Per-target Cartesian costs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id1" title="rby1_sdk.OptimalControlCommandFeedback.center_of_mass_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_of_mass_cost</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandFeedback.center_of_mass_cost" title="rby1_sdk.OptimalControlCommandFeedback.center_of_mass_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_of_mass_cost</span></code></a></p></td>
 <td><p>Center-of-mass cost.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">command_header</span></code></p></td>
 <td><p>Header-level feedback.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id2" title="rby1_sdk.OptimalControlCommandFeedback.joint_position_costs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_position_costs</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandFeedback.joint_position_costs" title="rby1_sdk.OptimalControlCommandFeedback.joint_position_costs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_position_costs</span></code></a></p></td>
 <td><p>Per-joint position costs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id3" title="rby1_sdk.OptimalControlCommandFeedback.total_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_cost</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.OptimalControlCommandFeedback.total_cost" title="rby1_sdk.OptimalControlCommandFeedback.total_cost"><code class="xref py py-obj docutils literal notranslate"><span class="pre">total_cost</span></code></a></p></td>
 <td><p>Total objective value.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></p></td>
@@ -1010,62 +1018,6 @@
 </tbody>
 </table>
 </div>
-<dl class="py property">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cartesian_costs</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
-<dd><p>Per-target Cartesian costs.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dimensionless cost values for each Cartesian target.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center_of_mass_cost</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
-<dd><p>Center-of-mass cost.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dimensionless COM cost.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id2">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">joint_position_costs</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
-<dd><p>Per-joint position costs.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dimensionless cost values for joint position terms.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id3">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total_cost</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
-<dd><p>Total objective value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dimensionless cost value.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1132,10 +1084,6 @@
 <li><a class="reference internal" href="#rby1_sdk.OptimalControlCommandFeedback.center_of_mass_cost"><code class="docutils literal notranslate"><span class="pre">OptimalControlCommandFeedback.center_of_mass_cost</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.OptimalControlCommandFeedback.joint_position_costs"><code class="docutils literal notranslate"><span class="pre">OptimalControlCommandFeedback.joint_position_costs</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.OptimalControlCommandFeedback.__init__"><code class="docutils literal notranslate"><span class="pre">OptimalControlCommandFeedback.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">OptimalControlCommandFeedback.cartesian_costs</span></code></a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">OptimalControlCommandFeedback.center_of_mass_cost</span></code></a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">OptimalControlCommandFeedback.joint_position_costs</span></code></a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">OptimalControlCommandFeedback.total_cost</span></code></a></li>
 </ul>
 </li>
 </ul>

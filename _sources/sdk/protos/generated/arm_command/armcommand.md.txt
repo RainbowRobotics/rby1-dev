@@ -1,3 +1,4 @@
+(rb-api-armcommand)=
 # ArmCommand
 
 - Source proto: `rb/api/arm_command.proto`
@@ -7,6 +8,6 @@ Arm-level command wrapper selecting one arm control mode (joint, cartesian, impe
 
 ## Subtypes
 
-- [ArmCommand.Feedback](armcommand-feedback.md#rb-api-armcommand-feedback)
-- [ArmCommand.Request](armcommand-request.md#rb-api-armcommand-request)
+- [ArmCommand.Feedback](armcommand-feedback.md)
+- [ArmCommand.Request](armcommand-request.md)
 

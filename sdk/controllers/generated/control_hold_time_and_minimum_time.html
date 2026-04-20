@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -931,8 +939,8 @@
 <h3>Control Hold Time<a class="headerlink" href="#control-hold-time" title="Link to this heading">¶</a></h3>
 <p>Control Hold Time defines the duration for which the robot maintains the target (position/velocity) after reaching it.</p>
 <br>
-<section id="how-it-works">
-<h4>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">¶</a></h4>
+<section id="how-it-works-control-hold-time">
+<h4>How It Works (Control Hold Time)<a class="headerlink" href="#how-it-works-control-hold-time" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>When a control command is sent, the robot moves toward the target while considering constraints such as speed and acceleration limits.</p></li>
 <li><p>Once the target is reached, the robot maintains the target state for the duration of the Control Hold Time.</p></li>
@@ -945,8 +953,8 @@
 <h3>Minimum Time<a class="headerlink" href="#minimum-time" title="Link to this heading">¶</a></h3>
 <p>Minimum Time represents the minimum duration required for the robot to reach the target state.</p>
 <br>
-<section id="id2">
-<h4>How It Works<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<section id="how-it-works-minimum-time">
+<h4>How It Works (Minimum Time)<a class="headerlink" href="#how-it-works-minimum-time" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Larger values: The robot reaches the target more slowly.</p></li>
 <li><p>Smaller values: The robot reaches the target more quickly.</p></li>
@@ -967,8 +975,8 @@
 <li><p>A single control command is sent, and the robot moves toward the target.</p></li>
 <li><p>Once the target is reached, the robot maintains the state (position/velocity) for the duration of the Control Hold Time.</p></li>
 </ul>
-<section id="impact">
-<h4>Impact<a class="headerlink" href="#impact" title="Link to this heading">¶</a></h4>
+<section id="impact-in-once-mode">
+<h4>Impact in Once Mode<a class="headerlink" href="#impact-in-once-mode" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>If the Control Hold Time is too short, the robot may not maintain the target long enough to complete its intended task.
 A well-configured Control Hold Time ensures the robot holds its target state as needed before transitioning to the <strong>ControlFinished</strong> state.</p></li>
@@ -980,8 +988,8 @@ A well-configured Control Hold Time ensures the robot holds its target state as 
 <ul class="simple">
 <li><p>Commands are sent continuously, allowing dynamic updates to the target while the control remains active.</p></li>
 </ul>
-<section id="id3">
-<h4>Impact<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+<section id="impact-in-stream-mode">
+<h4>Impact in Stream Mode<a class="headerlink" href="#impact-in-stream-mode" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>If the Control Hold Time is too short and the stream cycle is too long, the control may prematurely transition to the <strong>ControlFinished</strong> state, causing the stream to expire.</p></li>
 <li><p>A properly configured Control Hold Time ensures the robot remains active between stream updates, preventing interruptions.</p></li>
@@ -1057,22 +1065,22 @@ A well-configured Control Hold Time ensures the robot holds its target state as 
 <li><a class="reference internal" href="#id1"></a><ul>
 <li><a class="reference internal" href="#control-state-transition">Control State Transition</a></li>
 <li><a class="reference internal" href="#control-hold-time">Control Hold Time</a><ul>
-<li><a class="reference internal" href="#how-it-works">How It Works</a></li>
+<li><a class="reference internal" href="#how-it-works-control-hold-time">How It Works (Control Hold Time)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#minimum-time">Minimum Time</a><ul>
-<li><a class="reference internal" href="#id2">How It Works</a></li>
+<li><a class="reference internal" href="#how-it-works-minimum-time">How It Works (Minimum Time)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#common-mistake">Common Mistake</a><ul>
 <li><a class="reference internal" href="#once-mode">Once Mode</a><ul>
-<li><a class="reference internal" href="#impact">Impact</a></li>
+<li><a class="reference internal" href="#impact-in-once-mode">Impact in Once Mode</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#stream-mode">Stream Mode</a><ul>
-<li><a class="reference internal" href="#id3">Impact</a></li>
+<li><a class="reference internal" href="#impact-in-stream-mode">Impact in Stream Mode</a></li>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>

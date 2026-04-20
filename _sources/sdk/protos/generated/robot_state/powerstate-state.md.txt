@@ -1,3 +1,4 @@
+(rb-api-powerstate-state)=
 # PowerState.State
 
 - Source proto: `rb/api/robot_state.proto`

@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -988,239 +996,33 @@ The final applied torque is saturated by the per-joint limits:</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.__init__" title="rby1_sdk.JointImpedanceControlCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_acceleration_limit" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_acceleration_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit</span></code></a>(self, acceleration_limit)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit</span></code>(self, acceleration_limit)</p></td>
 <td><p>Set per-joint acceleration limits.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_command_header" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code>(self, command_header_builder)</p></td>
 <td><p>Attach a command header to this builder.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_damping_ratio" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_damping_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_damping_ratio</span></code></a>(self, damping_ratio)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_damping_ratio</span></code>(self, damping_ratio)</p></td>
 <td><p>Set the damping ratio.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_minimum_time" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_minimum_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_minimum_time</span></code></a>(self, minimum_time)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_minimum_time</span></code>(self, minimum_time)</p></td>
 <td><p>Set the minimum execution time for the motion.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_position" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_position</span></code></a>(self, position)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_position</span></code>(self, position)</p></td>
 <td><p>Set target joint positions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_stiffness" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_stiffness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stiffness</span></code></a>(self, stiffness)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stiffness</span></code>(self, stiffness)</p></td>
 <td><p>Set per-joint stiffness values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_torque_limit" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_torque_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_torque_limit</span></code></a>(self, torque_limit)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_torque_limit</span></code>(self, torque_limit)</p></td>
 <td><p>Set per-joint torque limits.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_velocity_limit" title="rby1_sdk.JointImpedanceControlCommandBuilder.set_velocity_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity_limit</span></code></a>(self, velocity_limit)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity_limit</span></code>(self, velocity_limit)</p></td>
 <td><p>Set per-joint velocity limits.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_acceleration_limit">
-<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set per-joint acceleration limits.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>acceleration_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Acceleration limits [rad/s²].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<ul class="simple">
-<li><p>Vector length <span class="math notranslate nohighlight">\(N\)</span> must match the component DOF.</p></li>
-<li><p>If not set, limits from the current robot URDF are used (see <code class="docutils literal notranslate"><span class="pre">get_robot_model</span></code>).</p></li>
-<li><p>Values beyond hardware capability may be accepted for profiling; actual tracking is not guaranteed.</p></li>
-</ul>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd><p>Attach a command header to this builder.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><em>CommandHeaderBuilder</em></a>) – Command header configuration (e.g., control hold time).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">header</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">CommandHeaderBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_control_hold_time</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span> <span class="o">=</span> <span class="n">rby</span><span class="o">.</span><span class="n">JointImpedanceControlCommandBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">set_command_header</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_damping_ratio">
-<span class="sig-name descname"><span class="pre">set_damping_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_damping_ratio" title="Link to this definition">¶</a></dt>
-<dd><p>Set the damping ratio.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>damping_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Damping ratio <span class="math notranslate nohighlight">\(\zeta\)</span> (dimensionless) in [0, 1].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>The damping matrix is computed from <span class="math notranslate nohighlight">\(\zeta\)</span>, stiffness <span class="math notranslate nohighlight">\(K\)</span>, and inertia <span class="math notranslate nohighlight">\(M\)</span>:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[D = \zeta \left( \sqrt{M}\sqrt{K} + \sqrt{K}\sqrt{M} \right)\]</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_minimum_time">
-<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
-<dd><p>Set the minimum execution time for the motion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>minimum_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – <p>The shortest allowed duration (in seconds) to reach the target.</p>
-<ul class="simple">
-<li><p>If the motion profile based on velocity/acceleration limits would finish earlier,
-the motion is slowed down to take exactly <cite>minimum_time</cite>.</p></li>
-<li><p>If the natural motion takes longer than <cite>minimum_time</cite>, this parameter is ignored.</p></li>
-</ul>
-<p>This parameter provides an additional degree of freedom to control
-arrival time. Instead of relying solely on velocity and acceleration limits,
-you can set high limits and then enforce the desired duration using <cite>minimum_time</cite>.</p>
-<p>For streaming commands, this prevents the robot from arriving too early
-and waiting idly, thereby ensuring smooth and continuous motion.</p>
-</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_position">
-<span class="sig-name descname"><span class="pre">set_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_position" title="Link to this definition">¶</a></dt>
-<dd><p>Set target joint positions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>position</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Desired joint positions <span class="math notranslate nohighlight">\(q_d\)</span> [rad]</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Vector length <span class="math notranslate nohighlight">\(N\)</span> must match the DOF of the target component
-(e.g., Model A arm <span class="math notranslate nohighlight">\(N=7\)</span>, whole body <span class="math notranslate nohighlight">\(N=20\)</span>).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_stiffness">
-<span class="sig-name descname"><span class="pre">set_stiffness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stiffness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_stiffness" title="Link to this definition">¶</a></dt>
-<dd><p>Set per-joint stiffness values.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stiffness</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Per-joint stiffness values, interpreted as the diagonal elements of
-the stiffness matrix <span class="math notranslate nohighlight">\(K \in \mathbb{R}^{N \times N}\)</span> (Nm/rad).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<ul>
-<li><p>Vector length <span class="math notranslate nohighlight">\(N\)</span> must match the component DOF.</p></li>
-<li><p>The full stiffness matrix is assumed to be diagonal:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[K = \mathrm{diag}(k_1, k_2, \ldots, k_N)\]</div>
-</div>
-</li>
-<li><p>Stiffness contributes torque as:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[\tau_K = K (q_d - q)\]</div>
-</div>
-</li>
-</ul>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_torque_limit">
-<span class="sig-name descname"><span class="pre">set_torque_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_torque_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set per-joint torque limits.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>torque_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Maximum allowable torque <span class="math notranslate nohighlight">\(\tau_{max}\)</span> [Nm].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<ul>
-<li><p>The controller torque is:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[\tau = K (q_d - q) + D (\dot{q}_d - \dot{q}) + \tau_{ff}\]</div>
-</div>
-<p>where <span class="math notranslate nohighlight">\(\tau_{ff}\)</span> is the feed-forward gravity compensation torque.</p>
-</li>
-<li><p>The applied torque is saturated per joint:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[\tau_{applied} = \mathrm{clip}(\tau,\; -\tau_{max},\; \tau_{max})\]</div>
-</div>
-</li>
-</ul>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JointImpedanceControlCommandBuilder.set_velocity_limit">
-<span class="sig-name descname"><span class="pre">set_velocity_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.JointImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_velocity_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set per-joint velocity limits.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>velocity_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Velocity limits [rad/s].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder" title="rby1_sdk.JointImpedanceControlCommandBuilder">JointImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<ul class="simple">
-<li><p>Vector length <span class="math notranslate nohighlight">\(N\)</span> must match the component DOF.</p></li>
-<li><p>If not set, limits from the current robot URDF are used (see <code class="docutils literal notranslate"><span class="pre">get_robot_model</span></code>).</p></li>
-<li><p>Values beyond hardware capability may be accepted for profiling; actual tracking is not guaranteed.</p></li>
-</ul>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1283,14 +1085,6 @@ the stiffness matrix <span class="math notranslate nohighlight">\(K \in \mathbb{
 <li><a class="reference internal" href="#">rby1_sdk.JointImpedanceControlCommandBuilder</a><ul>
 <li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder</span></code></a><ul>
 <li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_acceleration_limit"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_acceleration_limit()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_command_header"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_command_header()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_damping_ratio"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_damping_ratio()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_minimum_time"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_minimum_time()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_position"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_position()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_stiffness"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_stiffness()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_torque_limit"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_torque_limit()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JointImpedanceControlCommandBuilder.set_velocity_limit"><code class="docutils literal notranslate"><span class="pre">JointImpedanceControlCommandBuilder.set_velocity_limit()</span></code></a></li>
 </ul>
 </li>
 </ul>

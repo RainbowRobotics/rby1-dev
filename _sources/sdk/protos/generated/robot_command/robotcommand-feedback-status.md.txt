@@ -1,3 +1,4 @@
+(rb-api-robotcommand-feedback-status)=
 # RobotCommand.Feedback.Status
 
 - Source proto: `rb/api/robot_command.proto`

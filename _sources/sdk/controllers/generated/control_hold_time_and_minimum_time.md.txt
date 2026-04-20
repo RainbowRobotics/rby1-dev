@@ -17,7 +17,7 @@ Control Hold Time defines the duration for which the robot maintains the target 
 
 <br>
 
-#### How It Works
+#### How It Works (Control Hold Time)
 
 - When a control command is sent, the robot moves toward the target while considering constraints such as speed and acceleration limits.
 - Once the target is reached, the robot maintains the target state for the duration of the Control Hold Time.
@@ -30,7 +30,7 @@ Minimum Time represents the minimum duration required for the robot to reach the
 
 <br>
 
-#### How It Works
+#### How It Works (Minimum Time)
 
 - Larger values: The robot reaches the target more slowly.
 - Smaller values: The robot reaches the target more quickly.
@@ -50,7 +50,7 @@ To better understand how Control Hold Time affects each mode, let’s examine it
 - A single control command is sent, and the robot moves toward the target.
 - Once the target is reached, the robot maintains the state (position/velocity) for the duration of the Control Hold Time.
 
-##### Impact
+#### Impact in Once Mode
 
 - If the Control Hold Time is too short, the robot may not maintain the target long enough to complete its intended task.
 A well-configured Control Hold Time ensures the robot holds its target state as needed before transitioning to the **ControlFinished** state.
@@ -59,12 +59,12 @@ A well-configured Control Hold Time ensures the robot holds its target state as 
 
 - Commands are sent continuously, allowing dynamic updates to the target while the control remains active.
 
-##### Impact
+#### Impact in Stream Mode
 
 - If the Control Hold Time is too short and the stream cycle is too long, the control may prematurely transition to the **ControlFinished** state, causing the stream to expire.
 - A properly configured Control Hold Time ensures the robot remains active between stream updates, preventing interruptions.
 
-##### Examples
+#### Examples
 
 - If the Control Hold Time is set to 1 second, and no new input is received within **1 second**, the control transitions to the finished state.
 - If the Control Hold Time is set to 100 seconds, and the stream cycle operates every **1 second**, the target can be updated dynamically, maintaining continuous control.

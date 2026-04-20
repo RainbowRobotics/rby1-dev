@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -919,7 +927,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="robotinfo">
-<h1>RobotInfo<a class="headerlink" href="#robotinfo" title="Link to this heading">¶</a></h1>
+<span id="rb-api-robotinfo"></span><h1>RobotInfo<a class="headerlink" href="#robotinfo" title="Link to this heading">¶</a></h1>
 <ul class="simple">
 <li><p>Source proto: <code class="docutils literal notranslate"><span class="pre">rb/api/robot_info.proto</span></code></p></li>
 </ul>
@@ -935,87 +943,87 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>version</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">string</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">string</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>sdk_version</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">string</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">string</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>robot_model_name</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">string</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">string</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>robot_model_version</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">string</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">string</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>battery_info</p></td>
-<td><p><a class="reference internal" href="batteryinfo.html#rb-api-batteryinfo"><span class="std std-ref">BatteryInfo</span></a></p></td>
+<td><p><a class="reference internal" href="batteryinfo.html"><span class="std std-doc">BatteryInfo</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>power_infos</p></td>
-<td><p><a class="reference internal" href="powerinfo.html#rb-api-powerinfo"><span class="std std-ref">PowerInfo</span></a></p></td>
+<td><p><a class="reference internal" href="powerinfo.html"><span class="std std-doc">PowerInfo</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>emo_infos</p></td>
-<td><p><a class="reference internal" href="emoinfo.html#rb-api-emoinfo"><span class="std std-ref">EMOInfo</span></a></p></td>
+<td><p><a class="reference internal" href="emoinfo.html"><span class="std std-doc">EMOInfo</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>degree_of_freedom</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">int32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">int32</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>joint_infos</p></td>
-<td><p><a class="reference internal" href="jointinfo.html#rb-api-jointinfo"><span class="std std-ref">JointInfo</span></a></p></td>
+<td><p><a class="reference internal" href="jointinfo.html"><span class="std std-doc">JointInfo</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>mobility_joint_idx</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">uint32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">uint32</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>body_joint_idx</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">uint32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">uint32</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>head_joint_idx</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">uint32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">uint32</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>torso_joint_idx</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">uint32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">uint32</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>right_arm_joint_idx</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">uint32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">uint32</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>left_arm_joint_idx</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">uint32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">uint32</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>robot_version</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">string</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">string</span></a></p></td>
 <td><p></p></td>
 <td><p>[DEPRECATED] Will be removed in the future. Use <code class="docutils literal notranslate"><span class="pre">robot_model_name</span></code> instead.</p></td>
 </tr>
 <tr class="row-even"><td><p>sdk_commit_id</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">string</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">string</span></a></p></td>
 <td><p></p></td>
 <td><p>[DEPRECATED]</p></td>
 </tr>

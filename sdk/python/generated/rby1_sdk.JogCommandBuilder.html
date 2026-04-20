@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -957,213 +965,24 @@ or use a stream command.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.__init__" title="rby1_sdk.JogCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_acceleration_limit" title="rby1_sdk.JogCommandBuilder.set_acceleration_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit</span></code></a>(self, acceleration_limit)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_acceleration_limit</span></code>(self, acceleration_limit)</p></td>
 <td><p>Set the maximum acceleration used during the jog.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_command" title="rby1_sdk.JogCommandBuilder.set_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_command_header" title="rby1_sdk.JogCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code>(self, command_header_builder)</p></td>
 <td><p>Attach a command header.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_joint_name" title="rby1_sdk.JogCommandBuilder.set_joint_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_name</span></code></a>(self, joint_name)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_name</span></code>(self, joint_name)</p></td>
 <td><p>Specify the joint to jog.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_velocity_limit" title="rby1_sdk.JogCommandBuilder.set_velocity_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity_limit</span></code></a>(self, velocity_limit)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_velocity_limit</span></code>(self, velocity_limit)</p></td>
 <td><p>Set the maximum velocity used during the jog.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py class">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.AbsolutePosition">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AbsolutePosition</span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.AbsolutePosition" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Absolute jog target.</p>
-<p>Sets the joint to an absolute angle in radians.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Target absolute joint angle [rad].</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rby</span><span class="o">.</span><span class="n">JogCommandBuilder</span><span class="o">.</span><span class="n">AbsolutePosition</span><span class="p">(</span><span class="mf">1.57</span><span class="p">)</span>  <span class="c1"># ~90 degrees</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.AbsolutePosition.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.AbsolutePosition" title="rby1_sdk.JogCommandBuilder.AbsolutePosition"><span class="pre">rby1_sdk.JogCommandBuilder.AbsolutePosition</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.AbsolutePosition.value" title="Link to this definition">¶</a></dt>
-<dd><p>Get the target absolute angle in radians.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.OneStep">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OneStep</span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.OneStep" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>One-step jog target.</p>
-<p>Applies a single incremental step to the joint angle in radians.
-Useful for discrete button/step interfaces.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Step size [rad].</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rby</span><span class="o">.</span><span class="n">JogCommandBuilder</span><span class="o">.</span><span class="n">OneStep</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># one step backward</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.OneStep.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.OneStep" title="rby1_sdk.JogCommandBuilder.OneStep"><span class="pre">rby1_sdk.JogCommandBuilder.OneStep</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.OneStep.value" title="Link to this definition">¶</a></dt>
-<dd><p>Get the step size in radians.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.RelativePosition">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RelativePosition</span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.RelativePosition" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Relative jog target.</p>
-<p>Offsets the current joint angle by a relative amount in radians.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Relative offset [rad]. Positive values increase the angle; negative values decrease it.</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rby</span><span class="o">.</span><span class="n">JogCommandBuilder</span><span class="o">.</span><span class="n">RelativePosition</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># +0.1 rad</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.RelativePosition.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.RelativePosition" title="rby1_sdk.JogCommandBuilder.RelativePosition"><span class="pre">rby1_sdk.JogCommandBuilder.RelativePosition</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.RelativePosition.value" title="Link to this definition">¶</a></dt>
-<dd><p>Get the relative offset in radians.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.set_acceleration_limit">
-<span class="sig-name descname"><span class="pre">set_acceleration_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.set_acceleration_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set the maximum acceleration used during the jog.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>acceleration_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Maximum allowed joint acceleration [rad/s²].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder">JogCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.set_command">
-<span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
-<dd><p>Overloaded function.</p>
-<ol class="arabic simple">
-<li><p>set_command(self: rby1_sdk.JogCommandBuilder, absolute_position: rby1_sdk.JogCommandBuilder.AbsolutePosition) -&gt; rby1_sdk.JogCommandBuilder</p></li>
-</ol>
-<p>Set the jog as an absolute position target.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>absolute_position</strong> (<a class="reference internal" href="#rby1_sdk.JogCommandBuilder.AbsolutePosition" title="rby1_sdk.JogCommandBuilder.AbsolutePosition"><em>JogCommandBuilder.AbsolutePosition</em></a>) – Absolute target angle [rad].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder">JogCommandBuilder</a></p>
-</dd>
-</dl>
-<ol class="arabic simple" start="2">
-<li><p>set_command(self: rby1_sdk.JogCommandBuilder, relative_position: rby1_sdk.JogCommandBuilder.RelativePosition) -&gt; rby1_sdk.JogCommandBuilder</p></li>
-</ol>
-<p>Set the jog as a relative position target.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>relative_position</strong> (<a class="reference internal" href="#rby1_sdk.JogCommandBuilder.RelativePosition" title="rby1_sdk.JogCommandBuilder.RelativePosition"><em>JogCommandBuilder.RelativePosition</em></a>) – Relative offset [rad] from the current joint angle.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder">JogCommandBuilder</a></p>
-</dd>
-</dl>
-<ol class="arabic simple" start="3">
-<li><p>set_command(self: rby1_sdk.JogCommandBuilder, one_step: rby1_sdk.JogCommandBuilder.OneStep) -&gt; rby1_sdk.JogCommandBuilder</p></li>
-</ol>
-<p>Set the jog as a single incremental step.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>one_step</strong> (<a class="reference internal" href="#rby1_sdk.JogCommandBuilder.OneStep" title="rby1_sdk.JogCommandBuilder.OneStep"><em>JogCommandBuilder.OneStep</em></a>) – Step size [rad] to apply once.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder">JogCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd><p>Attach a command header.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><em>CommandHeaderBuilder</em></a>) – Command header configuration (e.g., control hold time).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder">JogCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.set_joint_name">
-<span class="sig-name descname"><span class="pre">set_joint_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.set_joint_name" title="Link to this definition">¶</a></dt>
-<dd><p>Specify the joint to jog.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>joint_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Name of the single joint to control.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder">JogCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.JogCommandBuilder.set_velocity_limit">
-<span class="sig-name descname"><span class="pre">set_velocity_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><span class="pre">rby1_sdk.JogCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.JogCommandBuilder.set_velocity_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set the maximum velocity used during the jog.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>velocity_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Maximum allowed joint velocity [rad/s].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder">JogCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1226,23 +1045,6 @@ Useful for discrete button/step interfaces.</p>
 <li><a class="reference internal" href="#">rby1_sdk.JogCommandBuilder</a><ul>
 <li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder</span></code></a><ul>
 <li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.AbsolutePosition"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.AbsolutePosition</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.AbsolutePosition.value"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.AbsolutePosition.value()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.OneStep"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.OneStep</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.OneStep.value"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.OneStep.value()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.RelativePosition"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.RelativePosition</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.RelativePosition.value"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.RelativePosition.value()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_acceleration_limit"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.set_acceleration_limit()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_command"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.set_command()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_command_header"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.set_command_header()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_joint_name"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.set_joint_name()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.JogCommandBuilder.set_velocity_limit"><code class="docutils literal notranslate"><span class="pre">JogCommandBuilder.set_velocity_limit()</span></code></a></li>
 </ul>
 </li>
 </ul>

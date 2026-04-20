@@ -1,3 +1,4 @@
+(rb-api-powercommandresponse-status)=
 # PowerCommandResponse.Status
 
 - Source proto: `rb/api/power.proto`

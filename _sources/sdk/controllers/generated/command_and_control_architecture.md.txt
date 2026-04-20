@@ -1,7 +1,7 @@
 # Command and Control Architecture
 ##
 
-#### Overview
+### Overview
 
 The robot commands are divided into three main types:
 
@@ -18,7 +18,7 @@ The robot commands are divided into three main types:
 ```
 
 ---
-#### WholeBodyCommand
+### WholeBodyCommand
 
 This command controls all the major components of the robot, including arms, torso, and legs. It supports various controllers for managing the full body of the robot. The primary use case is for synchronized movements where multiple parts of the robot are involved. This command sends a **24 DOF** control signal all at once.
 
@@ -30,7 +30,7 @@ This command controls all the major components of the robot, including arms, tor
 ```
 
 ---
-#### ComponentBasedCommand
+### ComponentBasedCommand
 
 The **ComponentBasedCommand** is responsible for controlling the core components of the robot, such as the **Mobility**, **Body**, and **Head**. It provides a flexible architecture for handling different sections of the robot individually. Each of these components can be controlled using specialized commands, allowing precise control over the robot's movement and actions. This structure typically supports multiple controllers to handle specific parts of the robot efficiently.
 
@@ -42,7 +42,7 @@ The **ComponentBasedCommand** is responsible for controlling the core components
 ```
 
 ---
-#### BodyCommand Structure
+### BodyCommand Structure
 
 The **BodyCommand** allows for detailed control of the robot's body and arms. It is divided into **BodyComponentBasedCommand**, under which **TorsoCommand** and **ArmCommand** exist. The arms can be controlled individually through **LeftArmCommand** and **RightArmCommand**, providing finer control over each arm.
 
@@ -56,7 +56,7 @@ In the diagram below, the Controller nodes follow the structure defined in the C
 ```
 
 ---
-#### Controllers
+### Controllers
 
 The following controllers are used throughout different commands like **WholeBodyCommand**, **ComponentBasedCommand**, and their subcommands.
 
@@ -96,7 +96,7 @@ W_{1,i}(J_i\boldsymbol{\mathrm{\dot{q}}}-\log(T^{-1}_{i,\text{cur}}T_{i,\text{re
 ```
 
 ---
-#### Examples
+### Examples
 
 ```python
 def example_joint_position_command_1(robot):

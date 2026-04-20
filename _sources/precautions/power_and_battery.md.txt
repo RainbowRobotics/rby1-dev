@@ -6,50 +6,33 @@
 ### ⚠️Before moving the mobile, make sure to check that the charger is disconnected.
 <br>
 
-`````{grid} 2
-:gutter: 2
-````{grid-item}
-```{image} ../_static/images/saftey_and_precautions/power_and_battery/connect.jpg
-    :alt: charger1
-    :width: 100%
-    :class: white_bg
-```
-````
-
-````{grid-item}
-```{image} ../_static/images/saftey_and_precautions/power_and_battery/disconnect.jpg
+```{image} ../_static/images/saftey_and_precautions/power_and_battery/disconnect.png
     :alt: charger2
     :width: 100%
     :class: white_bg
 ```
-````
-`````
 
 
 ---
 ### ⚠️Disconnect Battery connector During Long-Term Inactivity
 
+- Open the front cover to access the battery connector.
 
-- If the robot is not used for an extended period, disconnect the battery connector to prevent battery discharge.
-
-`````{grid} 2
-:gutter: 2
-````{grid-item}
-```{image} ../_static/images/saftey_and_precautions/power_and_battery/power_connect.png
+```{image} ../_static/images/saftey_and_precautions/power_and_battery/front_cover.png
     :alt: charger1
     :width: 100%
     :class: white_bg
 ```
-````
 
-````{grid-item}
+- If the robot is not used for an extended period, disconnect the battery connector to prevent battery discharge.
+
 ```{image} ../_static/images/saftey_and_precautions/power_and_battery/power_disconnect.png
     :alt: charger2
     :width: 100%
     :class: white_bg
 ```
-````
-`````
+
+- Before using the robot again, ensure that the battery connector is properly reconnected before powering on.
 
 
 ---
@@ -58,10 +41,11 @@
 
 - If you move the mobile robot by applying force manually, back EMF may be generated.
 - Avoid applying force to move the robot when the power is OFF.
-- We recommend pressing the RPC hotspot button, connecting to RBY1 Wi-Fi via the QR code, and controlling mobile movement with your phone.
+- We recommend pressing the RPC hotspot button, connecting to RBY1 Wi-Fi via the QR code, and controlling mobile movement with your phone. ({doc}`Hotspot And Web UI </getting-started/hotspot-and-webui>`)
 
 `````{grid} 3
 :gutter: 3
+
 ````{grid-item}
 ```{image} ../_static/images/saftey_and_precautions/power_and_battery/hotspot_button.png
     :alt: charger1
@@ -127,8 +111,36 @@
 ### ⚠️Before changing the robot power state, ensure that the Control Manager is disabled.
 
 
+- When the Control Manager is Enabled (i.e., all power rails are ON), turning OFF only a specific power line (such as 5V, 12V, 24V, or 48V) may cause system instability or a major fault.
+
+`````{grid} 2
+:gutter: 2
+
+````{grid-item}
+```{image} ../_static/images/saftey_and_precautions/power_and_battery/error.png
+    :alt: charger2
+    :width: 100%
+    :class: white_bg
+```
+````
+
+````{grid-item}
+```{image} ../_static/images/saftey_and_precautions/power_and_battery/major_fault.png
+    :alt: charger2
+    :width: 100%
+    :class: white_bg
+```
+````
+`````
+
+- Always disable the Control Manager before changing any power state.
+- After disabling the Control Manager, proceed to safely turn ON/OFF the required power lines.
+
+
+```{important}
 - You can check whether Control Manager is disabled from the front LED.
 - You can also verify it from the Control Manager status at the top of the Web UI.
+```
 
 ```{image} ../_static/images/saftey_and_precautions/power_and_battery/control_manager.png
     :alt: charger2

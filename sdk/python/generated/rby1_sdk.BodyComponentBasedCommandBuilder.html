@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -966,75 +974,18 @@ perform the conversion.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.__init__" title="rby1_sdk.BodyComponentBasedCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
 <td><p>Construct a BodyComponentBasedCommandBuilder instance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_left_arm_command" title="rby1_sdk.BodyComponentBasedCommandBuilder.set_left_arm_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_left_arm_command</span></code></a>(self, arm_command_builder)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_left_arm_command</span></code>(self, arm_command_builder)</p></td>
 <td><p>Assign a command to the left arm.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_right_arm_command" title="rby1_sdk.BodyComponentBasedCommandBuilder.set_right_arm_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_right_arm_command</span></code></a>(self, arm_command_builder)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_right_arm_command</span></code>(self, arm_command_builder)</p></td>
 <td><p>Assign a command to the right arm.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_torso_command" title="rby1_sdk.BodyComponentBasedCommandBuilder.set_torso_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_torso_command</span></code></a>(self, torso_command_builder)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_torso_command</span></code>(self, torso_command_builder)</p></td>
 <td><p>Assign a command to the torso.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.BodyComponentBasedCommandBuilder.set_left_arm_command">
-<span class="sig-name descname"><span class="pre">set_left_arm_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder"><span class="pre">rby1_sdk.BodyComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.ArmCommandBuilder.html#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><span class="pre">rby1_sdk.ArmCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder"><span class="pre">rby1_sdk.BodyComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_left_arm_command" title="Link to this definition">¶</a></dt>
-<dd><p>Assign a command to the left arm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>arm_command_builder</strong> (<a class="reference internal" href="rby1_sdk.ArmCommandBuilder.html#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><em>ArmCommandBuilder</em></a><em> or </em><em>compatible builder</em>) – Command for the left arm. If a lower-level builder is provided
-(e.g., JointPositionCommandBuilder), it will be automatically
-wrapped into an ArmCommandBuilder.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder">BodyComponentBasedCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.BodyComponentBasedCommandBuilder.set_right_arm_command">
-<span class="sig-name descname"><span class="pre">set_right_arm_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder"><span class="pre">rby1_sdk.BodyComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.ArmCommandBuilder.html#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><span class="pre">rby1_sdk.ArmCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder"><span class="pre">rby1_sdk.BodyComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_right_arm_command" title="Link to this definition">¶</a></dt>
-<dd><p>Assign a command to the right arm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>arm_command_builder</strong> (<a class="reference internal" href="rby1_sdk.ArmCommandBuilder.html#rby1_sdk.ArmCommandBuilder" title="rby1_sdk.ArmCommandBuilder"><em>ArmCommandBuilder</em></a><em> or </em><em>compatible builder</em>) – Command for the right arm. If a lower-level builder is provided
-(e.g., JointPositionCommandBuilder), it will be automatically
-wrapped into an ArmCommandBuilder.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder">BodyComponentBasedCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.BodyComponentBasedCommandBuilder.set_torso_command">
-<span class="sig-name descname"><span class="pre">set_torso_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder"><span class="pre">rby1_sdk.BodyComponentBasedCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torso_command_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.TorsoCommandBuilder.html#rby1_sdk.TorsoCommandBuilder" title="rby1_sdk.TorsoCommandBuilder"><span class="pre">rby1_sdk.TorsoCommandBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder"><span class="pre">rby1_sdk.BodyComponentBasedCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_torso_command" title="Link to this definition">¶</a></dt>
-<dd><p>Assign a command to the torso.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>torso_command_builder</strong> (<a class="reference internal" href="rby1_sdk.TorsoCommandBuilder.html#rby1_sdk.TorsoCommandBuilder" title="rby1_sdk.TorsoCommandBuilder"><em>TorsoCommandBuilder</em></a><em> or </em><em>compatible builder</em>) – Command for the torso. If a lower-level builder is provided
-(e.g., JointPositionCommandBuilder, OptimalControlCommandBuilder),
-it will be automatically wrapped into a TorsoCommandBuilder.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder" title="rby1_sdk.BodyComponentBasedCommandBuilder">BodyComponentBasedCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1097,9 +1048,6 @@ it will be automatically wrapped into a TorsoCommandBuilder.</p>
 <li><a class="reference internal" href="#">rby1_sdk.BodyComponentBasedCommandBuilder</a><ul>
 <li><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder"><code class="docutils literal notranslate"><span class="pre">BodyComponentBasedCommandBuilder</span></code></a><ul>
 <li><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">BodyComponentBasedCommandBuilder.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_left_arm_command"><code class="docutils literal notranslate"><span class="pre">BodyComponentBasedCommandBuilder.set_left_arm_command()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_right_arm_command"><code class="docutils literal notranslate"><span class="pre">BodyComponentBasedCommandBuilder.set_right_arm_command()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.BodyComponentBasedCommandBuilder.set_torso_command"><code class="docutils literal notranslate"><span class="pre">BodyComponentBasedCommandBuilder.set_torso_command()</span></code></a></li>
 </ul>
 </li>
 </ul>

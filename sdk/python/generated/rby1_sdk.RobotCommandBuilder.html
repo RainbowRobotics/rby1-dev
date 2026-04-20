@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -1005,63 +1013,12 @@ creates the appropriate wrapper.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder.__init__" title="rby1_sdk.RobotCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder.set_command" title="rby1_sdk.RobotCommandBuilder.set_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.RobotCommandBuilder.set_command">
-<span class="sig-name descname"><span class="pre">set_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rby1_sdk.RobotCommandBuilder.set_command" title="Link to this definition">¶</a></dt>
-<dd><p>Overloaded function.</p>
-<ol class="arabic simple">
-<li><p>set_command(self: rby1_sdk.RobotCommandBuilder, whole_body_command_builder: rby1_sdk.WholeBodyCommandBuilder) -&gt; rby1_sdk.RobotCommandBuilder</p></li>
-</ol>
-<p>Assign a whole-body command.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>whole_body_command_builder</strong> (<a class="reference internal" href="rby1_sdk.WholeBodyCommandBuilder.html#rby1_sdk.WholeBodyCommandBuilder" title="rby1_sdk.WholeBodyCommandBuilder"><em>WholeBodyCommandBuilder</em></a>) – Command to apply to the entire robot.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder" title="rby1_sdk.RobotCommandBuilder">RobotCommandBuilder</a></p>
-</dd>
-</dl>
-<ol class="arabic simple" start="2">
-<li><p>set_command(self: rby1_sdk.RobotCommandBuilder, component_based_command_builder: rby1_sdk.ComponentBasedCommandBuilder) -&gt; rby1_sdk.RobotCommandBuilder</p></li>
-</ol>
-<p>Assign a component-based command.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>component_based_command_builder</strong> (<a class="reference internal" href="rby1_sdk.ComponentBasedCommandBuilder.html#rby1_sdk.ComponentBasedCommandBuilder" title="rby1_sdk.ComponentBasedCommandBuilder"><em>ComponentBasedCommandBuilder</em></a>) – Command to apply to subsystems (mobility, body, head).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder" title="rby1_sdk.RobotCommandBuilder">RobotCommandBuilder</a></p>
-</dd>
-</dl>
-<ol class="arabic simple" start="3">
-<li><p>set_command(self: rby1_sdk.RobotCommandBuilder, jog_command_builder: rby1_sdk.JogCommandBuilder) -&gt; rby1_sdk.RobotCommandBuilder</p></li>
-</ol>
-<p>Assign a jog command.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>jog_command_builder</strong> (<a class="reference internal" href="rby1_sdk.JogCommandBuilder.html#rby1_sdk.JogCommandBuilder" title="rby1_sdk.JogCommandBuilder"><em>JogCommandBuilder</em></a>) – Jog command for single-joint incremental motion.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder" title="rby1_sdk.RobotCommandBuilder">RobotCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1124,7 +1081,6 @@ creates the appropriate wrapper.</p></li>
 <li><a class="reference internal" href="#">rby1_sdk.RobotCommandBuilder</a><ul>
 <li><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder"><code class="docutils literal notranslate"><span class="pre">RobotCommandBuilder</span></code></a><ul>
 <li><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">RobotCommandBuilder.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.RobotCommandBuilder.set_command"><code class="docutils literal notranslate"><span class="pre">RobotCommandBuilder.set_command()</span></code></a></li>
 </ul>
 </li>
 </ul>

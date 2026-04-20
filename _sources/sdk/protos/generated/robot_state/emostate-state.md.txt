@@ -1,3 +1,4 @@
+(rb-api-emostate-state)=
 # EMOState.State
 
 - Source proto: `rb/api/robot_state.proto`

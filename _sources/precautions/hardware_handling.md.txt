@@ -11,7 +11,7 @@
 `````{grid} 2
 :gutter: 2
 ````{grid-item}
-```{image} ../_static/images/saftey_and_precautions/hardware_handling/master_arm.jpg
+```{image} ../_static/images/saftey_and_precautions/hardware_handling/master_arm.png
     :width: 100%
     :class: white_bg
 ```
@@ -71,14 +71,14 @@
 `````{grid} 2
 :gutter: 2
 ````{grid-item}
-```{image} ../_static/images/saftey_and_precautions/hardware_handling/backpack_moco3.jpg
+```{image} ../_static/images/saftey_and_precautions/hardware_handling/backpack_moco3.png
     :width: 100%
     :class: white_bg equal-size-image
 ```
 ````
 
 ````{grid-item}
-```{image} ../_static/images/saftey_and_precautions/hardware_handling/masterarm_moco1.jpg
+```{image} ../_static/images/saftey_and_precautions/hardware_handling/masterarm_moco1.png
     :width: 100%
     :class: white_bg equal-size-image
 ```

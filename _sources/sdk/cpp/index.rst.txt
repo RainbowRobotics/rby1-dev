@@ -11,7 +11,7 @@ generated Doxygen block.
 
 For installation, environment setup, and first-connection checks, start with
 :doc:`/getting-started/sdk-install-and-state`. When you want runnable entry
-points before reading declarations, open :doc:`cpp-examples`.
+points before reading declarations, open :doc:`/examples/cpp-examples`.
 
 .. list-table::
    :header-rows: 1

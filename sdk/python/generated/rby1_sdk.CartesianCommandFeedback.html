@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -931,7 +939,7 @@
 <dd><p>Per-target pose tracking errors (position/orientation).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.TrackingError" title="rby1_sdk.CartesianCommandFeedback.TrackingError">CartesianCommandFeedback.TrackingError</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[CartesianCommandFeedback.TrackingError]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -992,16 +1000,16 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">command_header</span></code></p></td>
 <td><p>Header-level feedback.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id2" title="rby1_sdk.CartesianCommandFeedback.joint_position_tracking_errors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_position_tracking_errors</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.joint_position_tracking_errors" title="rby1_sdk.CartesianCommandFeedback.joint_position_tracking_errors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_position_tracking_errors</span></code></a></p></td>
 <td><p>Per-joint position tracking errors.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id3" title="rby1_sdk.CartesianCommandFeedback.manipulability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">manipulability</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.manipulability" title="rby1_sdk.CartesianCommandFeedback.manipulability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">manipulability</span></code></a></p></td>
 <td><p>Manipulability index.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id4" title="rby1_sdk.CartesianCommandFeedback.remain_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remain_time</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.remain_time" title="rby1_sdk.CartesianCommandFeedback.remain_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remain_time</span></code></a></p></td>
 <td><p>Estimated remaining time to reach targets.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id5" title="rby1_sdk.CartesianCommandFeedback.se3_pose_tracking_errors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">se3_pose_tracking_errors</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.se3_pose_tracking_errors" title="rby1_sdk.CartesianCommandFeedback.se3_pose_tracking_errors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">se3_pose_tracking_errors</span></code></a></p></td>
 <td><p>Per-target SE(3) pose tracking errors.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></p></td>
@@ -1010,101 +1018,6 @@
 </tbody>
 </table>
 </div>
-<dl class="py class">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianCommandFeedback.TrackingError">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TrackingError</span></span><a class="headerlink" href="#rby1_sdk.CartesianCommandFeedback.TrackingError" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Per-target SE(3) tracking error.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianCommandFeedback.TrackingError.position_error">
-<span class="sig-name descname"><span class="pre">position_error</span></span><a class="headerlink" href="#rby1_sdk.CartesianCommandFeedback.TrackingError.position_error" title="Link to this definition">¶</a></dt>
-<dd><p>Translational error magnitude [m].</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianCommandFeedback.TrackingError.orientation_error">
-<span class="sig-name descname"><span class="pre">orientation_error</span></span><a class="headerlink" href="#rby1_sdk.CartesianCommandFeedback.TrackingError.orientation_error" title="Link to this definition">¶</a></dt>
-<dd><p>Rotational error magnitude [rad] (e.g., angle-axis norm).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">orientation_error</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position_error</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id2">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">joint_position_tracking_errors</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
-<dd><p>Per-joint position tracking errors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Joint-wise position error magnitudes [rad].</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id3">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">manipulability</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
-<dd><p>Manipulability index.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dimensionless manipulability measure (higher is generally better).</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id4">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remain_time</span></span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
-<dd><p>Estimated remaining time to reach targets.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Time remaining [s].</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id5">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">se3_pose_tracking_errors</span></span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
-<dd><p>Per-target SE(3) pose tracking errors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tracking error objects for each Cartesian target.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.TrackingError" title="rby1_sdk.CartesianCommandFeedback.TrackingError">CartesianCommandFeedback.TrackingError</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1171,17 +1084,6 @@
 <li><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.remain_time"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.remain_time</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.manipulability"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.manipulability</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.__init__"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.TrackingError"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.TrackingError</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.TrackingError.position_error"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.TrackingError.position_error</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianCommandFeedback.TrackingError.orientation_error"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.TrackingError.orientation_error</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.TrackingError.orientation_error</span></code></a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.TrackingError.position_error</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.joint_position_tracking_errors</span></code></a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.manipulability</span></code></a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.remain_time</span></code></a></li>
-<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">CartesianCommandFeedback.se3_pose_tracking_errors</span></code></a></li>
 </ul>
 </li>
 </ul>

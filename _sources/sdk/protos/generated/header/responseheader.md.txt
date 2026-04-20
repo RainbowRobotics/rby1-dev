@@ -1,3 +1,4 @@
+(rb-api-responseheader)=
 # ResponseHeader
 
 - Source proto: `rb/api/header.proto`
@@ -9,7 +10,7 @@ Standard response header
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| request_header | [RequestHeader](requestheader.md#rb-api-requestheader) |  | Echo |
+| request_header | [RequestHeader](requestheader.md) |  | Echo |
 | request_received_timestamp | [google.protobuf.Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) |  | Robot clock |
 | response_timestamp | [google.protobuf.Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp) |  | Robot clock |
-| error | [CommonError](commonerror.md#rb-api-commonerror) |  | If set, there is error |
+| error | [CommonError](commonerror.md) |  | If set, there is error |

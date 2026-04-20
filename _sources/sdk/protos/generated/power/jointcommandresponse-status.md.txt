@@ -1,3 +1,4 @@
+(rb-api-jointcommandresponse-status)=
 # JointCommandResponse.Status
 
 - Source proto: `rb/api/power.proto`

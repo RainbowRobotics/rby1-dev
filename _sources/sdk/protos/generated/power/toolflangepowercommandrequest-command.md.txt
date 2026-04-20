@@ -1,3 +1,4 @@
+(rb-api-toolflangepowercommandrequest-command)=
 # ToolFlangePowerCommandRequest.Command
 
 - Source proto: `rb/api/power.proto`

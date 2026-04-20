@@ -1,3 +1,4 @@
+(rb-api-servoonresponse-status)=
 # ServoOnResponse.Status
 
 - Source proto: `rb/api/joint_operation.proto`

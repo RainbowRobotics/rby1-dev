@@ -30,7 +30,7 @@
 ---
 ### Degrees of Freedom
 
-#### Model A
+#### Model A DOF
 
 | **Part**  | **# of DOF** |
 | --------- | ------------ |
@@ -40,7 +40,7 @@
 | Head      | 2 DOF        |
 | **Total** | **24 DOF**   |
 
-#### Model M
+#### Model M DOF
 
 | **Part**  | **# of DOF** |
 | --------- | ------------ |
@@ -53,7 +53,7 @@
 ---
 ### Weight
 
-#### Model A
+#### Model A Weight
 
 | **Part**    | **Weight (kg)**           |
 | ----------- | ------------------------- |
@@ -62,7 +62,7 @@
 | Mobile base | 51                        |
 | **Total**   | **131**                   |
 
-#### Model M
+#### Model M Weight
 
 | **Part**    | **Weight (kg)**           |
 | ----------- | ------------------------- |

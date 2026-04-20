@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -919,7 +927,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="robotstate">
-<h1>RobotState<a class="headerlink" href="#robotstate" title="Link to this heading">¶</a></h1>
+<span id="rb-api-robotstate"></span><h1>RobotState<a class="headerlink" href="#robotstate" title="Link to this heading">¶</a></h1>
 <ul class="simple">
 <li><p>Source proto: <code class="docutils literal notranslate"><span class="pre">rb/api/robot_state.proto</span></code></p></li>
 </ul>
@@ -940,102 +948,102 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>system_stat</p></td>
-<td><p><a class="reference internal" href="systemstat.html#rb-api-systemstat"><span class="std std-ref">SystemStat</span></a></p></td>
+<td><p><a class="reference internal" href="systemstat.html"><span class="std std-doc">SystemStat</span></a></p></td>
 <td><p></p></td>
 <td><p>System Statistic</p></td>
 </tr>
 <tr class="row-even"><td><p>battery_state</p></td>
-<td><p><a class="reference internal" href="batterystate.html#rb-api-batterystate"><span class="std std-ref">BatteryState</span></a></p></td>
+<td><p><a class="reference internal" href="batterystate.html"><span class="std std-doc">BatteryState</span></a></p></td>
 <td><p></p></td>
 <td><p>Battery State</p></td>
 </tr>
 <tr class="row-odd"><td><p>power_states</p></td>
-<td><p><a class="reference internal" href="powerstate.html#rb-api-powerstate"><span class="std std-ref">PowerState</span></a></p></td>
+<td><p><a class="reference internal" href="powerstate.html"><span class="std std-doc">PowerState</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p>Power State</p></td>
 </tr>
 <tr class="row-even"><td><p>emo_states</p></td>
-<td><p><a class="reference internal" href="emostate.html#rb-api-emostate"><span class="std std-ref">EMOState</span></a></p></td>
+<td><p><a class="reference internal" href="emostate.html"><span class="std std-doc">EMOState</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p>EMO state</p></td>
 </tr>
 <tr class="row-odd"><td><p>joint_states</p></td>
-<td><p><a class="reference internal" href="jointstate.html#rb-api-jointstate"><span class="std std-ref">JointState</span></a></p></td>
+<td><p><a class="reference internal" href="jointstate.html"><span class="std std-doc">JointState</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p>Joint State</p></td>
 </tr>
 <tr class="row-even"><td><p>tool_flange_right</p></td>
-<td><p><a class="reference internal" href="toolflangestate.html#rb-api-toolflangestate"><span class="std std-ref">ToolFlangeState</span></a></p></td>
+<td><p><a class="reference internal" href="toolflangestate.html"><span class="std std-doc">ToolFlangeState</span></a></p></td>
 <td><p></p></td>
 <td><p>Tool Flange State</p></td>
 </tr>
 <tr class="row-odd"><td><p>tool_flange_left</p></td>
-<td><p><a class="reference internal" href="toolflangestate.html#rb-api-toolflangestate"><span class="std std-ref">ToolFlangeState</span></a></p></td>
+<td><p><a class="reference internal" href="toolflangestate.html"><span class="std std-doc">ToolFlangeState</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>ft_sensor_right</p></td>
-<td><p><a class="reference internal" href="ftsensordata.html#rb-api-ftsensordata"><span class="std std-ref">FTSensorData</span></a></p></td>
+<td><p><a class="reference internal" href="ftsensordata.html"><span class="std std-doc">FTSensorData</span></a></p></td>
 <td><p></p></td>
 <td><p>Force Torque Sensor</p></td>
 </tr>
 <tr class="row-odd"><td><p>ft_sensor_left</p></td>
-<td><p><a class="reference internal" href="ftsensordata.html#rb-api-ftsensordata"><span class="std std-ref">FTSensorData</span></a></p></td>
+<td><p><a class="reference internal" href="ftsensordata.html"><span class="std std-doc">FTSensorData</span></a></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>is_ready</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>position</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>velocity</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>current</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>torque</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>target_position</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>target_velocity</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>target_feedback_gain</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">uint32</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">uint32</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>target_feedforward_torque</p></td>
-<td><p><a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">double</span></a></p></td>
+<td><p><a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">double</span></a></p></td>
 <td><p>repeated</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>odometry</p></td>
-<td><p><a class="reference internal" href="../geometry/se2pose.html#rb-api-se2pose"><span class="std std-ref">SE2Pose</span></a></p></td>
+<td><p><a class="reference internal" href="../geometry/se2pose.html"><span class="std std-doc">SE2Pose</span></a></p></td>
 <td><p></p></td>
 <td><p>Mobility State</p></td>
 </tr>
 <tr class="row-even"><td><p>center_of_mass</p></td>
-<td><p><a class="reference internal" href="../geometry/vec3.html#rb-api-vec3"><span class="std std-ref">Vec3</span></a></p></td>
+<td><p><a class="reference internal" href="../geometry/vec3.html"><span class="std std-doc">Vec3</span></a></p></td>
 <td><p></p></td>
 <td><p>Center Of Mass</p></td>
 </tr>
@@ -1043,8 +1051,8 @@
 </table>
 </div>
 <p>Position of center of mass with respect t base link |
-| collisions | <a class="reference internal" href="collision.html#rb-api-collision"><span class="std std-ref">Collision</span></a> | repeated | Collisions |
-| temperature | <a class="reference internal" href="../scalar-value-types.html#scalar-value-types"><span class="std std-ref">int32</span></a> | repeated | Temperature |</p>
+| collisions | <a class="reference internal" href="collision.html"><span class="std std-doc">Collision</span></a> | repeated | Collisions |
+| temperature | <a class="reference internal" href="../scalar-value-types.html"><span class="std std-doc">int32</span></a> | repeated | Temperature |</p>
 </section>
 
         </article>

@@ -1,6 +1,6 @@
 # Battery
 
----
+
 ## Battery Charger
 
 ```{note}

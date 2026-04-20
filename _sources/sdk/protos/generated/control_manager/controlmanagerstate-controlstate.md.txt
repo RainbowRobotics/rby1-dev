@@ -1,3 +1,4 @@
+(rb-api-controlmanagerstate-controlstate)=
 # ControlManagerState.ControlState
 
 - Source proto: `rb/api/control_manager.proto`

@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -931,27 +939,27 @@
 <li><p><strong>JogCommand</strong>: Controls smaller, individual movements, typically used for fine adjustments.</p></li>
 </ol>
 <img alt="mermaid_robot_command" class="rounded-img align-center" src="../../../_images/mermaid_robot_command.png" style="width: 600px;" />
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="wholebodycommand">
 <h3>WholeBodyCommand<a class="headerlink" href="#wholebodycommand" title="Link to this heading">¶</a></h3>
 <p>This command controls all the major components of the robot, including arms, torso, and legs. It supports various controllers for managing the full body of the robot. The primary use case is for synchronized movements where multiple parts of the robot are involved. This command sends a <strong>24 DOF</strong> control signal all at once.</p>
 <img alt="mermaid_wholebody_command" class="rounded-img align-center" src="../../../_images/mermaid_wholebody_command.png" style="width: 400px;" />
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="componentbasedcommand">
 <h3>ComponentBasedCommand<a class="headerlink" href="#componentbasedcommand" title="Link to this heading">¶</a></h3>
 <p>The <strong>ComponentBasedCommand</strong> is responsible for controlling the core components of the robot, such as the <strong>Mobility</strong>, <strong>Body</strong>, and <strong>Head</strong>. It provides a flexible architecture for handling different sections of the robot individually. Each of these components can be controlled using specialized commands, allowing precise control over the robot’s movement and actions. This structure typically supports multiple controllers to handle specific parts of the robot efficiently.</p>
 <img alt="mermaid_component_based" class="rounded-img align-center" src="../../../_images/mermaid_component_based.png" style="width: 600px;" />
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="bodycommand-structure">
 <h3>BodyCommand Structure<a class="headerlink" href="#bodycommand-structure" title="Link to this heading">¶</a></h3>
 <p>The <strong>BodyCommand</strong> allows for detailed control of the robot’s body and arms. It is divided into <strong>BodyComponentBasedCommand</strong>, under which <strong>TorsoCommand</strong> and <strong>ArmCommand</strong> exist. The arms can be controlled individually through <strong>LeftArmCommand</strong> and <strong>RightArmCommand</strong>, providing finer control over each arm.</p>
 <p>In the diagram below, the Controller nodes follow the structure defined in the Controllers section, where each Controller node represents the available controllers for joint position, Cartesian motion, impedance control, gravity compensation, and optimal control.</p>
 <img alt="mermaid_body_component" class="rounded-img align-center" src="../../../_images/mermaid_body_component.png" style="width: 600px;" />
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="controllers">
 <h3>Controllers<a class="headerlink" href="#controllers" title="Link to this heading">¶</a></h3>
 <p>The following controllers are used throughout different commands like <strong>WholeBodyCommand</strong>, <strong>ComponentBasedCommand</strong>, and their subcommands.</p>
@@ -990,8 +998,8 @@
 \[W_{3} = \text{constant small value}\]</div>
 </div>
 <img alt="mermaid_controller" class="rounded-img align-center" src="../../../_images/mermaid_controller.png" style="width: 600px;" />
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example_joint_position_command_1</span><span class="p">(</span><span class="n">robot</span><span class="p">):</span>

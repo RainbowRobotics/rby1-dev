@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -981,13 +989,13 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">command_header</span></code></p></td>
 <td><p>Header-level feedback.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id0" title="rby1_sdk.CartesianImpedanceControlCommandFeedback.manipulability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">manipulability</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandFeedback.manipulability" title="rby1_sdk.CartesianImpedanceControlCommandFeedback.manipulability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">manipulability</span></code></a></p></td>
 <td><p>Manipulability index.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id1" title="rby1_sdk.CartesianImpedanceControlCommandFeedback.remain_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remain_time</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandFeedback.remain_time" title="rby1_sdk.CartesianImpedanceControlCommandFeedback.remain_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remain_time</span></code></a></p></td>
 <td><p>Estimated remaining time to settle.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id2" title="rby1_sdk.CartesianImpedanceControlCommandFeedback.set_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_position</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandFeedback.set_position" title="rby1_sdk.CartesianImpedanceControlCommandFeedback.set_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_position</span></code></a></p></td>
 <td><p>Current joint setpoint used by the internal joint-space controller.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid</span></code></p></td>
@@ -996,48 +1004,6 @@
 </tbody>
 </table>
 </div>
-<dl class="py property">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">manipulability</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
-<dd><p>Manipulability index.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dimensionless manipulability measure.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remain_time</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
-<dd><p>Estimated remaining time to settle.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Time remaining [s].</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id2">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_position</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
-<dd><p>Current joint setpoint used by the internal joint-space controller.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Joint setpoint vector [rad], shape (N,).</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1103,9 +1069,6 @@
 <li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandFeedback.remain_time"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandFeedback.remain_time</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandFeedback.manipulability"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandFeedback.manipulability</span></code></a></li>
 <li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandFeedback.__init__"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandFeedback.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandFeedback.manipulability</span></code></a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandFeedback.remain_time</span></code></a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandFeedback.set_position</span></code></a></li>
 </ul>
 </li>
 </ul>

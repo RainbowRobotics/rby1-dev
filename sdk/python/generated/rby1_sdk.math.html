@@ -175,7 +175,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -913,7 +921,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
@@ -927,357 +935,12 @@ transformations, and other mathematical utilities.</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator" title="rby1_sdk.math.TrapezoidalMotionGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator</span></code></p></td>
 <td><p>Trapezoidal motion generator for smooth trajectory planning.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py class">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TrapezoidalMotionGenerator</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Trapezoidal motion generator for smooth trajectory planning.</p>
-<p>This class generates smooth trapezoidal velocity profiles for multi-joint
-robot motion, ensuring velocity and acceleration limits are respected.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iterations for optimization. Default is 30.</p>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Input">
-<span class="sig-name descname"><span class="pre">Input</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input" title="Link to this definition">¶</a></dt>
-<dd><p>Input parameters for motion generation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>class</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Output">
-<span class="sig-name descname"><span class="pre">Output</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output" title="Link to this definition">¶</a></dt>
-<dd><p>Output trajectory data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>class</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Coeff">
-<span class="sig-name descname"><span class="pre">Coeff</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff" title="Link to this definition">¶</a></dt>
-<dd><p>Spline coefficients for trajectory segments.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>class</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Coeff</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Spline coefficients for trajectory segments.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.start_t">
-<span class="sig-name descname"><span class="pre">start_t</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.start_t" title="Link to this definition">¶</a></dt>
-<dd><p>Start time of the segment (in seconds).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.end_t">
-<span class="sig-name descname"><span class="pre">end_t</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.end_t" title="Link to this definition">¶</a></dt>
-<dd><p>End time of the segment (in seconds).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.init_p">
-<span class="sig-name descname"><span class="pre">init_p</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.init_p" title="Link to this definition">¶</a></dt>
-<dd><p>Initial position for the segment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.init_v">
-<span class="sig-name descname"><span class="pre">init_v</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.init_v" title="Link to this definition">¶</a></dt>
-<dd><p>Initial velocity for the segment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.a">
-<span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.a" title="Link to this definition">¶</a></dt>
-<dd><p>Constant acceleration for the segment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id1">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id2">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_t</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id3">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init_p</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id4">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init_v</span></span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id5">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_t</span></span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="id6">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Input</span></span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Input parameters for trapezoidal motion generation.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Input.current_position">
-<span class="sig-name descname"><span class="pre">current_position</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.current_position" title="Link to this definition">¶</a></dt>
-<dd><p>Current joint positions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Input.current_velocity">
-<span class="sig-name descname"><span class="pre">current_velocity</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.current_velocity" title="Link to this definition">¶</a></dt>
-<dd><p>Current joint velocities.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Input.target_position">
-<span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.target_position" title="Link to this definition">¶</a></dt>
-<dd><p>Target joint positions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Input.velocity_limit">
-<span class="sig-name descname"><span class="pre">velocity_limit</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.velocity_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Maximum allowed velocities for each joint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Input.acceleration_limit">
-<span class="sig-name descname"><span class="pre">acceleration_limit</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.acceleration_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Maximum allowed accelerations for each joint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Input.minimum_time">
-<span class="sig-name descname"><span class="pre">minimum_time</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.minimum_time" title="Link to this definition">¶</a></dt>
-<dd><p>Minimum time constraint for the motion in seconds. This parameter provides
-an additional degree of freedom to control the arrival time to a target.
-Instead of relying solely on velocity/acceleration limits, you can set high
-limits and control the arrival time using minimum_time. For streaming commands,
-this helps ensure continuous motion by preventing the robot from
-stopping if it arrives too early before the next command.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id7">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acceleration_limit</span></span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id8">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_position</span></span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id9">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_velocity</span></span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id10">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">minimum_time</span></span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id11">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_position</span></span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id12">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">velocity_limit</span></span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="id13">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Output</span></span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Output trajectory data from motion generation.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Output.position">
-<span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output.position" title="Link to this definition">¶</a></dt>
-<dd><p>Joint positions at the specified time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Output.velocity">
-<span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output.velocity" title="Link to this definition">¶</a></dt>
-<dd><p>Joint velocities at the specified time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.Output.acceleration">
-<span class="sig-name descname"><span class="pre">acceleration</span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output.acceleration" title="Link to this definition">¶</a></dt>
-<dd><p>Joint accelerations at the specified time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (N,), dtype=float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id14">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">acceleration</span></span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id15">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="id16">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.at_time">
-<span class="sig-name descname"><span class="pre">at_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator" title="rby1_sdk.math.TrapezoidalMotionGenerator"><span class="pre">rby1_sdk.math.TrapezoidalMotionGenerator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#id13" title="rby1_sdk.math.TrapezoidalMotionGenerator.Output"><span class="pre">rby1_sdk.math.TrapezoidalMotionGenerator.Output</span></a></span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.at_time" title="Link to this definition">¶</a></dt>
-<dd><p>Get trajectory output at the specified time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Time at which to evaluate the trajectory.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Trajectory data at time t.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#id13" title="rby1_sdk.math.TrapezoidalMotionGenerator.Output">Output</a></p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the motion generator is not initialized.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.get_total_time">
-<span class="sig-name descname"><span class="pre">get_total_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator" title="rby1_sdk.math.TrapezoidalMotionGenerator"><span class="pre">rby1_sdk.math.TrapezoidalMotionGenerator</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.get_total_time" title="Link to this definition">¶</a></dt>
-<dd><p>Get the total time for the generated trajectory.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Total trajectory time in seconds.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.math.TrapezoidalMotionGenerator.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator" title="rby1_sdk.math.TrapezoidalMotionGenerator"><span class="pre">rby1_sdk.math.TrapezoidalMotionGenerator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#id6" title="rby1_sdk.math.TrapezoidalMotionGenerator.Input"><span class="pre">rby1_sdk.math.TrapezoidalMotionGenerator.Input</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rby1_sdk.math.TrapezoidalMotionGenerator.update" title="Link to this definition">¶</a></dt>
-<dd><p>Update the motion generator with new input parameters.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>input</strong> (<a class="reference internal" href="#id6" title="rby1_sdk.math.TrapezoidalMotionGenerator.Input"><em>Input</em></a>) – Input parameters for motion generation.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If input argument sizes are inconsistent.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
         </article>
@@ -1323,72 +986,8 @@ stopping if it arrives too early before the next command.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">rby1_sdk.math</a><ul>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.start_t"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.start_t</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.end_t"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.end_t</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.init_p"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.init_p</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.init_v"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.init_v</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Coeff.a"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.a</span></code></a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.a</span></code></a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.end_t</span></code></a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.init_p</span></code></a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.init_v</span></code></a></li>
-<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Coeff.start_t</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.current_position"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.current_position</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.current_velocity"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.current_velocity</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.target_position"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.target_position</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.velocity_limit"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.velocity_limit</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.acceleration_limit"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.acceleration_limit</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Input.minimum_time"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.minimum_time</span></code></a></li>
-<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.acceleration_limit</span></code></a></li>
-<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.current_position</span></code></a></li>
-<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.current_velocity</span></code></a></li>
-<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.minimum_time</span></code></a></li>
-<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.target_position</span></code></a></li>
-<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Input.velocity_limit</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output</span></code></a><ul>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output.position"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output.position</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output.velocity"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output.velocity</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.Output.acceleration"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output.acceleration</span></code></a></li>
-<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output.acceleration</span></code></a></li>
-<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output.position</span></code></a></li>
-<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.Output.velocity</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.at_time"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.at_time()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.get_total_time"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.get_total_time()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.math.TrapezoidalMotionGenerator.update"><code class="docutils literal notranslate"><span class="pre">TrapezoidalMotionGenerator.update()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

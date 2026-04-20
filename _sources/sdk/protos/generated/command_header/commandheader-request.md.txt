@@ -1,3 +1,4 @@
+(rb-api-commandheader-request)=
 # CommandHeader.Request
 
 - Source proto: `rb/api/command_header.proto`

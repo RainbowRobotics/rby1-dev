@@ -885,6 +885,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../rpc_management_tools/rpc_management_tools.html">RPC Management Tools</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Precautions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/power_and_battery.html">Power &amp; Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/hardware_handling.html">Hardware Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/control_and_system.html">Control &amp; System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/operation.html">Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../precautions/general.html">General</a></li>
+</ul>
 
 </div>
 </div>
@@ -1006,292 +1014,48 @@ bounds/scalings</strong> for the solver, not hardware limits.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.__init__" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
 <td><p>Construct a CartesianImpedanceControlCommandBuilder instance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_limit" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_joint_limit</span></code></a>(self, joint_name, lower, upper)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_joint_limit</span></code>(self, joint_name, lower, upper)</p></td>
 <td><p>Add a joint position limit.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_position_target" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_position_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_joint_position_target</span></code></a>(self, joint_name, ...)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_joint_position_target</span></code>(self, joint_name, ...)</p></td>
 <td><p>Add an auxiliary joint position target.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_target" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.add_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_target</span></code></a>(self, ref_link_name, link_name, T)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_target</span></code>(self, ref_link_name, link_name, T)</p></td>
 <td><p>Add a Cartesian impedance target.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_command_header" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_command_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code></a>(self, command_header_builder)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_command_header</span></code>(self, command_header_builder)</p></td>
 <td><p>Attach a command header.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_damping_ratio" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_damping_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_damping_ratio</span></code></a>(self, damping_ratio)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_damping_ratio</span></code>(self, damping_ratio)</p></td>
 <td><p>Set joint damping ratio.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_stiffness" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_stiffness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_stiffness</span></code></a>(self, stiffness)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_stiffness</span></code>(self, stiffness)</p></td>
 <td><p>Set per-joint stiffness.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_torque_limit" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_torque_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_torque_limit</span></code></a>(self, torque_limit)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joint_torque_limit</span></code>(self, torque_limit)</p></td>
 <td><p>Set per-joint torque limits.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_minimum_time" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_minimum_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_minimum_time</span></code></a>(self, minimum_time)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_minimum_time</span></code>(self, minimum_time)</p></td>
 <td><p>Set minimum execution time.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_nullspace_joint_target" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_nullspace_joint_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_nullspace_joint_target</span></code></a>(self, ...[, k_p, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_nullspace_joint_target</span></code>(self, ...[, k_p, ...])</p></td>
 <td><p>Set nullspace joint target.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_reset_reference" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_reset_reference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_reset_reference</span></code></a>(self, reset_reference)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_reset_reference</span></code>(self, reset_reference)</p></td>
 <td><p>Set whether to reset the reference pose.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_joint_position_tracking_error" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_joint_position_tracking_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stop_joint_position_tracking_error</span></code></a>(self, ...)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stop_joint_position_tracking_error</span></code>(self, ...)</p></td>
 <td><p>Set stop threshold on joint position error.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_orientation_tracking_error" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_orientation_tracking_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stop_orientation_tracking_error</span></code></a>(self, ...)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stop_orientation_tracking_error</span></code>(self, ...)</p></td>
 <td><p>Set stop threshold on orientation error.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_position_tracking_error" title="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_position_tracking_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stop_position_tracking_error</span></code></a>(self, ...)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stop_position_tracking_error</span></code>(self, ...)</p></td>
 <td><p>Set stop threshold on translational error.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_limit">
-<span class="sig-name descname"><span class="pre">add_joint_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Add a joint position limit.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>joint_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Joint name.</p></li>
-<li><p><strong>lower</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Lower limit [rad].</p></li>
-<li><p><strong>upper</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Upper limit [rad].</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_position_target">
-<span class="sig-name descname"><span class="pre">add_joint_position_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_position_target" title="Link to this definition">¶</a></dt>
-<dd><p>Add an auxiliary joint position target.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>joint_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Joint name.</p></li>
-<li><p><strong>target_position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Desired position [rad].</p></li>
-<li><p><strong>velocity_limit</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>]</em>) – Max velocity [rad/s].</p></li>
-<li><p><strong>acceleration_limit</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>]</em>) – Max acceleration [rad/s²].</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.add_target">
-<span class="sig-name descname"><span class="pre">add_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_velocity_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_velocity_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_acceleration_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_target" title="Link to this definition">¶</a></dt>
-<dd><p>Add a Cartesian impedance target.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ref_link_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Reference frame (link) name.</p></li>
-<li><p><strong>link_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Controlled link name (end-effector).</p></li>
-<li><p><strong>T</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>4</em><em>,</em><em>4</em><em>)</em><em>, </em><em>dtype=float64</em>) – Desired homogeneous transform <span class="math notranslate nohighlight">\({}^{ref}\!T^{link}_d\)</span>.</p></li>
-<li><p><strong>linear_velocity_limit</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>]</em>) – Max translational velocity [m/s].</p></li>
-<li><p><strong>angular_velocity_limit</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>]</em>) – Max angular velocity [rad/s].</p></li>
-<li><p><strong>linear_acceleration_limit</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>]</em>) – Max translational acceleration [m/s²].</p></li>
-<li><p><strong>angular_acceleration_limit</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>]</em>) – Max angular acceleration [rad/s²].</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_command_header">
-<span class="sig-name descname"><span class="pre">set_command_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_header_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><span class="pre">rby1_sdk.CommandHeaderBuilder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_command_header" title="Link to this definition">¶</a></dt>
-<dd><p>Attach a command header.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>command_header_builder</strong> (<a class="reference internal" href="rby1_sdk.CommandHeaderBuilder.html#rby1_sdk.CommandHeaderBuilder" title="rby1_sdk.CommandHeaderBuilder"><em>CommandHeaderBuilder</em></a>) – Command header configuration (e.g., control hold time).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_damping_ratio">
-<span class="sig-name descname"><span class="pre">set_joint_damping_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">damping_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_damping_ratio" title="Link to this definition">¶</a></dt>
-<dd><p>Set joint damping ratio.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>damping_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Dimensionless damping ratio ζ.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_stiffness">
-<span class="sig-name descname"><span class="pre">set_joint_stiffness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stiffness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_stiffness" title="Link to this definition">¶</a></dt>
-<dd><p>Set per-joint stiffness.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stiffness</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Joint stiffness values (Nm/rad).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_torque_limit">
-<span class="sig-name descname"><span class="pre">set_joint_torque_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">torque_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_torque_limit" title="Link to this definition">¶</a></dt>
-<dd><p>Set per-joint torque limits.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>torque_limit</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Max torques [Nm].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_minimum_time">
-<span class="sig-name descname"><span class="pre">set_minimum_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_minimum_time" title="Link to this definition">¶</a></dt>
-<dd><p>Set minimum execution time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>minimum_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Minimum time [s] to execute trajectory.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_nullspace_joint_target">
-<span class="sig-name descname"><span class="pre">set_nullspace_joint_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_nullspace_joint_target" title="Link to this definition">¶</a></dt>
-<dd><p>Set nullspace joint target.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>target_position</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Desired position [rad].</p></li>
-<li><p><strong>weight</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>numpy.ndarray</em></a><em>, </em><em>shape</em><em> (</em><em>N</em><em>,</em><em>)</em><em>, </em><em>dtype=float64</em>) – Weight for the nullspace term.</p></li>
-<li><p><strong>k_p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=0.2</em>) – Proportional gain for the nullspace term.</p></li>
-<li><p><strong>k_d</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=0.2</em>) – Derivative gain for the nullspace term.</p></li>
-<li><p><strong>cost_weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>, </em><em>optional</em><em>, </em><em>default=1e-3</em>) – Cost weight for the nullspace term.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_reset_reference">
-<span class="sig-name descname"><span class="pre">set_reset_reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_reset_reference" title="Link to this definition">¶</a></dt>
-<dd><p>Set whether to reset the reference pose.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>reset_reference</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If True, resets the reference configuration before applying new targets.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_joint_position_tracking_error">
-<span class="sig-name descname"><span class="pre">set_stop_joint_position_tracking_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_joint_position_tracking_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_joint_position_tracking_error" title="Link to this definition">¶</a></dt>
-<dd><p>Set stop threshold on joint position error.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stop_joint_position_tracking_error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Threshold [rad].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_orientation_tracking_error">
-<span class="sig-name descname"><span class="pre">set_stop_orientation_tracking_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_orientation_tracking_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_orientation_tracking_error" title="Link to this definition">¶</a></dt>
-<dd><p>Set stop threshold on orientation error.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stop_orientation_tracking_error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Threshold [rad].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_position_tracking_error">
-<span class="sig-name descname"><span class="pre">set_stop_position_tracking_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_position_tracking_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder"><span class="pre">rby1_sdk.CartesianImpedanceControlCommandBuilder</span></a></span></span><a class="headerlink" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_position_tracking_error" title="Link to this definition">¶</a></dt>
-<dd><p>Set stop threshold on translational error.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stop_position_tracking_error</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Threshold [m].</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Self reference for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder" title="rby1_sdk.CartesianImpedanceControlCommandBuilder">CartesianImpedanceControlCommandBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </section>
 </dd></dl>
 
@@ -1355,19 +1119,6 @@ bounds/scalings</strong> for the solver, not hardware limits.</p></li>
 <li><a class="reference internal" href="#">rby1_sdk.CartesianImpedanceControlCommandBuilder</a><ul>
 <li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder</span></code></a><ul>
 <li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_limit"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.add_joint_limit()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_joint_position_target"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.add_joint_position_target()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.add_target"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.add_target()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_command_header"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_command_header()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_damping_ratio"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_joint_damping_ratio()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_stiffness"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_joint_stiffness()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_joint_torque_limit"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_joint_torque_limit()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_minimum_time"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_minimum_time()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_nullspace_joint_target"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_nullspace_joint_target()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_reset_reference"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_reset_reference()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_joint_position_tracking_error"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_stop_joint_position_tracking_error()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_orientation_tracking_error"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_stop_orientation_tracking_error()</span></code></a></li>
-<li><a class="reference internal" href="#rby1_sdk.CartesianImpedanceControlCommandBuilder.set_stop_position_tracking_error"><code class="docutils literal notranslate"><span class="pre">CartesianImpedanceControlCommandBuilder.set_stop_position_tracking_error()</span></code></a></li>
 </ul>
 </li>
 </ul>

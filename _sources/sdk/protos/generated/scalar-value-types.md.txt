@@ -1,7 +1,5 @@
-# Scalar Value Types
-
 (scalar-value-types)=
-## Scalar Value Types
+# Scalar Value Types
 
 | .proto Type | Notes | C++ | Java | Python | Go | C# | PHP | Ruby |
 | ----------- | ----- | --- | ---- | ------ | -- | -- | --- | ---- |

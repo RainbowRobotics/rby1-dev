@@ -1,3 +1,4 @@
+(rb-api-powercommandrequest-command)=
 # PowerCommandRequest.Command
 
 - Source proto: `rb/api/power.proto`
