@@ -863,6 +863,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../controllers/index.html">Controllers</a><input aria-label="Toggle navigation of Controllers" class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" role="switch" type="checkbox"/><label for="toctree-checkbox-62"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../controllers/generated/command_and_control_architecture.html">Command and Control Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../controllers/generated/control_hold_time_and_minimum_time.html">Control Hold Time and Minimum Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../controllers/generated/parameter.html">Parameter Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../trobuleshooting/index.html">Trobuleshooting</a><input aria-label="Toggle navigation of Trobuleshooting" class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" role="switch" type="checkbox"/><label for="toctree-checkbox-63"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -1067,169 +1068,127 @@ The motor types for each component are as follows:
 <td><p>-</p></td>
 <td><p>-</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">battery_config</span></code> (type, cutoff_voltage, fully_charged_voltage, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#battery-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">battery_config</span></code></span></a> (type, cutoff_voltage, fully_charged_voltage, …)</p></td>
 <td><p>[0, 44.7, 58.6, 1123.0, -61.587, 1.0168, -0.0045]</p></td>
 <td><p>-</p></td>
 <td><p>-</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">soft_stop_enabled</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#soft-stop-enabled"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">soft_stop_enabled</span></code></span></a></p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>1</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">power_command.timeout</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#power-command-timeout"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">power_command.timeout</span></code></span></a></p></td>
 <td><p>1.0</p></td>
 <td><p>0.0</p></td>
 <td><p>10.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">servo_on_command.timeout</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#servo-on-command-timeout"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">servo_on_command.timeout</span></code></span></a></p></td>
 <td><p>15.0</p></td>
 <td><p>0.0</p></td>
 <td><p>30.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">servo_on_command.new_data_timeout</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#servo-on-command-new-data-timeout"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">servo_on_command.new_data_timeout</span></code></span></a></p></td>
 <td><p>3.0</p></td>
 <td><p>0.0</p></td>
 <td><p>10.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gravity</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#gravity"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">gravity</span></code></span></a></p></td>
 <td><p>[0, 0, -9.8]</p></td>
 <td><p>-</p></td>
 <td><p>-</p></td>
 <td><p>m/s²</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">default.velocity_limit_scaling</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#default-velocity-limit-scaling"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default.velocity_limit_scaling</span></code></span></a></p></td>
 <td><p>1.0</p></td>
 <td><p>0.01</p></td>
 <td><p>1.5</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default.acceleration_limit_scaling</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#default-acceleration-limit-scaling"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default.acceleration_limit_scaling</span></code></span></a></p></td>
 <td><p>1.0</p></td>
 <td><p>0.01</p></td>
 <td><p>1.5</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">default.linear_acceleration_limit</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#default-linear-acceleration-limit"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default.linear_acceleration_limit</span></code></span></a></p></td>
 <td><p>5.0</p></td>
 <td><p>0.01</p></td>
 <td><p>10.0</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default.angular_acceleration_limit</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#default-angular-acceleration-limit"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default.angular_acceleration_limit</span></code></span></a></p></td>
 <td><p>1.0</p></td>
 <td><p>0.01</p></td>
 <td><p>5.0</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">default.optimal_control_command.velocity_tracking_gain</span></code></p></td>
-<td><p>0.1</p></td>
-<td><p>1e-5</p></td>
-<td><p>1.0</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default.optimal_control_command.stop_cost</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#default-optimal-control-command-stop-cost"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default.optimal_control_command.stop_cost</span></code></span></a></p></td>
 <td><p>1e-3</p></td>
 <td><p>1e-6</p></td>
 <td><p>1e9</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">default.se2_velocity_command.acceleration_limit</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#default-se2-velocity-command-acceleration-limit"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default.se2_velocity_command.acceleration_limit</span></code></span></a></p></td>
 <td><p>[1.0, 5.0, 99.0]</p></td>
 <td><p>-</p></td>
 <td><p>-</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jog_command.one_step_size</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#jog-command-one-step-size"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">jog_command.one_step_size</span></code></span></a></p></td>
 <td><p>0.087266463 (5°)</p></td>
 <td><p>0.017453293 (1°)</p></td>
 <td><p>0.17453293 (10°)</p></td>
 <td><p>rad</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jog_command.canceling_time</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#canceling-time"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">jog_command.canceling_time</span></code></span></a></p></td>
 <td><p>0.1</p></td>
 <td><p>1e-3</p></td>
 <td><p>10.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">joint_position_command.cutoff_frequency</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#cutoff-frequency"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">joint_position_command.cutoff_frequency</span></code></span></a></p></td>
 <td><p>15.0</p></td>
 <td><p>1e-3</p></td>
 <td><p>100.0</p></td>
 <td><p>Hz</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">joint_position_command.canceling_time</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#canceling-time"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">joint_position_command.canceling_time</span></code></span></a></p></td>
 <td><p>0.1</p></td>
 <td><p>1e-3</p></td>
 <td><p>1.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">joint_position_command.torque_saturation_time</span></code></p></td>
-<td><p>0.1</p></td>
-<td><p>1e-3</p></td>
-<td><p>1.0</p></td>
-<td><p>sec</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cartesian_command.cutoff_frequency</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#cutoff-frequency"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cartesian_command.cutoff_frequency</span></code></span></a></p></td>
 <td><p>15.0</p></td>
 <td><p>1e-3</p></td>
 <td><p>100.0</p></td>
 <td><p>Hz</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cartesian_command.canceling_time</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#canceling-time"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cartesian_command.canceling_time</span></code></span></a></p></td>
 <td><p>0.1</p></td>
 <td><p>1e-3</p></td>
 <td><p>1.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cartesian_command.torque_saturation_time</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#canceling-time"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">stop_command.canceling_time</span></code></span></a></p></td>
 <td><p>0.1</p></td>
 <td><p>1e-3</p></td>
 <td><p>1.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">impedance_control_command.torque_saturation_time</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#canceling-time"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">joint_velocity_command.canceling_time</span></code></span></a></p></td>
 <td><p>0.1</p></td>
 <td><p>1e-3</p></td>
 <td><p>1.0</p></td>
 <td><p>sec</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">optimal_control_command.torque_saturation_time</span></code></p></td>
-<td><p>0.1</p></td>
-<td><p>1e-3</p></td>
-<td><p>1.0</p></td>
-<td><p>sec</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stop_command.canceling_time</span></code></p></td>
-<td><p>0.1</p></td>
-<td><p>1e-3</p></td>
-<td><p>1.0</p></td>
-<td><p>sec</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stop_command.torque_saturation_time</span></code></p></td>
-<td><p>0.1</p></td>
-<td><p>1e-3</p></td>
-<td><p>1.0</p></td>
-<td><p>sec</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">joint_velocity_command.canceling_time</span></code></p></td>
-<td><p>0.1</p></td>
-<td><p>1e-3</p></td>
-<td><p>1.0</p></td>
-<td><p>sec</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">joint_velocity_command.torque_saturation_time</span></code></p></td>
-<td><p>0.1</p></td>
-<td><p>1e-3</p></td>
-<td><p>1.0</p></td>
-<td><p>sec</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">se2_velocity_command.canceling_time</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../controllers/generated/parameter.html#canceling-time"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">se2_velocity_command.canceling_time</span></code></span></a></p></td>
 <td><p>0.1</p></td>
 <td><p>1e-3</p></td>
 <td><p>1.0</p></td>

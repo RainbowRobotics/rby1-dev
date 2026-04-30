@@ -1,6 +1,5 @@
 # Software Architecture
 
----
 ## System Overview
 ``` {note} Future updates to the SDK will include official support for **ROS** integration, as well as **SLAM** and **Navigation** modules for autonomous operation. These features are currently in development and will be available in a future release.
 ```

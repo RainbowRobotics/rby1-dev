@@ -863,6 +863,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../sdk/controllers/index.html">Controllers</a><input aria-label="Toggle navigation of Controllers" class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" role="switch" type="checkbox"/><label for="toctree-checkbox-62"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/controllers/generated/command_and_control_architecture.html">Command and Control Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sdk/controllers/generated/control_hold_time_and_minimum_time.html">Control Hold Time and Minimum Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/controllers/generated/parameter.html">Parameter Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../sdk/trobuleshooting/index.html">Trobuleshooting</a><input aria-label="Toggle navigation of Trobuleshooting" class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" role="switch" type="checkbox"/><label for="toctree-checkbox-63"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -952,7 +953,7 @@
 <ul class="simple">
 <li><p><strong>Emergency Stop Button</strong></p>
 <ul>
-<li><p>A software-based switch designed to cut off power to each module.</p></li>
+<li><p>A physical emergency switch designed to cut off power to each module.</p></li>
 <li><p>It can be user-defined for safety, especially during operation.</p></li>
 </ul>
 </li>
@@ -973,6 +974,54 @@ This method is ideal for packaging or long-term storage.
 This method forcibly shuts down power. Use it with caution and only when necessary.</p>
 </div>
 <img alt="power_system2" class="rounded-img align-center" src="../_images/power_system2.png" style="width: 600px;" />
+<br>
+</section>
+<section id="power-system-scb-installed">
+<h3>Power System (SCB Installed)<a class="headerlink" href="#power-system-scb-installed" title="Link to this heading">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>SCB (Safety Control Board) is installed only in KC-certified version 1.2 robots.</p>
+</div>
+<p>The robot power system is structured as follows:</p>
+<ul class="simple">
+<li><p><strong>Battery → PDU → SCB → Terminal Board → Each Module</strong></p></li>
+</ul>
+<p>The SCB is responsible for safety-related power control, including emergency stop handling.</p>
+<img alt="emo_shutdown" class="rounded-img align-center" src="../_images/power_system3.png" style="width: 600px;" />
+</section>
+<section id="shutdown-methods-scb-installed">
+<h3>shutdown methods (SCB Installed)<a class="headerlink" href="#shutdown-methods-scb-installed" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Emergency Stop Button</strong></p>
+<ul>
+<li><p>A physical emergency switch designed to cut off power to each module.</p></li>
+<li><p>It can be user-defined for safety, especially during operation.</p></li>
+<li><p>When the EMO button is pressed:</p>
+<ul>
+<li><p>The 48V power from SCB to the Terminal Board is cut off</p></li>
+<li><p>As a result, all downstream modules lose power immediately</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img alt="emo_shutdown" class="rounded-img align-center" src="../_images/emo_shutdown.png" style="width: 600px;" />
+<ul class="simple">
+<li><p><strong>Remote control</strong></p>
+<ul>
+<li><p>A wireless emergency stop device that performs a similar function as the EMO button.</p></li>
+<li><p>Used when the operator is away from the robot</p></li>
+<li><p>When the remote controller button is pressed:</p>
+<ul>
+<li><p>The receiver receives and validates the signal</p></li>
+<li><p>The PDU cuts off the 48V power supplied to the SCB</p></li>
+<li><p>As a result, all downstream modules lose power immediately</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img alt="remote_control_shutdown" class="rounded-img align-center" src="../_images/remote_control_shutdown.png" style="width: 600px;" />
 </section>
 <hr class="docutils" />
 <section id="backpack">
@@ -1057,6 +1106,10 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 </ul>
 <p>Correctly configuring the fuses ensures the smooth functioning of connected modules.</p>
 <img alt="terminal-fuse" class="white-bg align-center" src="../_images/terminal-fuse.png" style="width: 400px;" />
+<ul class="simple">
+<li></li>
+</ul>
+<img alt="terminal_board" class="white-bg align-center" src="../_images/terminal_board.png" style="width: 400px;" />
 </section>
 <hr class="docutils" />
 <section id="cable-connection-board">
@@ -1203,6 +1256,8 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 <li><a class="reference internal" href="#input-source">Input Source</a></li>
 <li><a class="reference internal" href="#power-distribution">Power Distribution</a></li>
 <li><a class="reference internal" href="#shutdown-methods">Shutdown Methods</a></li>
+<li><a class="reference internal" href="#power-system-scb-installed">Power System (SCB Installed)</a></li>
+<li><a class="reference internal" href="#shutdown-methods-scb-installed">shutdown methods (SCB Installed)</a></li>
 <li><a class="reference internal" href="#backpack">Backpack</a><ul>
 <li><a class="reference internal" href="#external-power-specifications">External Power Specifications</a></li>
 </ul>

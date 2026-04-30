@@ -27,8 +27,9 @@
 ### Shutdown Methods
 
 - **Emergency Stop Button**
-   - A software-based switch designed to cut off power to each module.
+   - A physical emergency switch designed to cut off power to each module.
    - It can be user-defined for safety, especially during operation.
+
 
 - **Remote control**
    - Functions like the emergency stop button.
@@ -45,6 +46,58 @@ This method forcibly shuts down power. Use it with caution and only when necessa
 
 ```{image} ../_static/images/hardware/electronical_part/power_system2.png
    :alt: power_system2
+   :align: center
+   :width: 600px
+   :class: rounded-img
+```
+<br>
+
+
+### Power System (SCB Installed)
+
+```{important}
+SCB (Safety Control Board) is installed only in KC-certified version 1.2 robots.
+```
+
+The robot power system is structured as follows:
+
+- **Battery → PDU → SCB → Terminal Board → Each Module**
+
+The SCB is responsible for safety-related power control, including emergency stop handling.
+
+```{image} ../_static/images/hardware/electronical_part/power_system3.png
+   :alt: emo_shutdown
+   :align: center
+   :width: 600px
+   :class: rounded-img
+```
+
+### shutdown methods (SCB Installed)
+
+- **Emergency Stop Button**
+   - A physical emergency switch designed to cut off power to each module.
+   - It can be user-defined for safety, especially during operation.
+   - When the EMO button is pressed:
+      - The 48V power from SCB to the Terminal Board is cut off
+      - As a result, all downstream modules lose power immediately
+
+```{image} ../_static/images/hardware/electronical_part/emo_shutdown.png
+   :alt: emo_shutdown
+   :align: center
+   :width: 600px
+   :class: rounded-img
+```
+
+- **Remote control**
+   - A wireless emergency stop device that performs a similar function as the EMO button.
+   - Used when the operator is away from the robot
+   - When the remote controller button is pressed:
+      - The receiver receives and validates the signal
+      - The PDU cuts off the 48V power supplied to the SCB
+      - As a result, all downstream modules lose power immediately
+
+```{image} ../_static/images/hardware/electronical_part/remote_control_shutdown.png
+   :alt: remote_control_shutdown
    :align: center
    :width: 600px
    :class: rounded-img
@@ -136,6 +189,16 @@ Correctly configuring the fuses ensures the smooth functioning of connected modu
 
 ```{image} ../_static/images/hardware/electronical_part/terminal-fuse.png
    :alt: terminal-fuse
+   :align: center
+   :width: 400px
+   :class: white-bg
+```
+
+
+- 
+
+```{image} ../_static/images/hardware/electronical_part/terminal_board.png
+   :alt: terminal_board
    :align: center
    :width: 400px
    :class: white-bg

@@ -124,34 +124,27 @@ The motor types for each component are as follows:
 | -------------- | ------------- | ---------- | --------- | ---- |
 |`robot_model_name`                                                 | "rby1m"                                           |  -   |  -   |     |
 |`model_name`	                                                     | ""                                                |      |   -  |  -  |
-|`battery_config` (type, cutoff_voltage, fully_charged_voltage, ...)| [0, 44.7, 58.6, 1123.0, -61.587, 1.0168, -0.0045] |	 -  |   -  |     |
-|`soft_stop_enabled`                                                | 0                                                 | 0    | 1    |     |	
-|`power_command.timeout`                                            | 1.0                                               | 0.0  | 10.0 | sec |
-|`servo_on_command.timeout`                                         | 15.0                                              |	0.0 | 30.0 | sec |
-|`servo_on_command.new_data_timeout`                                | 3.0                                               | 0.0  |	10.0 | sec |
-|`gravity`                                                          | [0, 0, -9.8]                                      |	 -  |   -  | m/s²|
-|`default.velocity_limit_scaling`                                   | 1.0                                               |	0.01|	 1.5 |	  |
-|`default.acceleration_limit_scaling`                               | 1.0                                               |	0.01|	 1.5 |	  |
-|`default.linear_acceleration_limit`                                | 5.0                                               |	0.01|	10.0 |     |
-|`default.angular_acceleration_limit`                               | 1.0                                               |	0.01|	 5.0 |	  |
-|`default.optimal_control_command.velocity_tracking_gain`           | 0.1                                               |	1e-5|	 1.0 |     |
-|`default.optimal_control_command.stop_cost`                        | 1e-3                                              |	1e-6|	 1e9 |     |
-|`default.se2_velocity_command.acceleration_limit`                  | [1.0, 5.0, 99.0]                                  |	 -  |	  -  |     |
-|`jog_command.one_step_size`                                        | 0.087266463 (5°)          | 0.017453293 (1°) | 0.17453293 (10°) | rad |
-|`jog_command.canceling_time`                                       | 0.1                                               | 1e-3 | 10.0 | sec |
-|`joint_position_command.cutoff_frequency`                          | 15.0                                              | 1e-3 | 100.0| Hz  |
-|`joint_position_command.canceling_time`                            | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`joint_position_command.torque_saturation_time`                    | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`cartesian_command.cutoff_frequency`                               | 15.0                                              | 1e-3 | 100.0| Hz  |
-|`cartesian_command.canceling_time`                                 | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`cartesian_command.torque_saturation_time`                         | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`impedance_control_command.torque_saturation_time`                 | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`optimal_control_command.torque_saturation_time`                   | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`stop_command.canceling_time`                                      | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`stop_command.torque_saturation_time`                              | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`joint_velocity_command.canceling_time`                            | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`joint_velocity_command.torque_saturation_time`                    | 0.1	                                             | 1e-3 | 1.0  | sec |
-|`se2_velocity_command.canceling_time`                              | 0.1                                               | 1e-3 | 1.0  | sec |
+|[`battery_config`](../../controllers/generated/parameter.md#battery_config) (type, cutoff_voltage, fully_charged_voltage, ...)| [0, 44.7, 58.6, 1123.0, -61.587, 1.0168, -0.0045] |	 -  |   -  |     |
+|[`soft_stop_enabled`](../../controllers/generated/parameter.md#soft_stop_enabled)                                                | 0                                                 | 0    | 1    |     |	
+|[`power_command.timeout`](../../controllers/generated/parameter.md#power_commandtimeout)                                            | 1.0                                               | 0.0  | 10.0 | sec |
+|[`servo_on_command.timeout`](../../controllers/generated/parameter.md#servo_on_commandtimeout)                                         | 15.0                                              |	0.0 | 30.0 | sec |
+|[`servo_on_command.new_data_timeout`](../../controllers/generated/parameter.md#servo_on_commandnew_data_timeout)                                | 3.0                                               | 0.0  |	10.0 | sec |
+|[`gravity`](../../controllers/generated/parameter.md#gravity)                                                          | [0, 0, -9.8]                                      |	 -  |   -  | m/s²|
+|[`default.velocity_limit_scaling`](../../controllers/generated/parameter.md#defaultvelocity_limit_scaling)                                   | 1.0                                               |	0.01|	 1.5 |	  |
+|[`default.acceleration_limit_scaling`](../../controllers/generated/parameter.md#defaultacceleration_limit_scaling)                               | 1.0                                               |	0.01|	 1.5 |	  |
+|[`default.linear_acceleration_limit`](../../controllers/generated/parameter.md#defaultlinear_acceleration_limit)                                | 5.0                                               |	0.01|	10.0 |     |
+|[`default.angular_acceleration_limit`](../../controllers/generated/parameter.md#defaultangular_acceleration_limit)                               | 1.0                                               |	0.01|	 5.0 |	  |
+|[`default.optimal_control_command.stop_cost`](../../controllers/generated/parameter.md#defaultoptimal_control_commandstop_cost)                        | 1e-3                                              |	1e-6|	 1e9 |     |
+|[`default.se2_velocity_command.acceleration_limit`](../../controllers/generated/parameter.md#defaultse2_velocity_commandacceleration_limit)                  | [1.0, 5.0, 99.0]                                  |	 -  |	  -  |     |
+|[`jog_command.one_step_size`](../../controllers/generated/parameter.md#jog_commandone_step_size)                                        | 0.087266463 (5°)          | 0.017453293 (1°) | 0.17453293 (10°) | rad |
+|[`jog_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                                       | 0.1                                               | 1e-3 | 10.0 | sec |
+|[`joint_position_command.cutoff_frequency`](../../controllers/generated/parameter.md#cutoff_frequency)                          | 15.0                                              | 1e-3 | 100.0| Hz  |
+|[`joint_position_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                            | 0.1	                                             | 1e-3 | 1.0  | sec |
+|[`cartesian_command.cutoff_frequency`](../../controllers/generated/parameter.md#cutoff_frequency)                               | 15.0                                              | 1e-3 | 100.0| Hz  |
+|[`cartesian_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                                 | 0.1	                                             | 1e-3 | 1.0  | sec |
+|[`stop_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                                      | 0.1	                                             | 1e-3 | 1.0  | sec |
+|[`joint_velocity_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                            | 0.1	                                             | 1e-3 | 1.0  | sec |
+|[`se2_velocity_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                              | 0.1                                               | 1e-3 | 1.0  | sec |
 
 ---
 #### Example Usage in Python
