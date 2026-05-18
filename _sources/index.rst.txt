@@ -105,7 +105,7 @@ Support & licensing
    :caption: Options
 
    options/gripper
-   options/master_arm
+   options/leader_arm
 
 .. toctree::
    :hidden:
@@ -131,8 +131,7 @@ Support & licensing
    :maxdepth: 1
    :caption: Examples
 
-   examples/c++_ex
-   examples/python_ex
+   examples/ex
 
 .. toctree::
    :hidden:
