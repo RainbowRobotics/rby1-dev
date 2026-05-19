@@ -1011,15 +1011,15 @@ chmod<span class="w"> </span>+x<span class="w"> </span>log_backup
 <section id="how-to-check-can-communication">
 <h2>How to Check CAN Communication<a class="headerlink" href="#how-to-check-can-communication" title="Link to this heading">¶</a></h2>
 <p>The can_checker tool allows you to verify whether the CAN communication is functioning correctly.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Ensure that the robot’s main power is turned on before proceeding.</p>
-</div>
 <section id="downloads-can-checker">
 <h3>Downloads (CAN Checker)<a class="headerlink" href="#downloads-can-checker" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a></p></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that the robot’s main power is <strong>turned on</strong> before proceeding.</p>
+</div>
 </section>
 <section id="usage-can-checker">
 <h3>Usage (CAN Checker)<a class="headerlink" href="#usage-can-checker" title="Link to this heading">¶</a></h3>
@@ -1051,15 +1051,15 @@ Checking<span class="w"> </span>can3<span class="w"> </span><span class="o">(</s
 <section id="how-to-initialize-the-ft-sensor">
 <h2>How to Initialize the FT Sensor<a class="headerlink" href="#how-to-initialize-the-ft-sensor" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ft_initialization</span></code> tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Ensure that the robot’s main power is turned on before proceeding.</p>
-</div>
 <section id="downloads-ft-initialization">
 <h3>Downloads (FT Initialization)<a class="headerlink" href="#downloads-ft-initialization" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a></p></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that the robot’s main power is <strong>turned on</strong> before proceeding.</p>
+</div>
 </section>
 <section id="usage-ft-initialization">
 <h3>Usage (FT Initialization)<a class="headerlink" href="#usage-ft-initialization" title="Link to this heading">¶</a></h3>
@@ -1087,6 +1087,209 @@ chmod<span class="w"> </span>+x<span class="w"> </span>./ft_initialization
 </ul>
 <p>If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
    target="_blank" rel="noopener noreferrer">rby.support&#64;rainbow-robotics.com</a>). In this case, an FT sensor firmware update may be required.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="how-to-run-bootloader">
+<h2>How to Run Bootloader<a class="headerlink" href="#how-to-run-bootloader" title="Link to this heading">¶</a></h2>
+<p>This section describes how to update firmware using the bootloader tool.
+Before running the bootloader, make sure the robot is powered on and the correct firmware file is prepared.</p>
+<section id="downloads-bootloader">
+<h3>Downloads (Bootloader)<a class="headerlink" href="#downloads-bootloader" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>bootloader: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgAPC9hh-MFvS5toN3rIdpiAAUbj6jN0K3uMJGrOATRRq4E?e=bkZcrh">Download</a></p></li>
+</ul>
+<p>The downloaded files include HEX firmware images for each robot module and bootloader executables for different system architectures.</p>
+<section id="hex-firmware-files">
+<h4>HEX Firmware Files<a class="headerlink" href="#hex-firmware-files" title="Link to this heading">¶</a></h4>
+<p>Each HEX file contains the firmware image for the actuator modules indicated by its file name.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>File name</p></th>
+<th class="head"><p>Target module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_head_0_1.hex</span></code></p></td>
+<td><p>head__0, head_1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">com_left_arm_0.hex</span></code></p></td>
+<td><p>left_arm_0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_left_arm_1_2.hex</span></code></p></td>
+<td><p>left_arm_1,left_arm_2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">com_left_arm_3.hex</span></code></p></td>
+<td><p>left_arm_3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_left_arm_4.hex</span></code></p></td>
+<td><p>left_arm_4</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">com_left_arm_5.hex</span></code></p></td>
+<td><p>left_arm_5</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_right_arm_0_1_2.hex</span></code></p></td>
+<td><p>right_arm_0, right_arm_1, right_arm_2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">com_right_arm_3.hex</span></code></p></td>
+<td><p>right_arm_3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_right_arm_4.hex</span></code></p></td>
+<td><p>right_arm_4</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">com_right_arm_5.hex</span></code></p></td>
+<td><p>right_arm_5</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_torso_0_1_2.hex</span></code></p></td>
+<td><p>torso_0, torso_1, torso_2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">com_torso_3_5.hex</span></code></p></td>
+<td><p>torso_3, torso_5</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_torso_4.hex</span></code></p></td>
+<td><p>torso_4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="bootloader-executables">
+<h4>Bootloader Executables<a class="headerlink" href="#bootloader-executables" title="Link to this heading">¶</a></h4>
+<p>Select the bootloader executable that matches the architecture of the system where the bootloader will be executed.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>File name</p></th>
+<th class="head"><p>Target system</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">upc_firmware_bootloader_jetson</span></code></p></td>
+<td><p>ARM-based systems, such as Jetson</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">upc_firmware_bootloader_x86</span></code></p></td>
+<td><p>x86_64 systems</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the HEX file that matches the target module. Using an incorrect HEX file may erase or flash the wrong actuator.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that the robot’s main power is <strong>turned off</strong> before proceeding.</p>
+</div>
+</section>
+</section>
+<section id="usage-bootloader">
+<h3>Usage (Bootloader)<a class="headerlink" href="#usage-bootloader" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## For ARM-based systems</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>upc_firmware_bootloader_jetson
+<span class="c1">## For x86_64 systems</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>upc_firmware_bootloader_x86
+
+
+<span class="c1"># RUN</span>
+./upc_firmware_bootloader_&lt;OS&gt;<span class="w"> </span>&lt;RPC<span class="w"> </span>IP&gt;<span class="w"> </span>&lt;TARGET<span class="w"> </span>JOINT&gt;<span class="w"> </span>&lt;HEX<span class="w"> </span>FILE&gt;
+<span class="c1">## ex) torso_0.</span>
+<span class="c1">## For ARM-based systems</span>
+./upc_firmware_bootloader_jetson<span class="w"> </span><span class="m">192</span>.168.30.1<span class="w"> </span>torso_0<span class="w"> </span>com_torso_0_1_2.hex
+<span class="c1">## For x86_64 systems</span>
+./upc_firmware_bootloader_x86<span class="w"> </span>&lt;RPC<span class="w"> </span>IP&gt;<span class="w"> </span>torso_0<span class="w"> </span>com_torso_0_1_2.hex
+</pre></div>
+</div>
+<p>After running the bootloader command, the flash target confirmation message will be displayed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">========================================</span>
+<span class="w"> </span>UPC-&gt;RPC<span class="w"> </span>CAN<span class="w"> </span>Bootloader<span class="w"> </span>Flash<span class="w"> </span><span class="o">(</span>native<span class="w"> </span>RPC<span class="w"> </span>burn<span class="w"> </span>worker<span class="o">)</span>
+<span class="o">========================================</span>
+<span class="o">[</span>OK<span class="o">]</span><span class="w"> </span>HEX<span class="w"> </span><span class="nv">parsed</span>
+<span class="o">========================================</span>
+<span class="w"> </span>FLASH<span class="w"> </span>TARGET<span class="w"> </span><span class="nv">CONFIRMATION</span>
+<span class="o">========================================</span>
+<span class="o">[</span>TARGET<span class="o">]</span><span class="w"> </span><span class="nv">joint</span><span class="o">=</span>torso_0
+<span class="o">[</span>TARGET<span class="o">]</span><span class="w"> </span><span class="nv">hex</span><span class="o">=</span>com_torso_0_1_2.hex
+<span class="o">[</span>WARN<span class="o">]</span><span class="w"> </span>Wrong<span class="w"> </span>CAN/BNO/HEX<span class="w"> </span>can<span class="w"> </span>erase<span class="w"> </span>or<span class="w"> </span>flash<span class="w"> </span>the<span class="w"> </span>wrong<span class="w"> </span>actuator.
+<span class="o">[</span>WARN<span class="o">]</span><span class="w"> </span>No<span class="w"> </span>SSH,<span class="w"> </span>power,<span class="w"> </span>erase,<span class="w"> </span>or<span class="w"> </span>burn<span class="w"> </span><span class="nb">command</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>sent<span class="w"> </span>yet.
+Type<span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>flash<span class="w"> </span><span class="o">[</span>yes<span class="o">]</span>:
+</pre></div>
+</div>
+<p>If the target joint and HEX file are correct, type yes and press Enter to start the flash process.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Type<span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>flash<span class="w"> </span><span class="o">[</span>yes<span class="o">]</span>:<span class="w"> </span>yes
+</pre></div>
+</div>
+</section>
+<section id="result-guide-bootloader">
+<h3>Result Guide (Bootloader)<a class="headerlink" href="#result-guide-bootloader" title="Link to this heading">¶</a></h3>
+<section id="success-case">
+<h4>Success Case<a class="headerlink" href="#success-case" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>DONE<span class="o">]</span><span class="w"> </span>flash<span class="w"> </span>sequence<span class="w"> </span><span class="nb">complete</span>
+</pre></div>
+</div>
+<br>
+</section>
+<section id="failure-cases">
+<h4>Failure Cases<a class="headerlink" href="#failure-cases" title="Link to this heading">¶</a></h4>
+<p>If the bootloader fails, check the error message and rerun the flash process again.
+In most cases, the firmware can be recovered by running the bootloader again.</p>
+<ul class="simple">
+<li><p>Unsupported firmware version</p></li>
+</ul>
+<p>This error occurs when the firmware version does not support the bootloader.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>FAIL<span class="o">]</span><span class="w"> </span>unsupported<span class="w"> </span>firmware<span class="w"> </span>version<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>bootloader
+</pre></div>
+</div>
+<br>
+<ul class="simple">
+<li><p>Incorrect HEX file</p></li>
+</ul>
+<p>This error occurs when the selected .hex file does not match the target joint.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>ERR<span class="o">]</span><span class="w"> </span>HEX<span class="w"> </span>filename<span class="w"> </span>&lt;Hex<span class="w"> </span>File<span class="w"> </span>Name&gt;.hex<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>allowed<span class="w"> </span><span class="k">for</span><span class="w"> </span>joint<span class="w"> </span>torso_0<span class="w"> </span><span class="o">(</span><span class="nv">expected</span><span class="o">=</span>com_torso_0_1_2.hex<span class="o">)</span>
+</pre></div>
+</div>
+<p>Check that the target joint name and .hex filename are correct, then run the bootloader again.</p>
+<br>
+<ul class="simple">
+<li><p>Error during Erase</p></li>
+</ul>
+<p>This error occurs when the erase step does not complete normally.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>STEP<span class="o">]</span><span class="w"> </span>ERASE<span class="w"> </span>start<span class="w"> </span><span class="o">(</span>may<span class="w"> </span>take<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>~30s<span class="o">)</span>
+<span class="o">[</span>WARN<span class="o">]</span><span class="w"> </span>ERASE<span class="w"> </span>ack<span class="o">(</span><span class="m">22</span><span class="o">)</span><span class="w"> </span>not<span class="w"> </span>received,<span class="w"> </span>retry<span class="w"> </span><span class="m">2</span>/2
+<span class="o">[</span>SUMMARY<span class="o">]</span><span class="w"> </span>rewrite-required<span class="w"> </span>failure:<span class="w"> </span>ERASE<span class="w"> </span>ack<span class="o">(</span><span class="m">22</span><span class="o">)</span><span class="w"> </span>not<span class="w"> </span>received<span class="w"> </span>after<span class="w"> </span><span class="m">2</span><span class="w"> </span>attempts
+<span class="o">[</span>RECOVERY<span class="o">]</span><span class="w"> </span>image<span class="w"> </span>state<span class="w"> </span>is<span class="w"> </span>uncertain<span class="p">;</span><span class="w"> </span>rerun<span class="w"> </span>the<span class="w"> </span>full<span class="w"> </span>flash<span class="w"> </span>to<span class="w"> </span>perform<span class="w"> </span>full<span class="w"> </span>erase<span class="w"> </span>+<span class="w"> </span>full<span class="w"> </span>rewrite
+<span class="o">[</span>STEP<span class="o">]</span><span class="w"> </span>cleanup<span class="w"> </span>remote<span class="w"> </span>resources
+<span class="o">[</span>OK<span class="o">]</span><span class="w"> </span>cleanup<span class="w"> </span><span class="k">done</span>
+</pre></div>
+</div>
+<p>In this case, the firmware image state may be uncertain.
+Run the flash process again to perform erase and rewrite.
+<br></p>
+<ul class="simple">
+<li><p>Error during burn</p></li>
+</ul>
+<p>This error occurs when communication fails while writing the firmware.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>STEP<span class="o">]</span><span class="w"> </span>BURN<span class="w"> </span>start<span class="w"> </span><span class="o">(</span><span class="m">8816</span>/8816<span class="w"> </span>lines<span class="o">)</span>
+<span class="w">    </span>progress:<span class="w"> </span><span class="m">5290</span>/8816<span class="w"> </span><span class="o">(</span><span class="m">60</span>%<span class="o">)</span><span class="w"> </span><span class="nv">elapsed</span><span class="o">=</span><span class="m">9</span>.99s<span class="w"> </span><span class="nv">rate</span><span class="o">=</span><span class="m">530</span><span class="w"> </span>lines/s
+<span class="o">[</span>SUMMARY<span class="o">]</span><span class="w"> </span>rewrite-required<span class="w"> </span>failure:<span class="w"> </span>BL<span class="w"> </span>handshake<span class="w"> </span>timeout<span class="w"> </span>at<span class="w"> </span>line<span class="w"> </span><span class="m">5337</span><span class="w"> </span><span class="o">(</span>expected<span class="w"> </span><span class="m">99</span><span class="o">)</span>
+<span class="o">[</span>RECOVERY<span class="o">]</span><span class="w"> </span>image<span class="w"> </span>state<span class="w"> </span>is<span class="w"> </span>uncertain<span class="p">;</span><span class="w"> </span>rerun<span class="w"> </span>the<span class="w"> </span>full<span class="w"> </span>flash<span class="w"> </span>to<span class="w"> </span>perform<span class="w"> </span>full<span class="w"> </span>erase<span class="w"> </span>+<span class="w"> </span>full<span class="w"> </span>rewrite
+<span class="o">[</span>STEP<span class="o">]</span><span class="w"> </span>cleanup<span class="w"> </span>remote<span class="w"> </span>resources
+<span class="o">[</span>OK<span class="o">]</span><span class="w"> </span>cleanup<span class="w"> </span><span class="k">done</span>
+</pre></div>
+</div>
+<p>In this case, the firmware write process was interrupted.
+Run the flash process again to perform erase and rewrite.</p>
+<ul class="simple">
+<li><p>Unsupported firmware version</p></li>
+</ul>
+<p>This error occurs when the current firmware version is too old to be supported by this bootloader.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>FAIL<span class="o">]</span><span class="w"> </span>unsupported<span class="w"> </span>firmware<span class="w"> </span>version<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>bootloader
+</pre></div>
+</div>
+<p>If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
+   target="_blank" rel="noopener noreferrer">rby.support&#64;rainbow-robotics.com</a>).</p>
+</section>
 </section>
 </section>
 </section>
@@ -1168,6 +1371,20 @@ chmod<span class="w"> </span>+x<span class="w"> </span>./ft_initialization
 <li><a class="reference internal" href="#downloads-ft-initialization">Downloads (FT Initialization)</a></li>
 <li><a class="reference internal" href="#usage-ft-initialization">Usage (FT Initialization)</a></li>
 <li><a class="reference internal" href="#result-guide-ft-initialization">Result Guide (FT Initialization)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-run-bootloader">How to Run Bootloader</a><ul>
+<li><a class="reference internal" href="#downloads-bootloader">Downloads (Bootloader)</a><ul>
+<li><a class="reference internal" href="#hex-firmware-files">HEX Firmware Files</a></li>
+<li><a class="reference internal" href="#bootloader-executables">Bootloader Executables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage-bootloader">Usage (Bootloader)</a></li>
+<li><a class="reference internal" href="#result-guide-bootloader">Result Guide (Bootloader)</a><ul>
+<li><a class="reference internal" href="#success-case">Success Case</a></li>
+<li><a class="reference internal" href="#failure-cases">Failure Cases</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
