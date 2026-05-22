@@ -1050,9 +1050,9 @@ Checking<span class="w"> </span>can3<span class="w"> </span><span class="o">(</s
 <hr class="docutils" />
 <section id="how-to-initialize-the-ft-sensor">
 <h2>How to Initialize the FT Sensor<a class="headerlink" href="#how-to-initialize-the-ft-sensor" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ft_initialization</span></code> tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.</p>
-<section id="downloads-ft-initialization">
-<h3>Downloads (FT Initialization)<a class="headerlink" href="#downloads-ft-initialization" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ft_zeroset</span></code> tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.</p>
+<section id="downloads-ft-zeroset">
+<h3>Downloads (FT zeroset)<a class="headerlink" href="#downloads-ft-zeroset" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a></p></li>
 </ul>
@@ -1061,32 +1061,62 @@ Checking<span class="w"> </span>can3<span class="w"> </span><span class="o">(</s
 <p>Ensure that the robot’s main power is <strong>turned on</strong> before proceeding.</p>
 </div>
 </section>
-<section id="usage-ft-initialization">
-<h3>Usage (FT Initialization)<a class="headerlink" href="#usage-ft-initialization" title="Link to this heading">¶</a></h3>
+<section id="usage-ft-zeroset">
+<h3>Usage (FT zeroset)<a class="headerlink" href="#usage-ft-zeroset" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install required package</span>
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>sshpass
 
-<span class="c1"># Make the tool executable</span>
-chmod<span class="w"> </span>+x<span class="w"> </span>./ft_initialization
 
-<span class="c1">## Example</span>
 <span class="c1"># For ARM-based systems</span>
-./ft_initialization<span class="w"> </span>&lt;RPC_ADDRESS&gt;
+chmod<span class="w"> </span>+x<span class="w"> </span>./ft_zeroset
+./ft_zeroset<span class="w"> </span>&lt;RPC_ADDRESS&gt;
+<span class="c1">## ARM-based systems Example</span>
+./ft_zeroset_jetson<span class="w"> </span><span class="m">192</span>.168.30.1
+
 
 <span class="c1"># For x86_64 systems</span>
-./ft_initialization_x86_64<span class="w"> </span>&lt;RPC_ADDRESS&gt;
+chmod<span class="w"> </span>+x<span class="w"> </span>./ft_zeroset_x86
+./ft_zeroset_x86<span class="w"> </span>&lt;RPC_ADDRESS&gt;
+<span class="c1">## For x86_64 systems Example</span>
+./ft_zeroset_x86<span class="w"> </span><span class="m">192</span>.168.0.121
 </pre></div>
 </div>
 </section>
-<section id="result-guide-ft-initialization">
-<h3>Result Guide (FT Initialization)<a class="headerlink" href="#result-guide-ft-initialization" title="Link to this heading">¶</a></h3>
-<img alt="../_images/ftsensor_terminal.png" class="white-bg align-center" src="../_images/ftsensor_terminal.png" style="width: 40%;" />
+<section id="result-guide-ft-zerosetn">
+<h3>Result Guide (FT zerosetn)<a class="headerlink" href="#result-guide-ft-zerosetn" title="Link to this heading">¶</a></h3>
+<section id="success-case-ft-zeroset">
+<h4>Success Case (FT zeroset)<a class="headerlink" href="#success-case-ft-zeroset" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===</span><span class="w"> </span>Step<span class="w"> </span><span class="m">0</span>:<span class="w"> </span>Power<span class="w"> </span><span class="nv">Check</span><span class="w"> </span><span class="o">===</span>
+<span class="o">[</span>OK<span class="o">]</span><span class="w"> </span>48V<span class="w"> </span>power<span class="w"> </span>is<span class="w"> </span>already<span class="w"> </span>on.<span class="w"> </span>It<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>on<span class="w"> </span>after<span class="w"> </span>exit.
+
+<span class="o">===</span><span class="w"> </span>Step<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Firmware<span class="w"> </span>Version<span class="w"> </span><span class="nv">Check</span><span class="w"> </span><span class="o">===</span>
+
+<span class="o">===</span><span class="w"> </span>Step<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>FT<span class="w"> </span>Sensor<span class="w"> </span>Bias<span class="w"> </span><span class="nv">Initialization</span><span class="w"> </span><span class="o">===</span>
+
+<span class="o">===</span><span class="w"> </span><span class="nv">Result</span><span class="w"> </span><span class="o">===</span>
+<span class="o">[</span>NEW<span class="o">]</span><span class="w"> </span>right<span class="w"> </span>arm<span class="w"> </span><span class="o">(</span>can0<span class="o">)</span>:<span class="w"> </span>zero<span class="w"> </span><span class="nb">set</span><span class="w"> </span>succeeded.
+<span class="o">[</span>NEW<span class="o">]</span><span class="w"> </span>left<span class="w"> </span>arm<span class="w"> </span><span class="o">(</span>can1<span class="o">)</span>:<span class="w"> </span>zero<span class="w"> </span><span class="nb">set</span><span class="w"> </span>succeeded.
+</pre></div>
+</div>
+</section>
+<section id="failure-cases-ft-zeroset">
+<h4>Failure Cases (FT zeroset)<a class="headerlink" href="#failure-cases-ft-zeroset" title="Link to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===</span><span class="w"> </span>Step<span class="w"> </span><span class="m">0</span>:<span class="w"> </span>Power<span class="w"> </span><span class="nv">Check</span><span class="w"> </span><span class="o">===</span>
+<span class="o">[</span>OK<span class="o">]</span><span class="w"> </span>48V<span class="w"> </span>power<span class="w"> </span>is<span class="w"> </span>already<span class="w"> </span>on.<span class="w"> </span>It<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>on<span class="w"> </span>after<span class="w"> </span>exit.
+
+<span class="o">===</span><span class="w"> </span>Step<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Firmware<span class="w"> </span>Version<span class="w"> </span><span class="nv">Check</span><span class="w"> </span><span class="o">===</span>
+
+<span class="o">===</span><span class="w"> </span><span class="nv">Result</span><span class="w"> </span><span class="o">===</span>
+<span class="o">[</span>LEGACY<span class="o">]</span><span class="w"> </span>right<span class="w"> </span>arm<span class="w"> </span><span class="o">(</span>can0<span class="o">)</span>:<span class="w"> </span>zero<span class="w"> </span><span class="nb">set</span><span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>version.
+<span class="o">[</span>LEGACY<span class="o">]</span><span class="w"> </span>left<span class="w"> </span>arm<span class="w"> </span><span class="o">(</span>can1<span class="o">)</span>:<span class="w"> </span>zero<span class="w"> </span><span class="nb">set</span><span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>version.
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>SSAR25 → Latest version. Bias initialization is supported.</p></li>
 <li><p>FAIL → Older version. Bias initialization is not supported.</p></li>
 </ul>
 <p>If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
    target="_blank" rel="noopener noreferrer">rby.support&#64;rainbow-robotics.com</a>). In this case, an FT sensor firmware update may be required.</p>
+</section>
 </section>
 </section>
 <hr class="docutils" />
@@ -1112,7 +1142,7 @@ Before running the bootloader, make sure the robot is powered on and the correct
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_head_0_1.hex</span></code></p></td>
-<td><p>head__0, head_1</p></td>
+<td><p>head_0, head_1</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">com_left_arm_0.hex</span></code></p></td>
 <td><p>left_arm_0</p></td>
@@ -1223,15 +1253,15 @@ Type<span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="
 </section>
 <section id="result-guide-bootloader">
 <h3>Result Guide (Bootloader)<a class="headerlink" href="#result-guide-bootloader" title="Link to this heading">¶</a></h3>
-<section id="success-case">
-<h4>Success Case<a class="headerlink" href="#success-case" title="Link to this heading">¶</a></h4>
+<section id="success-case-bootloader">
+<h4>Success Case (Bootloader)<a class="headerlink" href="#success-case-bootloader" title="Link to this heading">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>DONE<span class="o">]</span><span class="w"> </span>flash<span class="w"> </span>sequence<span class="w"> </span><span class="nb">complete</span>
 </pre></div>
 </div>
 <br>
 </section>
-<section id="failure-cases">
-<h4>Failure Cases<a class="headerlink" href="#failure-cases" title="Link to this heading">¶</a></h4>
+<section id="failure-cases-bootloader">
+<h4>Failure Cases (Bootloader)<a class="headerlink" href="#failure-cases-bootloader" title="Link to this heading">¶</a></h4>
 <p>If the bootloader fails, check the error message and rerun the flash process again.
 In most cases, the firmware can be recovered by running the bootloader again.</p>
 <ul class="simple">
@@ -1368,9 +1398,13 @@ Run the flash process again to perform erase and rewrite.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#how-to-initialize-the-ft-sensor">How to Initialize the FT Sensor</a><ul>
-<li><a class="reference internal" href="#downloads-ft-initialization">Downloads (FT Initialization)</a></li>
-<li><a class="reference internal" href="#usage-ft-initialization">Usage (FT Initialization)</a></li>
-<li><a class="reference internal" href="#result-guide-ft-initialization">Result Guide (FT Initialization)</a></li>
+<li><a class="reference internal" href="#downloads-ft-zeroset">Downloads (FT zeroset)</a></li>
+<li><a class="reference internal" href="#usage-ft-zeroset">Usage (FT zeroset)</a></li>
+<li><a class="reference internal" href="#result-guide-ft-zerosetn">Result Guide (FT zerosetn)</a><ul>
+<li><a class="reference internal" href="#success-case-ft-zeroset">Success Case (FT zeroset)</a></li>
+<li><a class="reference internal" href="#failure-cases-ft-zeroset">Failure Cases (FT zeroset)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#how-to-run-bootloader">How to Run Bootloader</a><ul>
@@ -1381,8 +1415,8 @@ Run the flash process again to perform erase and rewrite.</p>
 </li>
 <li><a class="reference internal" href="#usage-bootloader">Usage (Bootloader)</a></li>
 <li><a class="reference internal" href="#result-guide-bootloader">Result Guide (Bootloader)</a><ul>
-<li><a class="reference internal" href="#success-case">Success Case</a></li>
-<li><a class="reference internal" href="#failure-cases">Failure Cases</a></li>
+<li><a class="reference internal" href="#success-case-bootloader">Success Case (Bootloader)</a></li>
+<li><a class="reference internal" href="#failure-cases-bootloader">Failure Cases (Bootloader)</a></li>
 </ul>
 </li>
 </ul>

@@ -123,41 +123,67 @@ If any issues arise, please save the output and attach it when contacting us for
 ---
 ## How to Initialize the FT Sensor
 
-The `ft_initialization` tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.
+The `ft_zeroset` tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.
 
-### Downloads (FT Initialization)
+### Downloads (FT zeroset)
 - ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a>
 
 ```{Warning}
 Ensure that the robot’s main power is **turned on** before proceeding.
 ```
 
-### Usage (FT Initialization)
+### Usage (FT zeroset)
 
 ```bash
 # Install required package
 sudo apt-get install sshpass
 
-# Make the tool executable
-chmod +x ./ft_initialization
 
-## Example
 # For ARM-based systems
-./ft_initialization <RPC_ADDRESS>
+chmod +x ./ft_zeroset
+./ft_zeroset <RPC_ADDRESS>
+## ARM-based systems Example
+./ft_zeroset_jetson 192.168.30.1
+
 
 # For x86_64 systems
-./ft_initialization_x86_64 <RPC_ADDRESS>
+chmod +x ./ft_zeroset_x86
+./ft_zeroset_x86 <RPC_ADDRESS>
+## For x86_64 systems Example
+./ft_zeroset_x86 192.168.0.121
 ```
 
-### Result Guide (FT Initialization)
+### Result Guide (FT zerosetn)
 
-```{image} ../_static/images/rpc_management_tools/ftsensor_terminal.png
-    :width: 40%
-    :align: center
-    :class: white_bg
+#### Success Case (FT zeroset)
+```bash
+=== Step 0: Power Check ===
+[OK] 48V power is already on. It will be left on after exit.
+
+=== Step 1: Firmware Version Check ===
+
+=== Step 2: FT Sensor Bias Initialization ===
+
+=== Result ===
+[NEW] right arm (can0): zero set succeeded.
+[NEW] left arm (can1): zero set succeeded.
+
 ```
 
-- SSAR25 → Latest version. Bias initialization is supported.
+#### Failure Cases (FT zeroset)
+
+```bash
+=== Step 0: Power Check ===
+[OK] 48V power is already on. It will be left on after exit.
+
+=== Step 1: Firmware Version Check ===
+
+=== Result ===
+[LEGACY] right arm (can0): zero set not supported version.
+[LEGACY] left arm (can1): zero set not supported version.
+
+```
+
 - FAIL → Older version. Bias initialization is not supported.
 
 If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
@@ -180,7 +206,7 @@ Each HEX file contains the firmware image for the actuator modules indicated by 
 
 | File name | Target module |
 |---|---|
-| `com_head_0_1.hex` | head__0, head_1 |
+| `com_head_0_1.hex` | head_0, head_1 |
 | `com_left_arm_0.hex` | left_arm_0 |
 | `com_left_arm_1_2.hex` | left_arm_1,left_arm_2 |
 | `com_left_arm_3.hex` | left_arm_3 |
@@ -254,7 +280,7 @@ Type "yes" to start flash [yes]: yes
 
 ### Result Guide (Bootloader)
 
-#### Success Case
+#### Success Case (Bootloader)
 
 ```bash
 [DONE] flash sequence complete
@@ -262,7 +288,7 @@ Type "yes" to start flash [yes]: yes
 
 <br>
 
-#### Failure Cases
+#### Failure Cases (Bootloader)
 
 If the bootloader fails, check the error message and rerun the flash process again.
 In most cases, the firmware can be recovered by running the bootloader again.
