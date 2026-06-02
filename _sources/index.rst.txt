@@ -143,6 +143,13 @@ Support & licensing
 .. toctree::
    :hidden:
    :maxdepth: 1
+   :caption: ROS2
+
+   ros2/ros2_driver
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
    :caption: RPC Management Tools
 
    rpc_management_tools/rpc_management_tools

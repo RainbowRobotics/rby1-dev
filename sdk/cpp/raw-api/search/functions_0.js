@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['brakeengage_0',['BrakeEngage',['../classrb_1_1_robot.html#a20ce096828c60e4b6b0954f57bca0a94',1,'rb::Robot']]],
-  ['brakerelease_1',['BrakeRelease',['../classrb_1_1_robot.html#af9b5df651e3b7017cc71e1363dac40f2',1,'rb::Robot']]]
+  ['breakengage_0',['BreakEngage',['../classrb_1_1_robot.html#a9127a993ac5ab508e6e7ee40e1ed51d2',1,'rb::Robot']]],
+  ['breakrelease_1',['BreakRelease',['../classrb_1_1_robot.html#af004a1224298122ce06051bb55f7a5d9',1,'rb::Robot']]]
 ];
