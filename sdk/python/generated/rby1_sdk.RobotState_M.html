@@ -884,7 +884,21 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">ROS2</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../ros2/ros2_driver.html">Driver Package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ros2/index.html">RBY1 ROS2 Driver Package</a><input aria-label="Toggle navigation of RBY1 ROS2 Driver Package" class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" role="switch" type="checkbox"/><label for="toctree-checkbox-64"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/visualization_and_robot_description.html">Visualization &amp; Robot Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/rby1_moveit2.html">RBY1 MoveIt2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/package_architecture.html">Package Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/config_driver_parameters.html">Config File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/key_features.html">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/topics.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/action_servers.html">Action Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/custom_message_types.html">Custom Message Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ros2/ros2_driver/troubleshooting_and_known_issues.html">Troubleshooting &amp; Known Issues</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RPC Management Tools</span></p>
 <ul>
@@ -1061,7 +1075,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Whether each joint is ready.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1072,7 +1086,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Joint positions [rad].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1083,7 +1097,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Joint velocities [rad/s].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1094,7 +1108,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Joint currents [A].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1105,7 +1119,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Joint torques in Nm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1116,7 +1130,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Target joint positions [rad].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1127,7 +1141,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Target joint velocities [rad/s].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1138,7 +1152,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Target feedback gains per joint. Range is [0, 10].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1149,7 +1163,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Target feedforward torques per joint in Nm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1160,7 +1174,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Base pose as a 2D homogeneous transform (SE(2)): rotation (R) and translation (t).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (3, 3)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (3, 3)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1171,7 +1185,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Center of mass position in base frame in meters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (3,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (3,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1193,7 +1207,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Joint temperatures in degrees Celsius.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1204,7 +1218,7 @@ states, tool flange states, force/torque sensor data, and odometry.</p>
 <dd><p>Gravity compensation torques per joint in Nm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)">numpy.ndarray</a>, shape (DOF,)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)">numpy.ndarray</a>, shape (DOF,)</p>
 </dd>
 </dl>
 </dd></dl>

@@ -146,7 +146,7 @@ Support & licensing
    :maxdepth: 1
    :caption: ROS2
 
-   ros2/ros2_driver
+   ros2/index
 
 .. toctree::
    :hidden:
