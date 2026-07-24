@@ -79,6 +79,7 @@ Support & licensing
    :caption: Getting Started
 
    getting-started/hello_rby1
+   getting-started/tutorial_videos
    getting-started/index
 
 .. toctree::
