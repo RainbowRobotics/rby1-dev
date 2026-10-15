@@ -65,7 +65,9 @@ Before you begin
 Support & licensing
 -------------------
 
-- **License** — *rby1-sdk* is released under **Apache 2.0**.
+- **License** — *rby1-sdk* is released under **Apache 2.0** and incorporates
+  third-party software. See :doc:`legal/third-party-notices` for attribution
+  and license information.
 - **Issues & help** — Use your support channel or contact your Rainbow Robotics representative with
   logs, repro steps, and software versions.
 
@@ -170,3 +172,10 @@ Support & licensing
    precautions/control_and_system
    precautions/operation
    precautions/general
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Legal
+
+   legal/third-party-notices
