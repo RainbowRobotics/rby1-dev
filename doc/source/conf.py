@@ -4,6 +4,7 @@ import sys
 import pathlib
 import importlib
 import shutil
+import datetime
 
 # ── 환경변수에서 SDK 버전 수신 ──────────────────────────────────────
 def _submodule_sdk_version() -> str:
@@ -21,19 +22,15 @@ def _submodule_sdk_version() -> str:
 
 
 SDK_VERSION = os.getenv("SDK_VERSION", os.getenv("RBY1_SDK_VERSION")) or _submodule_sdk_version()
-# Empty by default: a version selector is shown only when several versions are actually published.
-AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "").split()
-VERSION_BASE_PREFIX = os.getenv("VERSION_BASE_PREFIX", "/")
 
 # ── Project information ───────────────────────────────────────────────
 project = "RB-Y1 Hardware & SDK Manual"
 author = "Rainbow Robotics"
-copyright = "2025, Rainbow Robotics"
+copyright = f"2024-{datetime.date.today().year}, Rainbow Robotics"
 
 # 문서 버전 표기는 SDK 기준
 version = SDK_VERSION
 release = SDK_VERSION
-html_title = f"RB-Y1 Documentation"
 
 # ── General configuration ─────────────────────────────────────────────
 extensions = [
@@ -52,7 +49,7 @@ extensions = [
     "sphinxcontrib.mermaid",
 ]
 
-templates_path = ["_templates"]
+templates_path = []  # the theme needs no template overrides
 # Fragments pulled in with {include}; not pages of their own.
 exclude_patterns = ["hardware/generated/*"]
 
@@ -94,18 +91,48 @@ intersphinx_mapping = {
     "scipy": ("https://docs.scipy.org/doc/scipy/", None),
 }
 
-# ── HTML Theme (Furo) ─────────────────────────────────────────────────
-html_theme = "furo"
+# ── HTML Theme (PyData Sphinx Theme) ──────────────────────────────────
+# Same layout family as the NVIDIA Isaac Sim docs (top section tabs, section sidebar,
+# page table of contents on the right), using the BSD-licensed base theme.
+DOCS_BASE_URL = os.getenv("DOCS_BASE_URL", "https://rainbowrobotics.github.io/rby1-dev/")
+
+html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
-html_js_files = ["sidebar-scroll-to-clicked.js"]
-html_theme_options = {}
+html_logo = "_static/images/brand/rb_logo.png"
+html_favicon = "_static/images/brand/rb_logo.png"
+html_title = "RB-Y1 Documentation"
+html_baseurl = DOCS_BASE_URL
+html_last_updated_fmt = "%Y-%m-%d"
+html_theme_options = {
+    "logo": {"text": "RB-Y1 Docs"},
+    "navbar_align": "left",
+    "header_links_before_dropdown": 8,
+    "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
+    "navbar_persistent": ["search-button"],
+    "secondary_sidebar_items": ["page-toc", "edit-this-page"],
+    "show_toc_level": 2,
+    "show_prev_next": True,
+    "use_edit_page_button": True,
+    "icon_links": [
+        {"name": "rby1-sdk", "url": "https://github.com/RainbowRobotics/rby1-sdk", "icon": "fa-brands fa-github"},
+    ],
+    # versions.json at the site root lists the published versions (see doc/scripts/publish_site.sh).
+    "switcher": {"json_url": DOCS_BASE_URL + "versions.json", "version_match": SDK_VERSION},
+    "check_switcher": False,
+    "footer_start": ["copyright"],
+    "footer_end": ["sphinx-version", "theme-version"],
+}
+# No section sidebar on the landing page: the cards there are the navigation.
+html_sidebars = {"index": []}
 
-# 검색창 아래에 표시할 SDK 버전 컨텍스트
 html_context = {
     "sdk_version": SDK_VERSION,
-    "available_versions": AVAILABLE_VERSIONS,
-    "version_base_prefix": VERSION_BASE_PREFIX,
+    # "Edit on GitHub" points to the documentation source.
+    "github_user": "RainbowRobotics",
+    "github_repo": "rby1-dev",
+    "github_version": os.getenv("DOCS_SOURCE_BRANCH", "dev"),
+    "doc_path": "doc/source",
 }
 
 # RST/Markdown 내에서 |sdk_version| 사용 가능

@@ -1,9 +1,11 @@
-RBY1 ROS2 Driver Package
-================
+ROS 2
+=====
+
+The RB-Y1 ROS 2 driver (rby1-ros2) and its MoveIt 2 integration.
 
 .. toctree::
    :maxdepth: 1
-   :caption: ros2_driver
+   :caption: Driver
 
    ros2_driver/overview
    ros2_driver/install_and_build

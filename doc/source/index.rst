@@ -23,26 +23,56 @@ actuation and sensing, and a modular architecture suitable for research and prod
 What’s in this manual
 ---------------------
 
-This site is organized around the complete lifecycle of using RB-Y1:
+.. grid:: 1 2 2 4
+   :gutter: 3
 
-- **Getting started** — Unboxing, power & safety basics, hotspot/WebUI access, and first motion
-  (see :doc:`getting-started/index`).
-- **Software & SDKs** — C++/Python SDK concepts, data models, real-time streaming, command semantics,
-  examples, and troubleshooting (see :doc:`software/architecture`).
-- **Models** — URDF, meshes, and visualization assets for simulators and viewers
-  (see :doc:`sdk/models/index`).
-- **Examples** — End-to-end samples and best practices for control, logging, and integration
-  (see :doc:`examples/python_ex`)(see :doc:`examples/c++_ex`).
+   .. grid-item-card:: Getting Started
+      :link: getting-started/index
+      :link-type: doc
 
-Quick links
------------
+      E‑Stop, unboxing, hotspot and Web UI, first SDK connection.
 
-- :doc:`getting-started/estop-basics`
-- :doc:`getting-started/unboxing`
-- :doc:`getting-started/hotspot-and-webui`
-- :doc:`getting-started/sdk-install-and-state`
-- :doc:`sdk/cpp/index`
-- :doc:`sdk/protos/index`
+   .. grid-item-card:: Safety
+      :link: precautions/index
+      :link-type: doc
+
+      Precautions to read before operating the robot.
+
+   .. grid-item-card:: Hardware
+      :link: hardware/index
+      :link-type: doc
+
+      Specifications, joint limits, electrical system, battery and options.
+
+   .. grid-item-card:: Software & SDK
+      :link: software/index
+      :link-type: doc
+
+      Architecture, robot models, controllers, examples and troubleshooting.
+
+   .. grid-item-card:: API Reference
+      :link: sdk/index
+      :link-type: doc
+
+      Python, C++ and Protobuf (gRPC) APIs of rby1-sdk |sdk_version|.
+
+   .. grid-item-card:: ROS 2
+      :link: ros2/index
+      :link-type: doc
+
+      The ROS 2 driver, MoveIt 2 integration, topics and services.
+
+   .. grid-item-card:: Simulation
+      :link: simulators/index
+      :link-type: doc
+
+      MuJoCo and Isaac Sim simulators.
+
+   .. grid-item-card:: Maintenance
+      :link: maintenance/index
+      :link-type: doc
+
+      Software update, log backup, diagnostics and part replacement.
 
 System highlights
 -----------------
@@ -57,7 +87,7 @@ Before you begin
 ----------------
 
 - **Safety first** — Before the first power‑on, read :doc:`getting-started/estop-basics` and the
-  :doc:`precautions/general` pages, and follow your site safety policies.
+  :doc:`Safety <precautions/index>` pages, and follow your site safety policies.
 - **Environment** — Ensure a supported Linux/Windows development host with real-time requirements
   where applicable.
 - **Network** — Confirm access via RB-Y1 hotspot or your site network (:doc:`getting-started/hotspot-and-webui`).
@@ -78,105 +108,13 @@ Support & licensing
 
 .. toctree::
    :hidden:
-   :maxdepth: 1
-   :caption: Getting Started
+   :maxdepth: 2
 
-   getting-started/hello_rby1
-   getting-started/tutorial_videos
    getting-started/index
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Hardware
-
-   hardware/overview
-   hardware/mechanical_part
-   hardware/electrical_part
-   hardware/battery
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Software
-
-   software/architecture
-   software/robot_main_program
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Options
-
-   options/gripper
-   options/leader_arm
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Maintenance
-
-   maintenance/detaching_guide
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: SDK
-
-   sdk/models/index
-   sdk/python/index
-   sdk/cpp/index
-   sdk/protos/index
-   sdk/controllers/index
-   sdk/trobuleshooting/index
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Examples
-
-   examples/ex
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: simulaotrs
-
-   simulators/mujoco
-   simulators/isaac_sim
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: ROS2
-
+   precautions/index
+   hardware/index
+   software/index
+   sdk/index
    ros2/index
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: RPC Management Tools
-
-   rpc_management_tools/rpc_updater
-   rpc_management_tools/log_backup
-   rpc_management_tools/can_checker
-   rpc_management_tools/ft_sensor_initialize
-   rpc_management_tools/bootloader
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Precautions
-
-   precautions/power_and_battery
-   precautions/hardware_handling
-   precautions/control_and_system
-   precautions/operation
-   precautions/general
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Legal
-
-   legal/third-party-notices
+   simulators/index
+   maintenance/index

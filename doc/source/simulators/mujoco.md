@@ -1,4 +1,4 @@
-# Mujoco
+# MuJoCo
 
 ## Explore the RBY1 Simulator!
 

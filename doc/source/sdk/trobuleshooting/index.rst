@@ -1,9 +1,9 @@
-Trobuleshooting
-================
+Troubleshooting
+===============
 
 .. toctree::
    :maxdepth: 1
-   :caption: Trobuleshooting
+   :caption: Troubleshooting
 
    generated/build_issue
    generated/error_reporting
