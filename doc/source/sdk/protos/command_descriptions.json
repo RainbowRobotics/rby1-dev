@@ -68,7 +68,7 @@
   "GetTimeScaleResponse": "Response for get time scale.",
   "GetWifiStatusRequest": "Request to get wifi status.",
   "GetWifiStatusResponse": "Response for get wifi status.",
-  "GravityCompensationCommand": "Hold current pose while compensating gravity.",
+  "GravityCompensationCommand": "Free-drive (hand-guiding) mode for the selected joints: position feedback is faded out, so the joints can be moved by hand and do NOT hold their pose against external forces or payloads. When the command ends (control hold time expires or it is cancelled), position feedback fades back in and the joints hold the pose they are in at that moment.",
   "GripperCommandService": "gRPC service for gripper command.",
   "GripperInitializationRequest": "Initialize a gripper by name and prepare it for motion.",
   "GripperInitializationResponse": "Result of gripper initialization.",
