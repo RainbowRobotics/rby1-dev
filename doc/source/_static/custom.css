@@ -1,3 +1,17 @@
+/* Rainbow Robotics brand color, shared with the VitePress product manuals. */
+html[data-theme="light"] {
+  --pst-color-primary: #e74236;
+  --pst-color-secondary: #bd2fb6;
+  --pst-color-link: #d23a2f;
+  --pst-color-link-hover: #bd2fb6;
+}
+html[data-theme="dark"] {
+  --pst-color-primary: #e43c2f;
+  --pst-color-secondary: #d45bce;
+  --pst-color-link: #ff6a5e;
+  --pst-color-link-hover: #e47ae0;
+}
+
 .sd-card.tight-pad .sd-card-body {
     padding: 0.5rem;
 }

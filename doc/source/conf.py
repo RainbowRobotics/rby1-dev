@@ -120,6 +120,8 @@ html_theme_options = {
     # versions.json at the site root lists the published versions (see doc/scripts/publish_site.sh).
     "switcher": {"json_url": DOCS_BASE_URL + "versions.json", "version_match": SDK_VERSION},
     "check_switcher": False,
+    # Back to the VitePress manual that hosts this API reference under /api/.
+    "external_links": [{"name": "Manual", "url": os.getenv("MANUAL_URL", "https://rainbowrobotics.github.io/rby1-dev/")}],
     "footer_start": ["copyright"],
     "footer_end": ["sphinx-version", "theme-version"],
 }
