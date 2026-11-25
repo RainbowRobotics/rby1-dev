@@ -37,9 +37,9 @@ This site is organized around the complete lifecycle of using RB-Y1:
 Quick links
 -----------
 
+- :doc:`getting-started/estop-basics`
 - :doc:`getting-started/unboxing`
 - :doc:`getting-started/hotspot-and-webui`
-- :doc:`getting-started/estop-basics`
 - :doc:`getting-started/sdk-install-and-state`
 - :doc:`sdk/cpp/index`
 - :doc:`sdk/protos/index`
@@ -56,7 +56,8 @@ System highlights
 Before you begin
 ----------------
 
-- **Safety first** — Review :doc:`getting-started/estop-basics` and site safety policies.
+- **Safety first** — Before the first power‑on, read :doc:`getting-started/estop-basics` and the
+  :doc:`precautions/general` pages, and follow your site safety policies.
 - **Environment** — Ensure a supported Linux/Windows development host with real-time requirements
   where applicable.
 - **Network** — Confirm access via RB-Y1 hotspot or your site network (:doc:`getting-started/hotspot-and-webui`).

@@ -3,6 +3,12 @@
 There are several ways to connect to the robot. The simplest method is to use the **hotspot** function to join the robot’s network and access the Web UI for initial setup.
 Through the Web UI, you can also check the robot’s basic status, power it on, and move it into the zero pose
 
+```{warning}
+The steps below power the robot, enable its servos and move it to the zero pose.
+Read [E‑Stop Basics](estop-basics.md) first, keep the E‑Stop or the remote controller in your hand,
+and clear the space around the robot.
+```
+
 ## Steps
 1. Turn on the RPC power.
 
@@ -62,7 +68,14 @@ Through the Web UI, you can also check the robot’s basic status, power it on, 
 
    - **Step 3.** Enable Control Manager
 
-      Enable the control manager so that the robot execute controllers. `Unlimit` skips the joint operating range check.
+      Enable the control manager so that the robot can execute controllers.
+      If the state shows **Fault**, press **Reset** and try again.
+
+      ```{warning}
+      The Unpacking wizard enables the Control Manager only in **Unlimit** mode (**Enable(Unlimit)**).
+      Unlimit skips the joint operating range check, so the robot can move outside its joint limits.
+      Use it only for unpacking, and switch to the standard mode in Step 5.
+      ```
 
       ```{image} ../_static/images/getting-started/webui_unpacking_step3.png
       :alt: step3
@@ -74,6 +87,9 @@ Through the Web UI, you can also check the robot’s basic status, power it on, 
    - **Step 4.** Move to Zero Pose
 
       Send the robot to the zero pose for initialization.
+      The robot moves slowly to a standing position.
+      Keep the remote controller in your hand and make sure the path is clear.
+      To pause the motion, press **SOFT STOP** at the top of the screen. To cut power immediately, press button 1 on the remote controller.
 
       ```{image} ../_static/images/getting-started/webui_unpacking_step4.png
       :alt: step4
@@ -81,6 +97,13 @@ Through the Web UI, you can also check the robot’s basic status, power it on, 
       :width: 800px
       :class: white_bg
       ```
+
+   - **Step 5.** Switch to the standard mode (required)
+
+      The robot is still in **Unlimit** mode after Step 4.
+      Press **Disable**, then press **Enable** on the last page of the wizard to switch the Control Manager to the standard mode,
+      in which the joint operating range is checked.
+      Do this before you use the SDK, teleoperation or ROS 2.
 
 
 <!-- ## Notes
