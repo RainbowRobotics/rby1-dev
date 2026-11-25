@@ -6,6 +6,7 @@ RBY1 ROS2 Driver Package
    :caption: ros2_driver
 
    ros2_driver/overview
+   ros2_driver/install_and_build
    ros2_driver/examples
    ros2_driver/visualization_and_robot_description
    ros2_driver/rby1_moveit2

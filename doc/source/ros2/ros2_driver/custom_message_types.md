@@ -58,11 +58,12 @@
 |-------|------|-------------|
 | `control_manager_state` | `int32` | Current Control Manager state (see constants above) |
 | `brake_state` | `BrakeState` | Brake engagement per joint (left_arm[], right_arm[], torso[], head[]) |
-| `tool_flange_state` | `bool[]` | Tool flange connection status `[left, right]` |
+| `tool_flange_left`, `tool_flange_right` | `ToolFlange` | Tool flange connection, output voltage and switch (see below) |
 | `emo_state` | `bool` | Emergency Stop pressed status |
 | `center_of_mass` | `float64[3]` | Calculated CoM position `[x, y, z]` in meters |
 | `robot_stream_state` | `bool` | `true` if the persistent command stream is currently open, `false` if closed |
-| `collision` | `bool` | `true` if a collision is detected, `false` otherwise |
+| `collision` | `bool` | `true` if a link distance is below `collision_threshold`. Reported only; the driver does not stop the robot. |
+| `robot_version` | `float64` | Robot version |
 
 ### Control Manager States
 
@@ -78,17 +79,28 @@ The `RobotState.control_manager_state` field (and the `robot_state` topic) uses 
 | `5` | `STATE_MINOR_FAULT` | Recoverable fault — driver auto-resets by default |
 
 
-## `rby1_msgs/ToolFlangeState`
+## `rby1_msgs/ToolFlange`
+
+One tool flange, used in `RobotState` (`tool_flange_left`, `tool_flange_right`).
+The flange IMU and force/torque sensor are published as standard types on `tool_flange/<side>/imu` (`sensor_msgs/Imu`)
+and `tool_flange/<side>/wrench` (`geometry_msgs/WrenchStamped`); see [Topics](topics.md).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `ft_force` | `float64[3]` | Force `[Fx, Fy, Fz]` in Newtons |
-| `ft_torque` | `float64[3]` | Torque `[Tx, Ty, Tz]` in N·m |
-| `gyro` | `float64[3]` | Gyroscope `[roll, pitch, yaw]` in rad/s |
-| `acceleration` | `float64[3]` | Accelerometer `[ax, ay, az]` in m/s² |
+| `connected` | `bool` | `true` while the robot receives state updates from this flange |
+| `output_voltage` | `int32` | Output voltage supplied to the tool in volts: 0, 12 or 24 (set with `tool_flange_power`) |
 | `switch_a` | `bool` | Physical switch A state |
-| `output_voltage` | `int32` | Output voltage in millivolts |
-| `digital_input_a` | `bool` | State of general-purpose digital input A |
-| `digital_input_b` | `bool` | State of general-purpose digital input B |
-| `digital_output_a` | `bool` | State of general-purpose digital output A |
-| `digital_output_b` | `bool` | State of general-purpose digital output B |
+
+## `rby1_msgs/PartJointStates`
+
+Joint state per part, published on `joint_states`. The standard-typed `joint_overall_states`
+(`sensor_msgs/JointState`, every joint including the wheels) is what TF, MoveIt and RViz read.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `header` | `std_msgs/Header` | Time stamp |
+| `torso` | `sensor_msgs/JointState` | Torso joints |
+| `right_arm` | `sensor_msgs/JointState` | Right arm joints |
+| `left_arm` | `sensor_msgs/JointState` | Left arm joints |
+| `head` | `sensor_msgs/JointState` | Head joints |
+

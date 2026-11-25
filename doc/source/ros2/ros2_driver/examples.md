@@ -31,7 +31,7 @@ ros2 run rby1_examples <example_name>
 > 2. **`cancel_control` service** — Immediately stops all control commands **and forcibly closes the stream** for safety.
 >
 > ⚠️ **If you are using stream-based control (e.g., `cmd_vel`, Example 13), calling `cancel_control` will also shut down the stream.**  
-> You will need to re-open the stream (`/stream_control state: true`) before sending further commands.  
+> You will need to re-open the stream (`/rby1/stream_control state: true`) before sending further commands.  
 > If you only want to pause or cancel a specific motion while keeping the stream alive, use the action cancel instead (see Example 13).
 >
 > If an issue arises, please check the [Troubleshooting & Known Issues](troubleshooting_and_known_issues.md) section to see if there is any relevant information.

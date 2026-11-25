@@ -45,5 +45,5 @@
 > The robot command stream fixes the control mode configuration (e.g. position control vs impedance control) of the command instances when the stream is first opened.
 > - Therefore, you cannot configure trajectory impedance while persistent stream control is active (`stream_control` is `true`).
 > - The `/set_trajectory_impedance` service will **fail** and return `success: false` if called under an active stream.
-> - To apply trajectory impedance changes, you must first deactivate the stream (call `/stream_control` with `state: false`), configure the impedance via `/set_trajectory_impedance`, and then reactivate the stream (call `/stream_control` with `state: true`).
+> - To apply trajectory impedance changes, you must first deactivate the stream (call `/rby1/stream_control` with `state: false`), configure the impedance via `/set_trajectory_impedance`, and then reactivate the stream (call `/rby1/stream_control` with `state: true`).
 

@@ -15,7 +15,7 @@
 
 #### ⚠️ Hardware Control Handoff
 
-When `ros2 launch rby1_moveit_* demo.launch.py` is launched with real hardware, the `RBY1SystemHardware` plugin calls `/hardware_control state:=true` to take exclusive control from the driver. During this period, direct action commands sent to the driver (e.g. `robot_joint`) will be rejected. Control is returned to the driver when MoveIt is shut down (`Ctrl+C`).
+When `ros2 launch rby1_moveit_* demo.launch.py` is launched with real hardware, the `RBY1SystemHardware` plugin calls `/rby1/hardware_control state:=true` to take exclusive control from the driver. During this period, direct action commands sent to the driver (e.g. `robot_joint`) will be rejected. Control is returned to the driver when MoveIt is shut down (`Ctrl+C`).
 
 ## Issue: Control Commands Rejected After Trajectory Stream Interruptions
 
@@ -23,10 +23,10 @@ When `ros2 launch rby1_moveit_* demo.launch.py` is launched with real hardware, 
   If a stream-based trajectory control node (e.g., using persistent trajectory streams) is suddenly terminated or killed mid-operation, the driver's stream state remains active. Until this stream mode is explicitly closed, the driver will reject all other incoming joint or Cartesian motion commands, resulting in errors.
   
 * **Resolution**: 
-  You must manually disable the streaming state by calling the `/stream_control` service with `state: false` in a separate terminal. This terminates the lingering stream and restores normal control capabilities.
+  You must manually disable the streaming state by calling the `/rby1/stream_control` service with `state: false` in a separate terminal. This terminates the lingering stream and restores normal control capabilities.
 
   ```bash
-  ros2 service call /stream_control rby1_msgs/srv/StateOnOff "{state: false}"
+  ros2 service call /rby1/stream_control rby1_msgs/srv/StateOnOff "{state: false}"
   ``` 
 
 ## Issue: "Collision detected!" Warning
