@@ -1,3 +1,4 @@
+(rb-api-jointstate-fetstate)=
 # JointState.FETState
 
 - Source proto: `rb/api/robot_state.proto`

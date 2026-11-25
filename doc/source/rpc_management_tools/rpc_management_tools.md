@@ -4,34 +4,66 @@
 
 Please use the provided `updater` program to update your RPC. During the update, the RPC will shut down, so make sure to put the robot in a safe position and connect the charger before proceeding.
 
-### Downloads
-- updater : <a href="https://rainbowco-my.sharepoint.com/personal/rby_support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools%2Fupdater%5Fdist%2Etar&parent=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools&ga=1" target="_blank" rel="noopener noreferrer">Download</a>
+### Downloads (Updater)
+- updater : <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/EQrH2XjLvJ9EohytH915Kn0BO4bG8FKaNz1rNG5YD3GcIA?e=aFhdo0" target="_blank" rel="noopener noreferrer">Download</a>
 - You can check the latest RPC updates and release notes at the following link: <a href="https://github.com/RainbowRobotics/rby1-release/releases" target="_blank" rel="noopener noreferrer">RPC Release Notes on GitHub</a>
 
-### Usage
+
+### Preparation (Updater)
+
+- Download the updater tool and extract the archive.
+- Download the appropriate RPC update file for your robot model from the release page.
+- Place the downloaded update file into the extracted updater directory.
+
+```{image} ../_static/images/rpc_management_tools/updater.png
+    :width: 100%
+    :align: center
+    :class: white_bg
+```
+
+### Usage (Updater)
 
 ```bash
 sudo apt-get install -y sshpass
 tar -xvf updater.tar
 cd updater_dist
 chmod +x updater
+
+# For ARM-based systems
 ./updater <update file name> <RPC IP address>
 
+# For x86_64 systems
+./updater_x86_64 <update file name> <RPC IP address>
+
 # Example
-./updater rby1_a_0.3.0.tar.gz 192.168.30.1
-./updater rby1_a_0.3.0.tar 192.168.30.1
+./updater rby1_m_v1.2-0.10.6.tar.gz 192.168.30.1
+./updater rby1_a_v1.0-0.10.6.tar 192.168.30.1
+./updater_x86_64 rby1_a_v1.2-0.10.6.tar 192.168.0.192
 ```
+
+### Result Guide (Updater)
+
+- If the RPC update is completed successfully, you can verify the updated version in one of the following ways:
+    - Check the version at the bottom of the **Dashboard** page in the Web UI
+    - Check the version displayed on the **backpack OLED**
+
+```{image} ../_static/images/rpc_management_tools/update_result.png
+    :width: 100%
+    :align: center
+    :class: white_bg
+```
+
 
 ---
 ## How to Extract Logs
 
 The `log_backup` tool allows you to back up RPC logs directly through the UPC. Ensure the UPC is powered on and ready before proceeding.
 
-### Downloads
+### Downloads (Log Backup)
 
-- log_backup(for UPC) : <a href="https://rainbowco-my.sharepoint.com/personal/rby_support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools%2Flog%5Fbackup&parent=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frpc%5Ftools&ga=1" target="_blank" rel="noopener noreferrer">Download</a>
+- log_backup(for UPC) : <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/ERiwb3eeqsdKmtmBNwQhRL4BiY0Ww_saFcCZfqvs0OpNaQ?e=knc3bm" target="_blank" rel="noopener noreferrer">Download</a>
 
-### Usage
+### Usage (Log Backup)
 
 ```bash
 sudo apt-get install -y sshpass
@@ -47,3 +79,282 @@ chmod +x log_backup
 ```
 
 After running the command, `tar.gz` log file will be generated in the same directory where you executed the program. Please attach this file when contacting us for analysis, as it will greatly assist in troubleshooting.
+
+---
+## How to Check CAN Communication
+
+The can_checker tool allows you to verify whether the CAN communication is functioning correctly.
+
+### Downloads (CAN Checker)
+- can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a>
+
+``` {Warning} Ensure that the robot’s main power is **turned on** before proceeding.
+```
+
+### Usage (CAN Checker)
+ 
+```bash
+# Make the tool executable
+chmod +x can_checker
+
+# Run the tool
+./can_checker <RPC IP address>
+
+# Example
+./can_checker 192.168.30.1
+```
+
+If the communication is functioning correctly, you will see output similar to the following. The process typically takes around 1-2 minutes to complete.
+
+```bash
+Checking can0 (right_arm)...
+[SUCCESS] can0 (right_arm) is communicating!
+Checking can1 (left_arm)...
+[SUCCESS] can1 (left_arm) is communicating!
+Checking can2 (torso)...
+[SUCCESS] can2 (torso) is communicating!
+Checking can3 (wheel)...
+[SUCCESS] can3 (wheel) is communicating!
+```
+
+If any issues arise, please save the output and attach it when contacting us for further analysis.
+
+
+---
+## How to Initialize the FT Sensor
+
+The `ft_zeroset` tool allows you to check the FT sensor status and perform initialization if supported by the connected sensor firmware.
+
+### Downloads (FT zeroset)
+- ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a>
+
+```{Warning}
+Ensure that the robot’s main power is **turned on** before proceeding.
+```
+
+### Usage (FT zeroset)
+
+```bash
+# Install required package
+sudo apt-get install sshpass
+
+
+# For ARM-based systems
+chmod +x ./ft_zeroset
+./ft_zeroset <RPC_ADDRESS>
+## ARM-based systems Example
+./ft_zeroset_jetson 192.168.30.1
+
+
+# For x86_64 systems
+chmod +x ./ft_zeroset_x86
+./ft_zeroset_x86 <RPC_ADDRESS>
+## For x86_64 systems Example
+./ft_zeroset_x86 192.168.0.121
+```
+
+### Result Guide (FT zerosetn)
+
+#### Success Case (FT zeroset)
+```bash
+=== Step 0: Power Check ===
+[OK] 48V power is already on. It will be left on after exit.
+
+=== Step 1: Firmware Version Check ===
+
+=== Step 2: FT Sensor Bias Initialization ===
+
+=== Result ===
+[NEW] right arm (can0): zero set succeeded.
+[NEW] left arm (can1): zero set succeeded.
+
+```
+
+#### Failure Cases (FT zeroset)
+
+```bash
+=== Step 0: Power Check ===
+[OK] 48V power is already on. It will be left on after exit.
+
+=== Step 1: Firmware Version Check ===
+
+=== Result ===
+[LEGACY] right arm (can0): zero set not supported version.
+[LEGACY] left arm (can1): zero set not supported version.
+
+```
+
+- FAIL → Older version. Bias initialization is not supported.
+
+If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
+   target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>). In this case, an FT sensor firmware update may be required.
+
+---
+## How to Run Bootloader
+
+This section describes how to update firmware using the bootloader tool.
+Before running the bootloader, make sure the robot is powered on and the correct firmware file is prepared.
+
+### Downloads (Bootloader)
+- bootloader: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgAPC9hh-MFvS5toN3rIdpiAAUbj6jN0K3uMJGrOATRRq4E?e=bkZcrh">Download</a>
+
+The downloaded files include HEX firmware images for each robot module and bootloader executables for different system architectures.
+
+#### HEX Firmware Files
+
+Each HEX file contains the firmware image for the actuator modules indicated by its file name.
+
+| File name | Target module |
+|---|---|
+| `com_head_0_1.hex` | head_0, head_1 |
+| `com_left_arm_0.hex` | left_arm_0 |
+| `com_left_arm_1_2.hex` | left_arm_1,left_arm_2 |
+| `com_left_arm_3.hex` | left_arm_3 |
+| `com_left_arm_4.hex` | left_arm_4 |
+| `com_left_arm_5.hex` | left_arm_5 |
+| `com_right_arm_0_1_2.hex` | right_arm_0, right_arm_1, right_arm_2 |
+| `com_right_arm_3.hex` | right_arm_3 |
+| `com_right_arm_4.hex` | right_arm_4 |
+| `com_right_arm_5.hex` | right_arm_5 |
+| `com_torso_0_1_2.hex` | torso_0, torso_1, torso_2 |
+| `com_torso_3_5.hex` | torso_3, torso_5 |
+| `com_torso_4.hex` | torso_4 |
+
+#### Bootloader Executables
+
+Select the bootloader executable that matches the architecture of the system where the bootloader will be executed.
+
+| File name | Target system |
+|---|---|
+| `upc_firmware_bootloader_jetson` | ARM-based systems, such as Jetson |
+| `upc_firmware_bootloader_x86` | x86_64 systems |
+
+```{note}
+Use the HEX file that matches the target module. Using an incorrect HEX file may erase or flash the wrong actuator.
+```
+
+```{Warning}
+Ensure that the robot’s main power is **turned off** before proceeding.
+```
+
+### Usage (Bootloader)
+
+```bash
+## For ARM-based systems
+sudo chmod +x upc_firmware_bootloader_jetson
+## For x86_64 systems
+sudo chmod +x upc_firmware_bootloader_x86
+
+
+# RUN
+./upc_firmware_bootloader_<OS> <RPC IP> <TARGET JOINT> <HEX FILE>
+## ex) torso_0.
+## For ARM-based systems
+./upc_firmware_bootloader_jetson 192.168.30.1 torso_0 com_torso_0_1_2.hex
+## For x86_64 systems
+./upc_firmware_bootloader_x86 <RPC IP> torso_0 com_torso_0_1_2.hex
+```
+
+After running the bootloader command, the flash target confirmation message will be displayed.
+
+```bash
+========================================
+ UPC->RPC CAN Bootloader Flash (native RPC burn worker)
+========================================
+[OK] HEX parsed
+========================================
+ FLASH TARGET CONFIRMATION
+========================================
+[TARGET] joint=torso_0
+[TARGET] hex=com_torso_0_1_2.hex
+[WARN] Wrong CAN/BNO/HEX can erase or flash the wrong actuator.
+[WARN] No SSH, power, erase, or burn command has been sent yet.
+Type "yes" to start flash [yes]:
+```
+
+If the target joint and HEX file are correct, type yes and press Enter to start the flash process.
+
+```bash
+Type "yes" to start flash [yes]: yes
+```
+
+### Result Guide (Bootloader)
+
+#### Success Case (Bootloader)
+
+```bash
+[DONE] flash sequence complete
+```
+
+<br>
+
+#### Failure Cases (Bootloader)
+
+If the bootloader fails, check the error message and rerun the flash process again.
+In most cases, the firmware can be recovered by running the bootloader again.
+
+- Unsupported firmware version
+
+This error occurs when the firmware version does not support the bootloader.
+
+```bash
+[FAIL] unsupported firmware version for this bootloader
+```
+
+<br>
+
+- Incorrect HEX file
+
+This error occurs when the selected .hex file does not match the target joint.
+
+```bash
+[ERR] HEX filename <Hex File Name>.hex is not allowed for joint torso_0 (expected=com_torso_0_1_2.hex)
+```
+
+Check that the target joint name and .hex filename are correct, then run the bootloader again.
+
+<br>
+
+- Error during Erase
+
+This error occurs when the erase step does not complete normally.
+
+```bash
+[STEP] ERASE start (may take up to ~30s)
+[WARN] ERASE ack(22) not received, retry 2/2
+[SUMMARY] rewrite-required failure: ERASE ack(22) not received after 2 attempts
+[RECOVERY] image state is uncertain; rerun the full flash to perform full erase + full rewrite
+[STEP] cleanup remote resources
+[OK] cleanup done
+```
+
+In this case, the firmware image state may be uncertain.
+Run the flash process again to perform erase and rewrite.
+<br>
+
+- Error during burn
+
+This error occurs when communication fails while writing the firmware.
+
+```bash
+[STEP] BURN start (8816/8816 lines)
+    progress: 5290/8816 (60%) elapsed=9.99s rate=530 lines/s
+[SUMMARY] rewrite-required failure: BL handshake timeout at line 5337 (expected 99)
+[RECOVERY] image state is uncertain; rerun the full flash to perform full erase + full rewrite
+[STEP] cleanup remote resources
+[OK] cleanup done
+```
+
+In this case, the firmware write process was interrupted.
+Run the flash process again to perform erase and rewrite.
+
+- Unsupported firmware version
+
+This error occurs when the current firmware version is too old to be supported by this bootloader.
+
+```bash
+[FAIL] unsupported firmware version for this bootloader
+```
+
+If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
+   target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>).

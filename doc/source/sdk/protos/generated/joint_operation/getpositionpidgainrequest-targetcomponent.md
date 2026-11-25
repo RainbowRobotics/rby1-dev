@@ -1,3 +1,4 @@
+(rb-api-getpositionpidgainrequest-targetcomponent)=
 # GetPositionPIDGainRequest.TargetComponent
 
 - Source proto: `rb/api/joint_operation.proto`

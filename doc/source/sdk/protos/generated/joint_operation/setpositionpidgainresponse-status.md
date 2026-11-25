@@ -1,3 +1,4 @@
+(rb-api-setpositionpidgainresponse-status)=
 # SetPositionPIDGainResponse.Status
 
 - Source proto: `rb/api/joint_operation.proto`

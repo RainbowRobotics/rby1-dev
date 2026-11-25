@@ -30,7 +30,7 @@
 ---
 ### Degrees of Freedom
 
-#### Model A
+#### Model A DOF
 
 | **Part**  | **# of DOF** |
 | --------- | ------------ |
@@ -40,7 +40,7 @@
 | Head      | 2 DOF        |
 | **Total** | **24 DOF**   |
 
-#### Model M
+#### Model M DOF
 
 | **Part**  | **# of DOF** |
 | --------- | ------------ |
@@ -53,7 +53,7 @@
 ---
 ### Weight
 
-#### Model A
+#### Model A Weight
 
 | **Part**    | **Weight (kg)**           |
 | ----------- | ------------------------- |
@@ -62,7 +62,7 @@
 | Mobile base | 51                        |
 | **Total**   | **131**                   |
 
-#### Model M
+#### Model M Weight
 
 | **Part**    | **Weight (kg)**           |
 | ----------- | ------------------------- |
@@ -80,13 +80,13 @@
 | torso_2 (Knee)           | 180°/s    | -150° ~ 90°                         |
 | torso_3 (Hip pitch)      | 180°/s    | -45° ~ 90°                          |
 | torso_4 (Hip roll)       | 180°/s    | -30° ~ 30°                          |
-| torso_5 (Hip yaw)        | 180°/s    | -90° ~ 90°                          |
-| *_arm_0 (Shoulder pitch) | 180°/s    | -135° ~ 135°                        |
+| torso_5 (Hip yaw)        | 180°/s    | -135° ~ 135°                        |
+| *_arm_0 (Shoulder pitch) | 180°/s    | -180° ~ 180°                        |
 | *_arm_1 (Shoulder roll)  | 180°/s    |  R : -180° ~ 0°  L : 0° ~ 180°      |
 | *_arm_2 (Shoulder yaw)   | 180°/s    | -180° ~ 180°                        |
 | *_arm_3 (Elbow pitch)    | 180°/s    | -150° ~ 0°                          |
 | *_arm_4 (Wrist yaw1)     | 180°/s    | -180° ~ 180°                        |
 | *_arm_5 (Wrist pitch)    | 180°/s    | -90° ~ 110°                         |
 | *_arm_6 (Wrist yaw2)     | 180°/s    | -155° ~ 155°                        |
-| head_0 (Pan)             | 180°/s    | -30° ~ 30°                          |
-| head_1 (Tilt)            | 180°/s    | -20° ~ 90°                          |
+| head_0 (Pan)             | 180°/s    | -180° ~ 180°                          |
+| head_1 (Tilt)            | 180°/s    | -180° ~ 180°                          |

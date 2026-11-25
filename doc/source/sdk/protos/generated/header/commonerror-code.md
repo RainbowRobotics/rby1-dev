@@ -1,3 +1,4 @@
+(rb-api-commonerror-code)=
 # CommonError.Code
 
 - Source proto: `rb/api/header.proto`

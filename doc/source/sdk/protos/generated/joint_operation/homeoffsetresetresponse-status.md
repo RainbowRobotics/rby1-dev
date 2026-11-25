@@ -1,3 +1,4 @@
+(rb-api-homeoffsetresetresponse-status)=
 # HomeOffsetResetResponse.Status
 
 - Source proto: `rb/api/joint_operation.proto`

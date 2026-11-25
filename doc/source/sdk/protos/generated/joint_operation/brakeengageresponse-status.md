@@ -1,3 +1,4 @@
+(rb-api-brakeengageresponse-status)=
 # BrakeEngageResponse.Status
 
 - Source proto: `rb/api/joint_operation.proto`

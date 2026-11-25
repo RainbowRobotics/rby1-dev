@@ -39,3 +39,6 @@ Thumbs.db
 # BUILD
 ##############
 build/
+# Python
+__pycache__/
+*.pyc

@@ -1,3 +1,4 @@
+(rb-api-jointcommandrequest-command)=
 # JointCommandRequest.Command
 
 - Source proto: `rb/api/power.proto`

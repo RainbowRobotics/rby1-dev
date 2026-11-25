@@ -1,3 +1,4 @@
+(rb-api-controlmanagercommandrequest-command)=
 # ControlManagerCommandRequest.Command
 
 - Source proto: `rb/api/control_manager.proto`

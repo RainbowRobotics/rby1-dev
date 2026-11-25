@@ -34,6 +34,7 @@ extensions = [
     "breathe",
     "sphinx_copybutton",
     "sphinx_design",
+    "sphinxcontrib.mermaid",
 ]
 
 templates_path = ["_templates"]
@@ -42,8 +43,8 @@ exclude_patterns = []
 # Scaled image를 클릭했을 때 원본 이미지로 링크되는 동작 비활성화
 html_scaled_image_link = False
 
-# 헤딩 앵커 아이콘 설정 #
-html_permalinks_icon = "#"
+# 라이브 사이트와 같게: 헤딩 앵커는 기본 아이콘(¶), 페이지 소스 보기 링크는 숨김
+html_show_sourcelink = False
 
 # ── MyST parser options ───────────────────────────────────────────────
 myst_enable_extensions = [

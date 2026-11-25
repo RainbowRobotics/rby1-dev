@@ -28,11 +28,11 @@ This site is organized around the complete lifecycle of using RB-Y1:
 - **Getting started** — Unboxing, power & safety basics, hotspot/WebUI access, and first motion
   (see :doc:`getting-started/index`).
 - **Software & SDKs** — C++/Python SDK concepts, data models, real-time streaming, command semantics,
-  examples, and troubleshooting (see :doc:`software/index`).
+  examples, and troubleshooting (see :doc:`software/architecture`).
 - **Models** — URDF, meshes, and visualization assets for simulators and viewers
-  (see :doc:`models/overview`).
+  (see :doc:`sdk/models/index`).
 - **Examples** — End-to-end samples and best practices for control, logging, and integration
-  (see :doc:`examples/index`).
+  (see :doc:`examples/python_ex`)(see :doc:`examples/c++_ex`).
 
 Quick links
 -----------
@@ -43,7 +43,6 @@ Quick links
 - :doc:`getting-started/sdk-install-and-state`
 - :doc:`sdk/cpp/index`
 - :doc:`sdk/protos/index`
-- :doc:`getting-started/troubleshooting`
 
 System highlights
 -----------------
@@ -66,7 +65,9 @@ Before you begin
 Support & licensing
 -------------------
 
-- **License** — *rby1-sdk* is released under **Apache 2.0**.
+- **License** — *rby1-sdk* is released under **Apache 2.0** and incorporates
+  third-party software. See :doc:`legal/third-party-notices` for attribution
+  and license information.
 - **Issues & help** — Use your support channel or contact your Rainbow Robotics representative with
   logs, repro steps, and software versions.
 
@@ -80,6 +81,7 @@ Support & licensing
    :caption: Getting Started
 
    getting-started/hello_rby1
+   getting-started/tutorial_videos
    getting-started/index
 
 .. toctree::
@@ -106,7 +108,7 @@ Support & licensing
    :caption: Options
 
    options/gripper
-   options/master_arm
+   options/leader_arm
 
 .. toctree::
    :hidden:
@@ -132,20 +134,48 @@ Support & licensing
    :maxdepth: 1
    :caption: Examples
 
-   examples/c++_ex
-   examples/python_ex
+   examples/ex
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: simulaotrs
 
-   simulators/simulators
+   simulators/mujoco
+   simulators/isaac_sim
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: ROS2
+
+   ros2/index
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: RPC Management Tools
 
-   rpc_management_tools/rpc_management_tools
+   rpc_management_tools/rpc_updater
+   rpc_management_tools/log_backup
+   rpc_management_tools/can_checker
+   rpc_management_tools/ft_sensor_initialize
+   rpc_management_tools/bootloader
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Precautions
+
+   precautions/power_and_battery
+   precautions/hardware_handling
+   precautions/control_and_system
+   precautions/operation
+   precautions/general
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Legal
+
+   legal/third-party-notices

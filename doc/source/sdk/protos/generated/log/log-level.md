@@ -1,3 +1,4 @@
+(rb-api-log-level)=
 # Log.Level
 
 - Source proto: `rb/api/log.proto`
