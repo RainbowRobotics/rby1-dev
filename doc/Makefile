@@ -105,7 +105,8 @@ clean-proto:
 doxygen-doc:
 	@echo "[doxygen] Using DOXYFILE=$(DOXYFILE)"
 	@echo "[doxygen] Writing to DOXYGEN_XML_DIR=$(DOXYGEN_XML_DIR)"
-	@$(DOCKER) run --rm \
+	@mkdir -p "$(CURDIR)/build/doxygen"
+	@$(DOCKER) run --rm -u "$$(id -u):$$(id -g)" \
 	  -v "$(CURDIR):/data" \
 	  -v "$(CURDIR)/../external:/external" \
 	  nakatt/doxygen
@@ -131,17 +132,17 @@ sdk-pin:
 	@echo "[sdk-pin] Checked out $(SDK_TAG)"
 
 # ------------------------------------------------------------------------------
-# SDK 설치 (Poetry 백엔드 호환: 일반 설치) — 커밋 비교로 스킵
+# SDK 설치: 고정된 태그의 PyPI 휠 (태그가 아니면 소스 빌드)
 # ------------------------------------------------------------------------------
 sdk-install: sdk-pin
-	@mkdir -p "$(STAMPS_DIR)"
-	@CUR_COMMIT=$$(git -C "$(EXTERNAL_SDK_DIR)" rev-parse --short=12 HEAD 2>/dev/null || echo unknown); \
-	if [ -f "$(SDK_COMMIT_FILE)" ] && [ "$$(cat $(SDK_COMMIT_FILE))" = "$$CUR_COMMIT" ]; then \
-		echo "[sdk-install] skip (rby1-sdk @ $$CUR_COMMIT already installed)"; \
+	@# The Python API pages come from the released wheel of the pinned tag, so no C++ build is needed.
+	@VER=$$(git -C "$(EXTERNAL_SDK_DIR)" describe --tags --exact-match 2>/dev/null | sed 's/^v//'); \
+	if [ -n "$$VER" ]; then \
+		echo "[sdk-install] pip install rby1-sdk==$$VER"; \
+		$(PIP) install "rby1-sdk==$$VER"; \
 	else \
-		echo "[sdk-install] installing rby1-sdk @ $(SDK_TAG) (commit $$CUR_COMMIT)"; \
+		echo "[sdk-install] $(SDK_TAG) is not a release tag; building rby1-sdk from source"; \
 		$(PIP) install --no-deps "$(EXTERNAL_SDK_DIR)"; \
-		echo "$$CUR_COMMIT" > "$(SDK_COMMIT_FILE)"; \
 	fi
 
 # ------------------------------------------------------------------------------
@@ -149,7 +150,9 @@ sdk-install: sdk-pin
 # ------------------------------------------------------------------------------
 html: html-version
 
-html-version: sdk-pin sdk-install protoc-doc doxygen-doc joint-limits
+# protoc-doc is not part of the build: the generated proto pages are committed.
+# Run `make protoc-doc` when the SDK protos change, then review and commit the result.
+html-version: sdk-pin sdk-install doxygen-doc joint-limits
 	@echo "[sphinx] Build SDK_TAG=$(SDK_TAG) -> $(OUTDIR)"
 	@mkdir -p "$(OUTDIR)"
 	@SDK_VERSION=$(SDK_TAG) \
