@@ -16,7 +16,8 @@ by industrial SDK references such as ROBOTIS DYNAMIXEL: open a category page,
 pick one class or struct, then read a compact member summary followed by the
 generated Doxygen block.
 
-For installation, environment setup, and first-connection checks, start with
+To build the C++ SDK and link it into your project, start with
+:doc:`build-and-link`. For first-connection checks with the robot, see
 :doc:`/getting-started/sdk-install-and-state`. When you want runnable entry
 points before reading declarations, open :doc:`/examples/c++_ex`.
 
@@ -58,6 +59,7 @@ points before reading declarations, open :doc:`/examples/c++_ex`.
    :hidden:
    :maxdepth: 2
 
+   build-and-link
    client/index
    builders/index
    feedback/index
