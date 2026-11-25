@@ -15,6 +15,16 @@
 
 Control Hold Time defines the duration for which the robot maintains the target (position/velocity) after reaching it.
 
+Set it in the command header, for example `rby1_sdk.CommandHeaderBuilder().set_control_hold_time(0.3)` (seconds; C++: `CommandHeaderBuilder().SetControlHoldTime(0.3)`).
+If it is not set, the hold time is **0 s**.
+
+```{warning}
+For velocity commands (`SE2VelocityCommand` for the mobile base and `JointVelocityCommand`), "maintaining the target" means
+**the robot keeps moving at the last target velocity** for the whole Control Hold Time, and only then decelerates to a stop.
+If your program stops sending commands (crash, network loss), the robot keeps moving for that time.
+Keep the hold time for velocity commands short: a few times the stream period.
+```
+
 <br>
 
 #### How It Works (Control Hold Time)
@@ -67,4 +77,6 @@ A well-configured Control Hold Time ensures the robot holds its target state as 
 #### Examples
 
 - If the Control Hold Time is set to 1 second, and no new input is received within **1 second**, the control transitions to the finished state.
-- If the Control Hold Time is set to 100 seconds, and the stream cycle operates every **1 second**, the target can be updated dynamically, maintaining continuous control.
+- If the stream sends a new command every **0.1 s**, a Control Hold Time of about **0.3 s** keeps the control active between updates and tolerates a late or lost message,
+  while the robot stops shortly after the stream stops.
+- Do not use a long hold time (for example, tens of seconds) to keep a stream alive. With velocity commands the robot would keep moving for that long if the stream stops.
