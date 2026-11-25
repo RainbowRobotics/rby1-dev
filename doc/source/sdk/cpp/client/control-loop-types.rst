@@ -67,16 +67,45 @@ back to the robot.
    * - ``ControlState::torque``
      - ``Nm``
      - Measured joint torques.
+   * - ``ControlInput::mode``
+     - ``bool`` per joint
+     - ``false`` (``kPositionControlMode``): ``target`` is a position.
+       ``true`` (``kVelocityControlMode``): ``target`` is a velocity, and the
+       robot integrates it into the position target every control cycle.
    * - ``ControlInput::target``
-     - ``rad``
-     - Commanded joint targets returned from the callback.
+     - ``rad`` or ``rad/s``
+     - Joint position target (``mode = false``) or joint velocity target
+       (``mode = true``), in model order.
    * - ``ControlInput::feedback_gain``
-     - Dimensionless
-     - Integer gain value per joint. The public C++ headers do not define a
-       fixed range.
+     - Integer, ``0`` to ``10``
+     - Position feedback gain per joint. The robot clamps values outside
+       ``[0, 10]``. With ``0`` the joint has no position feedback and does not
+       hold its position.
+   * - ``ControlInput::finish``
+     - ``bool``
+     - Set to ``true`` to end ``Robot::Control()`` normally.
    * - ``ControlInput::feedforward_torque``
      - ``Nm``
      - Joint feedforward torque term.
+
+.. rubric:: How the loop runs
+
+- ``Robot::Control()`` is **blocking**. It runs a UDP real-time loop and calls
+  your callback every control cycle until the callback returns
+  ``finish = true`` (``Control()`` returns ``true``) or an error or abort ends
+  the loop (``Control()`` returns ``false``).
+- The value you return is applied to the motors in the next cycle. Keep the
+  callback short and free of blocking calls and memory allocation.
+
+.. warning::
+
+   In velocity mode a ``target`` is in ``rad/s``. Sending a position in
+   ``rad`` with ``mode = true`` makes the joint move continuously.
+   A default-constructed ``ControlInput`` has ``target = 0``,
+   ``feedback_gain = 0`` and ``mode = false`` for every joint, so it neither
+   holds the current pose nor stays where the robot is. Fill every joint:
+   on the first cycle, return the measured ``position`` as the position
+   target with a non-zero ``feedback_gain`` (the example uses ``10``).
 
 .. rubric:: Detailed Reference
 
@@ -98,4 +127,4 @@ back to the robot.
 
 .. rubric:: Examples
 
-- ``real_time_control_command.cpp`` is the canonical example for both structs.
+- ``examples/cpp/34_real_time_control.cpp`` in rby1-sdk is the canonical example for both structs.

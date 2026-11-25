@@ -109,7 +109,7 @@ smaller state records that appear inside the top-level snapshot.
    * - ``JointState::target_feedback_gain``,
        ``RobotState::target_feedback_gain``
      - Dimensionless
-     - Public headers document the per-joint target gain range as ``[0, 10]``.
+     - Per-joint position feedback gain, ``0`` to ``10`` (the robot clamps it to this range).
    * - ``JointState::temperature``, ``RobotState::temperature``
      - ``deg C``
      - Joint temperatures are stored as integers.

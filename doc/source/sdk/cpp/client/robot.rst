@@ -64,7 +64,10 @@ commands, and read state or logs.
      - Receive or fetch structured logs from the robot.
      - See :doc:`../state/log`.
    * - ``Control(...)`` and ``CancelControl()``
-     - Enter or leave the UDP-based real-time control path.
+     - ``Control()`` runs the UDP-based real-time control loop and **blocks**
+       until the callback returns ``finish = true`` (returns ``true``) or an
+       error or abort ends it (returns ``false``). ``CancelControl()`` cancels
+       the running control.
      - Uses :doc:`control-loop-types`.
    * - ``GetParameter*()``, ``SetParameter*()``, ``ResetParameter*()``
      - Inspect, set, or reset named configuration parameters.
