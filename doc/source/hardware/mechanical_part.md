@@ -12,25 +12,26 @@
 ## Motor Specifications
 <br>
 
-The table provides details of each motor's gear type, motor power, maximum measurable current, speed, and range of motion. For example, the R/LWH model has a planetary gear system and uses a 200W motor. Other systems utilize harmonic gears, and the movement range and maximum speed vary according to each axis.
+The table provides details of each motor's gear type, motor power, maximum measurable current and rated maximum output speed. For example, the R/LWH model has a planetary gear system and uses a 200W motor. Other systems utilize harmonic gears.
+These are actuator ratings. The joint range and speed limits that the controller enforces come from the robot model; see [Joint Range and Speed Limits](overview.md#joint-range-and-speed-limits).
 <br>
 
-|        | Gear Type         | Motor Power | Max. measurable current/ Limit current | Max Speed | Range                        |
-| ------ | ----------------- | ----------- | -------------------------------------- | --------- | ---------------------------- |
-|`RWH/LWH` | Planetary         |	200W       |	    |150 RPM (1.5m/s)       |  Infinite |                              | 
-|`AR`    | Harmonic          |	250(450)W  |	53/46 A                             |	120°/s  | -15° ~ 15°                   |
-|`AP`    | Harmonic          |	250(450)W  |	53/46 A                             |	120°/s  | -30° ~ 90°                   |
-|`KN`    | Harmonic          |	250(450)W  |	53/46 A                             |	120°/s  | -150° ~ 90°                  |
-|`HP`    | Harmonic          |	200(280)W  |	26/23 A                             |	180°/s  | -45° ~ 90°                   |
-|`HR`    | Harmonic          |	200(280)W  |	26/23 A                             |	180°/s  | -30° ~ 30°                   |
-|`HY`    | Harmonic          |	200(280)W  |	26/23 A                             |	180°/s  | -135° ~ 135°                   |
-|`RSP/LSP` | Harmonic          |	80(180)W   |	26/14 A                             |	180°/s  | -180° ~ 180°                 |
-|`RSR/LSR` | Harmonic          |	80(180)W   |	26/14 A                             |	180°/s  | R : -180° ~ 0°  L : 0° ~ 180°|
-|`RSY/LSY` | Harmonic          |	80(180)W   |	26/14 A                             |	180°/s  | -180° ~ 180°                 |
-|`RELB/LELB`| Harmonic          |	50(75)W    |	8/7 A                               |	180°/s  | -150° ~ 0°                   |
-|`RWY1/LWY1`| Harmonic          |	30(95)W    |	8/7 A                               |	360°/s  | -180° ~ 180°                 |
-|`RWP/LWP` | Harmonic          |	30(95)W    |	8/7 A                               |	360°/s  | -90° ~ 110°                 |
-|`RWY2/LWY2`| Harmonic + Pulley |	45W        |	8/7 A                               |	360°/s  | -155° ~ 155°                 |
+|        | Gear Type         | Motor Power | Max. measurable current/ Limit current | Rated Max Output Speed |
+| ------ | ----------------- | ----------- | -------------------------------------- | --------- |
+|`RWH/LWH` | Planetary         |	200W       |	    |150 RPM (1.5m/s)       |
+|`AR`    | Harmonic          |	250(450)W  |	53/46 A                             |	120°/s  |
+|`AP`    | Harmonic          |	250(450)W  |	53/46 A                             |	120°/s  |
+|`KN`    | Harmonic          |	250(450)W  |	53/46 A                             |	120°/s  |
+|`HP`    | Harmonic          |	200(280)W  |	26/23 A                             |	180°/s  |
+|`HR`    | Harmonic          |	200(280)W  |	26/23 A                             |	180°/s  |
+|`HY`    | Harmonic          |	200(280)W  |	26/23 A                             |	180°/s  |
+|`RSP/LSP` | Harmonic          |	80(180)W   |	26/14 A                             |	180°/s  |
+|`RSR/LSR` | Harmonic          |	80(180)W   |	26/14 A                             |	180°/s  |
+|`RSY/LSY` | Harmonic          |	80(180)W   |	26/14 A                             |	180°/s  |
+|`RELB/LELB`| Harmonic          |	50(75)W    |	8/7 A                               |	180°/s  |
+|`RWY1/LWY1`| Harmonic          |	30(95)W    |	8/7 A                               |	360°/s  |
+|`RWP/LWP` | Harmonic          |	30(95)W    |	8/7 A                               |	360°/s  |
+|`RWY2/LWY2`| Harmonic + Pulley |	45W        |	8/7 A                               |	360°/s  |
 
 ---
 ## Torque Specifications

@@ -49,7 +49,7 @@ DOXYGEN_XML_DIR ?= $(CURDIR)/build/doxygen/xml
 # PHONY
 # ------------------------------------------------------------------------------
 .PHONY: help protoc-doc clean-proto doxygen-doc clean-doxygen \
-        html html-version sdk-pin sdk-install clean clean-version
+        html html-version sdk-pin sdk-install clean clean-version joint-limits
 
 # ------------------------------------------------------------------------------
 # Help
@@ -115,6 +115,12 @@ clean-doxygen:
 	@rm -rf "$(DOXYGEN_XML_DIR)"
 
 # ------------------------------------------------------------------------------
+# Joint range/speed tables from the SDK URDF models
+# ------------------------------------------------------------------------------
+joint-limits:
+	@$(PYTHON) scripts/generate_joint_limit_tables.py --sdk "$(EXTERNAL_SDK_DIR)"
+
+# ------------------------------------------------------------------------------
 # SDK 태그 고정 (submodule fetch & checkout)
 # ------------------------------------------------------------------------------
 sdk-pin:
@@ -143,7 +149,7 @@ sdk-install: sdk-pin
 # ------------------------------------------------------------------------------
 html: html-version
 
-html-version: sdk-pin sdk-install protoc-doc doxygen-doc
+html-version: sdk-pin sdk-install protoc-doc doxygen-doc joint-limits
 	@echo "[sphinx] Build SDK_TAG=$(SDK_TAG) -> $(OUTDIR)"
 	@mkdir -p "$(OUTDIR)"
 	@SDK_VERSION=$(SDK_TAG) \

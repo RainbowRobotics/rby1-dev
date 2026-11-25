@@ -72,21 +72,11 @@
 | **Total**   | **170**                   |
 
 ---
-### Joint Maximum Speed and Angle Range
-| **Joint**                | **Speed** | **Range**                           |
-| ------------------------ | --------- | ----------------------------------- |
-| torso_0 (Ankle roll)     | 120°/s    | -15° ~ 15°                          |
-| torso_1 (Ankle pitch)    | 120°/s    | -30° ~ 90°                          |
-| torso_2 (Knee)           | 180°/s    | -150° ~ 90°                         |
-| torso_3 (Hip pitch)      | 180°/s    | -45° ~ 90°                          |
-| torso_4 (Hip roll)       | 180°/s    | -30° ~ 30°                          |
-| torso_5 (Hip yaw)        | 180°/s    | -135° ~ 135°                        |
-| *_arm_0 (Shoulder pitch) | 180°/s    | -180° ~ 180°                        |
-| *_arm_1 (Shoulder roll)  | 180°/s    |  R : -180° ~ 0°  L : 0° ~ 180°      |
-| *_arm_2 (Shoulder yaw)   | 180°/s    | -180° ~ 180°                        |
-| *_arm_3 (Elbow pitch)    | 180°/s    | -150° ~ 0°                          |
-| *_arm_4 (Wrist yaw1)     | 180°/s    | -180° ~ 180°                        |
-| *_arm_5 (Wrist pitch)    | 180°/s    | -90° ~ 110°                         |
-| *_arm_6 (Wrist yaw2)     | 180°/s    | -155° ~ 155°                        |
-| head_0 (Pan)             | 180°/s    | -180° ~ 180°                          |
-| head_1 (Tilt)            | 180°/s    | -180° ~ 180°                          |
+### Joint Range and Speed Limits
+
+The controller enforces the joint range and speed limits of the robot model (URDF).
+The tables below are generated from the URDF files in rby1-sdk; use them, not the actuator ratings, when you plan trajectories.
+Check your robot's model and version in the Web UI or with `robot.get_robot_info()`.
+
+```{include} generated/joint_limits.md
+```
