@@ -7,4 +7,5 @@ Models
 
    generated/model_a
    generated/model_m
+   generated/model_ub
    

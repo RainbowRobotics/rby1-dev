@@ -78,5 +78,8 @@ The controller enforces the joint range and speed limits of the robot model (URD
 The tables below are generated from the URDF files in rby1-sdk; use them, not the actuator ratings, when you plan trajectories.
 Check your robot's model and version in the Web UI or with `robot.get_robot_info()`.
 
-```{include} generated/joint_limits.md
+```{include} generated/joint_limits_a.md
+```
+
+```{include} generated/joint_limits_m.md
 ```
