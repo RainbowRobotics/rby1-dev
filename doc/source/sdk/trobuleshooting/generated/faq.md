@@ -12,10 +12,16 @@ This issue may occur when the robot is near a joint limit. If a
 .
 To resolve this:
 
-- Set the joints slightly away from the limit using the physical brake release button while the power is off.
-- Once this adjustment is made, try the process again.
-- Additionally, open two log windows during this process to help identify which joint is causing the limit issue.
-```{tip} Make sure you are connected to the dashboard. The logs will only be recorded when the dashboard is accessed, so ensure you are logged in to view the relevant information.
+1. Find the joint that is out of range. The Control Manager logs it when enabling fails, for example:
+   `[ControlManager::Enable] Joint <index> (right_arm_3) position <value> is below the lower limit <limit>. Enabling process aborted.`
+   Read the log in the Web UI, or with the SDK log examples (`15_log.py`, `16_log_stream.py`).
+2. Turn the power off and move that joint slightly back into its range with the physical brake release button.
+3. Turn the power on, enable the servos and enable the Control Manager again.
+
+```{warning}
+When a brake is released, the joint is free and the links above it can fall under their own weight.
+Before you press the brake release button, support the link by hand (two people for the torso joints `torso_*` and for `right_arm_0`–`right_arm_2` and `left_arm_0`–`left_arm_2`),
+release the button before you let go, and keep hands out of pinch points. See [Precautions](../../../precautions/hardware_handling.md).
 ```
 
 ---
