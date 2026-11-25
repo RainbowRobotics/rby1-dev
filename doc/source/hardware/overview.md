@@ -20,7 +20,7 @@
 | **Weight**                           | 131 kg                           |
 | **Arm Payload**                      | 3 kg (per arm)                   |
 | **Arm Reach**                        | 600 mm (to wrist) + hand         |
-| **Joint Maximum Speed, Angle Range** | See [Joint Maximum Speed and Angle Range](#joint-maximum-speed-and-angle-range)|
+| **Joint Range and Speed Limits** | See [Joint Range and Speed Limits](#joint-range-and-speed-limits)|
 | **Power Supply Voltage**             | 48 VDC                           |
 | **Ambient Operating Temperature**    | Up to 40 °C                      |
 | **Arm Repeatability**                | < ±0.05 mm                       |

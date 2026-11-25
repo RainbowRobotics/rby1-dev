@@ -53,7 +53,8 @@ extensions = [
 ]
 
 templates_path = ["_templates"]
-exclude_patterns = []
+# Fragments pulled in with {include}; not pages of their own.
+exclude_patterns = ["hardware/generated/*"]
 
 # Scaled image를 클릭했을 때 원본 이미지로 링크되는 동작 비활성화
 html_scaled_image_link = False
