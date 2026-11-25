@@ -29,13 +29,20 @@ When `ros2 launch rby1_moveit_* demo.launch.py` is launched with real hardware, 
   ros2 service call /stream_control rby1_msgs/srv/StateOnOff "{state: false}"
   ``` 
 
-## Issue: Driver Shutdown on Startup due to Collision
+## Issue: "Collision detected!" Warning
 
 * **Symptom**:
-  If you launch the driver while the robot is already in a collision state (especially common when launching in simulation where default/initial joint states overlap), the driver will detect the collision and immediately log a FATAL error and terminate for safety.
-  
+  The driver logs `Collision detected! Distance: ... (Links: ... <-> ...)` once, and `robot_state.collision` is `true`.
+  This is common in simulation when the initial joint state puts links close together.
+
+* **What the driver does**:
+  The driver only reports the collision. It does **not** stop the robot, cancel the command or shut down.
+  A collision is reported when the smallest link distance is below `collision_threshold` (see [Config File](config_driver_parameters.md)).
+
 * **Resolution**:
-  Temporarily decrease the `collision_threshold` parameter in `driver_parameters.yaml` (e.g. to a very small value or `0.0`), launch the driver safely, command the robot joints to move to a safe, non-colliding pose, and then restore `collision_threshold` to its original value.
+  Move the robot to a pose where the links are apart. If your application must stop on a collision,
+  watch `robot_state.collision` (or the link distances in the robot state) and stop the motion yourself.
+  Do not set `collision_threshold` to `0.0` to hide the warning: it turns off the report your application relies on.
 
 ## Issue: Client-Side Warnings `Ignoring unexpected goal/result response`
 

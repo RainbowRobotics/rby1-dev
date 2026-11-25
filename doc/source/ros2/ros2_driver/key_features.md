@@ -16,5 +16,6 @@
 The driver checks the **target pose** for collisions *before* executing any joint or Cartesian command:
 - **Joint commands**: uses the URDF-based dynamics model to evaluate the target joint configuration for link collisions.
 - **Cartesian commands**: solves the Inverse Kinematics via the built-in optimal control solver to obtain joint angles, then evaluates those angles for collisions.
-- If the predicted configuration is in collision (minimum distance below the threshold), the driver prints a warning log (`RCLCPP_WARN`) rather than aborting or rejecting the command, allowing safer manual intervention.
+- If the predicted configuration is in collision (minimum distance below the threshold), the driver prints a warning log (`RCLCPP_WARN`) and **still executes the command**. It does not abort or reject it.
+- The same applies while the robot moves: the driver sets `robot_state.collision` and warns, but it does not stop the robot. Stopping is the job of your application.
 - ⚠️ This check runs at the same rate as `get_state_period`. A slow period means the check fires less frequently.
