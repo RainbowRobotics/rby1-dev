@@ -6,8 +6,23 @@ import importlib
 import shutil
 
 # ── 환경변수에서 SDK 버전 수신 ──────────────────────────────────────
-SDK_VERSION = os.getenv("SDK_VERSION", os.getenv("RBY1_SDK_VERSION", "dev"))
-AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "dev").split()
+def _submodule_sdk_version() -> str:
+    """Tag of the rby1-sdk submodule the API reference is generated from (e.g. v0.10.1)."""
+    import subprocess
+
+    sdk_dir = pathlib.Path(__file__).resolve().parents[2] / "external" / "rby1-sdk"
+    try:
+        return subprocess.run(
+            ["git", "-C", str(sdk_dir), "describe", "--tags", "--always"],
+            capture_output=True, text=True, check=True,
+        ).stdout.strip() or "dev"
+    except (OSError, subprocess.CalledProcessError):
+        return "dev"
+
+
+SDK_VERSION = os.getenv("SDK_VERSION", os.getenv("RBY1_SDK_VERSION")) or _submodule_sdk_version()
+# Empty by default: a version selector is shown only when several versions are actually published.
+AVAILABLE_VERSIONS = os.getenv("AVAILABLE_VERSIONS", "").split()
 VERSION_BASE_PREFIX = os.getenv("VERSION_BASE_PREFIX", "/")
 
 # ── Project information ───────────────────────────────────────────────

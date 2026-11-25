@@ -14,8 +14,8 @@
    .. autosummary::
    
       ~Robot_A.__init__
-      ~Robot_A.break_engage
-      ~Robot_A.break_release
+      ~Robot_A.brake_engage
+      ~Robot_A.brake_release
       ~Robot_A.cancel_control
       ~Robot_A.connect
       ~Robot_A.connect_wifi

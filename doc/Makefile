@@ -11,7 +11,7 @@ BUILDDIR       = build
 # ------------------------------------------------------------------------------
 # SDK 버전별 빌드 설정 (버전 폴더 출력 + external SDK 태그 고정)
 # ------------------------------------------------------------------------------
-SDK_TAG ?= dev
+SDK_TAG ?= v0.10.1
 
 REPO_ROOT        := $(abspath $(CURDIR)/..)
 EXTERNAL_SDK_DIR := $(REPO_ROOT)/external/rby1-sdk
@@ -67,7 +67,7 @@ help:
 	@echo "  clean-doxygen     Remove Doxygen outputs"
 	@echo
 	@echo "Variables:"
-	@echo "  SDK_TAG=v0.9.0 (default)"
+	@echo "  SDK_TAG=v0.10.1 (default)"
 	@echo "  PROTO_SRC=...             # Path to rby1-sdk/protos"
 	@echo "  PROTO_GLOB=rb/api/*.proto # Which protos to include"
 

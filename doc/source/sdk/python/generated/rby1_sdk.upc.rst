@@ -9,10 +9,13 @@
    .. autosummary::
    
       initialize_device
+      resolve_leader_arm_device_name
+      resolve_master_arm_device_name
    
    .. rubric:: Classes
 
    .. autosummary::
    
+      LeaderArm
       MasterArm
    

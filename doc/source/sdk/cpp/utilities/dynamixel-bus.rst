@@ -120,7 +120,7 @@ read or write grouped or per-device values.
 
 .. rubric:: Related Types
 
-- :doc:`master-arm`
+- :doc:`leader-arm`
 - :doc:`network-utilities`
 
 .. rubric:: Examples

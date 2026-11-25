@@ -3,6 +3,13 @@
 C++ API Reference
 =================
 
+.. note::
+
+   This reference is generated from **rby1-sdk** |sdk_version|
+   (``external/rby1-sdk`` headers). Names that changed in v0.10.0
+   (``break_engage`` → ``brake_engage``, ``MasterArm`` → ``LeaderArm``) are
+   listed under their current names.
+
 This section is the curated C++ class reference for the public headers under
 ``external/rby1-sdk/include/rby1-sdk``. It follows the same broad pattern used
 by industrial SDK references such as ROBOTIS DYNAMIXEL: open a category page,
@@ -40,7 +47,7 @@ points before reading declarations, open :doc:`/examples/c++_ex`.
      - Compile-time model descriptors, rigid-body dynamics, Lie-group math,
        and solver helpers.
    * - :doc:`utilities/index`
-     - ``DynamixelBus``, ``MasterArm``, UDP, threading, and timing helpers
+     - ``DynamixelBus``, ``LeaderArm``, UDP, threading, and timing helpers
      - Lower-level hardware utilities, protocol-facing helpers, and runtime
        support classes.
    * - :doc:`full-api`

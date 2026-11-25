@@ -3,6 +3,13 @@
 Python API Reference
 ====================
 
+.. note::
+
+   This reference is generated from **rby1-sdk** |sdk_version|
+   (``pip install rby1-sdk``). Names that changed in v0.10.0
+   (``break_engage`` → ``brake_engage``, ``MasterArm`` → ``LeaderArm``) are
+   listed under their current names.
+
 .. currentmodule:: rby1_sdk
 
 Overview of the Python SDK reference, grouped by client entry points,
