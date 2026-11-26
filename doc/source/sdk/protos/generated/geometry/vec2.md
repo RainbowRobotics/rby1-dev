@@ -1,9 +1,9 @@
 (rb-api-vec2)=
 # Vec2
 
-- Source proto: `rb/api/geometry.proto`
+- Source proto: [`rb/api/geometry.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/geometry.proto) (rby1-sdk v0.10.1)
 
-Geometry type: vec 2.
+2D vector (x, y).
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

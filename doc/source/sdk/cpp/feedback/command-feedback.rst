@@ -51,4 +51,7 @@ provides access to the header feedback shared by all branches of the tree.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
+- `00_helper.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/00_helper.cpp>`__: checks ``finish_code()`` after ``Get()``.
+- `31_multi_controls.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/31_multi_controls.cpp>`__: prints the finish code of overlapping commands.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

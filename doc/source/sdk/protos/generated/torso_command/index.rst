@@ -1,5 +1,5 @@
-TorsoCommand
-============
+torso_command.proto
+===================
 
 .. toctree::
    :maxdepth: 1

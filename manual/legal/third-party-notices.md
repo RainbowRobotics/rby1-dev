@@ -37,12 +37,28 @@ does not specify a version.
 | [NumPy](https://numpy.org/) | RPC: 2.0.1; SDK: ≥2.0.1 | [BSD-3-Clause][bsd3] | NumPy developers |
 | [python-crontab](https://pypi.org/project/python-crontab/) | 3.2.0 | [LGPL-3.0-or-later][lgpl3] | Martin Owens and contributors |
 | [Pydantic](https://github.com/pydantic/pydantic) | 2.10.6 | [MIT][mit] | Samuel Colvin and contributors |
-| [Python](https://www.python.org/) | ≥3.10, &lt;3.13 | [PSF License and included notices][python] | Python Software Foundation and contributors |
+| [Python](https://www.python.org/) | Inventory: ≥3.10, &lt;3.13; rby1-sdk 0.10.1 wheels: CPython 3.10–3.13 | [PSF License and included notices][python] | Python Software Foundation and contributors |
 | [Dynamixel SDK](https://github.com/ROBOTIS-GIT/DynamixelSDK) | RPC: —; SDK: 3.7.51 | [Apache-2.0][apache] | ROBOTIS |
 | [MuJoCo](https://github.com/google-deepmind/mujoco) | — | [Apache-2.0][apache] | Google DeepMind and contributors |
 | [CImg](https://cimg.eu/) | — | [CeCILL-C][cecillc] OR [CeCILL-2.1][cecill] | David Tschumperlé and contributors |
 | [OSQP](https://github.com/osqp/osqp) | v1.0.0 | [Apache-2.0][apache] | OSQP developers |
 | [osqp-eigen](https://github.com/robotology/osqp-eigen) | v0.10.0 | [BSD-3-Clause][bsd3] | robotology / Fondazione Istituto Italiano di Tecnologia |
+
+## Additional components in the rby1-sdk Python wheels
+
+The rby1-sdk 0.10.1 wheels on PyPI (Linux manylinux_2_35 x86_64 and aarch64, macOS arm64, Windows x64; CPython 3.10–3.13) contain one binary module (`rby1_sdk/_bindings`). Besides gRPC, Dynamixel SDK, Eigen3 and nlohmann_json from the table above, this module includes the components below. NumPy is installed as a separate dependency. The wheels also contain the rby1-sdk `LICENSE` (Apache-2.0) and `NOTICE` files.
+The versions were read from the Linux x86_64 wheel for CPython 3.12. A dash (`—`) means that the version was not identified.
+
+| Component | Version | License | Project and contributors |
+| --- | --- | --- | --- |
+| [tinyxml2](https://github.com/leethomason/tinyxml2) | 10.0.0 | [Zlib][zlib] | Lee Thomason and contributors |
+| [pybind11](https://github.com/pybind/pybind11) | — | [BSD-3-Clause][bsd3] | Wenzel Jakob and contributors |
+| [Protocol Buffers](https://github.com/protocolbuffers/protobuf) | — | [BSD-3-Clause][bsd3] | Google LLC and contributors |
+| [Abseil](https://github.com/abseil/abseil-cpp) | LTS 2025-01-27 | [Apache-2.0][apache] | The Abseil Authors |
+| [OpenSSL](https://github.com/openssl/openssl) | 3.6.5 | [Apache-2.0][apache] | The OpenSSL Project Authors |
+| [c-ares](https://github.com/c-ares/c-ares) | — | [MIT][mit] | c-ares contributors |
+| [RE2](https://github.com/google/re2) | — | [BSD-3-Clause][bsd3] | The RE2 Authors |
+| [zlib](https://zlib.net/) | 1.3.2 | [Zlib][zlib] | Jean-loup Gailly and Mark Adler |
 
 ## Component-specific notices
 
@@ -80,6 +96,7 @@ page do not replace corresponding-source delivery or a written source offer.
 [apache]: https://www.apache.org/licenses/LICENSE-2.0
 [bsd2]: https://opensource.org/license/bsd-2-clause
 [bsd3]: https://opensource.org/license/bsd-3-clause
+[zlib]: https://opensource.org/license/zlib
 [mpl]: https://www.mozilla.org/MPL/2.0/
 [lgpl21]: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 [lgpl3]: https://www.gnu.org/licenses/lgpl-3.0.html

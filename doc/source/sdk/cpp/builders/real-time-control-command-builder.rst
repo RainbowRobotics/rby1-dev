@@ -64,4 +64,6 @@ Its main job is to carry the UDP port used by the real-time path.
 
 .. rubric:: Examples
 
-- ``real_time_control_command.cpp``
+``Robot::Control()`` builds this command for you. See `34_real_time_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/34_real_time_control.cpp>`__.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

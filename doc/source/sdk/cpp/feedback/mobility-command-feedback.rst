@@ -55,4 +55,6 @@ It exposes leaf feedback for joint-velocity and planar-base velocity requests.
 
 .. rubric:: Examples
 
-- ``mobility_command.cpp``
+Examples in rby1-sdk v0.10.1 read only the top-level ``finish_code()`` of ``RobotCommandFeedback``; none reads this feedback type directly. The matching command is sent in `37_mobile_test.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/37_mobile_test.cpp>`__.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

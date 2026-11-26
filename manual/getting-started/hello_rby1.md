@@ -1,6 +1,14 @@
 # Hello, RB-Y1
 
-Rainbow Robotics' newly released Bimanual Mobile Manipulator **RB-Y1** is equipped with both arms with **7 DOF** of freedom per arm and a single leg with **6 DOF** of freedom. This humanoid-shaped robot is mounted on a wheel-type high-speed mobile platform. By solving the limitations of one-armed collaborative robots and fixed industrial robots at once, repetitive and precise work is possible in various industrial sites.
+**RB-Y1** is a bimanual mobile manipulator from Rainbow Robotics: a humanoid upper body with two 7-DoF arms,
+a torso and a 2-DoF head. Model A and Model M stand on a wheeled high-speed mobile base. With two arms it can do work that one-armed
+collaborative robots and fixed industrial robots cannot, in many kinds of industrial sites.
+
+| Model | Torso | Arms | Head | Mobile base | Total DoF |
+| --- | --- | --- | --- | --- | --- |
+| [Model A](../sdk/models/generated/model_a.md) | 6 (`torso_0` – `torso_5`) | 2 × 7 | 2 | 2 wheels (differential) | 24 |
+| [Model M](../sdk/models/generated/model_m.md) | 6 (`torso_0` – `torso_5`) | 2 × 7 | 2 | 4 wheels (mecanum) | 26 |
+| [Model UB](../sdk/models/generated/model_ub.md) | 2 (`torso_hp`, `torso_5`) | 2 × 7 | 2 | None (upper body only) | 18 |
 
 Rainbow Robotics has core robot technology accumulated while developing humanoid robots. We also plan to provide a development environment or sensors for various AI solutions.
 

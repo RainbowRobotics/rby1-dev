@@ -104,5 +104,7 @@ records that describe batteries, power devices, EMO channels, and joints.
 
 .. rubric:: Examples
 
-- ``get_robot_state.cpp`` and ``demo_motion.cpp`` are the right entry points
-  when you want to compare static metadata with live state.
+- `01_hello_rby1.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/01_hello_rby1.cpp>`__: reads ``RobotInfo``.
+- `08_check_firmware_version.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/08_check_firmware_version.cpp>`__: reads motor and firmware information from ``RobotInfo``.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

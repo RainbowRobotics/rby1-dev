@@ -1,4 +1,8 @@
+---
+search: false
+sidebar: false
+---
+
 # Full Proto Type Index
 
-
-- [Protobuf Types](./generated/proto_types.md)
+This page has moved to [Protobuf API Reference](index.md).

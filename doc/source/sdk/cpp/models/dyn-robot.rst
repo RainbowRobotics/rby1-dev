@@ -73,6 +73,8 @@ analysis tools.
 
 .. rubric:: Examples
 
-- ``dynamics/load_urdf.cpp``
-- ``dynamics/mass_matrix.cpp``
-- ``dynamics/inverse_dynamics.cpp``
+- `19_dynamics_robot.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/19_dynamics_robot.cpp>`__: gets the robot's dynamics model with ``GetDynamics()`` and computes inverse dynamics.
+- `dynamics/mass_matrix.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/dynamics/mass_matrix.cpp>`__: mass matrix.
+- `dynamics/inverse_dynamics.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/dynamics/inverse_dynamics.cpp>`__: inverse dynamics.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

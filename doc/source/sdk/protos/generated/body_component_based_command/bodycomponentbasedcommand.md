@@ -1,9 +1,9 @@
 (rb-api-bodycomponentbasedcommand)=
 # BodyComponentBasedCommand
 
-- Source proto: `rb/api/body_component_based_command.proto`
+- Source proto: [`rb/api/body_component_based_command.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/body_component_based_command.proto) (rby1-sdk v0.10.1)
 
-Component-level body command combining left/right arm and torso commands.
+Separate commands for the right arm, the left arm and the torso, executed together.
 
 
 ## Subtypes

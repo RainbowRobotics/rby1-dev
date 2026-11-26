@@ -1,5 +1,5 @@
-RobotState
-==========
+robot_state.proto
+=================
 
 .. toctree::
    :maxdepth: 1

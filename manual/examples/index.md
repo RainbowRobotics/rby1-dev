@@ -1,5 +1,8 @@
+---
+search: false
+sidebar: false
+---
+
 # Examples
 
-- Teleoperation quickstart
-- Playback & timeline tools
-- Data logging and export
+This page has moved to [Examples](ex.md).

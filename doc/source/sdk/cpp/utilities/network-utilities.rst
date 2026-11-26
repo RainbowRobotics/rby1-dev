@@ -68,5 +68,6 @@ types are useful when you need direct transport control.
 
 .. rubric:: Examples
 
-- ``real_time_control_command.cpp``
-- ``rtcomm_protocol.cpp``
+No C++ example in rby1-sdk v0.10.1 uses these types directly. ``Robot::Control()`` uses ``UdpServer`` internally; see `34_real_time_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/34_real_time_control.cpp>`__.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

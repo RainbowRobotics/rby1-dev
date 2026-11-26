@@ -1,5 +1,5 @@
-Log
-===
+log.proto
+=========
 
 .. toctree::
    :maxdepth: 1

@@ -1,7 +1,8 @@
 ---
-orphan: true
+search: false
+sidebar: false
 ---
 
 # Simulators
 
-This page moved. See [MuJoCo](mujoco.md) and [Isaac Sim](isaac_sim.md).
+This page has moved to [Simulation](index.md).

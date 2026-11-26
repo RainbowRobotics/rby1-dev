@@ -1,50 +1,126 @@
 # Protobuf API Reference
 
-Pick a proto module to see its message groups.
+The robot program on the robot PC (RPC) is a gRPC server. Its API is defined in the `.proto` files of
+[rby1-sdk](https://github.com/RainbowRobotics/rby1-sdk/tree/v0.10.1/protos), package `rb.api`.
+These pages are generated from rby1-sdk **v0.10.1**.
 
-- [ArmCommand](./generated/arm_command/index.md)
-- [BasicCommand](./generated/basic_command/index.md)
-- [BodyCommand](./generated/body_command/index.md)
-- [BodyComponentBasedCommand](./generated/body_component_based_command/index.md)
-- [Color](./generated/color/index.md)
-- [CommandHeader](./generated/command_header/index.md)
-- [ComponentBasedCommand](./generated/component_based_command/index.md)
-- [ControlManager](./generated/control_manager/index.md)
-- [ControlManagerService](./generated/control_manager_service/index.md)
-- [File](./generated/file/index.md)
-- [FileService](./generated/file_service/index.md)
-- [Gamepad](./generated/gamepad/index.md)
-- [GamepadService](./generated/gamepad_service/index.md)
-- [Geometry](./generated/geometry/index.md)
-- [GripperCommand](./generated/gripper_command/index.md)
-- [GripperCommandService](./generated/gripper_command_service/index.md)
-- [HeadCommand](./generated/head_command/index.md)
-- [Header](./generated/header/index.md)
-- [JointOperation](./generated/joint_operation/index.md)
-- [JointOperationService](./generated/joint_operation_service/index.md)
-- [Led](./generated/led/index.md)
-- [LedService](./generated/led_service/index.md)
-- [Log](./generated/log/index.md)
-- [LogService](./generated/log_service/index.md)
-- [MobilityCommand](./generated/mobility_command/index.md)
-- [Parameter](./generated/parameter/index.md)
-- [ParameterService](./generated/parameter_service/index.md)
-- [Ping](./generated/ping/index.md)
-- [PingService](./generated/ping_service/index.md)
-- [Power](./generated/power/index.md)
-- [PowerService](./generated/power_service/index.md)
-- [RobotCommand](./generated/robot_command/index.md)
-- [RobotCommandService](./generated/robot_command_service/index.md)
-- [RobotInfo](./generated/robot_info/index.md)
-- [RobotInfoService](./generated/robot_info_service/index.md)
-- [RobotState](./generated/robot_state/index.md)
-- [RobotStateService](./generated/robot_state_service/index.md)
-- [Serial](./generated/serial/index.md)
-- [SerialService](./generated/serial_service/index.md)
-- [System](./generated/system/index.md)
-- [SystemService](./generated/system_service/index.md)
-- [ToolFlange](./generated/tool_flange/index.md)
-- [ToolFlangeService](./generated/tool_flange_service/index.md)
-- [TorsoCommand](./generated/torso_command/index.md)
-- [WholeBodyCommand](./generated/whole_body_command/index.md)
+Use this reference when you write your own gRPC client, for example in a language the SDK does not cover.
+For Python and C++, use the SDK instead: it wraps these calls and adds the robot models, builders and
+real-time control. See the [Python API](../python/index.md) and the [C++ API](../cpp/index.md).
+
+## Connect
+
+- Address: `<RPC address>:50051`, for example `192.168.30.1:50051` from the user PC (UPC).
+  See [Network and Ports](../../getting-started/network-and-ports.md) for the other addresses.
+- The server uses plain gRPC without TLS (insecure channel).
+
+## Generate client code
+
+Get the protos of the same version as this reference and run `protoc`. For Python:
+
+```bash
+git clone --branch v0.10.1 https://github.com/RainbowRobotics/rby1-sdk.git
+pip install grpcio-tools
+python -m grpc_tools.protoc -I rby1-sdk/protos --python_out=. --grpc_python_out=. rby1-sdk/protos/rb/api/*.proto
+```
+
+Read the robot information:
+
+```python
+import grpc
+from rb.api import robot_info_pb2, robot_info_service_pb2_grpc
+
+channel = grpc.insecure_channel("192.168.30.1:50051")
+stub = robot_info_service_pb2_grpc.RobotInfoServiceStub(channel)
+response = stub.GetRobotInfo(robot_info_pb2.GetRobotInfoRequest())
+print(response.robot_info.robot_model_name)
+```
+
+## Before you send a command
+
+A robot command runs only after these steps, in this order. The SDK does the same calls in
+`power_on`, `servo_on` and `enable_control_manager`.
+
+1. `PowerService.PowerCommand` with `COMMAND_POWER_ON`: turn on the power outputs.
+2. `PowerService.JointCommand` with `COMMAND_SERVO_ON`: turn on the joint servos.
+3. `ControlManagerService.ControlManagerCommand` with `COMMAND_ENABLE`: enable the Control Manager.
+4. `RobotCommandService.RobotCommand` (one command) or `RobotCommandStream` (a stream of commands).
+
+::: warning
+Step 4 moves the robot. Keep the area around the robot clear and keep the E-Stop within reach.
+See [First Motion](../../getting-started/first-motion.md) and [E-Stop Basics](../../getting-started/estop-basics.md).
+:::
+
+## How a command is built
+
+A `RobotCommandRequest` holds one `RobotCommand.Request`. Each level selects one branch with a `oneof`
+(the tables label those fields `oneof command`):
+
+```text
+RobotCommand.Request
+├── whole_body_command       WholeBodyCommand.Request: stop_command | real_time_control_command
+├── component_based_command  ComponentBasedCommand.Request (each part optional)
+│   ├── mobility_command     MobilityCommand.Request: joint_velocity_command | se2_velocity_command
+│   ├── body_command         BodyCommand.Request: one body mode, or body_component_based_command
+│   │                        └── BodyComponentBasedCommand.Request: right_arm_command, left_arm_command, torso_command
+│   └── head_command         HeadCommand.Request: joint_position_command
+└── jog_command              JogCommand.Request
+```
+
+<!-- BEGIN generated by doc/scripts/generate_proto_catalog.py -->
+
+## Services
+
+| Service | RPCs |
+| --- | --- |
+| [ControlManagerService](./generated/control_manager_service/controlmanagerservice.md) | ControlManagerCommand, CancelControl, GetTimeScale, SetTimeScale, WaitForControlReady |
+| [FileService](./generated/file_service/fileservice.md) | DownloadFile (server stream) |
+| [GamepadService](./generated/gamepad_service/gamepadservice.md) | UploadGamepadData (client stream) |
+| [GripperCommandService](./generated/gripper_command_service/grippercommandservice.md) | GripperInitialization, GripperMove |
+| [JointOperationService](./generated/joint_operation_service/jointoperationservice.md) | ServoOn, ServoOff, BrakeEngage, BrakeRelease, HomeOffsetReset, GetPositionPIDGain, SetPositionPIDGain, SetPresetPosition |
+| [LEDService](./generated/led_service/ledservice.md) | SetLEDColor |
+| [LogService](./generated/log_service/logservice.md) | GetLastLog, GetLogStream (server stream), SetLogLevel, GetFaultLogList |
+| [ParameterService](./generated/parameter_service/parameterservice.md) | FactoryResetAllParameters, FactoryResetParameter, ResetAllParameters, ResetParameter, GetParameter, SetParameter, GetParameterList, ResetAllParametersToDefault, ResetParameterToDefault |
+| [PingService](./generated/ping_service/pingservice.md) | Ping |
+| [PowerService](./generated/power_service/powerservice.md) | PowerCommand, JointCommand, ToolFlangePowerCommand |
+| [RobotCommandService](./generated/robot_command_service/robotcommandservice.md) | RobotCommand, RobotCommandStream (bidirectional stream) |
+| [RobotInfoService](./generated/robot_info_service/robotinfoservice.md) | GetRobotInfo, GetRobotModel, ImportRobotModel |
+| [RobotStateService](./generated/robot_state_service/robotstateservice.md) | GetRobotState, GetRobotStateStream (server stream), GetControlManagerState, ResetOdometry |
+| [SerialService](./generated/serial_service/serialservice.md) | GetSerialDeviceList, OpenSerialStream (bidirectional stream) |
+| [SystemService](./generated/system_service/systemservice.md) | GetSystemTime, SetSystemTime, SetBatteryLevel, SetBatteryConfig, ResetBatteryConfig, ResetNetworkSetting, ScanWifi, ConnectWifi, DisconnectWifi, GetWifiStatus |
+| [ToolFlangeService](./generated/tool_flange_service/toolflangeservice.md) | SetDigitalOutput |
+
+## Messages by proto file
+
+- [arm_command.proto](./generated/arm_command/index.md)
+- [basic_command.proto](./generated/basic_command/index.md)
+- [body_command.proto](./generated/body_command/index.md)
+- [body_component_based_command.proto](./generated/body_component_based_command/index.md)
+- [color.proto](./generated/color/index.md)
+- [command_header.proto](./generated/command_header/index.md)
+- [component_based_command.proto](./generated/component_based_command/index.md)
+- [control_manager.proto](./generated/control_manager/index.md)
+- [file.proto](./generated/file/index.md)
+- [gamepad.proto](./generated/gamepad/index.md)
+- [geometry.proto](./generated/geometry/index.md)
+- [gripper_command.proto](./generated/gripper_command/index.md)
+- [head_command.proto](./generated/head_command/index.md)
+- [header.proto](./generated/header/index.md)
+- [joint_operation.proto](./generated/joint_operation/index.md)
+- [led.proto](./generated/led/index.md)
+- [log.proto](./generated/log/index.md)
+- [mobility_command.proto](./generated/mobility_command/index.md)
+- [parameter.proto](./generated/parameter/index.md)
+- [ping.proto](./generated/ping/index.md)
+- [power.proto](./generated/power/index.md)
+- [robot_command.proto](./generated/robot_command/index.md)
+- [robot_info.proto](./generated/robot_info/index.md)
+- [robot_state.proto](./generated/robot_state/index.md)
+- [serial.proto](./generated/serial/index.md)
+- [system.proto](./generated/system/index.md)
+- [tool_flange.proto](./generated/tool_flange/index.md)
+- [torso_command.proto](./generated/torso_command/index.md)
+- [whole_body_command.proto](./generated/whole_body_command/index.md)
 - [Scalar Value Types](./generated/scalar-value-types.md)
+
+<!-- END generated by doc/scripts/generate_proto_catalog.py -->

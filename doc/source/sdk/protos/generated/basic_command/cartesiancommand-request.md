@@ -1,9 +1,9 @@
 (rb-api-cartesiancommand-request)=
 # CartesianCommand.Request
 
-- Source proto: `rb/api/basic_command.proto`
+- Source proto: [`rb/api/basic_command.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/basic_command.proto) (rby1-sdk v0.10.1)
 
-Request payload for CartesianCommand.
+Request part of [CartesianCommand](cartesiancommand.md).
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

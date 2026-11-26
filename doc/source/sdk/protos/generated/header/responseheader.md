@@ -1,9 +1,7 @@
 (rb-api-responseheader)=
 # ResponseHeader
 
-- Source proto: `rb/api/header.proto`
-
-Common header for response requests and responses.
+- Source proto: [`rb/api/header.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/header.proto) (rby1-sdk v0.10.1)
 
 Standard response header
 

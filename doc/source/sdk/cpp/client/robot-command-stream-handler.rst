@@ -67,6 +67,37 @@ too restrictive or when feedback must be requested incrementally.
      - ``ms``
      - Timed wait for the stream itself to finish.
 
+.. rubric:: Streaming Commands
+
+Shortened from ``examples/cpp/32_command_stream.cpp``. The loop sends a new
+body joint position target through one open stream every cycle. Each command
+carries a control hold time (see :doc:`../builders/command-header-builder`).
+``Model`` is the model descriptor, for example ``rb::y1_model::A``.
+
+.. code-block:: cpp
+
+   using namespace rb;
+
+   auto stream = robot->CreateCommandStream(10 /* priority */);
+   for (int t = 0; t < 10000; ++t) {
+     Eigen::VectorXd q = Eigen::VectorXd::Zero(Model::kBodyIdx.size());
+     q(q.size() - 3) = M_PI / 4.0 * std::sin(2.0 * M_PI * t * 0.001 / 5.0);
+
+     stream->SendCommand(RobotCommandBuilder().SetCommand(
+         ComponentBasedCommandBuilder().SetBodyCommand(
+             JointPositionCommandBuilder()
+                 .SetCommandHeader(CommandHeaderBuilder().SetControlHoldTime(1.0))
+                 .SetMinimumTime(3)
+                 .SetPosition(q))));
+     std::this_thread::sleep_for(std::chrono::microseconds(500));
+   }
+   stream->Cancel();  // Also call Cancel() when the user stops the program early.
+
+.. warning::
+
+   This loop moves the robot. Clear the area around the robot and keep the
+   E-Stop within reach.
+
 .. rubric:: Detailed Reference
 
 .. doxygenclass:: rb::RobotCommandStreamHandler
@@ -82,5 +113,8 @@ too restrictive or when feedback must be requested incrementally.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp`` is the easiest place to compare one-shot submission
-  against a longer-lived command path.
+- `32_command_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/32_command_stream.cpp>`__: opens a stream and sends joint position commands in a loop.
+- `33_cartesian_command_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/33_cartesian_command_stream.cpp>`__: streams Cartesian targets and calls ``RequestFeedback()``.
+- `22_replay.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/22_replay.cpp>`__: replays recorded positions through a stream.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

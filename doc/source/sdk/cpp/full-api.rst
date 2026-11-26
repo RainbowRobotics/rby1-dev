@@ -1,9 +1,9 @@
 Full API
 ========
 
-The curated pages in this section summarize the most important public C++ types
-one page at a time. When you want the complete generated reference for every
-parsed symbol, open the raw Doxygen site published alongside this Sphinx build.
+The section pages of this reference describe the main public C++ types, one
+page per class. For every symbol in the public headers, open the full Doxygen
+reference. It is generated from the same headers (rby1-sdk |sdk_version|).
 
 .. rubric:: Generated Reference
 
@@ -11,17 +11,12 @@ parsed symbol, open the raw Doxygen site published alongside this Sphinx build.
 - Class list: `Open raw class list <raw-api/classes.html>`_
 - Annotated type list: `Open raw annotated list <raw-api/annotated.html>`_
 
+The Doxygen pages open in the same browser tab and do not have this site's menu.
+Use the browser's back button to return here.
+
 .. rubric:: What You Will Find There
 
-- Every public symbol parsed from ``external/rby1-sdk/include/rby1-sdk``.
-- File-level pages, inheritance views, and full member listings.
-- Internal or lower-level helper types that are intentionally not surfaced as
-  first-class curated pages.
-
-.. rubric:: Why It Stays Separate
-
-- The curated pages remain readable and class-focused.
-- Doxygen entities appear only once in the curated layer, which avoids
-  duplicate-declaration noise during the Sphinx build.
-- The raw site remains available whenever you need exact member-by-member
-  reference.
+- Every public symbol in
+  `include/rby1-sdk <https://github.com/RainbowRobotics/rby1-sdk/tree/v0.10.1/include/rby1-sdk>`__,
+  including lower-level helper types that have no page of their own here.
+- File pages and full member lists.

@@ -1,20 +1,43 @@
 #!/usr/bin/env python3
+"""Split the protoc-gen-doc output into one MyST page per proto type.
+
+Inputs (doc/source/sdk/protos/):
+  generated/protos.md      protoc-gen-doc markdown, patched by patch_protos_md.py
+  generated/protos.json    protoc-gen-doc json (oneof groups, RPC request/response types)
+  command_descriptions.json  {type name: one-paragraph description}
+  type_notes.json          extra text per type, see load_notes()
+
+Outputs (doc/source/sdk/protos/generated/):
+  <module>/<type>.md, <module>/index.rst, proto_types.rst, scalar-value-types.md, SDK_TAG
+
+manual/scripts/generate_reference.py converts these MyST pages into the VitePress site.
+Everything a page says comes from the inputs above, so `make protoc-doc` reproduces the
+committed pages exactly; never edit the generated pages by hand.
+"""
 from __future__ import annotations
 
-import re
-import shutil
-from pathlib import Path
-import os
 import json
+import os
+import re
+import subprocess
+from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parent.parent
-GENERATED_DIR = ROOT / "source" / "sdk" / "protos" / "generated"
+PROTOS_DIR = ROOT / "source" / "sdk" / "protos"
+GENERATED_DIR = PROTOS_DIR / "generated"
 PROTOS_MD = GENERATED_DIR / "protos.md"
+PROTOS_JSON = GENERATED_DIR / "protos.json"
 TYPE_INDEX_RST = GENERATED_DIR / "proto_types.rst"
+SDK_TAG_FILE = GENERATED_DIR / "SDK_TAG"
 SCALAR_FILE_SLUG = "scalar-value-types"
-DESCRIPTION_PATH = ROOT / "source" / "sdk" / "protos" / "command_descriptions.json"
+DESCRIPTION_PATH = PROTOS_DIR / "command_descriptions.json"
+NOTES_PATH = PROTOS_DIR / "type_notes.json"
+SDK_CHECKOUT = ROOT.parent / "external" / "rby1-sdk"
+MANUAL_DIR = ROOT.parent / "manual"
+# Where the type pages end up in the site, relative to manual/ (for links to other manual pages).
+SITE_GENERATED_DIR = Path("sdk/protos/generated")
+SDK_REPO = "https://github.com/RainbowRobotics/rby1-sdk"
 
 LABEL_LINE = re.compile(r"^\(([^)]+)\)=\s*$")
 PROTO_HEADING = re.compile(r"^##\s+(rb/api/[^\s]+\.proto)\s*$")
@@ -24,6 +47,10 @@ LOCAL_ANCHOR_LINK = re.compile(
 )
 SCALAR_LINK = re.compile(r"\[(?P<text>[^\]]+)\]\(#(?P<anchor>scalar-value-types)\)")
 GOOGLE_PROTO_LINK = re.compile(r"\[google\.protobuf\.([A-Za-z0-9_]+)\]\([^)]+\)")
+TABLE_HEADER = re.compile(r"^\|\s*(Field|Name|Method Name)\s*\|")
+TABLE_RULE = re.compile(r"^\|[-| :]+\|$")
+# MyST admonition kinds a note may use; generate_reference.py turns them into ::: containers.
+ADMONITION_KINDS = ("note", "tip", "important", "warning", "danger")
 
 
 def slugify(name: str) -> str:
@@ -44,9 +71,23 @@ def _proto_dir_from_path(proto_path: str) -> str:
     return name.replace(".proto", "")
 
 
-def _rel_link(from_dir: Path, to_path: Path, anchor: str) -> str:
-    rel = Path(os.path.relpath(to_path, from_dir))
-    return f"{rel.as_posix()}#{anchor}"
+def _rel_link(from_dir: Path, to_path: Path) -> str:
+    # Each type has its own page, so links point to the page without an anchor.
+    return Path(os.path.relpath(to_path, from_dir)).as_posix()
+
+
+def sdk_tag() -> str:
+    """SDK tag the protos come from: $SDK_TAG (make protoc-doc passes it), else the tag the
+    external/rby1-sdk checkout is at."""
+    if os.environ.get("SDK_TAG"):
+        return os.environ["SDK_TAG"]
+    result = subprocess.run(
+        ["git", "-C", str(SDK_CHECKOUT), "describe", "--tags", "--exact-match"],
+        capture_output=True, text=True, check=False,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"Set SDK_TAG: {SDK_CHECKOUT} is not checked out at a tag")
+    return result.stdout.strip()
 
 
 def rewrite_local_links(
@@ -56,29 +97,79 @@ def rewrite_local_links(
 ) -> str:
     def _repl(match: re.Match[str]) -> str:
         label = match.group("text")
-        anchor = normalize_anchor(match.group("anchor"))
-        target = anchor_to_target.get(anchor)
+        target = anchor_to_target.get(normalize_anchor(match.group("anchor")))
         if not target:
             return label
-        target_path = Path(target["path"])
-        link = _rel_link(current_proto_dir, target_path, anchor)
-        return f"[{label}]({link})"
+        return f"[{label}]({_rel_link(current_proto_dir, Path(target['path']))})"
 
     def _scalar_repl(match: re.Match[str]) -> str:
         label = match.group("text")
-        anchor = normalize_anchor(match.group("anchor"))
         target_path = GENERATED_DIR / f"{SCALAR_FILE_SLUG}.md"
-        link = _rel_link(current_proto_dir, target_path, anchor)
-        return f"[{label}]({link})"
+        return f"[{label}]({_rel_link(current_proto_dir, target_path)})"
+
+    def _google_repl(match: re.Match[str]) -> str:
+        typename = match.group(1)
+        return f"[google.protobuf.{typename}](https://protobuf.dev/reference/protobuf/google.protobuf/#{typename.lower()})"
 
     text = LOCAL_ANCHOR_LINK.sub(_repl, text)
     text = SCALAR_LINK.sub(_scalar_repl, text)
-    def _google_repl(match: re.Match[str]) -> str:
-        typename = match.group(1)
-        anchor = typename.lower()
-        return f"[google.protobuf.{typename}](https://protobuf.dev/reference/protobuf/google.protobuf/#{anchor})"
-    text = GOOGLE_PROTO_LINK.sub(_google_repl, text)
-    return text
+    return GOOGLE_PROTO_LINK.sub(_google_repl, text)
+
+
+def join_broken_rows(block: str) -> str:
+    """protoc-gen-doc keeps blank lines of multi-paragraph comments inside table cells,
+    which ends the Markdown table; join such a row back into one line with <br>."""
+    lines = block.splitlines()
+    out: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if line.startswith("|") and not line.rstrip().endswith("|"):
+            parts = [line.rstrip()]
+            i += 1
+            while i < len(lines) and not parts[-1].endswith("|"):
+                if lines[i].strip():
+                    parts.append(lines[i].strip())
+                i += 1
+            out.append("<br>".join(parts))
+            continue
+        out.append(line)
+        i += 1
+    return "\n".join(out) + ("\n" if block.endswith("\n") else "")
+
+
+def _cells(row: str) -> list[str]:
+    return [c.strip() for c in row.strip()[1:-1].split("|")]
+
+
+def _row(cells: list[str]) -> str:
+    return "| " + " | ".join(cells) + " |"
+
+
+def annotate_tables(block: str, oneofs: dict[str, str], cell_notes: dict[str, str]) -> str:
+    """Field tables: label oneof members and apply description overrides.
+    Method tables (services): apply description overrides by method name."""
+    lines = block.splitlines()
+    out: list[str] = []
+    kind = ""
+    for idx, line in enumerate(lines):
+        header = TABLE_HEADER.match(line)
+        if header:
+            kind = header.group(1)
+            out.append(line)
+            continue
+        if kind and line.startswith("|") and not TABLE_RULE.match(line):
+            cells = _cells(line)
+            key = cells[0]
+            if kind == "Field" and key in oneofs and not cells[2]:
+                cells[2] = f"oneof {oneofs[key]}"
+            if key in cell_notes and kind in ("Field", "Method Name"):
+                cells[-1] = cell_notes[key]
+            line = _row(cells) if (key in oneofs or key in cell_notes) else line
+        elif not line.startswith("|"):
+            kind = ""
+        out.append(line)
+    return "\n".join(out) + ("\n" if block.endswith("\n") else "")
 
 
 def parse_type_blocks(src: str) -> list[dict[str, Any]]:
@@ -134,17 +225,10 @@ def parse_type_blocks(src: str) -> list[dict[str, Any]]:
 
 def extract_scalar_section(src: str) -> str:
     lines = src.splitlines()
-    start = None
     for idx, line in enumerate(lines):
         if line.strip().lower() == "(scalar-value-types)=":
-            start = idx
-            break
-
-    if start is None:
-        return ""
-
-    block = "\n".join(lines[start:]).strip() + "\n"
-    return block
+            return "\n".join(lines[idx:]).strip() + "\n"
+    return ""
 
 
 def load_descriptions() -> dict[str, str]:
@@ -153,15 +237,81 @@ def load_descriptions() -> dict[str, str]:
     return json.loads(DESCRIPTION_PATH.read_text(encoding="utf-8"))
 
 
-def describe_type(name: str, desc_map: dict[str, str]) -> str:
+def load_notes() -> dict[str, dict[str, Any]]:
+    """type_notes.json: {type name: {
+         "admonitions": [{"kind": "warning", "text": "..."}],   boxes under the description
+         "fields":  {field name: "description"},                replaces the Description cell
+         "methods": {rpc name: "description"},                  replaces the Description cell
+         "see_also": [{"text": "...", "path": "sdk/....md"}]    path relative to manual/
+       }}  Keys starting with "_" are comments."""
+    if not NOTES_PATH.exists():
+        return {}
+    data = json.loads(NOTES_PATH.read_text(encoding="utf-8"))
+    notes = {k: v for k, v in data.items() if not k.startswith("_")}
+    for name, note in notes.items():
+        for box in note.get("admonitions", []):
+            if box["kind"] not in ADMONITION_KINDS:
+                raise ValueError(f"{NOTES_PATH.name}: {name}: unknown admonition kind {box['kind']!r}")
+        for ref in note.get("see_also", []):
+            target = MANUAL_DIR / ref["path"]
+            source_rst = ROOT / "source" / Path(ref["path"]).with_suffix(".rst")
+            if not target.exists() and not source_rst.exists():
+                raise FileNotFoundError(f"{NOTES_PATH.name}: {name}: see_also target {ref['path']} not found")
+    return notes
+
+
+def load_descriptor(path: Path) -> dict[str, Any]:
+    """Facts the markdown output of protoc-gen-doc does not carry: oneof groups and RPC types."""
+    if not path.exists():
+        raise FileNotFoundError(f"Cannot find {path} (make protoc-doc writes it with --doc_opt=json)")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    oneofs: dict[str, dict[str, str]] = {}
+    rpcs: dict[str, list[dict[str, str]]] = {}
+    services: list[dict[str, Any]] = []
+    for f in data["files"]:
+        for m in f["messages"]:
+            groups = {fd["name"]: fd["oneofdecl"] for fd in m["fields"] if fd.get("isoneof")}
+            if groups:
+                oneofs[m["longName"]] = groups
+        for s in f["services"]:
+            services.append({"name": s["longName"], "proto": f["name"], "methods": s["methods"]})
+            for meth in s["methods"]:
+                for role, key in (("request", "requestLongType"), ("response", "responseLongType")):
+                    rpcs.setdefault(meth[key], []).append(
+                        {"role": role, "service": s["longName"], "proto": f["name"], "method": meth["name"]}
+                    )
+    return {"oneofs": oneofs, "rpcs": rpcs, "services": services}
+
+
+def describe_type(name: str, desc_map: dict[str, str], link_of) -> str:
     if name in desc_map:
         return desc_map[name]
-    for suffix in ("Request", "Response", "Feedback"):
+    for suffix in ("Request", "Feedback"):
         if name.endswith(f".{suffix}"):
             base = name.rsplit(".", 1)[0]
             if base in desc_map:
-                return f"{suffix} payload for {base}."
+                return f"{suffix} part of [{base}]({link_of(base)})."
     return ""
+
+
+def oneof_sentence(groups: dict[str, str]) -> str:
+    by_group: dict[str, list[str]] = {}
+    for field, group in groups.items():
+        by_group.setdefault(group, []).append(field)
+    sentences = []
+    for group, fields in by_group.items():
+        listed = ", ".join(f"`{f}`" for f in fields)
+        sentences.append(f"Only one field of the `{group}` oneof can be set at a time: {listed}.")
+    return " ".join(sentences)
+
+
+def rpc_sentence(uses: list[dict[str, str]], link_of) -> str:
+    parts = []
+    for u in uses:
+        parts.append(
+            f"{u['role'].capitalize()} of the `{u['method']}` RPC of [{u['service']}]({link_of(u['service'])})."
+        )
+    return " ".join(parts)
 
 
 def _strip_self_heading(block: str, label: str, name: str) -> str:
@@ -182,39 +332,45 @@ def _strip_self_heading(block: str, label: str, name: str) -> str:
 
 def build_type_page(entry: dict[str, Any]) -> str:
     current_dir = entry["out_dir"]
+    note = entry.get("note", {})
     block = rewrite_local_links(entry["block"], entry["anchor_to_target"], current_dir)
     block = _strip_self_heading(block, entry["label"], entry["name"])
-    description = entry.get("description", "")
-    children = entry.get("children") or []
-    child_section = ""
-    if children:
-        lines = ["", "## Subtypes", ""]
-        for child in children:
-            child_path = (current_dir / f"{child['slug']}.md").relative_to(current_dir)
-            lines.append(
-                f"- [{child['name']}]({child_path.as_posix()}#{child['label']})"
-            )
-        lines.append("")
-        child_section = "\n".join(lines)
+    block = join_broken_rows(block)
+    block = annotate_tables(block, entry.get("oneofs", {}), {**note.get("fields", {}), **note.get("methods", {})})
+
+    proto_url = f"{SDK_REPO}/blob/{entry['sdk_tag']}/protos/{entry['proto']}"
     parts = [
+        f"({entry['label']})=\n",
         f"# {entry['name']}\n\n",
-        f"- Source proto: `{entry['proto']}`\n",
+        f"- Source proto: [`{entry['proto']}`]({proto_url}) (rby1-sdk {entry['sdk_tag']})\n",
         "\n",
     ]
-    if description:
-        parts.append(f"{description}\n\n")
-    if child_section:
-        parts.append(child_section)
+    for paragraph in (entry.get("description", ""), entry.get("rpc_text", ""), entry.get("oneof_text", "")):
+        if paragraph:
+            parts.append(f"{paragraph}\n\n")
+    for box in note.get("admonitions", []):
+        parts.append(f"```{{{box['kind']}}}\n{box['text']}\n```\n\n")
+    see_also = note.get("see_also", [])
+    if see_also:
+        site_dir = SITE_GENERATED_DIR / entry["proto_dir"]
+        links = ", ".join(
+            f"[{ref['text']}]({Path(os.path.relpath(ref['path'], site_dir)).as_posix()})" for ref in see_also
+        )
+        parts.append(f"See also: {links}.\n\n")
+    children = entry.get("children") or []
+    if children:
+        lines = ["", "## Subtypes", ""]
+        lines += [f"- [{child['name']}]({child['slug']}.md)" for child in children]
+        lines.append("")
+        parts.append("\n".join(lines))
     parts.append(block)
     return "".join(parts)
 
 
 def build_scalar_page(block: str, anchor_to_target: dict[str, dict[str, str]]) -> str:
     rewritten = rewrite_local_links(block, anchor_to_target, GENERATED_DIR)
-    return (
-        "# Scalar Value Types\n\n"
-        f"{rewritten}"
-    )
+    # The section heading of protos.md becomes the page title.
+    return rewritten.replace("## Scalar Value Types", "# Scalar Value Types", 1)
 
 
 def main() -> None:
@@ -226,111 +382,89 @@ def main() -> None:
     entries.sort(key=lambda x: x["name"].lower())
     scalar_block = extract_scalar_section(src)
     desc_map = load_descriptions()
+    notes = load_notes()
+    descriptor = load_descriptor(PROTOS_JSON)
+    tag = sdk_tag()
 
-    # Anchor -> target path for cross-page links.
+    unknown = sorted(set(notes) - {e["name"] for e in entries})
+    if unknown:
+        raise KeyError(f"{NOTES_PATH.name}: no such proto type: {', '.join(unknown)}")
+
+    # Type name -> page path, for cross-page links.
     anchor_to_target: dict[str, dict[str, str]] = {}
+    page_of: dict[str, Path] = {}
     for e in entries:
-        proto_dir = GENERATED_DIR / e["proto_dir"]
-        anchor_to_target[e["label"]] = {
-            "path": str(proto_dir / f"{slugify(e['name'])}.md")
-        }
+        page = GENERATED_DIR / e["proto_dir"] / f"{slugify(e['name'])}.md"
+        anchor_to_target[e["label"]] = {"path": str(page)}
+        page_of[e["name"]] = page
     if scalar_block:
-        anchor_to_target["scalar-value-types"] = {
-            "path": str(GENERATED_DIR / f"{SCALAR_FILE_SLUG}.md")
-        }
+        anchor_to_target["scalar-value-types"] = {"path": str(GENERATED_DIR / f"{SCALAR_FILE_SLUG}.md")}
 
-    toctree_lines: list[str] = []
-    # Build parent -> children map (e.g., ArmCommand -> ArmCommand.Feedback)
+    # Parent -> Request/Response/Feedback children in the same proto (e.g. ArmCommand -> ArmCommand.Request).
     by_name = {e["name"]: e for e in entries}
     children_map: dict[str, list[dict[str, str]]] = {}
-    children_seen: dict[str, set[str]] = {}
     for e in entries:
-        if "." in e["name"]:
-            parent = e["name"].split(".", 1)[0]
-            if parent in by_name:
-                seen = children_seen.setdefault(parent, set())
-                if e["name"] in seen:
-                    continue
-                seen.add(e["name"])
-                children_map.setdefault(parent, []).append(
-                    {
-                        "name": e["name"],
-                        "slug": slugify(e["name"]),
-                        "label": e["label"],
-                        "proto_dir": e["proto_dir"],
-                    }
-                )
+        parent, _, suffix = e["name"].partition(".")
+        if suffix in {"Request", "Response", "Feedback"} and parent in by_name \
+                and by_name[parent]["proto_dir"] == e["proto_dir"]:
+            children_map.setdefault(parent, []).append({"name": e["name"], "slug": slugify(e["name"])})
     for k in children_map:
         children_map[k].sort(key=lambda x: x["name"].lower())
 
-    per_proto: dict[str, list[dict[str, str]]] = {}
+    per_proto: dict[str, list[dict[str, Any]]] = {}
     for e in entries:
         proto_dir = GENERATED_DIR / e["proto_dir"]
         proto_dir.mkdir(parents=True, exist_ok=True)
-        e["anchor_to_target"] = anchor_to_target
-        e["out_dir"] = proto_dir
-        e["description"] = describe_type(e["name"], desc_map)
-        # Keep only children within same proto and only Request/Response/Feedback
-        allowed_suffixes = {"Request", "Response", "Feedback"}
-        children = [
-            c
-            for c in children_map.get(e["name"], [])
-            if c["proto_dir"] == e["proto_dir"]
-            and c["name"].split(".")[-1] in allowed_suffixes
-        ]
-        e["children"] = children
-        md = Path(anchor_to_target[e["label"]]["path"])
-        md.write_text(build_type_page(e), encoding="utf-8")
+
+        def link_of(name: str, _from: Path = proto_dir) -> str:
+            return _rel_link(_from, page_of[name])
+
+        e.update(
+            anchor_to_target=anchor_to_target,
+            out_dir=proto_dir,
+            sdk_tag=tag,
+            description=describe_type(e["name"], desc_map, link_of),
+            rpc_text=rpc_sentence(descriptor["rpcs"].get(e["name"], []), link_of),
+            oneofs=descriptor["oneofs"].get(e["name"], {}),
+            note=notes.get(e["name"], {}),
+            children=children_map.get(e["name"], []),
+        )
+        e["oneof_text"] = oneof_sentence(e["oneofs"]) if e["oneofs"] else ""
+        page_of[e["name"]].write_text(build_type_page(e), encoding="utf-8")
         per_proto.setdefault(e["proto_dir"], []).append(e)
 
     if scalar_block:
         scalar_path = GENERATED_DIR / f"{SCALAR_FILE_SLUG}.md"
         scalar_path.write_text(build_scalar_page(scalar_block, anchor_to_target), encoding="utf-8")
 
-    # Per-proto index pages and full type index
+    # Per-proto index pages: titled with the proto file name, so that they differ from the message names.
+    service_names = {s["name"] for s in descriptor["services"]}
     for proto_dir, items in per_proto.items():
         index_path = GENERATED_DIR / proto_dir / "index.rst"
+        if all(item["name"] in service_names for item in items):
+            # Service-only file: manual/sdk/protos/index.md links the service page directly.
+            index_path.unlink(missing_ok=True)
+            continue
         items.sort(key=lambda x: x["name"].lower())
-        title = proto_dir.replace("_", " ").title().replace(" ", "")
-        entries_toctree = [slugify(item["name"]) for item in items]
+        title = f"{proto_dir}.proto"
         content = "\n".join(
-            [
-                title,
-                "=" * len(title),
-                "",
-                ".. toctree::",
-                "   :maxdepth: 1",
-                "",
-            ]
-            + [f"   {name}" for name in entries_toctree]
+            [title, "=" * len(title), "", ".. toctree::", "   :maxdepth: 1", ""]
+            + [f"   {slugify(item['name'])}" for item in items]
         )
         index_path.write_text(content, encoding="utf-8")
 
-    # Full type index (best-effort; skip if not writable)
-    try:
-        TYPE_INDEX_RST.write_text(
-            "\n".join(
-                [
-                    "Protobuf Types",
-                    "==============",
-                    "",
-                    ".. toctree::",
-                    "   :maxdepth: 1",
-                    "",
-                    *sorted(
-                        {
-                            f"{e['proto_dir']}/{slugify(e['name'])}"
-                            for e in entries
-                        }
-                    ),
-                    "",
-                ]
-            ),
-            encoding="utf-8",
-        )
-    except PermissionError:
-        print(f"[proto-types] skipped writing {TYPE_INDEX_RST} (permission denied)")
-    print(f"[proto-types] generated {len(entries)} type pages")
+    # Full type index; generate_reference.py turns it into proto_types.md.
+    TYPE_INDEX_RST.write_text(
+        "\n".join(
+            ["Protobuf Types", "==============", "", ".. toctree::", "   :maxdepth: 1", ""]
+            + sorted({f"{e['proto_dir']}/{slugify(e['name'])}" for e in entries})
+            + [""]
+        ),
+        encoding="utf-8",
+    )
+    # Lets the site build check that the committed pages match the SDK tag it documents.
+    SDK_TAG_FILE.write_text(f"{tag}\n", encoding="utf-8")
+    print(f"[proto-types] generated {len(entries)} type pages from rby1-sdk {tag}")
 
 
 if __name__ == "__main__":

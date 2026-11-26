@@ -1,5 +1,5 @@
-JointOperation
-==============
+joint_operation.proto
+=====================
 
 .. toctree::
    :maxdepth: 1

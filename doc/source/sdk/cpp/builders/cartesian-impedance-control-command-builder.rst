@@ -109,4 +109,6 @@ joint limits, joint stiffness, nullspace targets, and reset behavior.
 
 .. rubric:: Examples
 
-- ``gravity_compensation.cpp``
+No C++ example in rby1-sdk v0.10.1 uses this builder. For impedance control of an arm in Cartesian space with ``ImpedanceControlCommandBuilder``, see `28_cartesian_impedance_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/28_cartesian_impedance_control.cpp>`__.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

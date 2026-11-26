@@ -1,5 +1,5 @@
-Geometry
-========
+geometry.proto
+==============
 
 .. toctree::
    :maxdepth: 1

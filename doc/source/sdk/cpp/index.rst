@@ -3,23 +3,20 @@
 C++ API Reference
 =================
 
-.. note::
+This reference is generated from the public headers in
+`include/rby1-sdk <https://github.com/RainbowRobotics/rby1-sdk/tree/v0.10.1/include/rby1-sdk>`__
+of **rby1-sdk** |sdk_version|. Names that changed in v0.10.0 are listed under
+their current names: ``Robot::BreakEngage()`` / ``BreakRelease()`` became
+``BrakeEngage()`` / ``BrakeRelease()``, and ``rb::upc::MasterArm`` became
+``rb::upc::LeaderArm``.
 
-   This reference is generated from **rby1-sdk** |sdk_version|
-   (``external/rby1-sdk`` headers). Names that changed in v0.10.0
-   (``break_engage`` → ``brake_engage``, ``MasterArm`` → ``LeaderArm``) are
-   listed under their current names.
-
-This section is the curated C++ class reference for the public headers under
-``external/rby1-sdk/include/rby1-sdk``. It follows the same broad pattern used
-by industrial SDK references such as ROBOTIS DYNAMIXEL: open a category page,
-pick one class or struct, then read a compact member summary followed by the
-generated Doxygen block.
+Each section page lists its classes. Each class page starts with a short
+member summary, followed by the full generated declarations.
 
 To build the C++ SDK and link it into your project, start with
 :doc:`build-and-link`. For first-connection checks with the robot, see
-`SDK Installation and Read State <../../getting-started/sdk-install-and-state.md>`_. When you want runnable entry
-points before reading declarations, open `C++ Examples <../../examples/c++_ex.md>`_.
+`SDK Installation and Read State <../../getting-started/sdk-install-and-state.md>`_.
+For runnable programs, see :doc:`cpp-examples`.
 
 .. list-table::
    :header-rows: 1
@@ -51,6 +48,10 @@ points before reading declarations, open `C++ Examples <../../examples/c++_ex.md
      - ``DynamixelBus``, ``LeaderArm``, UDP, threading, and timing helpers
      - Lower-level hardware utilities, protocol-facing helpers, and runtime
        support classes.
+   * - :doc:`cpp-examples`
+     - ``examples/cpp`` in rby1-sdk
+     - The numbered example programs, what each one does, and whether it moves
+       the robot.
    * - :doc:`full-api`
      - raw Doxygen site
      - Full generated symbol list outside the curated reference pages.
@@ -66,4 +67,5 @@ points before reading declarations, open `C++ Examples <../../examples/c++_ex.md
    state/index
    models/index
    utilities/index
+   cpp-examples
    full-api

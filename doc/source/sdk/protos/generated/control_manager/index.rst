@@ -1,5 +1,5 @@
-ControlManager
-==============
+control_manager.proto
+=====================
 
 .. toctree::
    :maxdepth: 1

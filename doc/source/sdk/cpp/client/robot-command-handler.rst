@@ -72,6 +72,7 @@ the request, or retrieve the resulting feedback object.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp`` uses the one-shot command path.
-- ``stop_command.cpp`` is a compact example of submitting one command and
-  waiting for it to finish.
+- `00_helper.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/00_helper.cpp>`__: ``SendCommand()`` followed by ``Get()`` and a ``finish_code()`` check.
+- `31_multi_controls.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/31_multi_controls.cpp>`__: several handlers at once, each with its own finish code.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

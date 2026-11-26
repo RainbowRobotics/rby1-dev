@@ -1,9 +1,9 @@
 (rb-api-getlogstreamrequest)=
 # GetLogStreamRequest
 
-- Source proto: `rb/api/log.proto`
+- Source proto: [`rb/api/log.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/log.proto) (rby1-sdk v0.10.1)
 
-Request to get log stream.
+Request of the `GetLogStream` RPC of [LogService](../log_service/logservice.md).
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

@@ -51,5 +51,7 @@ mainly provides the validity flag used by all derived feedback objects.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp`` and ``stop_command.cpp`` are the natural places where the
-  feedback tree eventually appears.
+- `00_helper.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/00_helper.cpp>`__: checks ``finish_code()`` after ``Get()``.
+- `33_cartesian_command_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/33_cartesian_command_stream.cpp>`__: requests feedback from an open stream.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

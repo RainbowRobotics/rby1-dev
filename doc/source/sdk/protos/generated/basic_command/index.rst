@@ -1,5 +1,5 @@
-BasicCommand
-============
+basic_command.proto
+===================
 
 .. toctree::
    :maxdepth: 1

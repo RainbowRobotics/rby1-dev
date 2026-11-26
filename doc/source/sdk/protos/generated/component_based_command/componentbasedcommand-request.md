@@ -1,9 +1,9 @@
 (rb-api-componentbasedcommand-request)=
 # ComponentBasedCommand.Request
 
-- Source proto: `rb/api/component_based_command.proto`
+- Source proto: [`rb/api/component_based_command.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/component_based_command.proto) (rby1-sdk v0.10.1)
 
-Request payload for ComponentBasedCommand.
+Request part of [ComponentBasedCommand](componentbasedcommand.md).
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

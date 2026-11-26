@@ -75,4 +75,6 @@ covers the solver itself and the nested target records it consumes.
 
 .. rubric:: Examples
 
-- ``optimal_control.cpp`` is the direct example for this page.
+No C++ example in rby1-sdk v0.10.1 uses this solver class. The robot-side optimal control command is shown in `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

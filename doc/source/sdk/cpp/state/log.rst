@@ -22,7 +22,7 @@ by ``GetLastLog()`` and the callback passed into ``StartLogStream()``.
    * - Kind
      - ``struct``
    * - Primary role
-     - Carry a log level and message payload emitted by the robot.
+     - Carry the time, level, and message of one log record emitted by the robot.
 
 .. rubric:: Member Types / Enums
 
@@ -46,12 +46,26 @@ by ``GetLastLog()`` and the callback passed into ``StartLogStream()``.
    * - Field
      - Meaning
      - Notes
+   * - ``timestamp``
+     - Time of the log record, as ``timespec`` (``tv_sec``, ``tv_nsec``).
+     - After ``StartTimeSync()`` has established time sync, the SDK shifts this
+       value to the clock of your computer. Otherwise it is the robot time.
+   * - ``robot_system_timestamp``
+     - Robot PC (RPC) system time of the record, as ``timespec``.
+     - Not shifted by time sync.
    * - ``level``
      - Severity of the log record.
      - Compare against the ``Level`` enum.
    * - ``message``
      - Human-readable message text.
      - The main payload most tools display.
+
+.. note::
+
+   In the generated declarations below, ``timestamp`` and
+   ``robot_system_timestamp`` appear as nested ``struct`` entries. They are
+   plain ``timespec`` members (``struct timespec timestamp{}`` in ``log.h``),
+   not types of their own.
 
 .. rubric:: Detailed Reference
 
@@ -67,5 +81,7 @@ by ``GetLastLog()`` and the callback passed into ``StartLogStream()``.
 
 .. rubric:: Examples
 
-- ``log.cpp`` is the direct example for fetching and streaming ``rb::Log``
-  records.
+- `15_log.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/15_log.cpp>`__: ``GetLastLog()``.
+- `16_log_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/16_log_stream.cpp>`__: ``StartLogStream()`` and ``StopLogStream()``.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

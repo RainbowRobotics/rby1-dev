@@ -1,5 +1,5 @@
-Ping
-====
+ping.proto
+==========
 
 .. toctree::
    :maxdepth: 1

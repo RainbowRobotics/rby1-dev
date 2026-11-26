@@ -1,5 +1,5 @@
-Power
-=====
+power.proto
+===========
 
 .. toctree::
    :maxdepth: 1

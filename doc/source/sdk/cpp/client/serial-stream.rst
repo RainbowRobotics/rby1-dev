@@ -1,9 +1,16 @@
 SerialStream
 ============
 
-``rb::SerialStream`` exposes an SDK-managed serial-device connection. It sits
-next to the main robot client and is useful when you need asynchronous serial
-I/O through the same SDK surface.
+``rb::SerialStream`` is a connection to a serial device on the robot PC (RPC),
+opened through the robot client with ``Robot::OpenSerialStream()``. Use it for
+asynchronous serial I/O with a device attached to the robot.
+``Robot::GetSerialDeviceList()`` returns the available devices as
+``rb::SerialDevice`` records (``path``, ``description``).
+
+The SDK serial examples (``38_serial_device.cpp``, ``39_serial_communication.cpp``)
+note that they do not run in simulation and do not apply while the Control
+Manager is enabled. A device that sends data as soon as it connects, such as
+some sensors, can overload the RPC.
 
 .. rubric:: Header
 
@@ -73,6 +80,13 @@ I/O through the same SDK surface.
    :members:
    :undoc-members:
 
+.. rubric:: SerialDevice
+
+.. doxygenstruct:: rb::SerialDevice
+   :project: rby1-sdk
+   :members:
+   :undoc-members:
+
 .. rubric:: Related Types
 
 - :doc:`robot`
@@ -80,5 +94,7 @@ I/O through the same SDK surface.
 
 .. rubric:: Examples
 
-- ``module_test/*`` examples are the closest reference points when the workflow
-  involves direct peripheral communication.
+- `38_serial_device.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/38_serial_device.cpp>`__: lists serial devices with ``GetSerialDeviceList()``.
+- `39_serial_communication.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/39_serial_communication.cpp>`__: opens a ``SerialStream``, sets a read callback and writes data.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

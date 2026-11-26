@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""Turn the HTML anchors of protoc-gen-doc markdown into MyST labels (input of generate_proto_type_pages.py).
+
+Usage: patch_protos_md.py generated/protos.md   (edits the file in place; running it twice changes nothing)
+"""
 import re
 import sys
 from pathlib import Path
@@ -6,12 +10,11 @@ from pathlib import Path
 p = Path(sys.argv[1])
 s = p.read_text(encoding="utf-8")
 
-# <a name="rb-api-XXX"></a> (또는 id) + 다음 ### 헤딩을
-# (rb-api-xxx)= 라벨 + ### 헤딩으로 변환
+# <a name="rb-api-XXX"></a> (or id=) + the next ### heading -> (rb-api-xxx)= label + ### heading
 def repl(m):
     anchor = m.group(1).strip()
     heading = m.group(2).strip()
-    label = anchor.lower()   # 정규화 이슈 방지
+    label = anchor.lower()  # labels are lower case; links are lowered the same way
     return f"({label})=\n### {heading}\n"
 
 s2 = re.sub(
@@ -20,12 +23,11 @@ s2 = re.sub(
     s
 )
 
-# <a name="rb_api_XXX"></a> (또는 id) + 중간 Top 링크 + 다음 ## 헤딩을
-# (rb_api_xxx)= 라벨 + ## 헤딩으로 변환
+# <a name="rb_api_XXX"></a> (or id=) + optional "Top" link + the next ## heading -> (rb_api_xxx)= label + ## heading
 def repl_proto(m):
     anchor = m.group(1).strip()
     heading = m.group(2).strip()
-    label = anchor.lower()   # 정규화
+    label = anchor.lower()
     return f"({label})=\n## {heading}\n"
 
 s2 = re.sub(
@@ -36,10 +38,7 @@ s2 = re.sub(
     s2
 )
 
-### google protobuf type
-
-
-#### Scalar type 
+# Scalar types: all links go to the one "Scalar Value Types" section.
 SCALAR_TYPES = [
     "double", "float",
     "int32", "int64", "uint32", "uint64",
@@ -49,7 +48,7 @@ SCALAR_TYPES = [
     "bool", "string", "bytes"
 ]
 
-# 1️⃣ Add label before "Scalar Value Types"
+# Label the "Scalar Value Types" section.
 if "(scalar-value-types)=" not in s2:
     s2 = s2.replace(
         "## Scalar Value Types",
@@ -57,7 +56,7 @@ if "(scalar-value-types)=" not in s2:
         1
     )
 
-# 2️⃣ Remove HTML anchors in scalar table
+# Remove the HTML anchors in the scalar table.
 for t in SCALAR_TYPES:
     s2 = re.sub(
         rf'<a\s+name="{t}"\s*/>\s*{t}',
@@ -65,7 +64,7 @@ for t in SCALAR_TYPES:
         s2
     )
 
-# 3️⃣ Replace links like [double](#double) → [double](#scalar-value-types)
+# [double](#double) -> [double](#scalar-value-types)
 for t in SCALAR_TYPES:
     s2 = re.sub(
         rf'\[{t}\]\(#\s*{t}\)',

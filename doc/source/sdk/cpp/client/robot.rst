@@ -48,12 +48,15 @@ commands, and read state or logs.
      - Manage device power and servo state.
      - Device names accept regex-style patterns.
    * - ``BrakeRelease()`` and ``BrakeEngage()``
-     - Manage brakes on the selected devices.
-     - Useful in bring-up and service workflows.
+     - Release or engage the brakes of the joints that match the name pattern.
+     - Service use only. A released joint can move under gravity. Read the
+       Safety Notes below first.
    * - ``EnableControlManager()``, ``DisableControlManager()``,
        ``ResetFaultControlManager()``, ``WaitForControlReady()``
      - Control the execution subsystem and clear control-manager faults.
      - Check :doc:`../state/control-manager-state` first when faults are active.
+       ``EnableControlManager(true)`` turns on unlimited mode; read the
+       Safety Notes below first.
    * - ``SendCommand(...)`` and ``CreateCommandStream(...)``
      - Submit one-shot commands or open a command stream.
      - Use :doc:`../builders/index` to construct the payload.
@@ -76,6 +79,81 @@ commands, and read state or logs.
        ``ResetOdometry(...)``
      - Cover networking, serial-device access, and mobility-adjacent utilities.
      - These are secondary but still part of the public client.
+
+.. rubric:: Typical Flow
+
+The motion examples in rby1-sdk follow these steps (``InitializeRobot()`` and
+``MoveJ()`` in ``examples/cpp/00_helper.cpp``): connect, power on, servo on,
+reset a Control Manager fault if there is one, enable the Control Manager, send
+a command, and wait for its feedback.
+
+.. code-block:: cpp
+
+   #include "rby1-sdk/model.h"
+   #include "rby1-sdk/robot.h"
+   #include "rby1-sdk/robot_command_builder.h"
+
+   using namespace rb;
+
+   int main() {
+     using Model = y1_model::A;
+     auto robot = Robot<Model>::Create("192.168.30.1:50051");
+     if (!robot->Connect()) return 1;
+
+     // ".*" is a regex that matches every device.
+     if (!robot->IsPowerOn(".*") && !robot->PowerOn(".*")) return 1;
+     if (!robot->IsServoOn(".*") && !robot->ServoOn(".*")) return 1;
+
+     const auto cms = robot->GetControlManagerState();
+     if (cms.state == ControlManagerState::State::kMajorFault ||
+         cms.state == ControlManagerState::State::kMinorFault) {
+       if (!robot->ResetFaultControlManager()) return 1;
+     }
+     if (!robot->EnableControlManager()) return 1;
+
+     // Move the torso and both arms to the zero pose in at least 5 s. This moves the robot.
+     Eigen::VectorXd q = Eigen::VectorXd::Zero(Model::kBodyIdx.size());
+     auto handler = robot->SendCommand(RobotCommandBuilder().SetCommand(
+         ComponentBasedCommandBuilder().SetBodyCommand(
+             JointPositionCommandBuilder().SetPosition(q).SetMinimumTime(5.0))));
+
+     const auto feedback = handler->Get();  // Blocks until the command finishes.
+     return feedback.finish_code() == RobotCommandFeedback::FinishCode::kOk ? 0 : 1;
+   }
+
+.. warning::
+
+   This snippet moves the robot. Clear the area around the robot and keep the
+   E-Stop within reach before you run it. See
+   `E-Stop Basics <../../../getting-started/estop-basics.md>`_.
+
+.. rubric:: Safety Notes
+
+.. danger::
+
+   ``BrakeRelease(dev_name)`` releases the brakes of every joint whose name
+   matches the regex ``dev_name``. A joint with a released brake and no servo
+   torque can move or drop under gravity. ``".*"`` matches every joint,
+   including the torso. Use it only for service work: start from a safe
+   posture, release one joint at a time, support the link if needed, and call
+   ``BrakeEngage()`` afterwards. The SDK example ``36_brake_test.cpp`` refuses
+   torso joints and ``".*"`` for this reason.
+
+.. warning::
+
+   ``EnableControlManager(true)`` enables **unlimited mode**. In this mode the
+   robot skips the joint position limit check when the Control Manager is
+   enabled, and jog commands are not clamped to the joint limits. Use it only
+   to recover a joint that is outside its limits, with slow motions and the
+   E-Stop within reach. Use the default ``EnableControlManager()`` (``false``)
+   for normal operation. ``ControlManagerState::unlimited_mode_enabled``
+   shows the current mode.
+
+.. warning::
+
+   ``PowerOff()`` and ``ServoOff()`` stop motor control of the matching
+   devices. Stop running commands and bring the robot to a safe, supported
+   posture before you call them.
 
 .. rubric:: Numeric Parameters & Returns
 
@@ -135,8 +213,19 @@ commands, and read state or logs.
    :members:
    :undoc-members:
 
+.. rubric:: Color
+
+``rb::Color`` is the argument of ``SetLEDColor()``. ``r``, ``g`` and ``b`` are
+8-bit channel values in ``[0, 255]``.
+
+.. doxygenstruct:: rb::Color
+   :project: rby1-sdk
+   :members:
+   :undoc-members:
+
 .. rubric:: Related Types
 
+- :doc:`serial-stream` (``SerialDevice``, ``SerialStream``)
 - :doc:`robot-command-handler`
 - :doc:`robot-command-stream-handler`
 - :doc:`control-loop-types`
@@ -144,6 +233,12 @@ commands, and read state or logs.
 
 .. rubric:: Examples
 
-- ``get_robot_state.cpp`` for the smallest connection and state flow.
-- ``demo_motion.cpp`` for a full connect-power-servo-command cycle.
-- ``real_time_control_command.cpp`` for the advanced ``Control()`` path.
+- `01_hello_rby1.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/01_hello_rby1.cpp>`__: connect and read ``RobotInfo``.
+- `03_robot_state.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/03_robot_state.cpp>`__: power on and read one state snapshot.
+- `05_robot_state_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/05_robot_state_stream.cpp>`__: state updates with ``StartStateUpdate()``.
+- `07_power.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/07_power.cpp>`__: ``PowerOn()`` and ``PowerOff()``.
+- `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__: full power, servo, control manager and command cycle.
+- `34_real_time_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/34_real_time_control.cpp>`__: the ``Control()`` real-time path.
+- `36_brake_test.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/36_brake_test.cpp>`__: ``BrakeRelease()`` and ``BrakeEngage()`` on one joint.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

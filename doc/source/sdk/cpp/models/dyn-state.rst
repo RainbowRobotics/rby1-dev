@@ -78,5 +78,7 @@ and base-motion terms used by the dynamics layer.
 
 .. rubric:: Examples
 
-- ``dynamics/load_urdf.cpp``
-- ``dynamics/gravity_term.cpp``
+- `19_dynamics_robot.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/19_dynamics_robot.cpp>`__: ``MakeState()``, ``SetQ()``, ``SetQdot()``, ``SetQddot()`` and ``GetTau()``.
+- `dynamics/gravity_term.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/dynamics/gravity_term.cpp>`__: gravity term.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

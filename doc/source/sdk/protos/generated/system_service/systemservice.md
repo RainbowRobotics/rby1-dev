@@ -1,9 +1,9 @@
 (rb-api-systemservice)=
 # SystemService
 
-- Source proto: `rb/api/system_service.proto`
+- Source proto: [`rb/api/system_service.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/system_service.proto) (rby1-sdk v0.10.1)
 
-gRPC service for system.
+System settings of the robot PC (RPC): system time, battery level and configuration, network reset and Wi-Fi.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|

@@ -20,7 +20,8 @@ timing facilities.
      - Device-level access to Dynamixel-based peripherals.
    * - :doc:`leader-arm`
      - ``rb::upc::LeaderArm``
-     - Leader-arm (formerly master-arm) device integration and local control support.
+     - Leader arm device integration and local control support. The old name
+       ``rb::upc::MasterArm`` is a deprecated alias (see :doc:`master-arm`).
    * - :doc:`network-utilities`
      - ``rb::UdpClient``, ``UdpIPv4Client``, ``UdpIPv6Client``, ``UdpServer``
      - Lower-level UDP transport types used by the real-time path.

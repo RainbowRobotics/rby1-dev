@@ -1,5 +1,5 @@
-WholeBodyCommand
-================
+whole_body_command.proto
+========================
 
 .. toctree::
    :maxdepth: 1

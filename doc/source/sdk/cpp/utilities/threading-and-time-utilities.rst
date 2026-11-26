@@ -63,5 +63,6 @@ main robot client APIs.
 
 .. rubric:: Examples
 
-- ``real_time_control_command.cpp`` is the most relevant example whenever
-  execution timing matters.
+No C++ example in rby1-sdk v0.10.1 uses these types directly.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

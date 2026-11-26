@@ -1,9 +1,9 @@
 (rb-api-jointinfo)=
 # JointInfo
 
-- Source proto: `rb/api/robot_info.proto`
+- Source proto: [`rb/api/robot_info.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/robot_info.proto) (rby1-sdk v0.10.1)
 
-Static information for joint.
+Static information about one joint: name, brake, motor product and firmware version.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

@@ -77,5 +77,7 @@ adjoint operators between reference frames.
 
 .. rubric:: Examples
 
-- ``dynamics/load_urdf.cpp`` and ``optimal_control.cpp`` are good places to see
-  ``SE3`` in context.
+- `18_dynamics_modeling.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/18_dynamics_modeling.cpp>`__: prints an ``SE3`` transform from forward kinematics.
+- `28_cartesian_impedance_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/28_cartesian_impedance_control.cpp>`__: ``SE3`` targets for Cartesian commands.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

@@ -1,24 +1,31 @@
 # Bootloader
 
-## How to Run Bootloader
+The bootloader tool writes new firmware to the motor drivers of RB-Y1 over CAN.
+You run it on the user PC (UPC) or on another Linux PC. It connects to the robot PC (RPC) over SSH and sends the CAN commands from there.
 
-This section describes how to update firmware using the bootloader tool.
-Before running the bootloader, make sure the robot is powered on and the correct firmware file is prepared.
+::: danger Before you flash firmware
+- The robot PC (RPC) must be **on** and reachable over the network. The tool connects to it over SSH.
+- The tool switches the motor power by itself during the flash. Before you start, stop every program that controls the robot, put the robot in a stable pose with the arms resting or supported, disable the Control Manager, and then turn the servos and the motor power (48 V) **off** (see [Disable the Control Manager Before Changing the Power State](../precautions/power_and_battery.md#disable-the-control-manager-before-changing-the-power-state)).
+- Keep the charger connected or make sure the battery is charged.
+- Do not turn off the RPC or disconnect the network while the tool erases or writes the firmware. Press the E-Stop only in an emergency. If the flash is interrupted, run it again (see [Failure cases](#failure-cases)).
+- Flash only the joint that you need to update, with the HEX file listed for it below.
+:::
 
-### Downloads (Bootloader)
-- bootloader: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgAPC9hh-MFvS5toN3rIdpiAAUbj6jN0K3uMJGrOATRRq4E?e=bkZcrh">Download</a>
+## Downloads
 
-The downloaded files include HEX firmware images for each robot module and bootloader executables for different system architectures.
+- Bootloader package: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgAPC9hh-MFvS5toN3rIdpiAAUbj6jN0K3uMJGrOATRRq4E?e=bkZcrh" target="_blank" rel="noopener noreferrer">Download</a>
 
-#### HEX Firmware Files
+The package contains HEX firmware images for the motor drivers and the bootloader executables.
 
-Each HEX file contains the firmware image for the actuator modules indicated by its file name.
+### HEX firmware files
 
-| File name | Target module |
+Each HEX file is the firmware image for the joints in its file name.
+
+| File name | Target joints |
 |---|---|
-| `com_head_0_1.hex` | head_0, head_1 |
+| `com_head_0_1.hex` | head_0, head_1 (v1.2 and v1.3 only; see the note below) |
 | `com_left_arm_0.hex` | left_arm_0 |
-| `com_left_arm_1_2.hex` | left_arm_1,left_arm_2 |
+| `com_left_arm_1_2.hex` | left_arm_1, left_arm_2 |
 | `com_left_arm_3.hex` | left_arm_3 |
 | `com_left_arm_4.hex` | left_arm_4 |
 | `com_left_arm_5.hex` | left_arm_5 |
@@ -30,43 +37,48 @@ Each HEX file contains the firmware image for the actuator modules indicated by 
 | `com_torso_3_5.hex` | torso_3, torso_5 |
 | `com_torso_4.hex` | torso_4 |
 
-#### Bootloader Executables
-
-Select the bootloader executable that matches the architecture of the system where the bootloader will be executed.
-
-| File name | Target system |
-|---|---|
-| `upc_firmware_bootloader_jetson` | ARM-based systems, such as Jetson |
-| `upc_firmware_bootloader_x86` | x86_64 systems |
-
-::: info Note
-Use the HEX file that matches the target module. Using an incorrect HEX file may erase or flash the wrong actuator.
-:::
+- The package has no HEX file for right_arm_6, left_arm_6 or the wheels. Contact support if one of these joints needs a firmware update.
+- On v1.0 and v1.1 robots, head_0 and head_1 are Dynamixel actuators, not CAN motor drivers. Do not use `com_head_0_1.hex` on these robots.
+- The table lists the joint names of Model A and Model M. Contact support before you flash a Model UB robot.
 
 ::: warning
-Ensure that the robot’s main power is **turned off** before proceeding.
+Use the HEX file that matches the target joint. A wrong HEX file can erase or flash the wrong actuator.
 :::
 
-### Usage (Bootloader)
+### Bootloader executables
+
+Use the executable that matches the CPU of the computer that runs the tool.
+
+| File name | Computer |
+|---|---|
+| `upc_firmware_bootloader_jetson` | ARM64, for example the UPC (Jetson) |
+| `upc_firmware_bootloader_x86` | x86_64 Linux PC |
+
+## Usage
 
 ```bash
-## For ARM-based systems
-sudo chmod +x upc_firmware_bootloader_jetson
-## For x86_64 systems
-sudo chmod +x upc_firmware_bootloader_x86
+# Make the executable runnable (once)
+chmod +x upc_firmware_bootloader_jetson   # ARM64 (UPC)
+chmod +x upc_firmware_bootloader_x86      # x86_64
 
-# RUN
-./upc_firmware_bootloader_<OS> <RPC IP> <TARGET JOINT> <HEX FILE>
-## ex) torso_0.
-## For ARM-based systems
+# Run
+./upc_firmware_bootloader_<ARCH> <RPC IP> <TARGET JOINT> <HEX FILE>
+
+# Example: flash torso_0 from the UPC (wired connection to the RPC)
 ./upc_firmware_bootloader_jetson 192.168.30.1 torso_0 com_torso_0_1_2.hex
-## For x86_64 systems
-./upc_firmware_bootloader_x86 <RPC IP> torso_0 com_torso_0_1_2.hex
+
+# Example: flash torso_0 from an x86_64 PC on the RPC's Wi-Fi network
+./upc_firmware_bootloader_x86 <RPC Wi-Fi IP> torso_0 com_torso_0_1_2.hex
 ```
 
-After running the bootloader command, the flash target confirmation message will be displayed.
+`<ARCH>` is `jetson` or `x86`. `<TARGET JOINT>` is one joint name, for example `torso_0`.
 
-```bash
+The tool flashes one joint per run. When one HEX file covers several joints (for example `com_torso_0_1_2.hex`), run the tool once for each joint that you update.
+
+After you start the command, the tool shows the flash target and asks for confirmation.
+It has not sent any SSH, power, erase or write command at this point.
+
+```text
 ========================================
  UPC->RPC CAN Bootloader Flash (native RPC burn worker)
 ========================================
@@ -81,48 +93,50 @@ After running the bootloader command, the flash target confirmation message will
 Type "yes" to start flash [yes]:
 ```
 
-If the target joint and HEX file are correct, type yes and press Enter to start the flash process.
+Check the joint and the HEX file. If both are correct, type `yes` and press Enter to start the flash.
 
-```bash
+```text
 Type "yes" to start flash [yes]: yes
 ```
 
-### Result Guide (Bootloader)
+## Results
 
-#### Success Case (Bootloader)
+### Success
 
-```bash
+```text
 [DONE] flash sequence complete
 ```
 
-#### Failure Cases (Bootloader)
+### Failure cases
 
-If the bootloader fails, check the error message and rerun the flash process again.
-In most cases, the firmware can be recovered by running the bootloader again.
+If the flash fails, read the error message and run the tool again.
+In most cases, running the full flash again recovers the firmware.
 
-- Unsupported firmware version
+**Unsupported firmware version**
 
-This error occurs when the firmware version does not support the bootloader.
+The firmware on the driver is too old for this bootloader.
 
-```bash
+```text
 [FAIL] unsupported firmware version for this bootloader
 ```
 
-- Incorrect HEX file
+Do not retry. Save the terminal output and contact the support team (<a href="mailto:rby.support@rainbow-robotics.com" target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>).
 
-This error occurs when the selected .hex file does not match the target joint.
+**Wrong HEX file**
 
-```bash
+The HEX file does not match the target joint.
+
+```text
 [ERR] HEX filename <Hex File Name>.hex is not allowed for joint torso_0 (expected=com_torso_0_1_2.hex)
 ```
 
-Check that the target joint name and .hex filename are correct, then run the bootloader again.
+Check the joint name and the HEX file name, then run the tool again.
 
-- Error during Erase
+**Error during erase**
 
-This error occurs when the erase step does not complete normally.
+The erase step did not finish.
 
-```bash
+```text
 [STEP] ERASE start (may take up to ~30s)
 [WARN] ERASE ack(22) not received, retry 2/2
 [SUMMARY] rewrite-required failure: ERASE ack(22) not received after 2 attempts
@@ -131,14 +145,13 @@ This error occurs when the erase step does not complete normally.
 [OK] cleanup done
 ```
 
-In this case, the firmware image state may be uncertain.
-Run the flash process again to perform erase and rewrite.
+The firmware image may be incomplete. Run the full flash again; it erases and rewrites the image.
 
-- Error during burn
+**Error during write (burn)**
 
-This error occurs when communication fails while writing the firmware.
+Communication failed while the firmware was written.
 
-```bash
+```text
 [STEP] BURN start (8816/8816 lines)
     progress: 5290/8816 (60%) elapsed=9.99s rate=530 lines/s
 [SUMMARY] rewrite-required failure: BL handshake timeout at line 5337 (expected 99)
@@ -147,16 +160,6 @@ This error occurs when communication fails while writing the firmware.
 [OK] cleanup done
 ```
 
-In this case, the firmware write process was interrupted.
-Run the flash process again to perform erase and rewrite.
+The write was interrupted. Run the full flash again; it erases and rewrites the image.
 
-- Unsupported firmware version
-
-This error occurs when the current firmware version is too old to be supported by this bootloader.
-
-```bash
-[FAIL] unsupported firmware version for this bootloader
-```
-
-If FAIL is displayed, please save the terminal output and contact our CS team(<a href="mailto:rby.support@rainbow-robotics.com"
-   target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>).
+If the flash still fails after you run it again, save the terminal output and contact the support team.

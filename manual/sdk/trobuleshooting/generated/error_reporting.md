@@ -1,27 +1,40 @@
 # Error Reporting
 
-## Error Reporting and Troubleshooting
+Report problems so that we can fix them. Which channel to use depends on the problem; the [Support](../../../support.md) page has the full list.
 
-We are continuously working to gather and address various runtime errors and issues experienced by users. If you encounter any problems, we highly encourage you to report them through the following channels:
+| Problem | Where to report |
+| --- | --- |
+| A bug in the SDK: wrong behavior, a crash, a wrong API description | [rby1-sdk GitHub Issues](https://github.com/RainbowRobotics/rby1-sdk/issues) |
+| Questions, and runtime errors you want to discuss with other users | [rby1-sdk GitHub Discussions](https://github.com/RainbowRobotics/rby1-sdk/discussions) |
+| Hardware faults, repairs, firmware, or anything that needs your robot's serial number or private data | E-mail `rby.support@rainbow-robotics.com` |
 
----
-### How to Report Issues:
+GitHub Issues and Discussions are public. Do not post serial numbers, IP addresses of your network or other private data there; use e-mail for these.
 
-- GitHub Issues: If you're facing any technical issues or bugs, please submit them to our GitHub Issues page. This helps us track and resolve problems efficiently.
-<a href="https://github.com/RainbowRobotics/rby1-sdk/issues" 
-  target="_blank" rel="noopener noreferrer">
-  Submit an Issue
-</a>
+## Before you report
 
-- GitHub Discussions: For general questions, feedback, or to discuss common runtime errors with other users and developers, you can join our GitHub Discussions forum.
-<a href="https://github.com/RainbowRobotics/rby1-sdk/discussions"
-  target="_blank" rel="noopener noreferrer">
-  Join the Discussion
-</a>
+Collect this information. It lets us reproduce the problem without asking you again.
 
-- Email for Sensitive Inquiries: If you have more sensitive or private questions, feel free to reach out directly via email at
-rby.support@rainbow-robotics.com
+- **Robot:** model (A, M or UB) and hardware version (for example v1.2).
+- **Versions:** the robot software version and the SDK version. In Python:
 
-::: warning Important
-We are actively collecting diverse user scenarios to improve the SDK. Your feedback and issue reports are invaluable in helping us improve the Rainbow Robotics SDK. Thank you for your continued support.
+  ```python
+  import rby1_sdk as rby
+
+  print("SDK on this PC:", rby.__version__)
+  robot = rby.create_robot("192.168.30.1:50051", "a")  # your address and model
+  robot.connect()
+  info = robot.get_robot_info()
+  print("Robot software:", info.version, "| SDK on the robot:", info.sdk_version)
+  print("Robot model:", info.robot_model_name, info.robot_model_version)
+  ```
+
+- **Steps:** what you did, what you expected and what happened. Attach the smallest code that shows the problem.
+- **Control Manager state and log:** the state when the problem happened and the related log lines. See [Fault Diagnosis](../fault-diagnosis.md).
+- **Fault log:** if the Control Manager went to `MajorFault`, the fault log file (`fault-*.csv`) of that time. Download it with the [17_fault_log](../../../examples/ex.md) example.
+- **Robot logs:** for problems that are hard to describe, the logs from [Log Backup](../../../rpc_management_tools/log_backup.md).
+
+::: tip
+Your reports help us improve the SDK and the robot software. Thank you.
 :::
+
+Verified against: rby1-sdk v0.10.1 `python/rby1_sdk/__init__.py` (`__version__`), `python/robot_info.cpp` (`version`, `sdk_version`, `robot_model_name`, `robot_model_version`), `examples/python/17_fault_log.py`; robot core `core/robots/robot_app_base.cpp` (fault log file name).

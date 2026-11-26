@@ -1,0 +1,206 @@
+{
+  "_about": "Extra text for the proto type pages, read by doc/scripts/generate_proto_type_pages.py (see load_notes() there for the keys). Every statement here must match rby1-sdk and the robot core; give the source in _source.",
+  "GravityCompensationCommand": {
+    "_source": "core control/impl/gravity_compensation.h",
+    "admonitions": [
+      {
+        "kind": "warning",
+        "text": "Do not use this command to hold a pose. Support the arm before you start it: the joints can move or sag when the actual load (for example, a payload or a tool) differs from the robot model."
+      }
+    ],
+    "see_also": [
+      {"text": "Control Hold Time and Minimum Time", "path": "sdk/controllers/generated/control_hold_time_and_minimum_time.md"}
+    ]
+  },
+  "StopCommand": {
+    "_source": "core service/srv_stop_control.h (JointVelocityControl to zero velocity, default acceleration limit), srv_robot_command_builder.cpp BuildWholeBodyStopCommand",
+    "admonitions": [
+      {
+        "kind": "warning",
+        "text": "StopCommand is not an emergency stop. It does not cut motor power and does not engage the brakes. In an emergency, press the E-Stop."
+      }
+    ],
+    "see_also": [
+      {"text": "E-Stop Basics", "path": "getting-started/estop-basics.md"},
+      {"text": "Control Hold Time and Minimum Time", "path": "sdk/controllers/generated/control_hold_time_and_minimum_time.md"}
+    ]
+  },
+  "RealTimeControlCommand": {
+    "_source": "rby1-sdk v0.10.1 protos/rb/api/basic_command.proto (Request: command_header, port; Feedback: reserved), include/rby1-sdk/robot.h Robot::Control",
+    "see_also": [
+      {"text": "ControlInput & ControlState (C++)", "path": "sdk/cpp/client/control-loop-types.md"},
+      {"text": "RealTimeControlCommandBuilder (C++)", "path": "sdk/cpp/builders/real-time-control-command-builder.md"}
+    ]
+  },
+  "CommandHeader": {
+    "see_also": [
+      {"text": "Control Hold Time and Minimum Time", "path": "sdk/controllers/generated/control_hold_time_and_minimum_time.md"}
+    ]
+  },
+  "CommandHeader.Request": {
+    "_source": "manual sdk/controllers/generated/control_hold_time_and_minimum_time.md",
+    "fields": {
+      "control_hold_time": "How long the robot keeps the target after reaching it, before the command finishes. Default 0 s."
+    },
+    "see_also": [
+      {"text": "Control Hold Time and Minimum Time", "path": "sdk/controllers/generated/control_hold_time_and_minimum_time.md"}
+    ]
+  },
+  "JointImpedanceControlCommand.Request": {
+    "_source": "core service/srv_joint_impedance_control_command.h (array sizes, defaults), control/impl/joint_impedance_control.h (tau = K e + D edot + gravity, clipped by torque_limit)",
+    "fields": {
+      "minimum_time": "Minimum time to reach the target.",
+      "position": "Target joint positions (rad). One value per joint of the component, in its joint order.",
+      "velocity_limit": "Joint velocity limits (rad/s), one per joint. Leave empty to use the defaults.",
+      "acceleration_limit": "Joint acceleration limits (rad/s²), one per joint. Leave empty to use the defaults.",
+      "stiffness": "Joint stiffness (Nm/rad), one per joint. Must not be negative.",
+      "torque_limit": "Limit of the commanded joint torque (Nm), one per joint. Leave empty to use the defaults."
+    },
+    "see_also": [
+      {"text": "Control Hold Time and Minimum Time", "path": "sdk/controllers/generated/control_hold_time_and_minimum_time.md"}
+    ]
+  },
+  "JointState": {
+    "_source": "rby1-sdk v0.10.1 include/rby1-sdk/robot_state.h JointState",
+    "fields": {
+      "motor_type": "",
+      "position": "Joint position (rad).",
+      "velocity": "Joint velocity (rad/s).",
+      "current": "Motor current (A).",
+      "torque": "Joint torque (Nm).",
+      "target_position": "Position of the last target (rad).",
+      "target_velocity": "Velocity of the last target (rad/s).",
+      "target_feedback_gain": "Feedback gain of the last target, 0 to 10.",
+      "target_feedforward_torque": "Feedforward torque of the last target (Nm).",
+      "temperature": "Motor temperature (°C)."
+    }
+  },
+  "RobotState": {
+    "_source": "rby1-sdk v0.10.1 include/rby1-sdk/robot_state.h RobotState and JointState",
+    "fields": {
+      "position": "Joint positions (rad), one per joint.",
+      "velocity": "Joint velocities (rad/s), one per joint.",
+      "current": "Motor currents (A), one per joint.",
+      "torque": "Joint torques (Nm), one per joint.",
+      "target_position": "Positions of the last target (rad), one per joint.",
+      "target_velocity": "Velocities of the last target (rad/s), one per joint.",
+      "target_feedforward_torque": "Feedforward torques of the last target (Nm), one per joint.",
+      "center_of_mass": "Center of mass position with respect to the base link.",
+      "collisions": "Link pairs that are close to each other or in collision.",
+      "temperature": "Motor temperatures (°C), one per joint."
+    }
+  },
+  "JointOperationService": {
+    "_source": "core service/service.cpp JointOperationServiceImpl, robots/*/robot_hardware.cpp ExecuteJointCommand and SetJointPositionPIDGain; rby1-sdk v0.10.1 include/rby1-sdk/robot.h",
+    "methods": {
+      "ServoOn": "Turns on the servo (motor control) of the named joints. Rejected while the Control Manager is enabled.",
+      "ServoOff": "Turns off the servo of the named joints. Rejected while the Control Manager is enabled.",
+      "BrakeEngage": "Engages the brakes of the named joints. `name` supports regex patterns.",
+      "BrakeRelease": "Releases the brakes of the named joints. `name` supports regex patterns. Read the warning on this page first.",
+      "HomeOffsetReset": "Sets the current position of the named joints as their zero (home) position and overwrites the stored home offset. Read the warning on this page first.",
+      "GetPositionPIDGain": "Returns the position PID gains of one joint (`dev_name`) or of all joints of a component. Works only while the Control Manager is idle.",
+      "SetPositionPIDGain": "Writes position PID gains to the motor driver of the named joints; gains that are not set keep their value. Works only while the Control Manager is idle.",
+      "SetPresetPosition": "Sets the preset position of the named joint (PVL-based motors only). Rejected while the Control Manager is enabled."
+    },
+    "admonitions": [
+      {
+        "kind": "danger",
+        "text": "BrakeRelease: a joint whose servo is off is held only by its brake. When you release the brake, the joint can fall under gravity. Support the arm or torso and keep people clear before you release a brake."
+      },
+      {
+        "kind": "danger",
+        "text": "HomeOffsetReset changes the zero of the joint. Every later position reading and command uses the new zero, so a wrong zero makes the robot move to wrong poses and can drive the joint past its real mechanical range. Use it only when a maintenance procedure tells you to."
+      },
+      {
+        "kind": "warning",
+        "text": "SetPositionPIDGain changes the gains on the motor driver at once. Wrong gains can make a joint oscillate or move abruptly the next time it is controlled."
+      }
+    ],
+    "see_also": [
+      {"text": "Maintenance", "path": "maintenance/index.md"}
+    ]
+  },
+  "BrakeReleaseRequest": {
+    "fields": {
+      "name": "Joint name, for example `right_arm_2`. Regex patterns are supported."
+    },
+    "admonitions": [
+      {
+        "kind": "danger",
+        "text": "A joint whose servo is off is held only by its brake. When you release the brake, the joint can fall under gravity. Support the arm or torso and keep people clear before you release a brake."
+      }
+    ]
+  },
+  "BrakeEngageRequest": {
+    "fields": {
+      "name": "Joint name, for example `right_arm_2`. Regex patterns are supported."
+    }
+  },
+  "HomeOffsetResetRequest": {
+    "fields": {
+      "name": "Joint name, for example `right_arm_2`. Regex patterns are supported."
+    },
+    "admonitions": [
+      {
+        "kind": "danger",
+        "text": "This sets the current position as the zero of the joint and overwrites the stored home offset. Every later position reading and command uses the new zero, so a wrong zero makes the robot move to wrong poses and can drive the joint past its real mechanical range. Use it only when a maintenance procedure tells you to."
+      }
+    ],
+    "see_also": [
+      {"text": "Maintenance", "path": "maintenance/index.md"}
+    ]
+  },
+  "SetPositionPIDGainRequest": {
+    "fields": {
+      "name": "Joint name, for example `right_arm_2`. Regex patterns are supported.",
+      "p_gain": "New P gain. Leave unset to keep the current value.",
+      "i_gain": "New I gain. Leave unset to keep the current value.",
+      "d_gain": "New D gain. Leave unset to keep the current value."
+    },
+    "admonitions": [
+      {
+        "kind": "warning",
+        "text": "The gains change on the motor driver at once. Wrong gains can make a joint oscillate or move abruptly the next time it is controlled. The robot rejects this request unless the Control Manager is idle."
+      }
+    ]
+  },
+  "PowerService": {
+    "_source": "core service/service.cpp PowerServiceImpl::JointCommand (same hardware calls as JointOperationService)",
+    "methods": {
+      "PowerCommand": "Turns the named power outputs on or off.",
+      "JointCommand": "Runs a joint command (servo on, brake engage, brake release or home offset reset) on the named joints. Brake release and home offset reset have the same risks as in JointOperationService.",
+      "ToolFlangePowerCommand": "Sets the tool flange power: off, 12 V or 24 V."
+    }
+  },
+  "JointCommandRequest": {
+    "admonitions": [
+      {
+        "kind": "danger",
+        "text": "COMMAND_BRAKE_RELEASE can let a joint fall under gravity, and COMMAND_HOME_OFFSET_RST changes the zero of the joint. Read the warnings on the JointOperationService page before you use them."
+      }
+    ]
+  },
+  "ParameterService": {
+    "_source": "core service/service.cpp ParameterServiceImpl: the *ToDefault RPCs call factory_reset / factory_reset_all",
+    "methods": {
+      "ResetAllParametersToDefault": "**Deprecated.** Does the same as FactoryResetAllParameters; use that instead.",
+      "ResetParameterToDefault": "**Deprecated.** Does the same as FactoryResetParameter; use that instead."
+    }
+  },
+  "ResetAllParametersToDefaultRequest": {
+    "admonitions": [
+      {"kind": "note", "text": "Deprecated. Use FactoryResetAllParameters instead."}
+    ]
+  },
+  "ResetParameterToDefaultRequest": {
+    "admonitions": [
+      {"kind": "note", "text": "Deprecated. Use FactoryResetParameter instead."}
+    ]
+  },
+  "OptimalControlCommand.Request": {
+    "_source": "rby1-sdk v0.10.1 protos/rb/api/basic_command.proto velocity_tracking_gain comment",
+    "fields": {
+      "velocity_tracking_gain": "**Deprecated since 0.4.3.** The robot sets this value to 0 to avoid unintended behavior. (Velocity tracking gain, range (0, 1].)"
+    }
+  }
+}

@@ -57,5 +57,6 @@ channel.
 
 .. rubric:: Examples
 
-- ``stop_command.cpp``
-- ``real_time_control_command.cpp``
+No C++ example in rby1-sdk v0.10.1 uses this builder directly. ``Robot::Control()`` sends a whole-body real-time control command internally; see `34_real_time_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/34_real_time_control.cpp>`__.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

@@ -14,20 +14,27 @@ README and ``CMakeLists.txt``.
 .. code-block:: bash
 
    pip install conan
-   git clone --recurse-submodules https://github.com/RainbowRobotics/rby1-sdk.git
+   git clone --recurse-submodules --branch v0.10.1 https://github.com/RainbowRobotics/rby1-sdk.git
    cd rby1-sdk
    conan install . -s build_type=Release -b missing -of build
+
+``--branch v0.10.1`` checks out the release this reference documents. Without
+it you get the default branch, which can be newer than this reference.
 
 On ``aarch64`` (for example the UPC), set the compiler first:
 ``export CC=/usr/bin/aarch64-linux-gnu-gcc``.
 
 .. rubric:: 2. Configure, build and install
 
+Choose the install location with ``CMAKE_INSTALL_PREFIX`` when you configure.
+Without it, CMake uses its default prefix (``/usr/local`` on Linux), and the
+install step needs ``sudo``. A prefix in your home directory needs no ``sudo``.
+
 With CMake 3.23 or later:
 
 .. code-block:: bash
 
-   cmake --preset conan-release -D BUILD_EXAMPLES=ON
+   cmake --preset conan-release -D BUILD_EXAMPLES=ON -D CMAKE_INSTALL_PREFIX=$HOME/.local
    cmake --build --preset conan-release
    cmake --build --preset conan-release --target install
 
@@ -37,7 +44,8 @@ With an older CMake:
 
    cd build
    cmake .. -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=./conan_toolchain.cmake \
-            -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=ON
+            -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=ON \
+            -DCMAKE_INSTALL_PREFIX=$HOME/.local
    cmake --build .
    make install
 
@@ -55,7 +63,11 @@ Build options (``-D<option>=ON|OFF``):
      - Build the programs in ``examples/cpp`` (for example ``01_hello_rby1``).
    * - ``BUILD_LIB_STATIC``
      - ``OFF``
-     - Build a static library instead of a shared one.
+     - Build a static library instead of a shared one. The installed CMake
+       package does not look up the private dependencies (gRPC, Protobuf,
+       OSQP, tinyxml2, ...), so a project that links the installed static
+       library must provide them itself. Use the default shared library unless
+       you need static linking.
    * - ``INSTALL_MODELS``
      - ``ON``
      - Install the robot models (URDF) to ``share/rby1-sdk/models``.
@@ -93,10 +105,13 @@ does not provide it.
    }
 
 If the SDK is installed to a non-default prefix, pass it to your project with
-``-DCMAKE_PREFIX_PATH=<prefix>``.
+``-DCMAKE_PREFIX_PATH=<prefix>`` (for example ``-DCMAKE_PREFIX_PATH=$HOME/.local``).
+The SDK is a shared library by default. If your program cannot find
+``librby1-sdk.so`` at run time, add ``<prefix>/lib`` to ``LD_LIBRARY_PATH``, or
+run ``sudo ldconfig`` after installing to a system prefix.
 
 .. rubric:: Next steps
 
 - :doc:`client/robot` for the client API.
-- ``examples/cpp`` in rby1-sdk for runnable programs.
+- :doc:`cpp-examples` for runnable programs.
 - `Build Issues <../trobuleshooting/generated/build_issue.md>`_ if the build fails.

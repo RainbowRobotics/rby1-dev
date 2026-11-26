@@ -56,12 +56,12 @@
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `control_manager_state` | `int32` | Current Control Manager state (see constants above) |
+| `control_manager_state` | `int32` | Current Control Manager state (see [Control Manager States](#control-manager-states)) |
 | `brake_state` | `BrakeState` | Brake engagement per joint (left_arm[], right_arm[], torso[], head[]) |
 | `tool_flange_left`, `tool_flange_right` | `ToolFlange` | Tool flange connection, output voltage and switch (see below) |
-| `emo_state` | `bool` | Emergency Stop pressed status |
+| `emo_state` | `bool` | `true` while the E-Stop is pressed |
 | `center_of_mass` | `float64[3]` | Calculated CoM position `[x, y, z]` in meters |
-| `robot_stream_state` | `bool` | `true` if the persistent command stream is currently open, `false` if closed |
+| `robot_stream_state` | `bool` | `true` while any stream channel is open ([Command Streams](command_streams.md)) |
 | `collision` | `bool` | `true` if a link distance is below `collision_threshold`. Reported only; the driver does not stop the robot. |
 | `robot_version` | `float64` | Robot version |
 

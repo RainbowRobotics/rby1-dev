@@ -1,5 +1,5 @@
-Parameter
-=========
+parameter.proto
+===============
 
 .. toctree::
    :maxdepth: 1

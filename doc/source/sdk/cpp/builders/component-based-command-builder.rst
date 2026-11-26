@@ -60,5 +60,7 @@ commands together.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
-- ``mobility_command.cpp``
+- `23_zero_pose.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/23_zero_pose.cpp>`__: ``SetBodyCommand()``.
+- `37_mobile_test.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/37_mobile_test.cpp>`__: ``SetMobilityCommand()`` for the mobile base.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

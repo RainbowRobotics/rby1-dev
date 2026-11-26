@@ -62,5 +62,7 @@ limit metadata that model-based code often needs.
 
 .. rubric:: Examples
 
-- ``dynamics/load_urdf.cpp`` and ``dynamics/simple_robot.cpp`` are the most
-  relevant entry points.
+- `18_dynamics_modeling.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/18_dynamics_modeling.cpp>`__: builds a two-link model and connects links with joints.
+- `dynamics/simple_robot.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/dynamics/simple_robot.cpp>`__: a small model built in code.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

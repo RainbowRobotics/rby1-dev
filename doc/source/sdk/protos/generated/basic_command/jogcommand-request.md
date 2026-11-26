@@ -1,9 +1,11 @@
 (rb-api-jogcommand-request)=
 # JogCommand.Request
 
-- Source proto: `rb/api/basic_command.proto`
+- Source proto: [`rb/api/basic_command.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/basic_command.proto) (rby1-sdk v0.10.1)
 
-Request payload for JogCommand.
+Request part of [JogCommand](jogcommand.md).
+
+Only one field of the `command` oneof can be set at a time: `absolute_position`, `relative_position`, `one_step`.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -11,6 +13,6 @@ Request payload for JogCommand.
 | joint_name | [string](../scalar-value-types.md) |  |  |
 | velocity_limit | [google.protobuf.DoubleValue](https://protobuf.dev/reference/protobuf/google.protobuf/#doublevalue) |  | (rad/s) (optional) |
 | acceleration_limit | [google.protobuf.DoubleValue](https://protobuf.dev/reference/protobuf/google.protobuf/#doublevalue) |  | (rad/s^2) (optional) |
-| absolute_position | [double](../scalar-value-types.md) |  | (rad) |
-| relative_position | [double](../scalar-value-types.md) |  | (rad) current position &#43; relative position |
-| one_step | [bool](../scalar-value-types.md) |  | 5 deg, true is positive move, false is negative move |
+| absolute_position | [double](../scalar-value-types.md) | oneof command | (rad) |
+| relative_position | [double](../scalar-value-types.md) | oneof command | (rad) current position &#43; relative position |
+| one_step | [bool](../scalar-value-types.md) | oneof command | 5 deg, true is positive move, false is negative move |

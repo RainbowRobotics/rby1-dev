@@ -77,4 +77,6 @@ yaw rate.
 
 .. rubric:: Examples
 
-- ``mobility_command.cpp``
+- `37_mobile_test.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/37_mobile_test.cpp>`__: SE(2) velocity commands for the mobile base.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

@@ -1,5 +1,5 @@
-ToolFlange
-==========
+tool_flange.proto
+=================
 
 .. toctree::
    :maxdepth: 1

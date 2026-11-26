@@ -1,5 +1,5 @@
-MobilityCommand
-===============
+mobility_command.proto
+======================
 
 .. toctree::
    :maxdepth: 1

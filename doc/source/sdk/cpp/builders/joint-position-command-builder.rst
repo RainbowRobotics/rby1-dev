@@ -84,5 +84,8 @@ or acceleration limits.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
-- ``kinematic_calibration.cpp``
+- `00_helper.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/00_helper.cpp>`__: ``MoveJ()`` helper used by most examples.
+- `23_zero_pose.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/23_zero_pose.cpp>`__: moves the body to the zero pose.
+- `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__: joint position steps of the demo sequence.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

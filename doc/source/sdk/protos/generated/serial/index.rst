@@ -1,5 +1,5 @@
-Serial
-======
+serial.proto
+============
 
 .. toctree::
    :maxdepth: 1

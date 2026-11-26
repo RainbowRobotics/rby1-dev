@@ -1,9 +1,9 @@
 (rb-api-setledcolorrequest)=
 # SetLEDColorRequest
 
-- Source proto: `rb/api/led.proto`
+- Source proto: [`rb/api/led.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/led.proto) (rby1-sdk v0.10.1)
 
-Request to set led color.
+Request of the `SetLEDColor` RPC of [LEDService](../led_service/ledservice.md).
 
 Request message for configuring the LED color and behavior
 

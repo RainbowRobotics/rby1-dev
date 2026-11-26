@@ -51,4 +51,6 @@ base feedback type. It sits beneath every command-feedback branch.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
+Examples in rby1-sdk v0.10.1 read only the top-level ``finish_code()`` of ``RobotCommandFeedback``; none reads this feedback type directly. Command headers are set in `32_command_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/32_command_stream.cpp>`__.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

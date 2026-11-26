@@ -83,4 +83,6 @@ joint group should move without commanding the full joint vector.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
+- `30_joint_group_command.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/30_joint_group_command.cpp>`__: joint group command on the torso. The example notes that this command is available only on the torso and does not run in simulation.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

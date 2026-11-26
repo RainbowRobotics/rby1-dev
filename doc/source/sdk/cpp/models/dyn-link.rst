@@ -62,4 +62,7 @@ up the robot structure.
 
 .. rubric:: Examples
 
-- ``dynamics/load_urdf.cpp`` shows the link tree in context.
+- `18_dynamics_modeling.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/18_dynamics_modeling.cpp>`__: creates and connects links.
+- `dynamics/load_urdf.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/dynamics/load_urdf.cpp>`__: the link tree of a model loaded from URDF.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

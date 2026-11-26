@@ -72,5 +72,7 @@ create, inspect, or move inertia tensors between frames.
 
 .. rubric:: Examples
 
-- ``dynamics/load_urdf.cpp`` is the main reference for inertial data inside a
-  full model.
+- `dynamics/load_urdf.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/dynamics/load_urdf.cpp>`__: inertial data of a model loaded from URDF.
+- `dynamics/sample_robot.h <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/dynamics/sample_robot.h>`__: builds links with ``Inertial`` values in code.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

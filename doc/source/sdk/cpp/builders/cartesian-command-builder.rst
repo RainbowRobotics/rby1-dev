@@ -91,5 +91,7 @@ stop thresholds for tracking error.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
-- ``kinematic_calibration2.cpp``
+- `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__: Cartesian targets for the arms and the torso.
+- `33_cartesian_command_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/33_cartesian_command_stream.cpp>`__: streams Cartesian targets for the right arm.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

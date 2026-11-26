@@ -1,9 +1,9 @@
 (rb-api-toolflangeservice)=
 # ToolFlangeService
 
-- Source proto: `rb/api/tool_flange_service.proto`
+- Source proto: [`rb/api/tool_flange_service.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/tool_flange_service.proto) (rby1-sdk v0.10.1)
 
-gRPC service for tool flange.
+Sets the digital outputs of a tool flange.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|

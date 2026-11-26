@@ -1,5 +1,5 @@
-Header
-======
+header.proto
+============
 
 .. toctree::
    :maxdepth: 1

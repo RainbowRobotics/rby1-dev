@@ -1,5 +1,5 @@
-Led
-===
+led.proto
+=========
 
 .. toctree::
    :maxdepth: 1

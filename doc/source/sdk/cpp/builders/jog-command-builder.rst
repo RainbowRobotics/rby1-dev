@@ -103,5 +103,6 @@ joint by name and one jog mode at a time.
 
 .. rubric:: Examples
 
-- ``module_test/*`` utilities are the most relevant entry points for jog-style
-  service flows.
+No C++ example in rby1-sdk v0.10.1 sends a jog command.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

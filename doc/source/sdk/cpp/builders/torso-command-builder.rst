@@ -57,5 +57,7 @@ groups, Cartesian targets, impedance, gravity compensation, or optimal control.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
-- ``optimal_control.cpp``
+- `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__: torso joint position, Cartesian and optimal control commands.
+- `30_joint_group_command.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/30_joint_group_command.cpp>`__: joint group command on the torso.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

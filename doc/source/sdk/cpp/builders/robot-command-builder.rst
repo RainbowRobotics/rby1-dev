@@ -41,6 +41,39 @@ wraps one top-level command path: whole-body, component-based, or jog.
      - Replace the active top-level command.
      - Use before submission if the envelope is reused.
 
+.. rubric:: Building a Command
+
+Builders nest. A body joint position command is wrapped as
+``RobotCommandBuilder`` → ``ComponentBasedCommandBuilder`` → body command.
+To command parts of the body separately, use
+``BodyComponentBasedCommandBuilder`` for the body command; each part then
+takes its own builder. The snippet below is shortened from
+``examples/cpp/00_helper.cpp`` (``MoveJ()``). ``torso``, ``right_arm`` and
+``left_arm`` are ``Eigen::VectorXd`` joint positions in ``rad`` (6 or 2 torso
+values depending on the model, 7 per arm).
+
+.. code-block:: cpp
+
+   using namespace rb;
+
+   auto body = BodyComponentBasedCommandBuilder()
+       .SetTorsoCommand(JointPositionCommandBuilder().SetMinimumTime(5.0).SetPosition(torso))
+       .SetRightArmCommand(JointPositionCommandBuilder().SetMinimumTime(5.0).SetPosition(right_arm))
+       .SetLeftArmCommand(JointPositionCommandBuilder().SetMinimumTime(5.0).SetPosition(left_arm));
+
+   auto handler = robot->SendCommand(
+       RobotCommandBuilder().SetCommand(ComponentBasedCommandBuilder().SetBodyCommand(body)),
+       1 /* priority */);
+   const auto feedback = handler->Get();
+
+The intermediate types (``TorsoCommandBuilder``, ``ArmCommandBuilder``,
+``BodyCommandBuilder``) are created implicitly from the builder you pass.
+
+.. warning::
+
+   Sending a command moves the robot. Clear the area around the robot and keep
+   the E-Stop within reach.
+
 .. rubric:: Detailed Reference
 
 .. doxygenclass:: rb::RobotCommandBuilder
@@ -56,5 +89,8 @@ wraps one top-level command path: whole-body, component-based, or jog.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
-- ``stop_command.cpp``
+- `23_zero_pose.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/23_zero_pose.cpp>`__: one component-based command sent with ``SendCommand()``.
+- `31_multi_controls.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/31_multi_controls.cpp>`__: overlapping commands sent with different priorities.
+- `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__: many command types in sequence.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

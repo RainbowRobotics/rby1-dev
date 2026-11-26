@@ -1,5 +1,5 @@
-ArmCommand
-==========
+arm_command.proto
+=================
 
 .. toctree::
    :maxdepth: 1

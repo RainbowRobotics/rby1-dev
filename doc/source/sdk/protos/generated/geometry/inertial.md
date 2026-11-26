@@ -1,9 +1,9 @@
 (rb-api-inertial)=
 # Inertial
 
-- Source proto: `rb/api/geometry.proto`
+- Source proto: [`rb/api/geometry.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/geometry.proto) (rby1-sdk v0.10.1)
 
-Geometry type: inertial.
+Mass, center of mass and inertia tensor of a link.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

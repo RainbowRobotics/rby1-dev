@@ -1,21 +1,22 @@
 # Battery
 
+RB-Y1 runs on a lithium-ion battery pack. The battery pack depends on the robot model (see [Battery Pack Specifications](#battery-pack-specifications)).
+
+::: warning CAUTION
+- Disconnect the charger before you drive the mobile base (see [Disconnect the Charger Before Driving the Mobile Base](../precautions/power_and_battery.md#disconnect-the-charger-before-driving-the-mobile-base)).
+- If the robot is not used for a long time, disconnect the battery connector (see [Disconnect the Battery for Long-Term Storage](../precautions/power_and_battery.md#disconnect-the-battery-for-long-term-storage)).
+- If the battery pack is damaged, swollen, hot or smells unusual, stop using the robot and contact the support team (see [Battery](../precautions/power_and_battery.md#battery)).
+- Use only the charger described on this page.
+:::
+
 ## Battery Charger
 
 The RB-Y1 battery charger model is **HEP-600C-48**.
 
-::: info Note
-This content is to prevent damage to the user’s safety and property in advance. Please read the following carefully and use it correctly.
-:::
-
-<img :src="$withBase('/images/hardware/battery/battery_charger1.png')" alt="battery_charger1" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/battery/battery_charger1.png')" alt="HEP-600C-48 battery charger" class="center rounded-img" style="width:600px">
 
 ---
-### Battery charger Specifications
-
-#### Powering your devices safely and efficiently
-
-- The table below provides details of the RB-Y1 charger.
+### Charger Specifications
 
 | General Properties  | Value |
 | ---------- | ----- |
@@ -23,8 +24,8 @@ This content is to prevent damage to the user’s safety and property in advance
 | `Output Current Adj. Range`  | 5.2 ~ 10.5A |
 | `Input Voltage Range`  | 85 ~ 264VAC / 120 ~ 370VDC |
 | `Input Frequency Range`  | 47 ~ 63Hz |
-| `Input AC Current (Typ.)	`  | 7A / 115VAC, 3.3A / 230VAC, 2.9A / 277VAC |
-| `Working Temp.`  | -40 ~ +70°C |
+| `Input AC Current (Typ.)`  | 7A / 115VAC, 3.3A / 230VAC, 2.9A / 277VAC |
+| `Charger Working Temp.`  | -40 ~ +70°C |
 
 ---
 ### Charging Curve
@@ -33,7 +34,7 @@ This content is to prevent damage to the user’s safety and property in advance
 
 <div>
 
-<img :src="$withBase('/images/hardware/battery/charging_curve.png')" alt="charging_curve" class="rounded-img" style="width:800px">
+<img :src="$withBase('/images/hardware/battery/charging_curve.png')" alt="Charging curve of the battery charger" class="rounded-img" style="width:800px">
 
 </div>
 
@@ -52,25 +53,21 @@ This content is to prevent damage to the user’s safety and property in advance
 ---
 ### Mechanical Specifications
 
-- Charger Drawing: 
-   <a href="https://rainbowco-my.sharepoint.com/personal/rby_support_rainbow-robotics_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frby%2Dpdf%2FY1B%5F%EB%B0%B0%ED%84%B0%EB%A6%AC%EC%B6%A9%EC%A0%84%EA%B8%B0%5FR1%2825%2E01%2E03%29%2Epdf&parent=%2Fpersonal%2Frby%5Fsupport%5Frainbow%2Drobotics%5Fcom%2FDocuments%2Frby%2Dpdf&ga=1"
-   target="_blank" rel="noopener noreferrer">
-   Download
-   </a>
+The charger drawing is shown below.
 
-<img :src="$withBase('/images/hardware/battery/battery_charger3.png')" alt="battery_charger3" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/battery/battery_charger3.png')" alt="Battery charger dimensions" class="center rounded-img" style="width:600px">
 
 <br><br>
-<img :src="$withBase('/images/hardware/battery/battery_charger_drawing.png')" alt="battery_charger_drawing" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/battery/battery_charger_drawing.png')" alt="Battery charger drawing" class="center rounded-img" style="width:600px">
 
 ## Battery Pack Specifications
 
-The RB-Y1 uses different battery packs depending on robot model.
+The battery pack depends on the robot model. The capacity in Wh is based on the marked voltage (50 V).
 
 ---
 ### Model A Battery
 
-<img :src="$withBase('/images/hardware/battery/battery_A.png')" alt="battery_charger_drawing" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/battery/battery_A.png')" alt="Model A battery pack" class="center rounded-img" style="width:600px">
 
 | Property | Value |
 | ---------- | ----- |
@@ -84,9 +81,9 @@ The RB-Y1 uses different battery packs depending on robot model.
 | `Cycle Life` | Approx. 5,000 cycles based on the LV series (may vary depending on usage conditions) |
 
 ---
-### Model B Battery
+### Model M Battery
 
-<img :src="$withBase('/images/hardware/battery/battery_M.png')" alt="battery_charger_drawing" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/battery/battery_M.png')" alt="Model M battery pack" class="center rounded-img" style="width:600px">
 
 | Property | Value |
 | ---------- | ----- |

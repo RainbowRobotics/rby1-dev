@@ -76,4 +76,6 @@ mobility or other velocity-mode command paths.
 
 .. rubric:: Examples
 
-- ``mobility_command.cpp``
+No C++ example in rby1-sdk v0.10.1 uses this builder.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

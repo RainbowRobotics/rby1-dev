@@ -67,4 +67,6 @@ mobility and planar-base code where 2D poses and twists are enough.
 
 .. rubric:: Examples
 
-- ``mobility_command.cpp`` is the clearest place to see ``SE2``-adjacent logic.
+- `37_mobile_test.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/37_mobile_test.cpp>`__: ``SE2`` values for mobile base velocity commands.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

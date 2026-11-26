@@ -39,7 +39,16 @@ rosdep install --from-paths src --ignore-src -y
 ```
 
 `rosdep` installs the apt packages the workspace declares: MoveIt 2, `ros2_control` with its controllers, and
-`librealsense2` (for the camera node in `rby1_tools`). No MoveIt source build is needed.
+`librealsense2` (for the camera publisher in `rby1_tools`, see [Tools](tools.md)). No MoveIt source build is needed.
+
+For an Intel RealSense camera (optional), install the camera's udev rules so a normal user can open it.
+The ROS package does not bring them:
+
+```bash
+sudo curl -sSL https://raw.githubusercontent.com/IntelRealSense/librealsense/v2.56.5/config/99-realsense-libusb.rules \
+     -o /etc/udev/rules.d/99-realsense-libusb.rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
 
 ## 4. Set up the environment
 
@@ -53,6 +62,11 @@ source /opt/ros/humble/setup.bash
 If other robots or PCs on the same network run ROS 2, choose a free `ROS_DOMAIN_ID` (0 to 101) and set it in every
 terminal that talks to the driver, for example `export ROS_DOMAIN_ID=77`.
 
+::: tip Using the UPC from a PC on the RPC's wireless network
+ROS 2 does not reach the user PC (UPC) through the robot PC (RPC) on its own. If your PC is on the RPC's wireless network (AP)
+and you want to use nodes that run on the UPC, set up the [UPC Topic Bridge](upc_topic_bridge.md) first (RPC 0.11.0 or later).
+:::
+
 ## 5. Build
 
 ```bash
@@ -63,10 +77,19 @@ source install/setup.bash
 
 ## 6. Start the driver and check it
 
+::: danger The driver connects to the real robot
+The examples and MoveIt launches you start after the driver move the robot.
+Check that `robot_ip` is your robot's address, test in the simulator first, and keep the E-Stop within reach.
+The driver also writes six robot parameters at connect ([Driver Parameters](config_driver_parameters.md)).
+:::
+
 ```bash
 ros2 launch rby1_driver rby1_ros2_driver.launch.py robot_ip:=<robot IP>:50051 model:=a
 ros2 node list    # /rby1/rby1_ros2_driver
 ```
 
+Give `model:=a` or `model:=m` to match your robot. The driver's own parameters are in [Driver Parameters](config_driver_parameters.md).
+
 To try it without a robot, start the [MuJoCo simulator](../../simulators/mujoco.md) and use `robot_ip:=localhost:50051`.
-Then continue with the [Examples](examples.md).
+Give the same model as the simulator image (`model:=a` for an `a_v1.2` image). Model UB images cannot be used with the driver.
+Then continue with the [Examples](examples.md). To start the driver together with MoveIt, the camera or the gripper, see [Bringup](bringup.md).

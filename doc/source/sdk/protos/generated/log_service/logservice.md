@@ -1,9 +1,9 @@
 (rb-api-logservice)=
 # LogService
 
-- Source proto: `rb/api/log_service.proto`
+- Source proto: [`rb/api/log_service.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/log_service.proto) (rby1-sdk v0.10.1)
 
-gRPC service for log.
+Reads the robot program log (last entries or a live stream), sets the log level and lists fault logs.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|

@@ -97,4 +97,6 @@ counterpart to :doc:`../models/optimal-control`.
 
 .. rubric:: Examples
 
-- ``optimal_control.cpp``
+- `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__: optimal control step of the demo sequence.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

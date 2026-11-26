@@ -55,4 +55,6 @@ for wheel-joint velocity or planar-base velocity requests.
 
 .. rubric:: Examples
 
-- ``mobility_command.cpp``
+- `37_mobile_test.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/37_mobile_test.cpp>`__: mobility commands with SE(2) velocity control.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

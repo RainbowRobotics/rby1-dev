@@ -1,9 +1,9 @@
 (rb-api-bodycommand)=
 # BodyCommand
 
-- Source proto: `rb/api/body_command.proto`
+- Source proto: [`rb/api/body_command.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/body_command.proto) (rby1-sdk v0.10.1)
 
-Whole-body command wrapper selecting a body control mode (joint, cartesian, impedance, optimal, or component-based).
+Command for the upper body: the torso and both arms together. Use body_component_based_command to give the torso and each arm its own command.
 
 
 ## Subtypes

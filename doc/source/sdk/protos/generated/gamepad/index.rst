@@ -1,5 +1,5 @@
-Gamepad
-=======
+gamepad.proto
+=============
 
 .. toctree::
    :maxdepth: 1

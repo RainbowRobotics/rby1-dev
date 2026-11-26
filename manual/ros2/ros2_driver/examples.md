@@ -1,41 +1,76 @@
 # Examples
 
-Each example can be run in a **separate terminal** while the driver is active:
+Python scripts in `rby1_examples`, one per feature of the driver. Run each in a **separate terminal** while the driver is running:
+
 ```bash
 source install/setup.bash
 ros2 run rby1_examples <example_name>
 ```
 
-| Example | Command | Description |
-|---------|---------|-------------|
-| `01_power_control` | `ros2 run rby1_examples 01_power_control` | Full power lifecycle: Power ON/OFF, Servo ON/OFF |
-| `02_robot_status_monitor` | `ros2 run rby1_examples 02_robot_status_monitor` | Continuously prints state monitor (Motor state, brakes, battery, etc) |
-| `03_tool_flange_monitoring` | `ros2 run rby1_examples 03_tool_flange_monitoring` | Continuously prints tool flange data |
-| `04_joint_state_monitoring` | `ros2 run rby1_examples 04_joint_state_monitoring` | Prints per-component joint positions in real time |
-| `05_gravity_compensation` | `ros2 run rby1_examples 05_gravity_compensation` | Enables/Disable gravity compensation mode |
-| `06_zero_pose` | `ros2 run rby1_examples 06_zero_pose` | Moves all joints to 0 rad simultaneously |
-| `07_joint_command` | `ros2 run rby1_examples 07_joint_command` | Sends Ready Pose with joint_position(right), joint_impedance(left) |
-| `08_cartesian_command` | `ros2 run rby1_examples 08_cartesian_command` | Sends Ready Pose and moves the arms to a target Cartesian pose with cartesian_position(right), cartesian_impedance(left)|
-| `09_multi_controls` | `ros2 run rby1_examples 09_multi_controls` | Simultaneous joint + Cartesian control per body part |
-| `10_trajectory_joint_command` | `ros2 run rby1_examples 10_trajectory_joint_command` | Streams a pre-computed trajectory via standard FollowJointTrajectory action |
-| `11_cancel_control` | `ros2 run rby1_examples 11_cancel_control` | Demonstrates action cancel and `cancel_control` service |
-| `12_mobile_base_control` | `ros2 run rby1_examples 12_mobile_base_control` | Drives the mobile base via `cmd_vel`|
-| `13_stream_command` | `ros2 run rby1_examples 13_stream_command` | Alternates Zero/Ready poses using regular joint commands over persistent stream with varying wait intervals |
-| `14_collision_safety_control` | `ros2 run rby1_examples 14_collision_safety_control` | use collision value in robot.state, Demonstrates that when collision happens, robot automatically moves retreat to initial safe pose.  |
+::: danger Most examples move the robot
+**Try every example in the simulator first** ([MuJoCo](../../simulators/mujoco.md)). On a real robot:
+- Keep the E-Stop within reach of the person running the example.
+- Clear the reach of both arms and the torso. For `12_mobile_base_control` and `13_stream_command`, also clear the driving path around the base.
+- Many control examples switch power and servos on by themselves before they move.
+- The "Moves the robot" column below says what each example moves.
+:::
 
----
+The values an example uses (postures, times, speeds) are constants in one block at the top of its file, under the imports.
+Examples 15 and 16 take theirs as ROS parameters.
 
-> [!IMPORTANT]
-> **Two ways to stop control commands (see Example : 11_cancel_control):**
-> 1. **Action cancel** — Cancels only the current action goal. The stream remains open, so subsequent commands can continue immediately.
-> 2. **`cancel_control` service** — Immediately stops all control commands **and forcibly closes the stream** for safety.
->
-> ⚠️ **If you are using stream-based control (e.g., `cmd_vel`, Example 13), calling `cancel_control` will also shut down the stream.**  
-> You will need to re-open the stream (`/rby1/stream_control state: true`) before sending further commands.  
-> If you only want to pause or cancel a specific motion while keeping the stream alive, use the action cancel instead (see Example 13).
->
-> If an issue arises, please check the [Troubleshooting & Known Issues](troubleshooting_and_known_issues.md) section to see if there is any relevant information.
+| Example | Description | Moves the robot |
+|---------|-------------|-----------------|
+| `01_power_control` | Power on, servo on, servo off, power off | Power and servos only |
+| `02_robot_status_monitor` | Prints the robot state until Ctrl+C: Control Manager, brakes, battery, tool flanges, E-Stop | No |
+| `03_tool_flange_monitoring` | Prints the tool flanges: status from `robot_state`, IMU and wrench topics (needs `publish_tool_flange_state: true`) | No |
+| `04_joint_state_monitoring` | Prints the joint positions per part (`joint_states`) | No |
+| `05_gravity_compensation` | Gravity compensation on for the torso and both arms, 10 s for direct teaching, then off | Yes: the parts become back-drivable |
+| `06_zero_pose` | Every joint to 0 rad in one goal (`robot_joint`) | Yes: whole body |
+| `07_joint_command` | Zero pose, then a target pose with one control mode per part: joint impedance for the right arm, joint position for the left arm and the head, joint group position for three torso joints (`use_group_joint`) | Yes: whole body |
+| `08_cartesian_command` | Ready pose, then a Cartesian target per arm: Cartesian position (right), Cartesian impedance (left) | Yes: whole body |
+| `09_multi_controls` | Joint and Cartesian control of different parts at once | Yes: whole body |
+| `10_trajectory_joint_command` | A pre-computed whole-body trajectory through `follow_joint_trajectory`, in position control and again in joint impedance (`stream_control`, `set_trajectory_impedance`) | Yes: whole body |
+| `11_cancel_control` | An action cancel, then the `cancel_control` service | Yes: whole body |
+| `12_mobile_base_control` | Opens the stream channels, drives the base with `cmd_vel` (forward, back, turn, sideways) while it moves the arms and head, then closes the channels | Yes: **the base drives**, arms and head |
+| `13_stream_command` | Opens every stream channel, streams zero and ready poses of the torso, arms and head (`stream_joint`), and at the same time drives the base forward and back at 0.15 m/s with `cmd_vel` | Yes: whole body, **the base drives** |
+| `14_collision_safety_control` | Records the pose, moves, and when `robot_state.collision` is set, cancels the goal and sends a goal back to the recorded pose. The client handles the collision; the driver does not stop the robot | Yes: whole body |
+| `15_cartesian_target_move` | Moves the hand to each target received on `/rby1/right_arm/target_pose`, with the driver alone: no planner, **no collision check**. Answers on `/rby1/right_arm/target_status` | Yes: the arm |
+| `16_target_shuttle_publisher` | Publishes two hand poses in turn on that target topic, for example 15 or the [MoveIt planner](moveit_planner.md) to carry out | Only through the node that executes the targets |
 
-> [!NOTE]
-> **Simulator Limitation**: Battery voltage, FT sensor, and IMU data read as `0.0` in simulation (no physical hardware).
-> **Tool flange topics**: Requires `publish_tool_flange_state: true` in `driver_parameters.yaml`.
+In the simulator, battery, force/torque and IMU values read 0.
+Example 10's first trajectory ends with `error_code -1`: the second trajectory on the same parts replaces it on purpose.
+
+## Two ways to stop a command
+
+Example `11_cancel_control` shows both:
+
+1. **Action cancel** cancels only the current goal. Stream channels stay open, so the next command goes out at once.
+2. **`cancel_control` service** stops every command at once **and closes every stream channel**.
+   After it, open the channels again (`/rby1/stream_control`) before you send `cmd_vel` or stream commands.
+
+Sequential Python clients should spin while they wait (`rclpy.spin_once` in a loop, as `13_stream_command` does) instead of `time.sleep()`.
+See [Troubleshooting](troubleshooting_and_known_issues.md#issue-client-side-warnings-ignoring-unexpected-goalresult-response).
+
+## Target examples (15, 16)
+
+Run them together, one terminal each, with `source install/setup.bash` in every terminal.
+Before example 15 starts, the robot must be powered, its servos on and the right arm bent (for example, the ready pose of `08_cartesian_command`).
+
+```bash
+ros2 launch rby1_driver rby1_ros2_driver.launch.py                            # terminal 1: the driver
+ros2 run rby1_examples 15_cartesian_target_move                              # terminal 2: moves the hand
+ros2 run rby1_examples 16_target_shuttle_publisher                           # terminal 3: sends two targets in turn
+ros2 topic echo /rby1/right_arm/target_status std_msgs/msg/String            # terminal 4 (optional): the answers
+```
+
+- A target is one `std_msgs/Float64MultiArray` of 16 values: the row-major 4×4 pose of the tool frame (`ee_right`, `ee_left`) in `base`.
+- `15_cartesian_target_move --ros-args -p mode:=stream` streams small steps (up to 0.10 m/s) instead of one `robot_cartesian` goal per target.
+- Only one executor may serve an arm. Example 15 refuses to start when `target_topic` already has a subscriber (for example the MoveIt planner). Stop a planner launch before you start example 15.
+- Stop with Ctrl+C in terminal 3, then terminal 2.
+
+::: warning
+Example 15 checks nothing for collisions. A target in or behind an obstacle, or close to the robot's body, is driven straight to.
+Use the [MoveIt planner](moveit_planner.md) to go around obstacles.
+:::
+
+Verified against: rby1-ros2 v1.0.0 `rby1_examples/setup.py`, `rby1_examples/rby1_examples/*.py` (docstrings), `Doc/manual/03_examples.md`.

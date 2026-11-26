@@ -1,9 +1,9 @@
 (rb-api-getwifistatusrequest)=
 # GetWifiStatusRequest
 
-- Source proto: `rb/api/system.proto`
+- Source proto: [`rb/api/system.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/system.proto) (rby1-sdk v0.10.1)
 
-Request to get wifi status.
+Request of the `GetWifiStatus` RPC of [SystemService](../system_service/systemservice.md).
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

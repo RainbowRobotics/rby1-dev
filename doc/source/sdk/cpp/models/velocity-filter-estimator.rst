@@ -57,4 +57,6 @@ code.
 
 .. rubric:: Examples
 
-- ``velocity_estimation.cpp`` is the direct example for this page.
+No C++ example in rby1-sdk v0.10.1 uses this type.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

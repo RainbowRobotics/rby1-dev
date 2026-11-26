@@ -1,9 +1,9 @@
 (rb-api-headcommand)=
 # HeadCommand
 
-- Source proto: `rb/api/head_command.proto`
+- Source proto: [`rb/api/head_command.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/head_command.proto) (rby1-sdk v0.10.1)
 
-Head subsystem command (joint position control).
+Command for the head joints (joint position control).
 
 
 ## Subtypes

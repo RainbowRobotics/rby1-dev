@@ -1,5 +1,5 @@
-GripperCommand
-==============
+gripper_command.proto
+=====================
 
 .. toctree::
    :maxdepth: 1

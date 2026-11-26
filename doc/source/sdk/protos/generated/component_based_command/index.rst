@@ -1,5 +1,5 @@
-ComponentBasedCommand
-=====================
+component_based_command.proto
+=============================
 
 .. toctree::
    :maxdepth: 1

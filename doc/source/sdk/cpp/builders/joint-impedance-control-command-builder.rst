@@ -94,4 +94,7 @@ target.
 
 .. rubric:: Examples
 
-- ``gravity_compensation.cpp``
+- `29_joint_impedance_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/29_joint_impedance_control.cpp>`__: stiffness, damping ratio and torque limit for both arms.
+- `25_wiggle_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/25_wiggle_motion.cpp>`__: streams joint impedance commands for the torso and arms.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

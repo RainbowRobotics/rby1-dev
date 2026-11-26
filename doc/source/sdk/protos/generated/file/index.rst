@@ -1,5 +1,5 @@
-File
-====
+file.proto
+==========
 
 .. toctree::
    :maxdepth: 1

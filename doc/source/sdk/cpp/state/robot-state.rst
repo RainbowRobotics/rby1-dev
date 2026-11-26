@@ -45,7 +45,7 @@ smaller state records that appear inside the top-level snapshot.
      - Present for both end-effectors.
    * - ``ft_sensor_left``, ``ft_sensor_right``
      - Force-torque sensor data.
-     - Includes freshness information in nested timestamp helpers.
+     - ``time_since_last_update`` (``timespec``) tells how old the data is.
    * - ``position``, ``velocity``, ``current``, ``temperature``
      - Main measured vectors.
      - Aligned with the robot model's joint ordering.
@@ -132,6 +132,13 @@ smaller state records that appear inside the top-level snapshot.
      - ``CollisionResult::position1``, ``position2``, and ``distance`` are all
        in meters. Signed distance becomes negative on penetration.
 
+.. note::
+
+   In the generated declarations below, ``timestamp`` and
+   ``time_since_last_update`` appear as nested ``struct`` entries. They are
+   plain ``timespec`` members (``struct timespec timestamp{}`` in
+   ``robot_state.h``), not types of their own.
+
 .. rubric:: Detailed Reference
 
 .. doxygenstruct:: rb::RobotState
@@ -182,5 +189,8 @@ smaller state records that appear inside the top-level snapshot.
 
 .. rubric:: Examples
 
-- ``get_robot_state.cpp`` and ``get_robot_state2.cpp`` are the most direct
-  examples for this page.
+- `03_robot_state.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/03_robot_state.cpp>`__: one ``GetState()`` snapshot.
+- `05_robot_state_stream.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/05_robot_state_stream.cpp>`__: state updates with ``StartStateUpdate()``.
+- `06_state_tool_flange.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/06_state_tool_flange.cpp>`__: tool flange state from the state stream.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

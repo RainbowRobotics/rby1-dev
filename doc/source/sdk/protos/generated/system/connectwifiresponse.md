@@ -1,9 +1,9 @@
 (rb-api-connectwifiresponse)=
 # ConnectWifiResponse
 
-- Source proto: `rb/api/system.proto`
+- Source proto: [`rb/api/system.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/system.proto) (rby1-sdk v0.10.1)
 
-Response for connect wifi.
+Response of the `ConnectWifi` RPC of [SystemService](../system_service/systemservice.md).
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

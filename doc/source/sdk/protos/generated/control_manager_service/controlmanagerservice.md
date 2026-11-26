@@ -1,9 +1,9 @@
 (rb-api-controlmanagerservice)=
 # ControlManagerService
 
-- Source proto: `rb/api/control_manager_service.proto`
+- Source proto: [`rb/api/control_manager_service.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/control_manager_service.proto) (rby1-sdk v0.10.1)
 
-gRPC service for control manager.
+Enables and disables the Control Manager, resets faults, cancels the running control, sets the time scale and waits until the robot is ready for commands.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|

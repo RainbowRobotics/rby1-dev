@@ -1,5 +1,5 @@
-System
-======
+system.proto
+============
 
 .. toctree::
    :maxdepth: 1

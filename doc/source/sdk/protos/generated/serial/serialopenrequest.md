@@ -1,9 +1,9 @@
 (rb-api-serialopenrequest)=
 # SerialOpenRequest
 
-- Source proto: `rb/api/serial.proto`
+- Source proto: [`rb/api/serial.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/serial.proto) (rby1-sdk v0.10.1)
 
-Request to serial open.
+Opens a serial device: path, baud rate and frame format. Sent in an OpenSerialStreamRequest.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

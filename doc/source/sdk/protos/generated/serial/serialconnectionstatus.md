@@ -1,9 +1,9 @@
 (rb-api-serialconnectionstatus)=
 # SerialConnectionStatus
 
-- Source proto: `rb/api/serial.proto`
+- Source proto: [`rb/api/serial.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/serial.proto) (rby1-sdk v0.10.1)
 
-Message type: serial connection status.
+Result of opening a serial device.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

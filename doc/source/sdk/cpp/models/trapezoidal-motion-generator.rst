@@ -76,4 +76,6 @@ controller support code rather than through the high-level robot client.
 
 .. rubric:: Examples
 
-- ``trapezoidal_motion_generator.cpp`` is the direct example for this page.
+- `34_real_time_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/34_real_time_control.cpp>`__: generates joint targets inside the ``Control()`` callback.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

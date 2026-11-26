@@ -1,9 +1,7 @@
 (rb-api-color)=
 # Color
 
-- Source proto: `rb/api/color.proto`
-
-Message type: color.
+- Source proto: [`rb/api/color.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/color.proto) (rby1-sdk v0.10.1)
 
 Represents a color in the RGB color space.
 Each color component is an unsigned 32-bit integer value in the range [0, 255].

@@ -57,5 +57,7 @@ composition type used for the left or right arm within a split body command.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp``
-- ``gravity_compensation.cpp``
+- `24_demo_motion.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/24_demo_motion.cpp>`__: passes joint, Cartesian and impedance builders to ``SetRightArmCommand()`` / ``SetLeftArmCommand()``; each converts to an ``ArmCommandBuilder``.
+- `29_joint_impedance_control.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/29_joint_impedance_control.cpp>`__: arm commands with joint impedance control.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

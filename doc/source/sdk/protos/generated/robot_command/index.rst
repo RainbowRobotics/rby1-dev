@@ -1,5 +1,5 @@
-RobotCommand
-============
+robot_command.proto
+===================
 
 .. toctree::
    :maxdepth: 1

@@ -1,9 +1,7 @@
 (rb-api-ledservice)=
 # LEDService
 
-- Source proto: `rb/api/led_service.proto`
-
-gRPC service for led.
+- Source proto: [`rb/api/led_service.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/led_service.proto) (rby1-sdk v0.10.1)
 
 Service for controlling LED behavior
 

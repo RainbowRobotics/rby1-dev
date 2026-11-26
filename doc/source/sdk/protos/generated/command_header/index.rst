@@ -1,5 +1,5 @@
-CommandHeader
-=============
+command_header.proto
+====================
 
 .. toctree::
    :maxdepth: 1

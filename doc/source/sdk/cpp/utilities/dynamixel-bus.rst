@@ -125,6 +125,6 @@ read or write grouped or per-device values.
 
 .. rubric:: Examples
 
-- ``module_test/gripper.cpp``
-- ``module_test/head.cpp``
-- ``module_test/tool_flange.cpp``
+- `20_leader_arm_state_check.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/20_leader_arm_state_check.cpp>`__: uses ``DynamixelBus::kCurrentControlMode`` for the leader arm.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

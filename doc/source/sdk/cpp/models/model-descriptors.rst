@@ -39,16 +39,26 @@ or joint ordering.
      - Description
    * - ``A``
      - 24
-     - body, arms, head, and mobility index groups
-     - Full mobile manipulator model descriptor.
+     - ``kMobilityIdx`` (2 wheels), ``kBodyIdx`` (20: torso 6, arms 7 + 7),
+       ``kHeadIdx`` (2)
+     - RB-Y1 Model A, mobile base with two wheels.
    * - ``M``
-     - 20
-     - body, arms, and head index groups
-     - Non-mobility model descriptor.
+     - 26
+     - ``kMobilityIdx`` (4 wheels), ``kBodyIdx`` (20: torso 6, arms 7 + 7),
+       ``kHeadIdx`` (2)
+     - RB-Y1 Model M, mobile base with four wheels. A separate class; it does
+       not inherit from ``A``.
    * - ``UB``
-     - 14
-     - upper-body index groups
-     - Upper-body-only model descriptor.
+     - 18
+     - ``kMobilityIdx`` (empty), ``kBodyIdx`` (16: torso 2, arms 7 + 7),
+       ``kHeadIdx`` (2)
+     - RB-Y1 upper body without a mobile base.
+
+All three classes also define ``kModelName``, ``kRobotJointNames``,
+``kRightArmIdx``, ``kLeftArmIdx``, ``kTorsoIdx``, ``kControlPeriod``
+(``0.002`` s) and the dynamics types ``DynRobotType`` / ``DynRobotStateType``.
+All constants are ``static constexpr``, so they can be used as template
+arguments (for example ``Eigen::Vector<double, rb::y1_model::A::kRobotDOF>``).
 
 .. rubric:: Detailed Reference
 
@@ -75,5 +85,7 @@ or joint ordering.
 
 .. rubric:: Examples
 
-- ``get_robot_state.cpp`` and ``demo_motion.cpp`` both depend on one of these
-  descriptors at compile time.
+- `01_hello_rby1.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/01_hello_rby1.cpp>`__: selects ``y1_model::A`` or ``y1_model::M`` from the ``--model`` argument.
+- `00_helper.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/00_helper.cpp>`__: helper templates that take the model descriptor as ``ModelT``.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

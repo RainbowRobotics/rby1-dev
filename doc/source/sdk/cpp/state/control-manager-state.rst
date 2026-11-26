@@ -65,7 +65,16 @@ check it again whenever a fault or execution transition is suspected.
      - Mirrors client-side time-scale control.
    * - ``unlimited_mode_enabled``
      - Whether unlimited mode is active.
-     - Relevant when enabling the manager with unlimited mode.
+     - Set by ``Robot::EnableControlManager(true)``. Should be ``false`` in
+       normal operation; see the warning below.
+
+.. warning::
+
+   In unlimited mode the robot skips the joint position limit check when the
+   Control Manager is enabled, and jog commands are not clamped to the joint
+   limits. Use it only to recover a joint that is outside its limits, with slow
+   motions and the E-Stop within reach. See
+   `E-Stop Basics <../../../getting-started/estop-basics.md>`_.
 
 .. rubric:: Numeric Fields & Encodings
 
@@ -98,5 +107,7 @@ check it again whenever a fault or execution transition is suspected.
 
 .. rubric:: Examples
 
-- ``demo_motion.cpp`` and ``power_command.cpp`` both pass through the
-  control-manager lifecycle.
+- `00_helper.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/00_helper.cpp>`__: reads the state and resets a fault before ``EnableControlManager()``.
+- `20_leader_arm_state_check.cpp <https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/20_leader_arm_state_check.cpp>`__: disables the control manager before leader arm control.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

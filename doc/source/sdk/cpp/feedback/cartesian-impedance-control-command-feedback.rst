@@ -77,4 +77,6 @@ Cartesian impedance requests.
 
 .. rubric:: Examples
 
-- ``gravity_compensation.cpp``
+No C++ example in rby1-sdk v0.10.1 sends the command that produces this feedback.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.

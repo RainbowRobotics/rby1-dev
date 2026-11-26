@@ -1,32 +1,39 @@
 # CAN Checker
 
-## How to Check CAN Communication
+The `can_checker` tool checks that the robot PC (RPC) receives data on each of its four CAN channels.
+You run it on the user PC (UPC) or on another Linux PC that can reach the RPC over SSH. For each channel, it records the CAN traffic on the RPC for 2 seconds. The whole check takes about 10 seconds.
 
-The can_checker tool allows you to verify whether the CAN communication is functioning correctly.
+## Download
 
-### Downloads (CAN Checker)
-- can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a>
+- can_checker (for the UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a>
 
 ::: warning
-Ensure that the robot’s main power is **turned on** before proceeding.
+Turn on the robot power (48 V) before you run the check. Without it, the motor drivers send no CAN data and their channels are reported as `[FAILURE]`. Follow [Disable the Control Manager Before Changing the Power State](../precautions/power_and_battery.md#disable-the-control-manager-before-changing-the-power-state) when you change the power.
 :::
 
-### Usage (CAN Checker)
- 
+## Usage
+
 ```bash
-# Make the tool executable
+# The tool uses sshpass for the SSH login
+sudo apt-get install -y sshpass
+
+# Make the tool executable (once)
 chmod +x can_checker
 
 # Run the tool
 ./can_checker <RPC IP address>
 
-# Example
+# Example (UPC, wired connection to the RPC)
 ./can_checker 192.168.30.1
 ```
 
-If the communication is functioning correctly, you will see output similar to the following. The process typically takes around 1-2 minutes to complete.
+If `sshpass` is not installed or the RPC cannot be reached, the tool reports every channel as `[FAILURE]`.
 
-```bash
+## Results
+
+If all channels communicate, the output looks like this:
+
+```text
 Checking can0 (right_arm)...
 [SUCCESS] can0 (right_arm) is communicating!
 Checking can1 (left_arm)...
@@ -37,4 +44,12 @@ Checking can3 (wheel)...
 [SUCCESS] can3 (wheel) is communicating!
 ```
 
-If any issues arise, please save the output and attach it when contacting us for further analysis.
+The channel labels in the output are short names. For the devices on each channel, see [Communication System Overview \[CAN\]](../hardware/electrical_part.md#communication-system-overview-can).
+
+| Result | Meaning | What to do |
+|---|---|---|
+| `[SUCCESS] ... is communicating!` | The RPC received data on the channel. | Nothing. |
+| `[ERROR] ... has error packets!` | The RPC received data, but some frames look like error frames. | Save the output and back up the logs (see [Log Backup](log_backup.md)). Contact the support team. |
+| `[FAILURE] ... has no communication.` | The RPC received no data on the channel. | Check that `sshpass` is installed, that the RPC address is correct, and that the 48 V power is on. Then run the tool again. If the failure stays, save the output and contact the support team. |
+
+Support: <a href="mailto:rby.support@rainbow-robotics.com" target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>

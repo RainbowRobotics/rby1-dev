@@ -1,9 +1,9 @@
 (rb-api-grippercommandservice)=
 # GripperCommandService
 
-- Source proto: `rb/api/gripper_command_service.proto`
+- Source proto: [`rb/api/gripper_command_service.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/gripper_command_service.proto) (rby1-sdk v0.10.1)
 
-gRPC service for gripper command.
+Initializes and moves a gripper.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|

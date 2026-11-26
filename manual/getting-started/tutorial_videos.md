@@ -6,8 +6,8 @@ understanding the hardware, using RPC management tools, and starting SDK-based
 development.
 
 ::: warning Important
-Before moving the robot, review the safety guidance and keep the E-Stop within
-reach. Watch the relevant tutorial video first, then operate RB-Y1 step by step
+Before moving the robot, read [E‑Stop Basics](estop-basics.md) and [Safety](../precautions/index.md),
+and keep the E-Stop within reach. Watch the relevant tutorial video first, then operate RB-Y1 step by step
 in a clear workspace with enough room around the arms, body, and mobile base.
 :::
 
@@ -20,9 +20,9 @@ in a clear workspace with enough room around the arms, body, and mobile base.
 5. **SDK** - Continue with SDK installation, state checks, and application development.
 
 After watching the videos, continue with the written setup pages in this section:
-[Unboxing](unboxing.md), [Hotspot and Web UI](hotspot-and-webui.md),
-[Connect External AP](connect-external-ap.md), and
-[SDK Installation and Read State](sdk-install-and-state.md).
+[E‑Stop Basics](estop-basics.md), [Unboxing](unboxing.md), [Hotspot & Web UI](hotspot-and-webui.md),
+[External Access Point](connect-external-ap.md), [SDK Installation](sdk-install-and-state.md) and
+[First Motion](first-motion.md).
 
 ---
 

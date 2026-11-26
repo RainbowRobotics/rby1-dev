@@ -1,5 +1,5 @@
-Color
-=====
+color.proto
+===========
 
 .. toctree::
    :maxdepth: 1

@@ -1,9 +1,9 @@
 (rb-api-parameterservice)=
 # ParameterService
 
-- Source proto: `rb/api/parameter_service.proto`
+- Source proto: [`rb/api/parameter_service.proto`](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/protos/rb/api/parameter_service.proto) (rby1-sdk v0.10.1)
 
-gRPC service for parameter.
+Reads, sets and resets the robot parameters.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
@@ -14,5 +14,5 @@ gRPC service for parameter.
 | GetParameter | [GetParameterRequest](../parameter/getparameterrequest.md) | [GetParameterResponse](../parameter/getparameterresponse.md) |  |
 | SetParameter | [SetParameterRequest](../parameter/setparameterrequest.md) | [SetParameterResponse](../parameter/setparameterresponse.md) |  |
 | GetParameterList | [GetParameterListRequest](../parameter/getparameterlistrequest.md) | [GetParameterListResponse](../parameter/getparameterlistresponse.md) |  |
-| ResetAllParametersToDefault | [ResetAllParametersToDefaultRequest](../parameter/resetallparameterstodefaultrequest.md) | [ResetAllParametersToDefaultResponse](../parameter/resetallparameterstodefaultresponse.md) | Deprecated |
-| ResetParameterToDefault | [ResetParameterToDefaultRequest](../parameter/resetparametertodefaultrequest.md) | [ResetParameterToDefaultResponse](../parameter/resetparametertodefaultresponse.md) | Deprecated |
+| ResetAllParametersToDefault | [ResetAllParametersToDefaultRequest](../parameter/resetallparameterstodefaultrequest.md) | [ResetAllParametersToDefaultResponse](../parameter/resetallparameterstodefaultresponse.md) | **Deprecated.** Does the same as FactoryResetAllParameters; use that instead. |
+| ResetParameterToDefault | [ResetParameterToDefaultRequest](../parameter/resetparametertodefaultrequest.md) | [ResetParameterToDefaultResponse](../parameter/resetparametertodefaultresponse.md) | **Deprecated.** Does the same as FactoryResetParameter; use that instead. |

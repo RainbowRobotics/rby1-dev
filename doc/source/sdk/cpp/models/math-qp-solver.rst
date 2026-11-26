@@ -69,4 +69,6 @@ on this page because it is tightly coupled to solver setup and failure modes.
 
 .. rubric:: Examples
 
-- ``optimal_control.cpp`` is the main end-to-end example for this solver path.
+No C++ example in rby1-sdk v0.10.1 uses this type directly.
+
+All files are in ``examples/cpp`` of rby1-sdk v0.10.1. See :doc:`../cpp-examples` for the full list.
