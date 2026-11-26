@@ -14,7 +14,7 @@ The feedback of a command (`RobotCommandFeedback`) reports its status and, when 
 | `Finished` | The command has ended. Read `finish_code`: `Ok` when it ended normally. |
 
 The diagram calls the end state *ControlFinished*; in the SDK it is the status `Finished`.
-All finish codes are listed in [Fault Diagnosis](../../troubleshooting/fault-diagnosis.md#command-finish-codes).
+All finish codes are listed in [Fault Diagnosis](../../troubleshooting/fault-diagnosis.md#finish-codes).
 
 ---
 ## Control Hold Time

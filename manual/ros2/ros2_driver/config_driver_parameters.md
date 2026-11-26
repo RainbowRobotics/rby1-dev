@@ -83,6 +83,6 @@ Driver versions before v1.0.0 used the keys below. v1.0.0 does not declare them,
 | `stream_hz` | Replaced by `stream_command_hz` (for `cmd_vel`) |
 | `angular_velocity_limit`, `linear_velocity_limit`, `acceleration_limit` | Fixed defaults; set them per command |
 | `stop_orientation_tracking_error`, `stop_position_tracking_error` | Fields of the `Rby1CartesianCommand` goal |
-| `fault_reset_trigger` | Removed. On a motion command the driver resets a Control Manager fault, major or minor, and enables the Control Manager by itself ([Safety & Fault Management](key_features.md#safety-fault-management)) |
+| `fault_reset_trigger` | Removed. On a motion command the driver resets a Control Manager fault, major or minor, and enables the Control Manager by itself ([Safety & Fault Management](key_features.md#safety--fault-management)) |
 
 Verified against: rby1-ros2 v1.0.0 `rby1_driver/config/driver_parameters.yaml`, `rby1_driver/src/rby1_ros2_driver.cpp` (`init_parameter`), `rby1_driver/include/default_parameters.hpp`, `rby1_driver/src/command_builder.cpp`, `Doc/manual/02_driver.md`.
