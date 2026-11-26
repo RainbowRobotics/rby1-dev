@@ -15,13 +15,13 @@ Both the RB-Y1 backpack (**U-PC M/ARM** port) and the leader arm have a MOCO cab
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/master_arm.png')" alt="MOCO cable port on the leader arm" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/master_arm.png')" alt="MOCO cable port on the leader arm" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/backpack.png')" alt="MOCO cable port labeled U-PC M/ARM on the RB-Y1 backpack panel" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/backpack.png')" alt="MOCO cable port labeled U-PC M/ARM on the RB-Y1 backpack panel" class="white-bg">
 
 </div>
 
@@ -33,13 +33,13 @@ When you connect the MOCO cable to the RB-Y1 backpack or the leader arm, align t
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/backpack_moco1.jpg')" alt="MOCO connector at the backpack port, red dot and red mark" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/backpack_moco1.jpg')" alt="MOCO connector at the backpack port, red dot and red mark" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/backpack_moco2.jpg')" alt="MOCO connector on the backpack port with the red dot lined up with the red square" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/backpack_moco2.jpg')" alt="MOCO connector on the backpack port with the red dot lined up with the red square" class="white-bg">
 
 </div>
 
@@ -49,13 +49,13 @@ When you connect the MOCO cable to the RB-Y1 backpack or the leader arm, align t
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/masterarm_moco4.jpg')" alt="MOCO connector at the leader arm port, red dot and red mark" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/masterarm_moco4.jpg')" alt="MOCO connector at the leader arm port, red dot and red mark" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/masterarm_moco3.jpg')" alt="MOCO connector on the leader arm port with the red dot lined up with the red mark" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/masterarm_moco3.jpg')" alt="MOCO connector on the leader arm port with the red dot lined up with the red mark" class="white-bg">
 
 </div>
 
@@ -67,13 +67,13 @@ When you disconnect the MOCO cable, do not pull on the cable itself.
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/backpack_moco3.png')" alt="Wrong: pulling the MOCO cable out of the backpack port by the cable" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/backpack_moco3.png')" alt="Wrong: pulling the MOCO cable out of the backpack port by the cable" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/masterarm_moco1.png')" alt="Wrong: pulling the MOCO cable out of the leader arm port by the cable" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/masterarm_moco1.png')" alt="Wrong: pulling the MOCO cable out of the leader arm port by the cable" class="white-bg">
 
 </div>
 
@@ -85,13 +85,13 @@ Always hold the connector housing when you remove the cable.
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/backpack_moco4.jpg')" alt="Right: holding the connector housing to remove the MOCO cable from the backpack" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/backpack_moco4.jpg')" alt="Right: holding the connector housing to remove the MOCO cable from the backpack" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/masterarm_moco2.jpg')" alt="Right: holding the connector housing to remove the MOCO cable from the leader arm" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/masterarm_moco2.jpg')" alt="Right: holding the connector housing to remove the MOCO cable from the leader arm" class="white-bg">
 
 </div>
 
@@ -111,19 +111,19 @@ Forcing the tool flange connector in at the wrong angle can damage it.
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/tf_connect1.jpg')" alt="Tool flange cable connector face with its keyway notch" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/tf_connect1.jpg')" alt="Tool flange cable connector face with its keyway notch" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/tf_connect2.jpg')" alt="Tool flange connector keyway, second view" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/tf_connect2.jpg')" alt="Tool flange connector keyway, second view" class="white-bg">
 
 </div>
 
 </div>
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/tf_connect3.png')" alt="Tool flange connector on the wrist before (left) and after (right) the cable is connected" class="white-bg" style="width:100%">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/tf_connect3.png')" alt="Tool flange connector on the wrist before (left) and after (right) the cable is connected" class="white-bg" style="width:100%">
 
 ---
 ## Tool Flange Voltage for the Gripper (12V)
@@ -141,6 +141,6 @@ The tool flange output can be off, 12V or 24V. It can be set only while the 48V 
 - **Python SDK:** `robot.set_tool_flange_output_voltage("right", 12)` (use `"left"` for the left arm, `0` turns the output off). It returns `False` if the command fails. Read the current value from the robot state: `state.tool_flange_right.output_voltage`.
 - **ROS 2:** the `tool_flange_power` service (see [Services](../ros2/ros2_driver/services.md)).
 
-<img :src="$withBase('/images/saftey_and_precautions/hardware_handling/toolflange_power.png')" alt="Tool Flange Power card in an older Web UI with the 24V ON, 12V ON and OFF buttons; 12V ON is highlighted" class="white-bg" style="width:100%">
+<img :src="$withBase('/images/safety_and_precautions/hardware_handling/toolflange_power.png')" alt="Tool Flange Power card in an older Web UI with the 24V ON, 12V ON and OFF buttons; 12V ON is highlighted" class="white-bg" style="width:100%">
 
 See also [Gripper](../options/gripper.md).

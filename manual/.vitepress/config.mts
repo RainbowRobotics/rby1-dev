@@ -59,23 +59,27 @@ const safeTree = (indexPath: string, depth?: number): Item =>
 
 // ── Sidebars per top menu ─────────────────────────────────────────────
 const quickStart: Item[] = [
-  group('Getting Started', [
-    page('Overview', 'getting-started/index'),
-    page('Hello, RB-Y1', 'getting-started/hello_rby1'),
-    page('Tutorial Videos', 'getting-started/tutorial_videos'),
-  ]),
+  group('Getting Started', [page('Overview', 'getting-started/index')]),
   group('First Steps', [
     page('1. E‑Stop Basics', 'getting-started/estop-basics'),
     page('2. Unboxing', 'getting-started/unboxing'),
     page('3. Hotspot & Web UI', 'getting-started/hotspot-and-webui'),
     page('4. External Access Point', 'getting-started/connect-external-ap'),
     page('5. SDK Installation', 'getting-started/sdk-install-and-state'),
+    page('6. First Motion', 'getting-started/first-motion'),
+  ]),
+  group('Reference', [
+    page('Network and Ports', 'getting-started/network-and-ports'),
+    page('Supported Platforms', 'getting-started/supported-platforms'),
+    page('Connection Troubleshooting', 'getting-started/connection-troubleshooting'),
+    page('Hello, RB-Y1', 'getting-started/hello_rby1'),
+    page('Tutorial Videos', 'getting-started/tutorial_videos'),
   ]),
 ]
 
 const manual: Item[] = [
   group('Safety', [
-    page('Safety', 'precautions/index'),
+    page('Overview', 'precautions/index'),
     page('General', 'precautions/general'),
     page('Power & Battery', 'precautions/power_and_battery'),
     page('Hardware Handling', 'precautions/hardware_handling'),
@@ -86,10 +90,15 @@ const manual: Item[] = [
     page('Hardware', 'hardware/index'),
     page('Overview & Specifications', 'hardware/overview'),
     page('Mechanical Part', 'hardware/mechanical_part'),
+    page('Motor Driver', 'hardware/motor_driver'),
     page('Electrical Part', 'hardware/electrical_part'),
     page('Battery', 'hardware/battery'),
   ]),
-  group('Options', [page('Gripper', 'options/gripper'), page('Leader Arm', 'options/leader_arm')]),
+  group('Options', [
+    page('Gripper', 'options/gripper'),
+    page('Leader Arm', 'options/leader_arm'),
+    page('Teleoperation & Data Collection', 'options/teleoperation'),
+  ]),
   group('Maintenance & Tools', [
     page('Maintenance', 'maintenance/index'),
     page('RPC Updater', 'rpc_management_tools/rpc_updater'),
@@ -122,6 +131,7 @@ const software: Item[] = [
     page('Examples', 'examples/ex'),
     group('Troubleshooting', [
       page('Troubleshooting', 'sdk/trobuleshooting/index'),
+      page('Fault Diagnosis', 'sdk/trobuleshooting/fault-diagnosis'),
       page('Build Issues', 'sdk/trobuleshooting/generated/build_issue'),
       page('Error Reporting', 'sdk/trobuleshooting/generated/error_reporting'),
       page('FAQ', 'sdk/trobuleshooting/generated/faq'),
@@ -130,11 +140,12 @@ const software: Item[] = [
   group('ROS 2', [
     page('ROS 2', 'ros2/index'),
     ...[
-      ['Overview', 'overview'], ['Install & Build', 'install_and_build'], ['Examples', 'examples'],
-      ['Visualization & Robot Description', 'visualization_and_robot_description'], ['RBY1 MoveIt2', 'rby1_moveit2'],
-      ['Package Architecture', 'package_architecture'], ['Config File', 'config_driver_parameters'],
-      ['Key Features', 'key_features'], ['Topics', 'topics'], ['Services', 'services'],
-      ['Action Servers', 'action_servers'], ['Custom Message Types', 'custom_message_types'],
+      ['Overview', 'overview'], ['Install & Build', 'install_and_build'], ['Driver Parameters', 'config_driver_parameters'],
+      ['Examples', 'examples'], ['Key Features', 'key_features'], ['Topics', 'topics'], ['Services', 'services'],
+      ['Action Servers', 'action_servers'], ['Command Streams', 'command_streams'], ['Custom Message Types', 'custom_message_types'],
+      ['MoveIt 2', 'rby1_moveit2'], ['MoveIt Planner', 'moveit_planner'], ['ros2_control Hardware Interface', 'hardware_interface'],
+      ['Package Architecture', 'package_architecture'], ['Bringup', 'bringup'], ['Tools', 'tools'],
+      ['Visualization & Robot Description', 'visualization_and_robot_description'], ['UPC Topic Bridge', 'upc_topic_bridge'],
       ['Troubleshooting & Known Issues', 'troubleshooting_and_known_issues'],
     ].map(([t, p]) => page(t, `ros2/ros2_driver/${p}`)),
   ]),
@@ -240,7 +251,8 @@ export default withMermaid({
   // Keep the .html page URLs of the previous site so existing links keep working.
   cleanUrls: false,
   // Generated fragments pulled in with <!--@include-->, not pages of their own.
-  srcExclude: ['hardware/generated/**'],
+  // Also the old single-page proto reference and type list (duplicates of the per-type pages).
+  srcExclude: ['hardware/generated/**', 'sdk/protos/generated/protos.md', 'sdk/protos/generated/proto_types.md'],
   lastUpdated: true,
   // The Doxygen HTML is a static folder in public/, not a VitePress page.
   ignoreDeadLinks: [/raw-api\//, /^https?:\/\/localhost/],

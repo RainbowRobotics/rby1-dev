@@ -2,7 +2,9 @@
 """Check every link and #anchor between pages of the built site (VitePress only checks whole pages).
 
 Usage: python manual/scripts/check_links.py manual/.vitepress/dist /rby1-dev/
-Exits 1 when a link points to a missing page or a missing anchor.
+Also fails on rendering problems that a build does not report: MathJax errors and GitHub alert
+syntax ("[!WARNING]") that was not converted to a VitePress container.
+Exits 1 when a link points to a missing page or a missing anchor, or on such a rendering problem.
 """
 from __future__ import annotations
 
@@ -31,10 +33,16 @@ def main() -> int:
                 ids[page] = None
         return ids[page]
 
+    rendering: list[str] = []
     missing_pages: dict[str, set[str]] = {}
     missing_anchors: dict[str, set[str]] = {}
     for page in pages:
-        for href in re.findall(r'href="([^"]+)"', open(page, errors="ignore").read()):
+        body = open(page, errors="ignore").read()
+        if re.search(r'data-mjx-error|mathcolor="red"', body):
+            rendering.append(f"{page}: MathJax error")
+        if re.search(r"<p>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]", body):
+            rendering.append(f"{page}: unconverted GitHub alert")
+        for href in re.findall(r'href="([^"]+)"', body):
             href = html.unescape(href)
             if href.startswith(("http", "mailto:", "javascript:", "tel:")) or href == "#":
                 continue
@@ -66,7 +74,9 @@ def main() -> int:
     for target, n in by_page.most_common(50):
         examples = [k.split("#", 1)[1] for k in missing_anchors if k.startswith(target + "#")][:3]
         print(f"  missing anchor {target} x{n}: {examples}")
-    return 1 if missing_pages or missing_anchors else 0
+    for problem in rendering:
+        print(f"  rendering      {problem}")
+    return 1 if missing_pages or missing_anchors or rendering else 0
 
 
 if __name__ == "__main__":

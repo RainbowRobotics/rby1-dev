@@ -28,7 +28,8 @@ PIP    ?= $(PYTHON) -m pip
 # protoc-gen-doc (Docker)
 # ------------------------------------------------------------------------------
 DOCKER        ?= docker
-PROTOC_IMAGE  ?= pseudomuto/protoc-gen-doc:latest
+# protoc-gen-doc 1.5.1, pinned: the committed proto pages are reproduced with exactly this image.
+PROTOC_IMAGE  ?= pseudomuto/protoc-gen-doc@sha256:779263a6dc01fbe375298c4e556d784640539e7b2bd433a50588285da88b74d5
 PROTO_SRC     ?= $(abspath $(CURDIR)/../external/rby1-sdk/protos)
 PROTO_OUT_DIR ?= $(CURDIR)/$(SOURCEDIR)/sdk/protos/generated
 PROTO_DOC_NAME ?= protos.md
@@ -67,30 +68,25 @@ help:
 # ------------------------------------------------------------------------------
 # Generate proto docs (Docker)
 # ------------------------------------------------------------------------------
-protoc-doc:
+protoc-doc: sdk-pin
 	@mkdir -p "$(PROTO_OUT_DIR)"
-	@echo "[protoc-doc] Using PROTO_SRC=$(PROTO_SRC)"
-	@echo "[protoc-doc] Writing to $(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
+	@echo "[protoc-doc] $(PROTO_SRC) ($(SDK_TAG)) -> $(PROTO_OUT_DIR)"
 	@$(DOCKER) run --rm -u "$$(id -u):$$(id -g)" \
 	  -v "$(PROTO_OUT_DIR):/out" \
 	  -v "$(PROTO_SRC):/protos" \
 	  --entrypoint '' \
 	  $(PROTOC_IMAGE) \
-	  bash -lc 'shopt -s globstar nullglob; \
-	    protoc -I /protos \
-	      --doc_out=/out \
-	      --doc_opt=markdown,$(PROTO_DOC_NAME) \
-	      /protos/$(PROTO_GLOB)'
+	  bash -lc 'protoc -I /protos --doc_out=/out --doc_opt=markdown,$(PROTO_DOC_NAME) /protos/$(PROTO_GLOB) && \
+	            protoc -I /protos --doc_out=/out --doc_opt=json,protos.json /protos/$(PROTO_GLOB)'
 	@$(PYTHON) scripts/patch_protos_md.py "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
-	@$(PYTHON) scripts/generate_proto_type_pages.py
+	@SDK_TAG=$(SDK_TAG) $(PYTHON) scripts/generate_proto_type_pages.py
 	@$(PYTHON) scripts/generate_proto_catalog.py
 	
 
 clean-proto:
 	@echo "[clean-proto] Removing $(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
 	@rm -f "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
-	@rm -f "$(PROTO_OUT_DIR)/proto_types.rst"
-	@rm -rf "$(PROTO_OUT_DIR)/types"
+	@rm -f "$(PROTO_OUT_DIR)/proto_types.rst" "$(PROTO_OUT_DIR)/protos.json" "$(PROTO_OUT_DIR)/SDK_TAG"
 
 # ------------------------------------------------------------------------------
 # Doxygen (C++) via container
@@ -146,6 +142,8 @@ NPM ?= npm
 # protoc-doc is not part of the build: the generated proto pages are committed in
 # source/sdk/protos/generated. Run `make protoc-doc` when the SDK protos change.
 reference: sdk-pin sdk-install doxygen-doc
+	@# The committed proto pages must be for the same SDK tag as the rest of the reference.
+	@test "$$(cat $(PROTO_OUT_DIR)/SDK_TAG)" = "$(SDK_TAG)" || { echo "proto pages are for $$(cat $(PROTO_OUT_DIR)/SDK_TAG); run: make -C doc protoc-doc SDK_TAG=$(SDK_TAG)"; exit 1; }
 	@SDK_VERSION=$(SDK_TAG) $(PYTHON) "$(REPO_ROOT)/manual/scripts/generate_reference.py"
 
 site: reference

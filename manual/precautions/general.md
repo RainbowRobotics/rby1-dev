@@ -44,7 +44,7 @@ The lower inner area of the mecanum mobile base can have sharp parts. Touching t
 - Wear protective gloves when you handle the robot.
 :::
 
-<img :src="$withBase('/images/saftey_and_precautions/general_safety/mecanum_wheel.png')" alt="Hand reaching under the edge of the mecanum mobile base, marked as a sharp-edge hazard area" class="center white-bg" style="width:40%">
+<img :src="$withBase('/images/safety_and_precautions/general_safety/mecanum_wheel.png')" alt="Hand reaching under the edge of the mecanum mobile base, marked as a sharp-edge hazard area" class="center white-bg" style="width:40%">
 
 ---
 ## Test in Simulation Before the Real Robot
@@ -60,13 +60,13 @@ A program that has not been tested can move the robot in an unexpected way and h
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/general_safety/model_a.png')" alt="RB-Y1 Model A in the simulator" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/general_safety/model_a.png')" alt="RB-Y1 Model A in the simulator" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/general_safety/model_m.png')" alt="RB-Y1 Model M in the simulator" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/general_safety/model_m.png')" alt="RB-Y1 Model M in the simulator" class="white-bg">
 
 </div>
 

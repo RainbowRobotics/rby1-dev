@@ -65,8 +65,8 @@ features:
 ## Before you begin
 
 - **Safety first.** Before the first power‑on, read [E‑Stop Basics](/getting-started/estop-basics) and the [Safety](/precautions/) pages, and follow your site safety policies.
-- **Network.** Connect through the RB‑Y1 hotspot or your site network ([Hotspot & Web UI](/getting-started/hotspot-and-webui)).
-- **SDK.** Install [rby1-sdk](https://github.com/RainbowRobotics/rby1-sdk) and check that you can read the robot state ([SDK Installation](/getting-started/sdk-install-and-state)).
+- **Network.** Connect through the RB‑Y1 hotspot or your site network ([Hotspot & Web UI](/getting-started/hotspot-and-webui), [Network and Ports](/getting-started/network-and-ports)).
+- **SDK.** Install [rby1-sdk](https://github.com/RainbowRobotics/rby1-sdk) on a [supported platform](/getting-started/supported-platforms), read the robot state ([SDK Installation](/getting-started/sdk-install-and-state)) and make the [first motion](/getting-started/first-motion).
 
 ## System highlights
 

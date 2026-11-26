@@ -54,6 +54,11 @@ jobs:
           cache: npm
           cache-dependency-path: manual/package-lock.json
 
+      - name: Proto pages are reproducible from the SDK protos
+        run: |
+          make -C doc protoc-doc SDK_TAG=${{ steps.version.outputs.sdk_version }} PYTHON=python
+          git diff --exit-code -- doc/source/sdk/protos manual/sdk/protos/index.md
+
       - name: Build the site (API reference + VitePress)
         run: make -C doc html SDK_TAG=${{ steps.version.outputs.sdk_version }} PYTHON=python
 

@@ -10,7 +10,7 @@ Code, teleoperation or a Web UI command can move the robot in an unexpected way.
 - See [E-Stop Basics](../getting-started/estop-basics.md) for what the E-Stop does and how to recover.
 :::
 
-<img :src="$withBase('/images/saftey_and_precautions/control_and_system/emo.jpg')" alt="Remote E-Stop with buttons 1, 2 and 3 held in front of the robot; the front LED is red" class="center white-bg" style="width:40%">
+<img :src="$withBase('/images/safety_and_precautions/control_and_system/emo.jpg')" alt="Remote E-Stop with buttons 1, 2 and 3 held in front of the robot; the front LED is red" class="center white-bg" style="width:40%">
 
 ---
 ## The Web UI Stop Buttons Are Not an E-Stop

@@ -9,7 +9,7 @@ When the Control Manager is enabled and the control state is idle (solid blue st
 - Keep your body out of the space under and beside the arms and torso while the buttons are pressed.
 :::
 
-<img :src="$withBase('/images/saftey_and_precautions/operations_safety/direct_teaching.png')" alt="Direct Teaching buttons on the left and right wrists, circled" class="center white-bg" style="width:60%">
+<img :src="$withBase('/images/safety_and_precautions/operations_safety/direct_teaching.png')" alt="Direct Teaching buttons on the left and right wrists, circled" class="center white-bg" style="width:60%">
 
 ---
 ## Releasing the Torso Brakes
@@ -29,13 +29,13 @@ Before you release a torso brake:
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/operations_safety/brake_webui.png')" alt="Brake card in the Web UI with torso_0 to torso_5 selected and the RELEASE button highlighted" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/operations_safety/brake_webui.png')" alt="Brake card in the Web UI with torso_0 to torso_5 selected and the RELEASE button highlighted" class="white-bg">
 
 </div>
 
 <div>
 
-<img :src="$withBase('/images/saftey_and_precautions/operations_safety/brake_button.png')" alt="Brake button on the torso, marked with a red box" class="white-bg">
+<img :src="$withBase('/images/safety_and_precautions/operations_safety/brake_button.png')" alt="Brake button on the torso, marked with a red box" class="white-bg">
 
 </div>
 
@@ -75,4 +75,4 @@ When you operate the leader arm, fingers or hands can be caught between its join
 - Keep a safe distance from moving parts while the robot is active.
 :::
 
-<img :src="$withBase('/images/saftey_and_precautions/operations_safety/leader_arm.png')" alt="Three leader arm joints where fingers can be caught, marked with red boxes" class="white-bg" style="width:100%">
+<img :src="$withBase('/images/safety_and_precautions/operations_safety/leader_arm.png')" alt="Three leader arm joints where fingers can be caught, marked with red boxes" class="white-bg" style="width:100%">

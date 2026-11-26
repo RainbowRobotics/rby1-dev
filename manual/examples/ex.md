@@ -109,6 +109,8 @@ The numbers match between Python and C++ except for these files: number 04 is th
 | 38 | [38_rpc_serial_device.py](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/python/38_rpc_serial_device.py) | [38_serial_device.cpp](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/38_serial_device.cpp) | Lists the serial devices on the robot PC (RPC). | No | No |
 | 39 | [39_rpc_serial_communication.py](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/python/39_rpc_serial_communication.py) | [39_serial_communication.cpp](https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/examples/cpp/39_serial_communication.cpp) | Opens a serial device on the robot PC (RPC) and reads from it. CAUTION: devices that send data as soon as they connect can overload the RPC. | No | No |
 
+For the leader arm (20, 35) and recording/replay (21, 22), see also [Teleoperation & Data Collection](../options/teleoperation.md). The C++ API reference has a per-class list of examples in [C++ Examples](../sdk/cpp/cpp-examples.md).
+
 ::: tip Newer examples
 The `main` and `dev` branches of rby1-sdk can contain newer examples that are not in v0.10.1. They may need a newer SDK and robot software than this manual describes.
 :::

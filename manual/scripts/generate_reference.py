@@ -103,6 +103,13 @@ def _summary_table_headers(lines: list[str]) -> list[str]:
     out, i = [], 0
     while i < len(lines):
         line = lines[i]
+        # Any table that starts with a linked API name (autosummary) gets a header row.
+        prev = out[-1] if out else ""
+        if (line.startswith("| [`") and not prev.startswith("|") and i + 1 < len(lines)
+                and re.match(r"^\|[-| :]+\|$", lines[i + 1])):
+            out.extend(["| Name | Description |", lines[i + 1], line])
+            i += 2
+            continue
         out.append(line)
         if re.match(r"^#{2,6} (Methods|Attributes)\s*$", line) or line in ("**Attributes**",):
             j = i + 1
@@ -128,7 +135,9 @@ def tidy_python(markdown: str) -> str:
     def merge(m: re.Match) -> str:
         text = re.sub(r"\s+", " ", m.group(0).replace("*", "")).replace(" ,", ",").replace("( ", "(").strip()
         return f"*{text}*"
-    return re.sub(r"(?:\*{1,2}[^*\n]+?\*{1,2}[ ]?){3,}", merge, markdown)
+    markdown = re.sub(r"(?:\*{1,2}[^*\n]+?\*{1,2}[ ]?){3,}", merge, markdown)
+    # The private module name leaks into "See Also" entries of some docstrings.
+    return markdown.replace("rby1_sdk._bindings.", "rby1_sdk.")
 
 
 def tidy_cpp(markdown: str) -> str:
@@ -221,8 +230,9 @@ def export_api(tmp: Path) -> None:
             target = dst / md.relative_to(out / "sdk" / lang)
             target.parent.mkdir(parents=True, exist_ok=True)
             text = md.read_text()
-            # Breathe target ids (#rby1-sdkclass...) are not exported; link to the page instead.
-            text = re.sub(r"\]\(([^)#\s]*)#rby1-sdk[^)]*\)", lambda m: f"]({m.group(1) or '#'})", text)
+            # Breathe target ids (#rby1-sdkclass...) are not exported: link to the page, or keep only the text.
+            text = re.sub(r"\[([^\]]+)\]\(([^)#\s]*)#rby1-sdk[^)]*\)",
+                          lambda m: f"[{m.group(1)}]({m.group(2)})" if m.group(2) else m.group(1), text)
             if lang == "python":
                 text = tidy_python(text)
             if lang == "cpp":
@@ -277,6 +287,20 @@ def import_protos() -> None:
     print(f"[protos] {pages} pages, {len(entries)} types")
 
 
+def check_example_references() -> None:
+    """Every SDK example the API sources name must exist at the SDK tag (examples were renumbered in 2026)."""
+    sdk = REPO / "external" / "rby1-sdk"
+    tag = subprocess.run(["git", "-C", str(sdk), "describe", "--tags", "--always"], capture_output=True, text=True).stdout.strip()
+    missing = set()
+    for src in (DOC / "source" / "sdk").rglob("*.rst"):
+        for path in set(re.findall(r"examples/(?:cpp|python)/[\w./-]+\.(?:cpp|py)", src.read_text(errors="ignore"))):
+            if subprocess.run(["git", "-C", str(sdk), "cat-file", "-e", f"{tag}:{path}"], capture_output=True).returncode:
+                missing.add(f"{path} (in {src.relative_to(REPO)})")
+    if missing:
+        raise SystemExit("[examples] not in rby1-sdk " + tag + ":\n  " + "\n  ".join(sorted(missing)))
+    print(f"[examples] all example references exist in rby1-sdk {tag}")
+
+
 def joint_limits() -> None:
     subprocess.run([sys.executable, str(DOC / "scripts" / "generate_joint_limit_tables.py"),
                     "--sdk", str(REPO / "external" / "rby1-sdk"),
@@ -287,6 +311,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--skip-api", action="store_true", help="only protos and joint tables (no Sphinx run)")
     args = parser.parse_args()
+    check_example_references()
     import_protos()
     joint_limits()
     if not args.skip_api:

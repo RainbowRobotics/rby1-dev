@@ -63,6 +63,10 @@ autodoc_member_order = "groupwise"
 autodoc_typehints = "description"
 autodoc_inherit_docstrings = True
 add_module_names = False
+# Class docstring "Attributes" become :ivar: fields, so properties are not listed twice.
+napoleon_use_ivar = True
+# Keep straight quotes in values such as "a" (model names).
+smartquotes = False
 autoclass_content = "class"
 autodoc_default_options = {
     "members": True,

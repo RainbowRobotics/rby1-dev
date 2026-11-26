@@ -26,13 +26,13 @@ and clear the space around the robot.
 
    <div>
 
-   <img :src="$withBase('/images/saftey_and_precautions/power_and_battery/hotspot_button.png')" alt="HOTSPOT button on the backpack" class="white-bg">
+   <img :src="$withBase('/images/safety_and_precautions/power_and_battery/hotspot_button.png')" alt="HOTSPOT button on the backpack" class="white-bg">
 
    </div>
 
    <div>
 
-   <img :src="$withBase('/images/saftey_and_precautions/power_and_battery/hotspot_qr.png')" alt="QR code on the backpack display" class="white-bg">
+   <img :src="$withBase('/images/safety_and_precautions/power_and_battery/hotspot_qr.png')" alt="QR code on the backpack display" class="white-bg">
 
    </div>
 
