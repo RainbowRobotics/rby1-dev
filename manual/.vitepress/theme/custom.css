@@ -25,3 +25,31 @@
 .vp-doc img {
   border-radius: 12px;
 }
+
+/* Section landing pages: "- [**Title**](link)<br>text" lists inside .link-cards render as a card grid. */
+.vp-doc .link-cards ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.vp-doc .link-cards li {
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.vp-doc .link-cards li a {
+  display: inline-block;
+  margin-bottom: 4px;
+  text-decoration: none;
+  font-size: 16px;
+}
+.vp-doc .link-cards li:hover {
+  border-color: var(--vp-c-brand-1);
+}

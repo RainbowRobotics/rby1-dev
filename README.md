@@ -1,89 +1,59 @@
-# RBY1 Docs 개발 가이드
+# RB-Y1 웹 매뉴얼 개발 가이드
 
-이 저장소는 RBY1 하드웨어/SDK 문서를 Sphinx로 빌드하기 위한 설정을 담고 있습니다.  
-처음 합류한 팀원이 빠르게 시작할 수 있도록 문서 빌드 방법과 README 작성 팁을 정리했습니다.
+RB-Y1 웹 매뉴얼(https://rainbowrobotics.github.io/rby1-dev/)의 소스입니다.
+회사의 다른 제품 매뉴얼(협동로봇, RBQ, RB-S100)과 같은 **VitePress** 사이트이며,
+Python·C++ API 레퍼런스는 rby1-sdk에서 **Sphinx**로 생성해 Markdown으로 넣습니다.
 
-## TL;DR – 문서 빌드
+## 구조
 
-```bash
-make -C doc clean                          # 이전 결과물 제거
-make -C doc html SDK_TAG=dev              # dev 버전 HTML 빌드
-open doc/build/html/dev/index.html        # macOS 기준 미리보기
-xdg-open doc/build/html/dev/index.html    # Ubuntu GNOME 등 데스크톱 환경
-```
+| 경로 | 내용 |
+| ---- | ---- |
+| `manual/` | VitePress 사이트. 매뉴얼 페이지(`*.md`), 설정(`.vitepress/config.mts`), 테마, 이미지(`public/`) |
+| `manual/scripts/generate_reference.py` | 빌드 때 생성되는 페이지: Python/C++ API, proto 페이지, 관절 범위·속도 표, Doxygen HTML |
+| `doc/source/` | API 생성용 Sphinx 소스(`sdk/python`, `sdk/cpp`)와 proto 생성 결과(`sdk/protos/generated`) |
+| `doc/scripts/` | 관절 표 생성기, proto 페이지 생성기, 버전별 배포 스크립트(`publish_site.py`) |
+| `external/rby1-sdk` | API를 생성하는 SDK 서브모듈. 태그로 고정(현재 v0.10.1) |
+| `.github/workflows/docs.yml` | 모든 push/PR에서 빌드. 라이브 배포는 dev에서 수동 실행할 때만 |
 
-## 처음 문서 빌드하기
+## 빌드
 
-1. **필수 도구 설치**
-   - Python 3.10 이상, `make`, `git`, Docker(프로토/도큐젠 생성 시 필요) 를 설치합니다.
-   - macOS(Homebrew) 예시:
-     ```bash
-     brew install python@3.11 git make
-     ```
-     Docker Desktop은 [공식 설치 가이드](https://docs.docker.com/desktop/mac/install/) 를 따라 설치합니다.
-   - Ubuntu/Debian 계열 예시:
-     ```bash
-     sudo apt update
-     sudo apt install -y python3 python3-venv python3-pip make git
-     ```
-     배포판별 Docker Engine 설치 방법은 [공식 문서](https://docs.docker.com/engine/install/) 를 참고하세요.
-2. **저장소 복제 및 서브모듈 초기화**
-   ```bash
-   git clone git@github.com:RainbowRobotics/rby1-dev.git
-   cd rby1-dev
-   git submodule update --init --recursive
-   ```
-3. **가상 환경 구성**
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   python -m pip install -U pip
-   python -m pip install -e .
-   ```
-   `pyproject.toml` 에 선언된 Sphinx 관련 의존성이 설치됩니다.
-4. **처음 빌드 실행**
-   ```bash
-   make -C doc html SDK_TAG=dev
-   ```
-   - `SDK_TAG` 를 릴리스 태그(`v0.9.0` 등)로 바꾸면 버전별 HTML이 `doc/build/html/<SDK_TAG>` 에 생성됩니다.
-   - 프로토 버전 문서나 Doxygen XML이 없는 경우, Makefile이 Docker를 이용해 자동 생성합니다.
-
-## 기존 환경에서 다시 빌드하기
-
-이미 가상 환경과 의존성이 준비된 상태라면 다음 순서로 최신 문서를 빌드합니다.
+필요: Python 3.10 이상, [uv](https://docs.astral.sh/uv/), Node.js 22, Docker(Doxygen), git.
 
 ```bash
-git pull origin main                                 # 최신 변경 사항 반영
-git submodule update --init --recursive --checkout   # SDK 갱신
-source .venv/bin/activate                             # 기존 가상 환경 재사용
-pip install -e . --upgrade                            # (필요 시) 의존성 갱신
-make -C doc clean                                     # 이전 산출물 제거
-make -C doc html SDK_TAG=dev                          # HTML 재생성
+git clone --recurse-submodules https://github.com/RainbowRobotics/rby1-dev.git
+cd rby1-dev
+uv sync && source .venv/bin/activate
+make -C doc html PYTHON=python          # 결과: manual/.vitepress/dist
 ```
 
-`SDK_TAG` 을 원하는 버전으로 바꾸면 동일한 절차로 다른 버전도 곧바로 빌드할 수 있습니다.
+매뉴얼 페이지만 고칠 때는 생성 단계를 한 번 실행한 뒤 개발 서버를 씁니다.
 
-## 자주 쓰는 Make 타겟
+```bash
+python manual/scripts/generate_reference.py   # API·proto·관절 표 생성 (doc/build/doxygen 필요: make -C doc doxygen-doc)
+cd manual && npm ci && npx vitepress dev      # http://localhost:5173/rby1-dev/
+```
 
-| 명령 | 설명 |
-| --- | --- |
-| `make -C doc html SDK_TAG=dev` | dev 태그 기준 전체 HTML 빌드 |
-| `make -C doc clean` | Sphinx 빌드 산출물+생성 파일 제거 |
-| `make -C doc clean-version SDK_TAG=v0.9.0` | 특정 태그에 해당하는 HTML만 정리 |
-| `make -C doc protoc-doc` / `clean-proto` | `.proto` → Markdown 문서 생성/삭제 |
-| `make -C doc doxygen-doc` / `clean-doxygen` | C++ Doxygen XML 생성/삭제 |
+## 페이지 추가·수정
 
-## 문서 버전 제어 환경 변수
+- 페이지는 `manual/` 아래 Markdown 파일입니다. URL은 파일 경로와 같습니다(`hardware/overview.md` → `/hardware/overview.html`).
+- 사이드바와 상단 메뉴는 `manual/.vitepress/config.mts`에서 관리합니다. 새 페이지는 해당 섹션 사이드바에 추가합니다.
+- 경고 상자는 `::: warning` … `:::`, 이미지는 `manual/public/images/`에 두고 `![설명](/images/...)`로 씁니다.
+- 한국어 페이지는 `manual/ko/` 아래 같은 경로에 둡니다.
+- 생성되는 폴더(`manual/sdk/python`, `manual/sdk/cpp`, `manual/sdk/protos/generated`, `manual/hardware/generated`)는 직접 고치지 않습니다.
 
-`doc/source/conf.py` 는 아래 환경 변수를 읽어 빌드된 HTML의 버전 선택기와 링크를 구성합니다.
+## SDK 버전 올리기
 
-| 변수 | 역할 | 예시 |
-| --- | --- | --- |
-| `RBY1_SDK_VERSION` | 현재 빌드에 표시할 SDK 버전. `SDK_VERSION` 이 없을 때 사용되며 `make -C doc html SDK_TAG=...` 실행 시 자동으로 같게 설정됩니다. | `RBY1_SDK_VERSION=v0.9.0 make -C doc html` |
-| `AVAILABLE_VERSIONS` | 버전 선택기 드롭다운에 표시할 버전 목록. 공백으로 구분합니다. | `AVAILABLE_VERSIONS="v0.8.0 v0.9.0 dev" make -C doc html` |
-| `VERSION_BASE_PREFIX` | 호스팅 시 문서 루트 경로. GitHub Pages 등 서브 디렉터리에 배포할 때 사용합니다. | `VERSION_BASE_PREFIX="/docs/sdk/" AVAILABLE_VERSIONS="v0.9.0 dev" make -C doc html` |
+```bash
+make -C doc html SDK_TAG=v0.11.0 PYTHON=python   # 서브모듈을 태그로 바꾸고 해당 휠로 API 생성
+git add external/rby1-sdk && git commit
+```
 
-일반적으로 `make -C doc html SDK_TAG=v0.9.0` 만 실행해도 동일한 효과를 얻지만, CI 파이프라인이나 커스텀 배포 스크립트에서는 위 값을 직접 지정해 원하는 버전 구조를 만들 수 있습니다.
+proto가 바뀐 경우에는 `make -C doc protoc-doc`으로 proto 페이지를 다시 만들고 결과를 커밋합니다.
+
+## 배포
+
+GitHub Actions의 **Docs** 워크플로를 dev 브랜치에서 수동 실행하고 `publish`를 체크하면 `new-gh-pages`에 배포됩니다.
+최신 버전은 사이트 루트에, 이전 버전은 `/<버전>/`에 남고 `versions.json`이 갱신됩니다(`doc/scripts/publish_site.py`).
 
 ## README 작성 가이드
 

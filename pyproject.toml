@@ -1,18 +1,14 @@
 [project]
 name = "rby1-dev"
 version = "0.1.0"
-description = "Add your description here"
+description = "RB-Y1 web manual: Python tools that generate the API reference pages"
 readme = "README.md"
 requires-python = ">=3.10"
+# The site itself is built with VitePress (manual/package.json). Python is used to export the
+# Python/C++ API reference from the SDK as Markdown (doc/source/conf.py).
 dependencies = [
     "breathe>=4.36.0",
-    "pydata-sphinx-theme>=0.16.1",
-    "graphviz>=0.21",
-    "myst-parser[linkify]>=4.0.1",
     "pip>=25.2",
-    "pydot>=4.0.1",
     "sphinx<=8.3.0",
-    "sphinx-copybutton>=0.5.2",
-    "sphinx-design>=0.6.1",
-    "sphinxcontrib-mermaid>=1.0.0",
+    "sphinx-markdown-builder>=0.6.11",
 ]

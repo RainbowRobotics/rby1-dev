@@ -21,7 +21,7 @@ from pathlib import Path
 
 ADMONITION = {"note": "info", "tip": "tip", "important": "warning", "warning": "warning",
               "caution": "warning", "danger": "danger", "hint": "tip", "seealso": "info"}
-FENCE_OPEN = re.compile(r"^(\s*)(`{3,}|:{3,})\{([a-z-]+)\}\s*(.*)$")
+FENCE_OPEN = re.compile(r"^(\s*)(`{3,}|:{3,}) ?\{([a-z-]+)\}\s*(.*)$")
 
 
 def _image_path(path: str) -> str:
@@ -78,10 +78,31 @@ def convert(text: str) -> str:
             out.append(f"{indent}::: {kind}{(' ' + title) if title else ''}")
             out.extend(f"{indent}{l}" if l else "" for l in inner)
             out.append(f"{indent}:::")
-        elif name in ("grid", "grid-item", "grid-item-card"):
+        elif name == "grid-item-card" and opts.get("link"):
+            # Linked card -> one item of a card list (styled as a grid by .link-cards in the theme).
+            link = opts["link"] + (".md" if opts.get("link-type") == "doc" else "")
+            text = " ".join(l.strip() for l in content if l.strip())
+            out.append(f"{indent}- [**{arg}**]({link})<br>{text}")
+        elif name == "grid":
+            inner = convert("\n".join(content)).splitlines()
+            cards = any(l.lstrip().startswith("- [**") for l in inner)
+            if cards:
+                out.append(f'{indent}<div class="link-cards">')
+                out.append("")
+            out.extend(f"{indent}{l}" if l else "" for l in inner)
+            if cards:
+                out.append("")
+                out.append(f"{indent}</div>")
+        elif name in ("grid-item", "grid-item-card"):
             if name == "grid-item-card" and arg:
                 out.append(f"{indent}**{arg}**")
             out.extend(f"{indent}{l}" if l else "" for l in convert("\n".join(content)).splitlines())
+        elif name == "math":
+            # Rendered by VitePress markdown.math (MathJax); MyST allows the formula on the fence line.
+            formula = "\n".join(l for l in ([arg] + content) if l.strip())
+            out.extend([f"{indent}$$", *(f"{indent}{l}" for l in formula.splitlines()), f"{indent}$$"])
+        elif name == "raw":
+            out.extend(f"{indent}{l}" for l in content)
         elif name == "include":
             out.append(f"{indent}<!--@include: {arg}-->")
         elif name == "toctree":
@@ -93,6 +114,15 @@ def convert(text: str) -> str:
     result = "\n".join(out)
     result = re.sub(r"\{doc\}`([^<`]+?)\s*<([^>]+)>`", r"[\1](\2)", result)
     result = re.sub(r"\n<br>\n", "\n", result)
+    # MyST target labels "(name)=" become HTML anchors.
+    result = re.sub(r"(?m)^\(([A-Za-z0-9_.-]+)\)=\s*$", r'<a id="\1"></a>', result)
+    # Links to reStructuredText pages: the VitePress site has a Markdown page at the same path.
+    result = re.sub(r"\]\(([^)#\s]+)\.rst(#[^)]*)?\)", r"](\1.md\2)", result)
+    # Plain Markdown images/links into _static: served from the public folder.
+    result = re.sub(r"\]\((?:\.\./)*/?_static/((?:images|videos)/[^)\s]+)\)", r"](/\1)", result)
+    # Media in raw HTML: public files need the site base, which only $withBase knows.
+    result = re.sub(r'\b(src|href)="(?:\.\./)*_static/((?:images|videos)/[^"]+)"',
+                    lambda m: f":{m.group(1)}=\"$withBase('/{m.group(2)}')\"", result)
     result = re.sub(r"\n{3,}", "\n\n", result)
     return result.strip() + "\n"
 

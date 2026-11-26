@@ -1,4 +1,5 @@
-# Builds the documentation on every push and pull request.
+# Builds the web manual (VitePress site in manual/, API pages generated from rby1-sdk)
+# on every push and pull request.
 # Publishing to the live site (branch new-gh-pages) runs only when started by hand
 # (Actions > Docs > Run workflow, on branch dev, with "publish" checked).
 name: Docs
@@ -49,13 +50,19 @@ jobs:
         id: version
         run: echo "sdk_version=$(git -C external/rby1-sdk describe --tags --exact-match)" >> "$GITHUB_OUTPUT"
 
-      - name: Build HTML
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: manual/package-lock.json
+
+      - name: Build the site (API reference + VitePress)
         run: make -C doc html SDK_TAG=${{ steps.version.outputs.sdk_version }} PYTHON=python
 
       - uses: actions/upload-artifact@v4
         with:
           name: docs-html
-          path: doc/build/html/${{ steps.version.outputs.sdk_version }}
+          path: manual/.vitepress/dist
           retention-days: 14
 
   publish:

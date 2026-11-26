@@ -1,4 +1,4 @@
-# Minimal makefile for Sphinx documentation
+# Build of the RB-Y1 web manual: VitePress site in ../manual, API reference generated with Sphinx.
 
 # ------------------------------------------------------------------------------
 # Sphinx 기본 설정
@@ -16,8 +16,6 @@ SDK_TAG ?= v0.10.1
 REPO_ROOT        := $(abspath $(CURDIR)/..)
 EXTERNAL_SDK_DIR := $(REPO_ROOT)/external/rby1-sdk
 
-OUTDIR       = $(BUILDDIR)/html/$(SDK_TAG)
-DOCTREES_DIR = $(BUILDDIR)/doctrees-$(SDK_TAG)
 
 # ------------------------------------------------------------------------------
 # Python / pip
@@ -25,9 +23,6 @@ DOCTREES_DIR = $(BUILDDIR)/doctrees-$(SDK_TAG)
 PYTHON ?= python3
 PIP    ?= $(PYTHON) -m pip
 
-# 커밋 캐시 파일(여기에 마지막 설치한 커밋을 저장)
-STAMPS_DIR        := $(BUILDDIR)/.stamps
-SDK_COMMIT_FILE   := $(STAMPS_DIR)/rby1-sdk.commit
 
 # ------------------------------------------------------------------------------
 # protoc-gen-doc (Docker)
@@ -49,19 +44,17 @@ DOXYGEN_XML_DIR ?= $(CURDIR)/build/doxygen/xml
 # PHONY
 # ------------------------------------------------------------------------------
 .PHONY: help protoc-doc clean-proto doxygen-doc clean-doxygen \
-        html html-version sdk-pin sdk-install clean clean-version joint-limits
+        html site reference sdk-pin sdk-install clean joint-limits
 
 # ------------------------------------------------------------------------------
 # Help
 # ------------------------------------------------------------------------------
 help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	@echo
-	@echo "Extra targets:"
-	@echo "  html              Build docs for SDK_TAG into build/html/SDK_TAG (versioned)"
-	@echo "  clean             Clean Sphinx build + generated artifacts"
-	@echo "  clean-version     Clean only current SDK_TAG outputs"
-	@echo "  protoc-doc        Generate Markdown docs from .proto using Docker"
+	@echo "Targets:"
+	@echo "  html (= site)      Build the whole site into ../manual/.vitepress/dist"
+	@echo "  reference          Generate the API, proto and joint-limit pages into ../manual"
+	@echo "  clean              Remove Doxygen outputs and Sphinx caches"
+	@echo "  protoc-doc         Regenerate proto docs (run when protos change; not part of html)"
 	@echo "  clean-proto       Remove generated proto docs"
 	@echo "  doxygen-doc       Generate Doxygen XML"
 	@echo "  clean-doxygen     Remove Doxygen outputs"
@@ -119,7 +112,7 @@ clean-doxygen:
 # Joint range/speed tables from the SDK URDF models
 # ------------------------------------------------------------------------------
 joint-limits:
-	@$(PYTHON) scripts/generate_joint_limit_tables.py --sdk "$(EXTERNAL_SDK_DIR)"
+	@$(PYTHON) scripts/generate_joint_limit_tables.py --sdk "$(EXTERNAL_SDK_DIR)" --out "$(REPO_ROOT)/manual/hardware/generated"
 
 # ------------------------------------------------------------------------------
 # SDK 태그 고정 (submodule fetch & checkout)
@@ -146,30 +139,23 @@ sdk-install: sdk-pin
 	fi
 
 # ------------------------------------------------------------------------------
-# Versioned HTML build
+# Site build
 # ------------------------------------------------------------------------------
-html: html-version
+NPM ?= npm
 
-# protoc-doc is not part of the build: the generated proto pages are committed.
-# Run `make protoc-doc` when the SDK protos change, then review and commit the result.
-html-version: sdk-pin sdk-install doxygen-doc joint-limits
-	@echo "[sphinx] Build SDK_TAG=$(SDK_TAG) -> $(OUTDIR)"
-	@mkdir -p "$(OUTDIR)"
-	@SDK_VERSION=$(SDK_TAG) \
-	  $(SPHINXBUILD) -b html -d "$(DOCTREES_DIR)" "$(SOURCEDIR)" "$(OUTDIR)" $(SPHINXOPTS)
+# protoc-doc is not part of the build: the generated proto pages are committed in
+# source/sdk/protos/generated. Run `make protoc-doc` when the SDK protos change.
+reference: sdk-pin sdk-install doxygen-doc
+	@SDK_VERSION=$(SDK_TAG) $(PYTHON) "$(REPO_ROOT)/manual/scripts/generate_reference.py"
+
+site: reference
+	@cd "$(REPO_ROOT)/manual" && $(NPM) ci --no-audit --no-fund && SDK_VERSION=$(SDK_TAG) npx vitepress build
+	@echo "[site] $(REPO_ROOT)/manual/.vitepress/dist"
+
+html: site
 
 # ------------------------------------------------------------------------------
 # Clean
 # ------------------------------------------------------------------------------
-clean: clean-proto clean-doxygen
-	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-clean-version:
-	@echo "[clean-version] Removing $(OUTDIR) and $(DOCTREES_DIR)"
-	@rm -rf "$(OUTDIR)" "$(DOCTREES_DIR)"
-
-# ------------------------------------------------------------------------------
-# Catch-all
-# ------------------------------------------------------------------------------
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+clean: clean-doxygen
+	@rm -rf "$(BUILDDIR)/doctrees" "$(REPO_ROOT)/manual/.vitepress/cache"

@@ -11,44 +11,43 @@ hero:
   actions:
     - theme: brand
       text: Quick Start
-      link: /getting-started/estop-basics
+      link: /getting-started/index
     - theme: alt
       text: Hardware
       link: /hardware/overview
     - theme: alt
       text: API Reference
-      link: /api/sdk/index.html
-      target: _self
+      link: /sdk/index
 
 features:
   - icon: 🛑
-    title: Safety first
-    details: How to stop the robot and recover, before the first power-on.
-    link: /getting-started/estop-basics
-    linkText: E-Stop basics
-  - icon: 🔌
-    title: Hotspot & Web UI
-    details: Power on, enable the servos and the Control Manager, move to the zero pose.
-    link: /getting-started/hotspot-and-webui
-    linkText: First power-on
+    title: Quick Start
+    details: E‑Stop first, then unboxing, hotspot and Web UI, and the SDK.
+    link: /getting-started/index
+    linkText: Get started
+  - icon: 🦺
+    title: Safety
+    details: Precautions to read before operating the robot.
+    link: /precautions/index
+    linkText: Read the precautions
   - icon: 🦾
     title: Hardware
-    details: Specifications and the joint range and speed limits from the robot model.
-    link: /hardware/overview
-    linkText: Hardware overview
-  - icon: 🐍
-    title: SDK (Python / C++)
-    details: Install rby1-sdk, connect, and read the robot state.
-    link: /getting-started/sdk-install-and-state
-    linkText: Install the SDK
+    details: Specifications, joint range and speed limits, options and maintenance.
+    link: /hardware/index
+    linkText: Hardware
+  - icon: 🧭
+    title: SDK Guide
+    details: Architecture, robot models, controllers, examples and troubleshooting.
+    link: /software/index
+    linkText: SDK guide
+  - icon: 📚
+    title: API Reference
+    details: Python, C++ and Protobuf (gRPC) API of rby1-sdk.
+    link: /sdk/index
+    linkText: API reference
   - icon: 🤖
-    title: ROS 2
-    details: Build the rby1-ros2 driver and connect it to the robot or the simulator.
-    link: /ros2/ros2_driver/install_and_build
-    linkText: Install & build
-  - icon: 🧪
-    title: Simulation
-    details: Run the robot software on a MuJoCo model in Docker.
-    link: /simulators/mujoco
-    linkText: MuJoCo simulator
+    title: ROS 2 & Simulation
+    details: The rby1-ros2 driver, MoveIt 2, MuJoCo and Isaac Sim.
+    link: /ros2/index
+    linkText: ROS 2
 ---

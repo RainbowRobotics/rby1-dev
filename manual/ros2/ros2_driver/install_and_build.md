@@ -14,7 +14,7 @@ See the [ROS 2 installation guide](https://docs.ros.org/en/humble/Installation/U
 ## 2. Build the C++ SDK
 
 The driver links the **C++** rby1-sdk; the Python package from `pip install rby1-sdk` is not enough.
-Build the SDK from source as described in [Build & Link](../../sdk/cpp/build-and-link.rst).
+Build the SDK from source as described in [Build & Link](../../sdk/cpp/build-and-link.md).
 
 `rby1_driver` and `rby1_hardware` find the SDK through the environment variable `RBY1_SDK_PATH`:
 the SDK source tree with its build in `build/` (headers in `include/rby1-sdk`, library in `build/src`).

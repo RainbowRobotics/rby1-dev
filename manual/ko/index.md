@@ -17,38 +17,37 @@ hero:
       link: /hardware/overview
     - theme: alt
       text: API 레퍼런스
-      link: /api/sdk/index.html
-      target: _self
+      link: /sdk/index
 
 features:
   - icon: 🛑
-    title: 안전 먼저
-    details: 처음 전원을 켜기 전에 로봇을 멈추고 복구하는 방법을 확인합니다.
+    title: 빠른 시작
+    details: 비상정지부터 개봉, 핫스팟·Web UI, SDK 설치까지 순서대로 안내합니다.
     link: /ko/getting-started/estop-basics
-    linkText: 비상정지
-  - icon: 🔌
-    title: Hotspot & Web UI
-    details: 전원, 서보, Control Manager를 켜고 영점 자세로 이동합니다.
-    link: /getting-started/hotspot-and-webui
-    linkText: 처음 전원 켜기
+    linkText: 시작하기
+  - icon: 🦺
+    title: 안전
+    details: 로봇을 운용하기 전에 읽어야 할 주의사항입니다.
+    link: /precautions/index
+    linkText: 주의사항
   - icon: 🦾
     title: 하드웨어
-    details: 사양과 로봇 모델 기준 관절 범위·속도 한계입니다.
-    link: /hardware/overview
-    linkText: 하드웨어 개요
-  - icon: 🐍
-    title: SDK (Python / C++)
-    details: rby1-sdk를 설치하고 로봇에 연결해 상태를 읽습니다.
-    link: /getting-started/sdk-install-and-state
-    linkText: SDK 설치
+    details: 사양, 관절 범위·속도 한계, 옵션과 유지보수입니다.
+    link: /hardware/index
+    linkText: 하드웨어
+  - icon: 🧭
+    title: SDK 가이드
+    details: 구조, 로봇 모델, 컨트롤러, 예제, 문제 해결입니다.
+    link: /software/index
+    linkText: SDK 가이드
+  - icon: 📚
+    title: API 레퍼런스
+    details: rby1-sdk의 Python, C++, Protobuf(gRPC) API입니다.
+    link: /sdk/index
+    linkText: API 레퍼런스
   - icon: 🤖
-    title: ROS 2
-    details: rby1-ros2 드라이버를 빌드하고 로봇이나 시뮬레이터에 연결합니다.
-    link: /ros2/ros2_driver/install_and_build
-    linkText: 설치와 빌드
-  - icon: 🧪
-    title: 시뮬레이션
-    details: Docker에서 MuJoCo 모델로 로봇 소프트웨어를 실행합니다.
-    link: /simulators/mujoco
-    linkText: MuJoCo 시뮬레이터
+    title: ROS 2·시뮬레이션
+    details: rby1-ros2 드라이버, MoveIt 2, MuJoCo, Isaac Sim입니다.
+    link: /ros2/index
+    linkText: ROS 2
 ---
