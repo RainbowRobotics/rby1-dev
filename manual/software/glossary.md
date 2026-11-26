@@ -17,7 +17,7 @@ Terms used across this manual, in alphabetical order.
 | **Control period** | 2 ms: the cycle of the robot software and of real-time control. |
 | **E-Stop** (EMO) | The emergency stop button on the robot. Pressing it cuts the 48 V power to the actuators in hardware. See [E‑Stop Basics](../getting-started/estop-basics.md). |
 | **`ee_right`, `ee_left`** | The end-effector links of the right and left arm. |
-| **Finish code** | Why a command ended: `Ok`, `Preempted`, `ControlManagerIdle`, ... See [Fault Diagnosis](../sdk/troubleshooting/fault-diagnosis.md#command-finish-codes). |
+| **Finish code** | Why a command ended: `Ok`, `Canceled`, `Preempted`, ... With robot software up to 0.11.0, the SDK shows most codes shifted by one name (a preempted or refused command shows `Canceled`). See [Fault Diagnosis](../sdk/troubleshooting/fault-diagnosis.md#finish-codes). |
 | **F/T sensor** | Force/torque sensor at the wrist. Whether Model M v1.3 has one is not confirmed; see [Hardware Versions](../sdk/models/hardware-versions.md#differences-between-versions). |
 | **gRPC** | The protocol of the robot software API, on port 50051. The SDK uses it. See the [Protobuf API Reference](../sdk/protos/index.md). |
 | **Gripper** | Optional two-finger gripper controlled from the UPC. See [Gripper](../options/gripper.md). |

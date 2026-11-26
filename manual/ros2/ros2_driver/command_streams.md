@@ -45,7 +45,7 @@ ros2 service call /rby1/stream_control rby1_msgs/srv/StateOnOff "{state: false}"
 ## Trajectories (`follow_joint_trajectory`)
 
 - Trajectories run per part. Trajectories on different parts run at the same time.
-- A trajectory that names a part already running **replaces** that part's trajectory (`Preempted by a new trajectory on the same part`).
+- A trajectory that names a part already running **replaces** that part's trajectory. The replaced goal is aborted by the driver with the message `Preempted by a new trajectory on the same part`; this is not an SDK finish code.
 - A cancel stops the channels of the parts it names and no other.
 - A trajectory is **refused, and every running trajectory is stopped**, when it is invalid: no points, a part whose channel is closed,
   or a first waypoint that a joint cannot reach in its time within its velocity limit. The stopped parts hold their last waypoint.

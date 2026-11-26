@@ -30,8 +30,11 @@ For the controllers and the commands that use them, see [Controllers](../sdk/con
   for example one command for the right arm and one for the head.
 - **Priority**: Every command has a priority (an integer; default `1`, set with `send_command(builder, priority)` or `create_command_stream(priority)`).
   When a new command uses a joint that a running command already uses:
-  - if the new priority is **higher**, the new command takes over and the running command ends with the finish code `Preempted`;
-  - if the new priority is **the same or lower**, the new command is refused and ends with the finish code `Preempted`.
+  - if the new priority is **higher**, the new command takes over and the running command ends;
+  - if the new priority is **the same or lower**, the new command is refused and ends.
+
+  In both cases the SDK shows the finish code `Canceled` (robot software up to 0.11.0), not `Preempted`.
+  See [Command finish codes](../sdk/troubleshooting/fault-diagnosis.md#finish-codes).
 - **Robot State Utilization**: Takes the robot state from the hardware to produce the appropriate control output.
 
 <img :src="$withBase('/images/software/robot_main_program/inside-rpc-controller.png')" alt="inside-rpc-controller" class="center white-bg" style="width:400px">

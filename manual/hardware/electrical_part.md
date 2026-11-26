@@ -23,14 +23,22 @@ How the E-Stop works depends on whether the robot has a Safety Control Board (SC
 #### Robots without SCB
 
 - **E-Stop button (EMO)**
-   - A physical emergency switch on the backpack that cuts off power to the modules.
+   - A physical emergency switch on the backpack that cuts the 48 V power to the joints.
    - Keep it within reach while the robot operates.
 
-- **Wireless E-Stop remote**
+- **Remote E-Stop** (wireless remote controller)
    - Works like the E-Stop button.
 
 ::: warning Important
-Both the E-Stop button (EMO) and the wireless E-Stop remote cut off the power from the PDU to the terminal board. This is a hardware-level shutdown.
+Both the E-Stop button (EMO) and the Remote E-Stop cut off the 48 V power from the PDU to the terminal board, which feeds the joints. This is a hardware-level shutdown.
+The robot PC (RPC) keeps running, so the Web UI and the SDK stay connected and report the E-Stop as pressed.
+:::
+
+::: warning Joints without brakes
+When the 48 V power is cut, the brakes engage on the torso and arm joints that have brakes.
+`right_arm_6`, `left_arm_6` and the wheels have no brakes. On v1.0 and v1.1, `head_0` and `head_1` also have no brakes.
+These joints can move under load after an E-Stop: the wrists and the head can turn, and the mobile base can roll on a slope.
+See [E-Stop Basics](../getting-started/estop-basics.md#what-happens-when-the-estop-is-pressed).
 :::
 
 ::: warning Caution
@@ -58,23 +66,24 @@ The SCB is responsible for safety-related power control, including emergency sto
 ### Shutdown Methods (SCB Installed)
 
 - **E-Stop button (EMO)**
-   - A physical emergency switch on the backpack that cuts off power to the modules.
+   - A physical emergency switch on the backpack that cuts the 48 V power to the joints.
    - Keep it within reach while the robot operates.
    - When the E-Stop button is pressed:
-      - The 48V power from SCB to the Terminal Board is cut off
-      - As a result, all downstream modules lose power immediately
+      - The SCB cuts the 48 V power to the terminal board.
+      - The joints behind the terminal board lose their 48 V power. The robot PC (RPC) keeps running.
+      - The robot software also commands the brakes to engage on the torso and arm joints that have brakes (on v1.2, also the head joints).
 
 <img :src="$withBase('/images/hardware/electronical_part/emo_shutdown.png')" alt="E-Stop button shutdown with SCB: the SCB cuts the 48 V output to the terminal board" class="center rounded-img" style="width:600px">
 
-- **Wireless E-Stop remote**
+- **Remote E-Stop** (wireless remote controller)
    - A wireless emergency stop that works like the E-Stop button.
    - Use it when you are away from the robot.
-   - When the button on the remote is pressed:
-      - The receiver receives and validates the signal
-      - The PDU cuts off the 48V power supplied to the SCB
-      - As a result, all downstream modules lose power immediately
+   - When button 1 on the Remote E-Stop is pressed:
+      - The receiver receives and validates the signal.
+      - The PDU cuts the 48 V power supplied to the SCB.
+      - As a result, the joints behind the SCB and the terminal board lose their 48 V power. The robot PC (RPC) keeps running.
 
-<img :src="$withBase('/images/hardware/electronical_part/remote_control_shutdown.png')" alt="Wireless E-Stop remote shutdown with SCB: the PDU cuts the 48 V supply to the SCB" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/remote_control_shutdown.png')" alt="Remote E-Stop shutdown with SCB: the PDU cuts the 48 V supply to the SCB" class="center rounded-img" style="width:600px">
 
 ---
 ### Backpack
@@ -101,7 +110,7 @@ The robot's body is designed to distribute power and communication to each criti
 
 - **Robot PC (RPC)**: UP Xtreme i12. It runs the robot software and controls the joints.
 - **User PC (UPC)**: Jetson AGX Orin. It runs your programs.
-- **E-Stop button (EMO)**: cuts the robot power at once.
+- **E-Stop button (EMO)**: cuts the 48 V power to the joints in hardware.
 - **PDU** (Power Distribution Unit): Manages power distribution.
 - **OLED**: Displays robot status.
 - **LED** Strip: Visual robot status indicator.

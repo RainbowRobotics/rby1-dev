@@ -34,6 +34,7 @@ To check the model and version of your robot, use one of these:
   ```
 
   `robot_model_name` is the model, `robot_model_version` the hardware version, and `version` the installed robot software version.
+  See [Versions of the robot](../getting-started/supported-platforms.md#versions-of-the-robot) for how these versions relate to the SDK version on your PC.
 
 | Robot | Update file |
 |---|---|

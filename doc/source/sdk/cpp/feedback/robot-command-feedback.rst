@@ -39,7 +39,7 @@ for whole-body, component-based, or jog feedback.
      - Check while polling or after completion.
    * - ``FinishCode``
      - Final completion code.
-     - Read this before drilling into branch-specific details.
+     - Read this before drilling into branch-specific details. With robot software up to 0.11.0, most codes arrive shifted by one name (a preempted or refused command reads ``kCanceled``); see `Command finish codes <../../troubleshooting/fault-diagnosis.md#finish-codes>`_.
 
 .. rubric:: Public Member Functions
 

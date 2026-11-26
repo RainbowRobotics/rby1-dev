@@ -90,6 +90,7 @@ and do not let you choose the robot model.
 ## Connect the SDK or ROS 2
 
 The simulator's address is `localhost:50051` (or `127.0.0.1:50051`). Give the same model as the image tag (`a`, `m` or `ub`).
+From another computer, use the address of the computer that runs the container (see [Network and Ports](../getting-started/network-and-ports.md#simulator)).
 
 ```bash
 # SDK (Python example from rby1-sdk/examples/python)

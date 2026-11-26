@@ -38,11 +38,14 @@ Common problems during the first steps, and what to check. Addresses and ports a
 
 - If the port is not reachable but the Web UI works, check the firewall between your PC and the robot.
 - Check that the virtual environment with `rby1-sdk` is active: `python -c "import rby1_sdk; print(rby1_sdk.__version__)"`.
+- For more SDK-side checks, see [SDK Troubleshooting](../sdk/troubleshooting/index.md#sdk-cannot-connect).
 
 ## Connected, but commands fail
 
 - **Wrong model**: the model name in `create_robot(address, model)` must match the robot (`"a"`, `"m"` or `"ub"`).
   Compare `robot.get_robot_info().degree_of_freedom` with `robot.model().robot_dof`; they must be equal.
+- **Version difference**: compare the SDK version on your PC with the robot software version, as shown in
+  [SDK and robot software versions](../sdk/troubleshooting/index.md#sdk-and-robot-software-versions).
 - **Power on fails**: the E-Stop is pressed. In the Web UI the system bar shows **Power** in orange, and the log
   shows `EMO Error: Please check EMO Switch`. Release the E-Stop. See [E‑Stop Basics](estop-basics.md).
 - **Control Manager does not enable**: see [Faults](#faults) below.
@@ -78,7 +81,7 @@ When you report a problem, send:
 3. What you did and what happened, with the time.
 4. The logs from **Log Downloads** and the fault log, if there is one.
 
-See [Error Reporting](../sdk/troubleshooting/generated/error_reporting.md) for where to send it.
+See [Error Reporting](../sdk/troubleshooting/error_reporting.md) for where to send it.
 
 ## FAQ
 
@@ -104,10 +107,9 @@ Read it with `robot.get_system_time()` and set it with `robot.set_system_time(..
 
 ---
 
-Verified against: robot core `core/control/control_manager.cpp` (`MinorFault` / `MajorFault` conditions),
-`core/robots/robot_app_base.cpp` (Major Fault power off and fault log), `core/robots/rby1a/parameters.h`
-(`major_fault_power_off_target`, hotspot defaults), `core/robots/rby1a/robot_app.cpp` (hotspot display messages);
-Web UI `UnpackingStepper.vue` (Power orange = E-Stop), `NavigatorDrawer.vue` (Control Enable / Disable / Reset),
-`DashboardComponents/RpcStatusCards.vue`, `docker-compose.web.yaml`, `config/apiConfig.js` (port 8000);
-rby1-sdk v0.10.1 `examples/python/00_helper.py`, `03_robot_state.py`, `04_robot_state_stream.py`, `13_set_system_time.py`,
-`15_log.py`, `16_log_stream.py`, `17_fault_log.py`, `python/robot.cpp`, `python/robot_info.cpp`.
+Verified against: robot software (core) v0.11.0 Control Manager fault behavior (`MinorFault` / `MajorFault`,
+Major Fault power off and fault log, `major_fault_power_off_target`), hotspot defaults and backpack display messages;
+Web UI v0.11.0 system bar, **Unpacking** steps, Control Manager menu, status cards and ports 5173 / 8000;
+[rby1-sdk v0.10.1](https://github.com/RainbowRobotics/rby1-sdk/tree/v0.10.1) examples `00_helper.py`, `03_robot_state.py`,
+`04_robot_state_stream.py`, `13_set_system_time.py`, `15_log.py`, `16_log_stream.py`, `17_fault_log.py` and the Python
+bindings `python/robot.cpp`, `python/robot_info.cpp`.

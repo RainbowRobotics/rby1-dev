@@ -6,7 +6,7 @@ power it on and move it to the zero pose.
 
 ::: warning
 The steps below power the robot, enable its servos and move it to the zero pose.
-Read [E‑Stop Basics](estop-basics.md) first, keep the E‑Stop or the remote controller in your hand,
+Read [E‑Stop Basics](estop-basics.md) first, keep the E‑Stop button (EMO) or the Remote E-Stop (wireless remote controller) in your hand,
 and clear the space around the robot.
 :::
 
@@ -103,8 +103,8 @@ From the left menu, select **Unpacking** to open the setup wizard.
 
   Click **Zero** to send the robot to the zero pose.
   The robot moves slowly to a standing position.
-  Keep the remote controller in your hand and make sure the path is clear.
-  To cut the power immediately, press button 1 on the remote controller or the E-Stop button.
+  Keep the Remote E-Stop in your hand and make sure the path is clear.
+  To cut the 48 V power to the joints immediately, press button 1 on the Remote E-Stop or the E-Stop button (EMO).
   **CANCEL CONTROL** at the top of the screen cancels the motion without cutting the power; the motion does not resume.
 
   ::: info

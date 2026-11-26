@@ -77,6 +77,7 @@ ros2 launch rby1_driver rby1_ros2_driver.launch.py robot_ip:=localhost:50051 mod
 
 ::: tip
 The core listens on port `50051` of the host (the container uses the host network).
+From another computer, use the address of this host (see [Network and Ports](../getting-started/network-and-ports.md#simulator)).
 Do not run the [MuJoCo simulator](mujoco.md) or another core on the same PC at the same time.
 :::
 

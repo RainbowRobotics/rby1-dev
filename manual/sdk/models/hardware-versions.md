@@ -39,7 +39,7 @@ it loads the URDF from the robot.
 | --- | --- | --- | --- | --- |
 | **WY2 Motor** | Relative encoder + limit sensor | Absolute encoder | Absolute encoder | Absolute encoder |
 | **Wrist Joint Config** | Yaw + Pitch + Yaw | Yaw + Pitch + Yaw | Yaw + Pitch + Yaw | Yaw + Pitch + Roll |
-| **F/T Sensor** | F/T sensor + Tool Flange | Integrated F/T sensor + Tool Flange | Integrated F/T sensor + Tool Flange | Not confirmed (see below) |
+| **F/T Sensor** | F/T sensor + Tool Flange | Integrated F/T sensor + Tool Flange | Integrated F/T sensor + Tool Flange | None (see note below) |
 | **Gripper** | Current Gripper | Redesigned Gripper | Redesigned Gripper | Redesigned Gripper |
 | **Brake Material** | SUS | SK5 | SK5 | SK5 |
 | **Neck Joint** (`head_0`, `head_1`) | Dynamixel 2-DOF (RS485) | Dynamixel 2-DOF (RS485) | High precision reducer 2-DOF (CAN, RB protocol) | High precision reducer 2-DOF (CAN, RB protocol) |
@@ -47,9 +47,10 @@ it loads the URDF from the robot.
 | **`head_0` range** | -30° ~ 30° | -30° ~ 30° | -90° ~ 90° | -90° ~ 90° |
 | **`head_1` range** | -20° ~ 90° | -20° ~ 90° | -90° ~ 90° | -90° ~ 90° |
 
+**Note on F/T sensors:** the F/T sensor row follows the original hardware table, which lists no F/T sensor for v1.3.
+Whether a wrist F/T sensor is fitted depends on the configuration of your robot; confirm it with your robot's specification or Rainbow Robotics.
 The robot core reads a right and a left F/T sensor on every version, so all versions report
-`ft_sensor_right` and `ft_sensor_left` in the robot state. This does not show that a sensor is fitted.
-The original hardware table listed no F/T sensor for v1.3; this is not confirmed against the hardware.
+`ft_sensor_right` and `ft_sensor_left` in the robot state. These fields do not show that a sensor is fitted.
 
 Only these URDF files have `FT_sensor_R` and `FT_sensor_L` links: Model A `model_v1.0.urdf`, Model M `model_v1.0.urdf`
 and Model UB `model.urdf` (also the older `model.urdf` of Model A and Model M).
@@ -62,6 +63,6 @@ All joint ranges per version are in the joint tables of [Model A](generated/mode
 
 Verified against: rby1-sdk v0.10.1 `models/rby1a/urdf/model_v1.0.urdf` … `model_v1.2.urdf`, `models/rby1m/urdf/model_v1.0.urdf` …
 `model_v1.3.urdf` (`FT_sensor_R`/`FT_sensor_L` links in the v1.0 files only, commented out in v1.3; head joint limits), `models/rby1ub/urdf/model.urdf` (`FT_sensor_R`/`FT_sensor_L` links), `protos/rb/api/robot_info.proto`
-(`robot_model_version`), `include/rby1-sdk/robot.h` (`GetDynamics`); robot core `core/robots/rby1a/robot_hardware.cpp` and
-`core/robots/rby1m/robot_hardware.cpp` (head on a Dynamixel bus for `ROBOT_MODEL_V1_0`/`V1_1`, CAN RB motors with brakes for `V1_2`/`V1_3`; right and left `FTSensor` nodes on every version),
-`core/service/service.cpp` (version string; `v1.0` when the build defines no model version, as for Model UB in `CMakeLists.txt`). The WY2 motor, brake material and gripper rows, and the sensor type and tool flange text in the F/T sensor row, are from the original hardware table and were not checked against code.
+(`robot_model_version`), `include/rby1-sdk/robot.h` (`GetDynamics`); the robot core hardware setup of Model A and Model M
+(head on a Dynamixel bus for v1.0/v1.1, CAN RB motors with brakes for v1.2/v1.3; right and left F/T sensor nodes on every version)
+and its version string (`v1.0` when the build defines no model version, as for Model UB). The WY2 motor, brake material and gripper rows, and the sensor type and tool flange text in the F/T sensor row, are from the original hardware table and were not checked against code.
