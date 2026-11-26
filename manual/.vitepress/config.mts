@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, normalize, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -7,7 +8,17 @@ import deflist from 'markdown-it-deflist'
 
 // Site root on GitHub Pages; override with VP_BASE for local previews.
 const base = process.env.VP_BASE ?? '/rby1-dev/'
-const SDK_VERSION = process.env.SDK_VERSION ?? 'v0.10.1'
+// The SDK release the API reference is generated from: the tag of the external/rby1-sdk submodule.
+const SDK_VERSION =
+  process.env.SDK_VERSION ??
+  (() => {
+    try {
+      return execSync('git describe --tags --exact-match', { cwd: join(dirname(fileURLToPath(import.meta.url)), '../../external/rby1-sdk') })
+        .toString().trim()
+    } catch {
+      return 'v0.10.1'
+    }
+  })()
 const SRC = join(dirname(fileURLToPath(import.meta.url)), '..')
 
 type Item = DefaultTheme.SidebarItem
@@ -116,11 +127,15 @@ const software: Item[] = [
     page('Software & SDK', 'software/index'),
     page('Software Architecture', 'software/architecture'),
     page('Robot Main Program', 'software/robot_main_program'),
+    page('Web UI', 'software/web-ui'),
+    page('User PC (UPC)', 'software/upc'),
+    page('Units and Frames', 'software/units-and-frames'),
     group('Robot Models', [
       page('Models', 'sdk/models/index'),
       page('Model A', 'sdk/models/generated/model_a'),
       page('Model M', 'sdk/models/generated/model_m'),
       page('Model UB', 'sdk/models/generated/model_ub'),
+      page('Hardware Versions', 'sdk/models/hardware-versions'),
     ], true),
     group('Controllers', [
       page('Controllers', 'sdk/controllers/index'),
@@ -130,12 +145,13 @@ const software: Item[] = [
     ], true),
     page('Examples', 'examples/ex'),
     group('Troubleshooting', [
-      page('Troubleshooting', 'sdk/trobuleshooting/index'),
-      page('Fault Diagnosis', 'sdk/trobuleshooting/fault-diagnosis'),
-      page('Build Issues', 'sdk/trobuleshooting/generated/build_issue'),
-      page('Error Reporting', 'sdk/trobuleshooting/generated/error_reporting'),
-      page('FAQ', 'sdk/trobuleshooting/generated/faq'),
+      page('Troubleshooting', 'sdk/troubleshooting/index'),
+      page('Fault Diagnosis', 'sdk/troubleshooting/fault-diagnosis'),
+      page('Build Issues', 'sdk/troubleshooting/generated/build_issue'),
+      page('Error Reporting', 'sdk/troubleshooting/generated/error_reporting'),
+      page('FAQ', 'sdk/troubleshooting/generated/faq'),
     ], true),
+    page('Glossary', 'software/glossary'),
   ]),
   group('ROS 2', [
     page('ROS 2', 'ros2/index'),
@@ -167,7 +183,7 @@ const apiReference: Item[] = [
 const sidebar: DefaultTheme.SidebarMulti = {}
 for (const p of ['/getting-started/']) sidebar[p] = quickStart
 for (const p of ['/precautions/', '/hardware/', '/options/', '/maintenance/', '/rpc_management_tools/', '/legal/']) sidebar[p] = manual
-for (const p of ['/software/', '/sdk/models/', '/sdk/controllers/', '/sdk/trobuleshooting/', '/examples/', '/ros2/', '/simulators/']) sidebar[p] = software
+for (const p of ['/software/', '/sdk/models/', '/sdk/controllers/', '/sdk/troubleshooting/', '/examples/', '/ros2/', '/simulators/']) sidebar[p] = software
 for (const p of ['/sdk/python/', '/sdk/cpp/', '/sdk/protos/']) sidebar[p] = apiReference
 // The API landing page (/sdk/) shares its folder prefix with the guide pages above, so match it exactly.
 sidebar['/sdk/index'] = apiReference
@@ -188,7 +204,7 @@ const nav: DefaultTheme.NavItem[] = [
   },
   {
     text: 'Software',
-    activeMatch: '^/(software|sdk/models|sdk/controllers|sdk/trobuleshooting|examples|ros2|simulators)/',
+    activeMatch: '^/(software|sdk/models|sdk/controllers|sdk/troubleshooting|examples|ros2|simulators)/',
     items: [
       { text: 'SDK Guide', link: '/software/' },
       { text: 'ROS 2', link: '/ros2/' },

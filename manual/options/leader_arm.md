@@ -63,7 +63,7 @@ The leader arm is mounted on a tripod. You can move it and adjust its height and
    ```
 
    You should see `/dev/rby1_leader_arm`. Older UPC images use the name `/dev/rby1_master_arm`; the SDK falls back to it when `/dev/rby1_leader_arm` does not exist and prints a warning. This check shows that the USB-to-RS485 converter is present. It does not show that the leader arm itself answers.
-3. If you get a permission error, see the udev steps in the [FAQ](../sdk/trobuleshooting/generated/faq.md).
+3. If you get a permission error, see the udev steps in the [FAQ](../sdk/troubleshooting/generated/faq.md).
 4. Run the state check example. It turns on the 12 V power, controls the leader arm motors and shows the leader arm joint states. It sends no motion command to the robot. Keep people and objects clear of the leader arm while it runs.
 
    ```bash

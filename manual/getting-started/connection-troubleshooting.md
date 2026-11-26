@@ -60,8 +60,8 @@ The Control Manager state is shown in the Web UI system bar, on the LED strip
 
 `23_zero_pose.py` and the other SDK examples that use `initialize_robot()` reset a fault automatically.
 Do not reset a fault repeatedly without finding its cause.
-See [Fault Diagnosis](../sdk/trobuleshooting/fault-diagnosis.md) for all causes, the fault log format and the recovery steps,
-and [SDK Troubleshooting](../sdk/trobuleshooting/index.md) for more SDK connection problems.
+See [Fault Diagnosis](../sdk/troubleshooting/fault-diagnosis.md) for all causes, the fault log format and the recovery steps,
+and [SDK Troubleshooting](../sdk/troubleshooting/index.md) for more SDK connection problems.
 
 ## Logs
 
@@ -78,7 +78,7 @@ When you report a problem, send:
 3. What you did and what happened, with the time.
 4. The logs from **Log Downloads** and the fault log, if there is one.
 
-See [Error Reporting](../sdk/trobuleshooting/generated/error_reporting.md) for where to send it.
+See [Error Reporting](../sdk/troubleshooting/generated/error_reporting.md) for where to send it.
 
 ## FAQ
 

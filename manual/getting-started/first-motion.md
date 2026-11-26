@@ -88,7 +88,7 @@ The wrists can turn under load, and the mobile base can roll on a slope. See [Eâ
 :::
 
 If the robot does not stop, or the E-Stop is not reported, do not continue. Contact Rainbow Robotics support
-([Error Reporting](../sdk/trobuleshooting/generated/error_reporting.md)).
+([Error Reporting](../sdk/troubleshooting/generated/error_reporting.md)).
 
 ## 4. Demo motion: `24_demo_motion.py`
 

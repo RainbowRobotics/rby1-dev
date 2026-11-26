@@ -1,7 +1,7 @@
 # Gripper
 
 The standard gripper is sold as an option. It uses one Dynamixel XM430-W210 actuator per gripper.
-The gripper was redesigned in v1.1 (see [Robot Model Version](../sdk/models/generated/model_version.md)).
+The gripper was redesigned in v1.1 (see [Hardware Versions](../sdk/models/hardware-versions.md)).
 
 <img :src="$withBase('/images/options/gripper/rby_gripper_info.png')" alt="Gripper drawing with front and side dimensions" class="center white-bg" style="width:600px">
 
@@ -43,7 +43,7 @@ The gripper connects to the body's I/O port through the bypass port on the wrist
 
 <img :src="$withBase('/images/options/gripper/rby_gripper_io_connection.png')" alt="Gripper wiring from the wrist bypass port to the U2D2 in the PDU" class="center white-bg" style="width:600px">
 
-The device name `/dev/rby1_gripper` comes from a udev rule on the UPC (see the udev steps in the [FAQ](../sdk/trobuleshooting/generated/faq.md)).
+The device name `/dev/rby1_gripper` comes from a udev rule on the UPC (see the udev steps in the [FAQ](../sdk/troubleshooting/generated/faq.md)).
 
 ## Control from the SDK
 

@@ -124,6 +124,8 @@ From the left menu, select **Unpacking** to open the setup wizard.
 
 ## Web UI at a glance
 
+A full description of every screen is in [Web UI](../software/web-ui.md).
+
 | Place | Content |
 | --- | --- |
 | System bar (top line) | **Power**, **Servo**, **Control Manager** and **Control** states |

@@ -1,69 +1,61 @@
 # Model A
-##
+
+Model A is RB-Y1 with a differential-drive mobile base (two wheels), a six-joint torso, two 7-DoF arms and a 2-DoF head.
 
 ::: info Note
-The most accurate information regarding the model can be found in the 
-<a href="https://github.com/RainbowRobotics/rby1-sdk/blob/v0.4.1/models/rby1a/urdf/model.urdf"
-target="_blank" rel="noopener noreferrer">
-URDF files under the models directory
-</a>  
-of the Rainbow Robotics SDK repository. It is highly recommended to refer to this source for the latest updates and details.
+The most accurate information about the model is in the URDF file of your hardware version in the rby1-sdk repository
+(for example <a href="https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/models/rby1a/urdf/model_v1.2.urdf"
+target="_blank" rel="noopener noreferrer">`models/rby1a/urdf/model_v1.2.urdf`</a>) and in `rb::y1_model::A` (`include/rby1-sdk/model.h`).
+See [Hardware Versions](../hardware-versions.md) for the file of each version.
 :::
 
 <img :src="$withBase('/images/model/model_a/model_a.png')" alt="Model A" class="center white-bg" style="width:400px">
 
-- Differential Wheel
+---
+### Using the model in the SDK
+
+- Python: `rby1_sdk.create_robot(address, "a")` returns `Robot_A`; the model descriptor is `rby1_sdk.Model_A`.
+- C++: `rb::Robot<rb::y1_model::A>`.
+- Robot parameter `robot_model_name`: `"rby1a"`.
 
 ---
 ### Degrees of Freedom (DOF)
 
-- Total DOF: 24
+- Total DOF: 24 (wheels 2, torso 6, right arm 7, left arm 7, head 2).
 
 ---
-### Joint Names
+### Joint Names and Indexes
 
-The joint names of the A model are as follows:
+| Part | Joint names | Indexes |
+| ---- | ----------- | ------- |
+| Wheels | `right_wheel`, `left_wheel` | 0, 1 |
+| Torso | `torso_0` … `torso_5` | 2 – 7 |
+| Right arm | `right_arm_0` … `right_arm_6` | 8 – 14 |
+| Left arm | `left_arm_0` … `left_arm_6` | 15 – 21 |
+| Head | `head_0`, `head_1` | 22, 23 |
 
-- Wheels: `right_wheel`, `left_wheel`
-- Torso: `torso_0`, `torso_1`, `torso_2`, `torso_3`, `torso_4`, `torso_5`
-- Right Arm: `right_arm_0`, `right_arm_1`, `right_arm_2`, `right_arm_3`, `right_arm_4`, `right_arm_5`, `right_arm_6`
-- Left Arm: `left_arm_0`, `left_arm_1`, `left_arm_2`, `left_arm_3`, `left_arm_4`, `left_arm_5`, `left_arm_6`
-- Head: `head_0`, `head_1`
+- Mobility indexes: 0, 1
+- Body indexes (torso and both arms): 2 – 21
+- Head indexes: 22, 23
 
----
-### Mobility Indexes
-
-The indexes related to mobility are as follows:
-
-- **Right Wheel Index**: 0
-- **Left Wheel Index**: 1
+The torso joints are numbered from bottom to top, the arm joints from shoulder to wrist.
 
 ---
-### Body Indexes
+### Joint Range and Speed Limits
 
-The indexes related to the body parts are as follows:
+Model A, hardware versions v1.0, v1.1 and v1.2:
 
-- **Torso Indexes**: 2, 3, 4, 5, 6, 7
-- **Right Arm Indexes**: 8, 9, 10, 11, 12, 13, 14
-- **Left Arm Indexes**: 15, 16, 17, 18, 19, 20, 21
-
----
-### Head Indexes
-
-The indexes related to the head parts are as follows:
-
-- Head Indexes: 22, 23
+<!--@include: ../../../hardware/generated/joint_limits_a.md{5,}-->
 
 ---
 ### Brake and Motor Information
 
 #### Components Without Brakes
 
-The following components do not have brakes:
-
-**Wheels**: `right_wheel`, `left_wheel`
-**Right Arm**: `right_arm_6`
-**Left Arm**: `left_arm_6`
+- **Wheels**: `right_wheel`, `left_wheel`
+- **Right Arm**: `right_arm_6`
+- **Left Arm**: `left_arm_6`
+- **Head** (v1.0 and v1.1): `head_0`, `head_1`. From v1.2 the head joints have brakes (see [Hardware Versions](../hardware-versions.md)).
 
 #### Components Without Physical Brake Buttons
 
@@ -81,50 +73,19 @@ The following components have brakes and include physical buttons for releasing 
 - **Right Arm**: `right_arm_0`, `right_arm_1`, `right_arm_2`, `right_arm_3`
 - **Left Arm**: `left_arm_0`, `left_arm_1`, `left_arm_2`, `left_arm_3`
 
-<!-- ---
-### Motor Types
-
-The motor types for each component are as follows:
-
-- **Dynamixel Motors**: Used in the Head (`head_0`, `head_1`)
-- **RBMotors**: Used in all other components (Torso, Wheels, Right Arm, Left Arm) -->
+::: danger
+A joint whose brake is released can fall under gravity. Support the arm or the torso before you release a brake,
+by button or in software.
+:::
 
 ---
-### Parameter Lists
+### Parameters
 
-| Parameter Name | Default Value |	Min Value | Max Value | Unit |
-| -------------- | ------------- | ---------- | --------- | ---- |
-|`robot_model_name`                                                 | "rby1a"                                           |  -   |  -   |     |
-|`model_name`	                                                     | ""                                                |      |   -  |  -  |
-|[`battery_config`](../../controllers/generated/parameter.md#battery_config) (type, cutoff_voltage, fully_charged_voltage, ...)| [0, 44.7, 58.6, 1123.0, -61.587, 1.0168, -0.0045] |	 -  |   -  |     |
-|[`soft_stop_enabled`](../../controllers/generated/parameter.md#soft_stop_enabled)                                                | 0                                                 | 0    | 1    |     |	
-|[`power_command.timeout`](../../controllers/generated/parameter.md#power_commandtimeout)                                            | 1.0                                               | 0.0  | 10.0 | sec |
-|[`servo_on_command.timeout`](../../controllers/generated/parameter.md#servo_on_commandtimeout)                                         | 15.0                                              |	0.0 | 30.0 | sec |
-|[`servo_on_command.new_data_timeout`](../../controllers/generated/parameter.md#servo_on_commandnew_data_timeout)                                | 3.0                                               | 0.0  |	10.0 | sec |
-|[`gravity`](../../controllers/generated/parameter.md#gravity)                                                          | [0, 0, -9.8]                                      |	 -  |   -  | m/s²|
-|[`default.velocity_limit_scaling`](../../controllers/generated/parameter.md#defaultvelocity_limit_scaling)                                   | 1.0                                               |	0.01|	 1.5 |	  |
-|[`default.acceleration_limit_scaling`](../../controllers/generated/parameter.md#defaultacceleration_limit_scaling)                               | 1.0                                               |	0.01|	 1.5 |	  |
-|[`default.linear_acceleration_limit`](../../controllers/generated/parameter.md#defaultlinear_acceleration_limit)                                | 5.0                                               |	0.01|	10.0 |     |
-|[`default.angular_acceleration_limit`](../../controllers/generated/parameter.md#defaultangular_acceleration_limit)                               | 1.0                                               |	0.01|	 5.0 |	  |
-|[`default.optimal_control_command.stop_cost`](../../controllers/generated/parameter.md#defaultoptimal_control_commandstop_cost)                        | 1e-3                                              |	1e-6|	 1e9 |     |
-|[`default.se2_velocity_command.acceleration_limit`](../../controllers/generated/parameter.md#defaultse2_velocity_commandacceleration_limit)                  | [1.0, 5.0, 99.0]                                  |	 -  |	  -  |     |
-|[`jog_command.one_step_size`](../../controllers/generated/parameter.md#jog_commandone_step_size)                                        | 0.087266463 (5°)          | 0.017453293 (1°) | 0.17453293 (10°) | rad |
-|[`jog_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                                       | 0.1                                               | 1e-3 | 10.0 | sec |
-|[`joint_position_command.cutoff_frequency`](../../controllers/generated/parameter.md#cutoff_frequency)                          | 15.0                                              | 1e-3 | 100.0| Hz  |
-|[`joint_position_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                            | 0.1	                                             | 1e-3 | 1.0  | sec |
-|[`cartesian_command.cutoff_frequency`](../../controllers/generated/parameter.md#cutoff_frequency)                               | 15.0                                              | 1e-3 | 100.0| Hz  |
-|[`cartesian_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                                 | 0.1	                                             | 1e-3 | 1.0  | sec |
-|[`stop_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                                      | 0.1	                                             | 1e-3 | 1.0  | sec |
-|[`joint_velocity_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                            | 0.1	                                             | 1e-3 | 1.0  | sec |
-|[`se2_velocity_command.canceling_time`](../../controllers/generated/parameter.md#canceling_time)                              | 0.1                                               | 1e-3 | 1.0  | sec |
+Model A uses the common robot parameters; see the [Parameter Reference](../../controllers/generated/parameter.md).
+Read the parameters and their current values from your robot with `robot.get_parameter_list()` and `robot.get_parameter(name)`.
 
 ---
-### Example Usage in Python
 
-```python
-# Set parameters using the dot notation, following the provided examples
-robot.set_parameter("default.acceleration_limit_scaling", "0.8")
-robot.set_parameter("joint_position_command.cutoff_frequency", "5")
-robot.set_parameter("cartesian_command.cutoff_frequency", "5")
-robot.set_parameter("default.linear_acceleration_limit", "5")
-```
+Verified against: rby1-sdk v0.10.1 `include/rby1-sdk/model.h` (`A`: joint names, indexes), `python/rby1_sdk/__init__.py` (`create_robot`),
+`python/model.cpp` (`Model_A`), `models/rby1a/urdf/model_v1.0.urdf` … `model_v1.2.urdf`; robot core `core/robots/rby1a/parameters.h`
+(`robot_model_name`), `core/robots/rby1a/robot_hardware.cpp` (head brakes for `ROBOT_MODEL_V1_2`).

@@ -114,4 +114,4 @@ run ``sudo ldconfig`` after installing to a system prefix.
 
 - :doc:`client/robot` for the client API.
 - :doc:`cpp-examples` for runnable programs.
-- `Build Issues <../trobuleshooting/generated/build_issue.md>`_ if the build fails.
+- `Build Issues <../troubleshooting/generated/build_issue.md>`_ if the build fails.

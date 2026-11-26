@@ -1,3 +1,8 @@
+---
+search: false
+sidebar: false
+---
+
 # Options & Accessories
 
-## Gripper & Master-Arm & zed camera
+This page has moved to [Gripper](../../../options/gripper.md).

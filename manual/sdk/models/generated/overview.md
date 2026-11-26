@@ -1,3 +1,8 @@
+---
+search: false
+sidebar: false
+---
+
 # Overview
 
-## RB-Y1's Main Component and Structure
+This page has moved to [Overview & Specifications](../../../hardware/overview.md).

@@ -1,153 +1,181 @@
 # Command and Control Architecture
-##
 
 ### Overview
 
-The robot commands are divided into three main types:
+A robot command (`RobotCommandBuilder`) holds exactly one of three command types:
 
-1. **WholeBodyCommand**: Controls the entire robot with 24 degrees of freedom (DOF) in a single command.
-2. **ComponentBasedCommand**: Sends commands to the robot's `head`, `body`, or `mobility` components individually.
-3. **JogCommand**: Controls smaller, individual movements, typically used for fine adjustments.
+1. **WholeBodyCommand**: stops the robot or runs real-time control. It does not hold motion controllers.
+2. **ComponentBasedCommand**: sends commands to the `mobility`, `body` and `head` components. Each component gets its own controller.
+3. **JogCommand**: moves one joint by a small step, typically used for fine adjustments.
+
+All values are in SI units (rad, rad/s, m, N·m). See [Units and Frames](../../../software/units-and-frames.md).
 
 <img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_robot_command.png')" alt="mermaid_robot_command" class="center rounded-img" style="width:600px">
 
 ---
 ### WholeBodyCommand
 
-This command controls all the major components of the robot, including arms, torso, and legs. It supports various controllers for managing the full body of the robot. The primary use case is for synchronized movements where multiple parts of the robot are involved. This command sends a **24 DOF** control signal all at once.
+A WholeBodyCommand holds one of two commands:
 
-<img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_wholebody_command.png')" alt="mermaid_wholebody_command" class="center rounded-img" style="width:400px">
+- **StopCommand** (`StopCommandBuilder`): stops the running commands and holds the robot.
+- **RealTimeControlCommand**: starts real-time control, in which your program sends joint targets and torques over UDP every 2 ms.
+  The SDK sends this command for you when you call `robot.control(callback)`; see the C++ [control loop types](../../cpp/client/control-loop-types.md).
+
+It applies to all joints of the model: 24 for Model A, 26 for Model M and 18 for Model UB.
 
 ---
 ### ComponentBasedCommand
 
-The **ComponentBasedCommand** is responsible for controlling the core components of the robot, such as the **Mobility**, **Body**, and **Head**. It provides a flexible architecture for handling different sections of the robot individually. Each of these components can be controlled using specialized commands, allowing precise control over the robot's movement and actions. This structure typically supports multiple controllers to handle specific parts of the robot efficiently.
+The **ComponentBasedCommand** controls the components of the robot separately: **Mobility** (wheels), **Body** (torso and both arms) and **Head**.
+Set only the components you want to move.
 
 <img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_component_based.png')" alt="mermaid_component_based" class="center rounded-img" style="width:600px">
 
 ---
 ### BodyCommand Structure
 
-The **BodyCommand** allows for detailed control of the robot's body and arms. It is divided into **BodyComponentBasedCommand**, under which **TorsoCommand** and **ArmCommand** exist. The arms can be controlled individually through **LeftArmCommand** and **RightArmCommand**, providing finer control over each arm.
-
-In the diagram below, the Controller nodes follow the structure defined in the Controllers section, where each Controller node represents the available controllers for joint position, Cartesian motion, impedance control, gravity compensation, and optimal control.
+The **BodyCommand** either controls the whole body (torso and both arms) with one controller, or holds a **BodyComponentBasedCommand**.
+The BodyComponentBasedCommand has a **TorsoCommand**, a **RightArmCommand** and a **LeftArmCommand**, each with its own controller.
 
 <img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_body_component.png')" alt="mermaid_body_component" class="center rounded-img" style="width:600px">
 
 ---
 ### Controllers
 
-The following controllers are used throughout different commands like **WholeBodyCommand**, **ComponentBasedCommand**, and their subcommands.
+The table shows which controller (command) each component accepts. The Python builder of each command has the same name with `Builder` added,
+for example `JointPositionCommandBuilder`.
 
-- **JointPositionController**: Manages the position of each joint.
-- **CartesianController**: Controls the Cartesian position of the robot.
-- **ImpedanceController**: Allows control of force and motion, useful for interactions with the environment.
-- **GravityCompensationController**: Compensates for gravitational forces, making the robot more energy-efficient during holding positions.
-- **OptimalController**: Controls the robot's motion using an optimization equation.
+| Command | Mobility | Body | Torso | Right / left arm | Head |
+| --- | :-: | :-: | :-: | :-: | :-: |
+| `JointPositionCommand` | | ✓ | ✓ | ✓ | ✓ |
+| `JointGroupPositionCommand` | | | ✓ | | |
+| `JointVelocityCommand` | ✓ | | | | |
+| `SE2VelocityCommand` | ✓ | | | | |
+| `CartesianCommand` | | ✓ | ✓ | ✓ | |
+| `ImpedanceControlCommand` | | | ✓ | ✓ | |
+| `JointImpedanceControlCommand` | | ✓ | ✓ | ✓ | |
+| `CartesianImpedanceControlCommand` | | ✓ | ✓ | ✓ | |
+| `GravityCompensationCommand` | | ✓ | ✓ | ✓ | |
+| `OptimalControlCommand` | | ✓ | ✓ | | |
+
+- **JointPositionCommand**: moves joints to target positions.
+- **JointGroupPositionCommand**: moves the joints you list by name to target positions.
+- **JointVelocityCommand**, **SE2VelocityCommand**: drive the wheels by joint velocity, or the base by a planar velocity (x, y, yaw).
+- **CartesianCommand**: moves links to target poses.
+- **ImpedanceControlCommand**, **CartesianImpedanceControlCommand**, **JointImpedanceControlCommand**: control motion with a stiffness, so the robot yields to contact.
+- **GravityCompensationCommand**: compensates for gravity, so the joints can be moved by hand.
+- **OptimalControlCommand**: solves an optimization problem for link poses, the center of mass and joint positions (below).
+
+#### Optimal control
+
+The robot software computes the joint velocity $\dot{\mathbf{q}}$ that minimizes a weighted sum of squared errors every control cycle:
 
 $$
-\min_{\boldsymbol{\mathrm{\dot{q}}}}\left(\sum_{i=0}^{n-1}
-W_{1,i}(J_i\boldsymbol{\mathrm{\dot{q}}}-\log(T^{-1}_{i,\text{cur}}T_{i,\text{ref}}))
-+ W_2(\boldsymbol{\mathrm{\dot{q}}}-(\boldsymbol{\mathrm{q}}_{\text{ref}}-\boldsymbol{\mathrm{q}}_{\text{cur}}))
-+ W_3\boldsymbol{\mathrm{\dot{q}}}
-\right)
+\min_{\dot{\mathbf{q}}}\;
+\sum_{i=0}^{n-1}\left\lVert W_{1,i}\left(J_i\dot{\mathbf{q}}-\log\left(T^{-1}_{i,\text{cur}}T_{i,\text{ref}}\right)\right)\right\rVert^2
++ \left\lVert W_2\left(\dot{\mathbf{q}}-(\mathbf{q}_{\text{ref}}-\mathbf{q}_{\text{cur}})\right)\right\rVert^2
++ \left\lVert W_3\,\dot{\mathbf{q}}\right\rVert^2
 $$
 
-$$
-\boldsymbol{\mathrm{\dot{q}}}_{lb}\le\boldsymbol{\mathrm{\dot{q}}}\le\boldsymbol{\mathrm{\dot{q}_{ub}}}
-$$
+subject to the joint velocity limits
 
 $$
-\boldsymbol{\mathrm{\dot{q}}}_{lb}-\boldsymbol{\mathrm{\dot{q}}}_{cur}\le\boldsymbol{\mathrm{\dot{q}}}\le\boldsymbol{\mathrm{\dot{q}}}_{ub}-\boldsymbol{\mathrm{\dot{q}}}_{cur}
+\dot{\mathbf{q}}_{lb}\le\dot{\mathbf{q}}\le\dot{\mathbf{q}}_{ub}
 $$
 
-$$
-W_{1,i} = \mathrm{diag}(w_{o,i},w_{o,i},w_{o,i},w_{p,i},w_{p,i},w_{p,i})
-$$
+with
 
 $$
+W_{1,i} = \mathrm{diag}(w_{o,i},w_{o,i},w_{o,i},w_{p,i},w_{p,i},w_{p,i}),\qquad
 W_{2} = \mathrm{diag}(w_{0},w_{1},\cdots,w_{dof-1})
 $$
 
-$$
-W_{3} = \text{constant small value}
-$$
+- $T_{i,\text{ref}}$ is a Cartesian target (`add_cartesian_target(ref_link, link, T, translation_weight, rotation_weight)`), $w_{o,i}$ and $w_{p,i}$ its rotation and translation weights.
+- $\mathbf{q}_{\text{ref}}$ and $w_j$ are joint position targets and weights (`add_joint_position_target(joint_name, q, weight)`).
+- A center-of-mass target (`set_center_of_mass_target`) adds a term of the same form.
+- $W_3$ is a small fixed weight that keeps the solution small in the joint space.
 
-<img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_controller.png')" alt="mermaid_controller" class="center rounded-img" style="width:600px">
+The formula above is a simplified form; the robot software also scales the errors with `set_error_scaling()` and the control period.
+
+**When the command ends.** The cost is the size of the remaining target error. The command converges when
+
+- the cost is below the stop cost (`set_stop_cost()`, default from the parameter
+  [`default.optimal_control_command.stop_cost`](parameter.md#defaultoptimal_control_commandstop_cost)), or
+- the smoothed cost changes by less than `set_min_delta_cost()` in `set_patience()` consecutive control cycles
+  (only when you set a minimum delta cost; without a patience value, the first such cycle ends the command).
+
+See the SDK example `24_demo_motion.py` for weights and limits that work on the robot.
 
 ---
-### Examples
+### Example
+
+The example below moves the torso and both arms with joint position commands.
+It is written for Model A and Model M (a 6-joint torso); on Model UB the torso has 2 joints.
+The complete demo with more commands is the SDK example `24_demo_motion.py` ([Examples](../../../examples/ex.md)).
+
+::: danger WARNING
+This program powers on the robot, turns on the servos and moves the torso and both arms.
+Clear the robot's full range of motion of people and objects, and keep the E-Stop within reach.
+Try it in the [simulator](../../../simulators/index.md) first.
+:::
 
 ```python
-def example_joint_position_command_1(robot):
-    print("joint position command example 1")
+import numpy as np
+import rby1_sdk as rby
 
-    # Initialize joint positions
-    q_joint_waist = np.zeros(6)
-    q_joint_right_arm = np.zeros(7)
-    q_joint_left_arm = np.zeros(7)
+ADDRESS = "192.168.30.1:50051"  # your robot address
+MODEL = "a"                     # "a" or "m"
+D2R = np.pi / 180               # degrees to radians
+MINIMUM_TIME = 2.0              # seconds
 
-    # Set specific joint positions
-    q_joint_right_arm[1] = -90 * D2R
-    q_joint_left_arm[1] = 90 * D2R
+robot = rby.create_robot(ADDRESS, MODEL)
+if not robot.connect():
+    raise SystemExit("Cannot connect to the robot")
+if not robot.is_power_on(".*"):
+    robot.power_on(".*")
+if not robot.is_servo_on(".*"):
+    robot.servo_on(".*")
+if robot.get_control_manager_state().state in (
+    rby.ControlManagerState.State.MinorFault,
+    rby.ControlManagerState.State.MajorFault,
+):
+    robot.reset_fault_control_manager()
+if not robot.enable_control_manager():
+    raise SystemExit("Cannot enable the Control Manager")
 
-    rc = RobotCommandBuilder().set_command(
-        ComponentBasedCommandBuilder().set_body_command(
-            BodyComponentBasedCommandBuilder()
-            .set_torso_command(
-                JointPositionCommandBuilder()
-                .set_minimum_time(minimum_time)
-                .set_position(q_joint_waist)
-            )
-            .set_right_arm_command(
-                JointPositionCommandBuilder()
-                .set_minimum_time(minimum_time)
-                .set_position(q_joint_right_arm)
-            )
-            .set_left_arm_command(
-                JointPositionCommandBuilder()
-                .set_minimum_time(minimum_time)
-                .set_position(q_joint_left_arm)
-            )
+model = robot.model()
+torso = np.array([0, 30, -60, 30, 0, 0]) * D2R           # len(model.torso_idx) == 6
+right_arm = np.array([-45, -30, 0, -90, 0, 45, 0]) * D2R  # len(model.right_arm_idx) == 7
+left_arm = np.array([-45, 30, 0, -90, 0, 45, 0]) * D2R    # len(model.left_arm_idx) == 7
+
+rc = rby.RobotCommandBuilder().set_command(
+    rby.ComponentBasedCommandBuilder().set_body_command(
+        rby.BodyComponentBasedCommandBuilder()
+        .set_torso_command(
+            rby.JointPositionCommandBuilder().set_minimum_time(MINIMUM_TIME).set_position(torso)
+        )
+        .set_right_arm_command(
+            rby.JointPositionCommandBuilder().set_minimum_time(MINIMUM_TIME).set_position(right_arm)
+        )
+        .set_left_arm_command(
+            rby.JointPositionCommandBuilder().set_minimum_time(MINIMUM_TIME).set_position(left_arm)
         )
     )
+)
 
-    rv = robot.send_command(rc, 10).get()
-
-    if rv.finish_code != RobotCommandFeedback.FinishCode.Ok:
-        print("Error: Failed to conduct demo motion.")
-        return 1
-
-    return 0
-
-def example_joint_position_command_2(robot):
-    print("joint position command example 2")
-
-    # Define joint positions
-    q_joint_waist = np.array([0, 30, -60, 30, 0, 0]) * D2R
-    q_joint_right_arm = np.array([-45, -30, 0, -90, 0, 45, 0]) * D2R
-    q_joint_left_arm = np.array([-45, 30, 0, -90, 0, 45, 0]) * D2R
-
-    # Combine joint positions
-    q = np.concatenate([q_joint_waist, q_joint_right_arm, q_joint_left_arm])
-
-    # Build command
-    rc = RobotCommandBuilder().set_command(
-        ComponentBasedCommandBuilder().set_body_command(
-            BodyCommandBuilder().set_command(
-                JointPositionCommandBuilder()
-                .set_position(q)
-                .set_minimum_time(minimum_time)
-            )
-        )
-    )
-
-    rv = robot.send_command(rc, 10).get()
-
-    if rv.finish_code != RobotCommandFeedback.FinishCode.Ok:
-        print("Error: Failed to conduct demo motion.")
-        return 1
-
-    return 0
-
+feedback = robot.send_command(rc, 10).get()  # 10 is the command priority
+if feedback.finish_code != rby.RobotCommandFeedback.FinishCode.Ok:
+    print("Motion failed:", feedback.finish_code)
 ```
+
+To send all body joints in one command, use `BodyCommandBuilder().set_command(JointPositionCommandBuilder().set_position(q))`
+with `q` of length `len(model.body_idx)` (20 for Model A and M, 16 for Model UB), in index order.
+
+---
+
+Verified against: rby1-sdk v0.10.1 `protos/rb/api/robot_command.proto`, `whole_body_command.proto` (only `stop_command` and `real_time_control_command`),
+`component_based_command.proto`, `body_command.proto`, `body_component_based_command.proto`, `torso_command.proto`, `arm_command.proto`,
+`head_command.proto`, `mobility_command.proto` (controllers per component), `include/rby1-sdk/model.h` (DOF and indexes),
+`include/rby1-sdk/math/optimal_control.h` (cost terms), `include/rby1-sdk/robot_command_builder.h` (`OptimalControlCommandBuilder`),
+`python/robot_command_builder.cpp`, `examples/python/00_helper.py`, `examples/python/24_demo_motion.py`;
+robot core `core/service/srv_optimal_control_command.cpp` (convergence check).

@@ -1,5 +1,4 @@
 # Model UB
-##
 
 Model UB is the upper-body configuration of RB-Y1: a two-joint torso, two 7-DoF arms and a 2-DoF head, without a mobile base.
 
@@ -40,12 +39,14 @@ and in `rb::y1_model::UB` (`include/rby1-sdk/model.h`) of the rby1-sdk repositor
 ---
 ### Joint Range and Speed Limits
 
-<!--@include: ../../../hardware/generated/joint_limits_ub.md-->
+<!--@include: ../../../hardware/generated/joint_limits_ub.md{5,}-->
 
 ---
 ### Parameters
 
-Model UB uses the common robot parameters; see the [Parameter Reference](/sdk/controllers/generated/parameter).
+Model UB uses the common robot parameters; see the [Parameter Reference](../../controllers/generated/parameter.md).
 Read the parameters and their current values from your robot with `robot.get_parameter_list()`.
 
-<!-- TODO (owner): brake / brake-release button and motor type per joint for Model UB (not verified from the SDK or core). -->
+---
+
+Verified against: rby1-sdk v0.10.1 `include/rby1-sdk/model.h` (`UB`), `python/rby1_sdk/__init__.py` (`create_robot`), `python/model.cpp` (`Model_UB`), `models/rby1ub/urdf/model.urdf`; robot core `core/robots/rby1ub/parameters.h` (`robot_model_name`).
