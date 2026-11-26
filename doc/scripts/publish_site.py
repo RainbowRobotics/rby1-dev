@@ -4,7 +4,7 @@
 Versions: the site holds one version, the latest, at the root, so existing URLs keep working.
 Older versions are not kept on the site (a build is about 360 MB and a GitHub Pages site is
 limited to 1 GB; a VitePress build also hard-codes its base path, so a copy of it cannot be moved
-to /<version>/). Earlier releases are listed on GitHub (see README, "Versions").
+to /<version>/). Earlier releases are listed on GitHub (see README, "배포와 버전").
 
 Usage:
     python3 doc/scripts/publish_site.py --build manual/.vitepress/dist --site ../site --version v0.10.1

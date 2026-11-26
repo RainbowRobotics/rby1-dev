@@ -2,8 +2,7 @@ DynamixelBus
 ============
 
 ``rb::DynamixelBus`` is the direct peripheral-access class for Dynamixel-based
-devices. This page is intentionally close in spirit to ROBOTIS's own
-``PortHandler``-style reference: open the bus, configure communication, then
+devices. The usual order is: open the bus, configure communication, then
 read or write grouped or per-device values.
 
 .. rubric:: Header

@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Start here when something does not work. The sections below cover connection problems. The other pages cover the rest:
+Start here when something does not work. The sections below cover connection problems from the SDK side. For hotspot and Web UI problems, see also [Connection Troubleshooting](../../getting-started/connection-troubleshooting.md). Addresses and ports are listed in [Network and Ports](../../getting-started/network-and-ports.md). The other pages cover the rest:
 
 - [Fault Diagnosis](./fault-diagnosis.md): the Control Manager does not enable, goes to a fault, or a command fails.
 - [Build Issues](./generated/build_issue.md): building the SDK from source fails.
@@ -58,7 +58,11 @@ If a function of the SDK fails although the connection works, a version differen
 
 ## Cannot reach the Web UI
 
+- Use `http://`, not `https://`, and port 5173: `http://192.168.12.1:5173` on the hotspot.
+- Your PC must reach both port 5173 (page) and port 8000 (data).
 - Join the robot hotspot again and check the SSID and the password. See [Hotspot & Web UI](../../getting-started/hotspot-and-webui.md).
 - On an external network, check the IP address of the robot in the network settings ([External Access Point](../../getting-started/connect-external-ap.md)).
 
-Verified against: robot core `core/main.cpp` (gRPC server on `0.0.0.0:50051`); rby1-sdk v0.10.1 `python/robot.cpp` (`connect`, `get_robot_info`), `python/robot_info.cpp`, `python/rby1_sdk/__init__.py` (`create_robot` models `a`, `m`, `ub`, `__version__`), `examples/python/00_helper.py`.
+For the full checklist, see [Cannot open the Web UI](../../getting-started/connection-troubleshooting.md#cannot-open-the-web-ui) in Connection Troubleshooting.
+
+Verified against: robot core `core/main.cpp` (gRPC server on `0.0.0.0:50051`); rby1-sdk v0.10.1 `python/robot.cpp` (`connect`, `get_robot_info`), `python/robot_info.cpp`, `python/rby1_sdk/__init__.py` (`create_robot` models `a`, `m`, `ub`, `__version__`), `examples/python/00_helper.py`; `rby1-web/docker-compose.web.yaml` (Web UI on 5173), `rby1-web/rby1-frontend/src/config/apiConfig.js` (API port 8000).

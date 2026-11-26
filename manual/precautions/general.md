@@ -27,7 +27,7 @@ The robot is heavy: Model A weighs 131 kg and Model M weighs 170 kg. Lifting or 
 ## Mobile Base
 
 ::: danger WARNING
-The mobile base can drive at up to 1.5 m/s (see [Overview](../hardware/overview.md#general-specifications)). The wheels have no brake. A collision with the moving base, or a base that rolls away, can cause serious injury.
+The Model A mobile base can drive at up to 1.5 m/s (see [Overview](../hardware/overview.md#general-specifications)). This manual does not list the top speed of the Model M base. The wheels have no brake. A collision with the moving base, or a base that rolls away, can cause serious injury.
 
 - The wheel joints have no brake. After an E-Stop, a power off or a servo off, the wheels are not held, and the robot can roll on a slope or when it is pushed. Operate and park the robot on a level floor.
 - Disconnect the charger before you drive (see [Power & Battery](power_and_battery.md#disconnect-the-charger-before-driving-the-mobile-base)).

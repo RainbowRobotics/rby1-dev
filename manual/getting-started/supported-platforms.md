@@ -51,7 +51,8 @@ See [MuJoCo](../simulators/mujoco.md).
 
 Check what your robot runs:
 
-- **Robot software (core) version**: `robot.get_robot_info().robot_version` in the SDK.
+- **Robot software (core) version**: `robot.get_robot_info().version` in the SDK.
+  The `robot_version` field is deprecated and holds the model name, not the software version.
 - **Model and hardware version**: `robot.get_robot_info().robot_model_name` and `robot_model_version`.
 - **SDK version on your PC**: `rby1_sdk.__version__`.
 
@@ -64,6 +65,6 @@ and update the robot software with the [RPC Updater](../rpc_management_tools/rpc
 Verified against: PyPI `rby1-sdk` 0.10.1 JSON (wheel files `cp310`–`cp313` × `manylinux_2_35_x86_64`,
 `manylinux_2_35_aarch64`, `win_amd64`, `macosx_14_0_arm64`/`15_0`/`26_0`; `requires_python <4.0,>=3.10`;
 `numpy<3.0.0,>=2.0.1`), checked 2026-11-26; rby1-sdk v0.10.1 `pyproject.toml`, `python/rby1_sdk/__init__.py`
-(`__version__`), `python/robot_info.cpp` (`robot_version`, `robot_model_name`, `robot_model_version`);
+(`__version__`), `python/robot_info.cpp` (`version`, `robot_version` deprecated, `robot_model_name`, `robot_model_version`);
 rby1-ros2 v1.0.0 `README.md`; Docker Hub `rainbowroboticsofficial/rby1-sim` tags (amd64 and arm64, newest 0.10.6),
 checked 2026-11-26.

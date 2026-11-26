@@ -81,7 +81,7 @@ Use these names as `ref_link_name` and `link_name` in Cartesian, impedance and o
 | `wheel_fr_link`, `wheel_fl_link`, `wheel_rr_link`, `wheel_rl_link` | | ✓ | | Wheel links of Model M |
 
 The URDF of your hardware version has the full list (see [Hardware Versions](../sdk/models/hardware-versions.md)).
-Example from the SDK example `24_demo_motion.py`: move the right hand relative to the base.
+Example: move the right hand relative to the base. The call is the same as in the SDK example `24_demo_motion.py`; the values are different.
 
 ```python
 import numpy as np

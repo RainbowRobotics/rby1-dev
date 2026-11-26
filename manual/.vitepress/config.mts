@@ -223,7 +223,7 @@ const nav: DefaultTheme.NavItem[] = [
   { text: 'Download', link: '/downloads' },
   { text: 'Support', link: '/support' },
   {
-    // One version is published (the latest); older releases are on GitHub (see README, "Versions").
+    // One version is published (the latest); older releases are on GitHub (see README, "배포와 버전").
     text: SDK_VERSION,
     items: [
       { text: 'Supported platforms & compatibility', link: '/getting-started/supported-platforms' },
@@ -251,13 +251,24 @@ function firstParagraph(relativePath: string): string | undefined {
   const file = join(SRC, relativePath)
   if (!existsSync(file)) return undefined
   const body = readFileSync(file, 'utf8').replace(/^---[\s\S]*?---/, '')
+  let text = ''
   for (const block of body.split(/\n\s*\n/)) {
     const t = block.trim()
-    if (!t || /^(#|<|:::|!\[|\||```|-|\$\$)/.test(t)) continue
-    return t.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').slice(0, 200)
+    if (!t || /^(#|<|:::|!\[|\||```|-|\$\$|\d+\.)/.test(t)) continue
+    // Plain text: link text kept, emphasis and code marks removed (identifiers such as rby1_sdk stay intact).
+    text += (text ? ' ' : '') + t.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*`]/g, '').replace(/\s+/g, ' ')
+    if (text.length >= 80) break // a one-line lead-in alone says little: take the next paragraph too
   }
-  return undefined
+  if (!text) return undefined
+  if (text.length <= 200) return text
+  const cut = text.slice(0, 200)
+  return cut.slice(0, cut.lastIndexOf(' ')) + '…'
 }
+
+// Pages kept only to forward old URLs (frontmatter "search: false"): not in the sitemap, not indexed.
+const movedPages = new Set<string>()
+const pageUrl = (relativePath: string) =>
+  SITE_URL + relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '.html')
 
 // withMermaid: renders ```mermaid blocks (architecture diagrams in the ROS 2 pages).
 export default withMermaid({
@@ -273,14 +284,19 @@ export default withMermaid({
   // The Doxygen HTML is a static folder in public/, not a VitePress page.
   ignoreDeadLinks: [/raw-api\//, /^https?:\/\/localhost/],
   head: [['link', { rel: 'icon', href: `${base}rb_logo.png` }]],
-  sitemap: { hostname: SITE_URL },
+  sitemap: {
+    hostname: SITE_URL,
+    transformItems: (items) => items.filter((item) => !movedPages.has(new URL(item.url, SITE_URL).href)),
+  },
   transformPageData(pageData) {
+    if (pageData.frontmatter.search === false) movedPages.add(pageUrl(pageData.relativePath))
     const desc = pageData.frontmatter.description ?? firstParagraph(pageData.relativePath)
     if (desc) pageData.description = desc
   },
   transformHead({ pageData }) {
-    const url = SITE_URL + pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '.html')
+    const url = pageUrl(pageData.relativePath)
     const title = pageData.title ? `${pageData.title} | RB-Y1` : 'RB-Y1'
+    if (pageData.frontmatter.search === false) return [['meta', { name: 'robots', content: 'noindex' }]]
     return [
       ['link', { rel: 'canonical', href: url }],
       ['meta', { property: 'og:title', content: title }],
@@ -317,7 +333,7 @@ export default withMermaid({
       { icon: 'youtube', link: 'https://www.youtube.com/@rainbowrobotics' },
     ],
     editLink: {
-      // Generated pages are edited at their source (see README, "Generated pages").
+      // Generated pages are edited at their source (see README, "생성되는 페이지는 원본을 고칩니다").
       pattern: editUrl,
       text: 'Edit this page on GitHub',
     },

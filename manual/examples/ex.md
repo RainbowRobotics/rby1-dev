@@ -43,12 +43,17 @@ python 03_robot_state.py --address 192.168.30.1:50051 --model a --power '.*'
 
 ### C++
 
-Build the SDK from source with `BUILD_EXAMPLES=ON` as described in the SDK [README](https://github.com/RainbowRobotics/rby1-sdk/tree/v0.10.1#c):
+Build the SDK from source with `BUILD_EXAMPLES=ON` as described in the SDK [README](https://github.com/RainbowRobotics/rby1-sdk/tree/v0.10.1#c).
+Run these commands in the root folder of the cloned `rby1-sdk` repository. `conan install` creates the `conan-release` preset that the `cmake` commands use:
 
 ```bash
+pip install conan
+conan install . -s build_type=Release -b missing -of build
 cmake --preset conan-release -D BUILD_EXAMPLES=ON
 cmake --build --preset conan-release
 ```
+
+The `--preset` options need CMake 3.23 or later. For older CMake versions, follow Option 2 in the README.
 
 Each example becomes an executable named `example_<file name>` in the `examples/cpp` folder of the build directory, for example `example_03_robot_state`.
 The examples in `examples/cpp/dynamics` become `example_dynamics_<name>`; they only compute dynamics and do not connect to a robot.

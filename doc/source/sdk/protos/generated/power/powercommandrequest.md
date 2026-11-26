@@ -8,5 +8,5 @@ Request of the `PowerCommand` RPC of [PowerService](../power_service/powerservic
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | request_header | [RequestHeader](../header/requestheader.md) |  | Request header |
-| name | [string](../scalar-value-types.md) |  | Power ID |
+| name | [string](../scalar-value-types.md) |  | Required. Regex for the power outputs: `5v`, `12v`, `24v` and `48v`. The whole name must match. Use `.*` for all outputs, as the SDK examples do. An empty name matches no output, so nothing changes, and the call still returns STATUS_SUCCESS. |
 | command | [PowerCommandRequest.Command](powercommandrequest-command.md) |  |  |

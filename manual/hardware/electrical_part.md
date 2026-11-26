@@ -2,12 +2,13 @@
 
 ## Power System
 
-<img :src="$withBase('/images/hardware/electronical_part/power-system1.png')" alt="power-system1" class="center white-bg" style="width:200px">
+<img :src="$withBase('/images/hardware/electronical_part/power-system1.png')" alt="Power flow: battery or external power source in the mobile base, up to the body and down both arms" class="center white-bg" style="width:200px">
 
 ### Input Source
 
 - The system operates using either a **battery** or an **external power source (SMPS)**.
-- The **SMPS** (Switched-Mode Power Supply) requires a **back-EMF** protection device to safeguard against voltage spikes.
+- If you use an **SMPS** (Switched-Mode Power Supply) instead of the battery, put a **back-EMF** protection device between the SMPS and the robot. Motors that slow down feed energy back into the supply, and the voltage spikes can damage the SMPS or the robot.
+- This manual does not specify the protection device or the SMPS rating. Contact the support team before you connect an SMPS.
 
 ### Power Distribution
 
@@ -38,7 +39,7 @@ Use this for packing or long-term storage.
 It cuts all power at once. Shut down in the normal order first (see [Shutdown Order](../precautions/power_and_battery.md#shutdown-order)).
 :::
 
-<img :src="$withBase('/images/hardware/electronical_part/power_system2.png')" alt="power_system2" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/power_system2.png')" alt="Power wiring without SCB: 48-55 V DC source, XT60-M inlet, power cable in the leg, PDU with FET switch, terminal board, then the arm, torso and wheel joints" class="center rounded-img" style="width:600px">
 
 ### Power System (SCB Installed)
 
@@ -52,7 +53,7 @@ The robot power system is structured as follows:
 
 The SCB is responsible for safety-related power control, including emergency stop handling.
 
-<img :src="$withBase('/images/hardware/electronical_part/power_system3.png')" alt="emo_shutdown" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/power_system3.png')" alt="Power path with SCB: main battery, PDU, SCB, terminal board, then the joints; the EMO connects to the SCB and the remote receiver to the PDU" class="center rounded-img" style="width:600px">
 
 ### Shutdown Methods (SCB Installed)
 
@@ -63,7 +64,7 @@ The SCB is responsible for safety-related power control, including emergency sto
       - The 48V power from SCB to the Terminal Board is cut off
       - As a result, all downstream modules lose power immediately
 
-<img :src="$withBase('/images/hardware/electronical_part/emo_shutdown.png')" alt="emo_shutdown" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/emo_shutdown.png')" alt="E-Stop button shutdown with SCB: the SCB cuts the 48 V output to the terminal board" class="center rounded-img" style="width:600px">
 
 - **Wireless E-Stop remote**
    - A wireless emergency stop that works like the E-Stop button.
@@ -73,7 +74,7 @@ The SCB is responsible for safety-related power control, including emergency sto
       - The PDU cuts off the 48V power supplied to the SCB
       - As a result, all downstream modules lose power immediately
 
-<img :src="$withBase('/images/hardware/electronical_part/remote_control_shutdown.png')" alt="remote_control_shutdown" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/remote_control_shutdown.png')" alt="Wireless E-Stop remote shutdown with SCB: the PDU cuts the 48 V supply to the SCB" class="center rounded-img" style="width:600px">
 
 ---
 ### Backpack
@@ -92,7 +93,7 @@ The backpack holds the robot's control unit and its external connections.
 | 12V     |	8A               |
 | 5V      |	8A               |
 
-<img :src="$withBase('/images/hardware/electronical_part/backpack.png')" alt="backpack" class="center white-bg" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/backpack.png')" alt="Backpack with external power outputs, UPC ports, antennas, power buttons and E-Stop button" class="center white-bg" style="width:600px">
 
 The robot's body is designed to distribute power and communication to each critical module for smooth operation.
 
@@ -113,7 +114,7 @@ The robot's body is designed to distribute power and communication to each criti
 
 - The **RPC** is an **UP Xtreme i12** with a **12th Gen Intel® Core™** processor. It runs the robot software that controls the joints.
 
-<img :src="$withBase('/images/hardware/electronical_part/rpc-upc.png')" alt="rpc-upc" class="center white-bg" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/rpc-upc.png')" alt="User PC (Jetson AGX Orin) and robot PC (UP Xtreme i12)" class="center white-bg" style="width:600px">
 
 #### Robot PC (RPC)
 The RPC (UP Xtreme i12) gets its power from a DC-DC converter in the PDU. Its power switch is on the top of the robot. A 4-channel M.2 CAN module in the RPC connects it to the joints (see [Communication System Overview [CAN]](#communication-system-overview-can)).
@@ -130,7 +131,7 @@ The PDU has around 20 connectors, and incorrect wiring can lead to operational i
 Be cautious not to touch the DC-DC converters while the power is on, as they can become hot.
 :::
 
-<img :src="$withBase('/images/hardware/electronical_part/pdu.png')" alt="pdu" class="center rounded-img" style="width:400px">
+<img :src="$withBase('/images/hardware/electronical_part/pdu.png')" alt="Power Distribution Unit (PDU) board" class="center rounded-img" style="width:400px">
 
 ---
 ### Terminal Board and Fuse Information
@@ -142,23 +143,23 @@ The Terminal Board inside the robot contains four fuses:
 
 Replace a fuse only with one of the same type and rating.
 
-<img :src="$withBase('/images/hardware/electronical_part/terminal-fuse.png')" alt="terminal-fuse" class="center white-bg" style="width:400px">
+<img :src="$withBase('/images/hardware/electronical_part/terminal-fuse.png')" alt="Fuses on the terminal board" class="center white-bg" style="width:400px">
 
-<img :src="$withBase('/images/hardware/electronical_part/terminal_board.png')" alt="terminal_board" class="center white-bg" style="width:400px">
+<img :src="$withBase('/images/hardware/electronical_part/terminal_board.png')" alt="Terminal board" class="center white-bg" style="width:400px">
 
 ---
 ### Cable Connection Board
 
 This board manages the power and signal connections between the robot's modules.
 
-<img :src="$withBase('/images/hardware/electronical_part/cable-connection-board.png')" alt="cable-connection-board" class="center white-bg" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/cable-connection-board.png')" alt="Cable connection board" class="center white-bg" style="width:600px">
 
 ---
 ### Tool Flange Connection
 
 The tool flange has two connectors. Connector A is for users: it provides a 6-line bypass to the UPC. Connector B connects to the tool flange board, which the RPC controls. The tool flange also features an I/O interface, supporting direct connections to the robot’s force/torque (F/T) sensor or gripper. Additionally, the Direct Teaching Button allows users to manually guide the robot’s movements.
 
-<img :src="$withBase('/images/hardware/electronical_part/connection-info.png')" alt="connection-info" class="center white-bg" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/connection-info.png')" alt="Tool flange connectors A and B" class="center white-bg" style="width:600px">
 
 ---
 ### Communication System Overview [CAN]
@@ -177,7 +178,7 @@ The RPC has **4 CAN channels**:
 | `can3` (wheel) | wheels, PDU, SCB, and on Model A/M v1.2 and v1.3 robots `head_0` and `head_1` |
 
 On v1.0 and v1.1 robots, the head uses Dynamixel actuators on a serial bus, not CAN. Model UB always uses Dynamixel actuators for the head, in every version.
-Model M v1.3 has no F/T sensors.
+The original hardware version table lists no F/T sensors for Model M v1.3. The robot core still reads both F/T sensor nodes on every version.
 The [CAN Checker](../rpc_management_tools/can_checker.md) tool uses the same channel names.
 
 Data:
@@ -189,12 +190,12 @@ Command flow:
 - Your program on the UPC sends commands to the RPC over **Ethernet**.
 - The RPC processes the commands and drives the joints over CAN.
 
-<img :src="$withBase('/images/hardware/electronical_part/can.png')" alt="can" class="center rounded-img" style="width:600px">
+<img :src="$withBase('/images/hardware/electronical_part/can.png')" alt="CAN wiring: M.2 CAN module in the RPC, four CAN channels through the PDU and terminal board to the right arm, left arm, torso and wheels" class="center rounded-img" style="width:600px">
 
 ---
 ### Communication System Overview [LAN & BYPASS]
 
-<img :src="$withBase('/images/hardware/electronical_part/communication_system.png')" alt="communication_system" class="center rounded-img" style="width:200px">
+<img :src="$withBase('/images/hardware/electronical_part/communication_system.png')" alt="LAN and bypass paths: UPC and RPC in the body, bypass lines to both tool flanges, LAN to the mobile base" class="center rounded-img" style="width:200px">
 
 #### Access through the UPC
 - Your programs on the UPC communicate with the RPC over LAN.

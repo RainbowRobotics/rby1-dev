@@ -16,7 +16,7 @@ Only one `move_group` can run per ROS domain, so the two do not run together.
 ## Executor (`rby1_moveit_executor`)
 
 ::: danger The executor moves the robot at start and runs every plan at once
-- At start it switches power and servos on and moves both arms and the torso straight to the **ready pose** in one move.
+- At start it switches power and servos on and moves every straight part to the **ready pose** in one move. A straight part is an arm whose elbow (`right_arm_3`, `left_arm_3`) is within 0.3 rad of 0, or a torso whose knee (`torso_2`) is under half its ready angle.
 - It runs each plan as soon as it is made, without a preview. OMPL can still find a roundabout path.
 - MoveIt checks only what is in its planning scene. Without the gripper in the scene, it plans as if the hand ended at the tool frame.
 
@@ -30,7 +30,8 @@ ros2 launch rby1_moveit_executor moveit_executor.launch.py              # termin
 
 - **Robot**: model and version are read from the driver and pick `rby1_moveit_<model>_<version>`. `model:=m version:=1.2` names it; write `version:=1.3` for an M v1.3.
 - **Start**: it checks for an E-Stop and faults, switches power and servos on, and moves a straight part to the ready pose (`config/ready_pose.yaml`), then answers `READY`.
-  A part already bent is left as it is; `ready_if_straight:=false` skips the move.
+  A part already bent is left as it is. To skip the move, copy `config/ready_pose.yaml`, add `ready_if_straight: false` under `rby1_target_executor:` `ros__parameters:`, and start with `ready_pose:=/path/to/that.yaml`.
+  There is no `ready_if_straight` launch argument, and `ros2 param set` after start has no effect on it. With `rby1_bringup`, put the same file in `moveit_executor.ready_pose` of `bringup.yaml`.
 - **Both arms**: a target for one arm moves that arm and leaves the other where it is. Targets for both arms within 0.1 s of each other are planned as one move.
   A target that arrives during a move is kept (the latest per arm) and planned when the move ends.
 - **Obstacles**: the planning scene is checked when a target is planned; nothing is checked while the arm moves.

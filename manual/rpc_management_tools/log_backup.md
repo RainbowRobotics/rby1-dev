@@ -21,6 +21,18 @@ Use the `log_backup` tool when the Web UI is not available. You run it on the us
 
 ### Usage
 
+::: tip Accept the RPC host key first
+The tool logs in with `ssh` but cannot answer the host key question. On a PC that has never connected to this RPC, the login fails. Connect once by hand before you run the tool:
+
+```bash
+ssh root@<RPC IP address>
+# Answer "yes" to the host key question. Then press Ctrl+C at the password prompt.
+```
+
+If `ssh` reports `REMOTE HOST IDENTIFICATION HAS CHANGED` (for example after the RPC software was reinstalled), remove the old key with `ssh-keygen -R <RPC IP address>` and connect once again.
+The source code and the released binary were not compared, so this step is based on the source code.
+:::
+
 ```bash
 # The tool uses sshpass for the SSH login
 sudo apt-get install -y sshpass
@@ -41,4 +53,4 @@ The tool compresses the log folder on the RPC and copies it to `logs.tar.gz` in 
 The tool always writes to `logs.tar.gz` and overwrites an existing file with that name. Rename or move an earlier backup before you run the tool again.
 :::
 
-If the tool prints `Error compressing logs.` or `Error downloading logs.`, check that `sshpass` is installed, that the RPC address is correct, and that the RPC is reachable (for example with `ping`).
+If the tool prints `Error compressing logs.` or `Error downloading logs.`, check that `sshpass` is installed, that the RPC address is correct, that the RPC host key was accepted (see [Usage](#usage)), and that the RPC is reachable (for example with `ping`).

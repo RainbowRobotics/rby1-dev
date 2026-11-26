@@ -25,6 +25,7 @@ The wheel actuators use a planetary gear. All other joints use a harmonic gear; 
 
 - In the actuator names, R and L mean right and left. The torso actuators use the former leg names (AR, AP, KN, HP, HR, HY); in the SDK they are `torso_0` to `torso_5`.
 - A dash (—) means that the value is not listed.
+- Motor Power: some rows give a second value in parentheses, for example 250(450)W. The source table does not say which rating the value in parentheses is (for example peak or maximum), and this manual has not verified it. Contact the support team if you need the exact meaning.
 - On Model A and on Model M v1.0 – v1.2, arm_6 has a 200:1 reduction (twice the ratio of the other wrist joints) and a 12-bit motor encoder. On Model M v1.3, arm_6 has a 100:1 reduction and a 14-bit motor encoder. Its controller speed limit is 120°/s (see [Joint Range and Speed Limits](overview.md#joint-range-and-speed-limits)).
 - The Model M wheels (`wheel_fr`, `wheel_fl`, `wheel_rr`, `wheel_rl`) are not in this table.
 

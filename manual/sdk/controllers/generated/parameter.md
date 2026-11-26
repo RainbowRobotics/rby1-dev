@@ -209,10 +209,11 @@ Adds a friction compensation torque to the arm joints. Available from robot soft
 - Default: `0` (off)
 
 The torque is computed from the measured joint velocity with a viscous and Coulomb friction model.
-The model was identified on hardware version v1.2 arms. The torso and the joints of Model UB's torso are not compensated.
+The model was identified on hardware version v1.2 arms. Only the arm joints are compensated; the torso (all models) is not.
 
 ### `friction_compensation_gain`
-Scale of the friction compensation torque.
+Scale of the friction compensation torque. A gain of `1.0` applies 60 % of the identified friction model,
+so the range `0.5 ~ 1.1` applies 30 % to 66 % of it.
 
 - Type: `double`
 - Default: `1.0`

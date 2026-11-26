@@ -7,7 +7,7 @@ RB-Y1 comes in three models:
 - **Model UB**: upper body only, with a 2-joint torso, two 7-joint arms and a 2-joint head. It has no mobile base.
 
 Each model also has a hardware version (v1.0 to v1.3). To check the model and version of your robot, look at the bottom of the Web UI **Dashboard** page, or call `robot.get_robot_info()` in the SDK and read `robot_model_name` and `robot_model_version`.
-The differences between hardware versions are listed in [Robot Model Version](../sdk/models/generated/model_version.md).
+The differences between hardware versions are listed in [Hardware Versions](../sdk/models/hardware-versions.md).
 
 <img :src="$withBase('/images/hardware/overview/robot-joint-configuration.png')" alt="Joint configuration of RB-Y1 Model A" class="center white-bg" style="width:400px">
 
@@ -18,22 +18,22 @@ The figure shows Model A. The SDK joint names of every model are listed in [Join
 
 ### General Specifications
 
-A dash (—) means that this manual does not list the value. Contact the support team for it.
+A dash (—) means that this manual does not list the value. Contact the support team for it. This manual does not list the size, weight, battery or power supply of Model UB.
 
-| **Attribute** | **Model A** | **Model M** |
-| --- | --- | --- |
-| **Size (W x D x H)** | 600 x 690 x 1,400 mm | — |
-| **Weight** | 131 kg | 170 kg |
-| **Degrees of Freedom** | 24 DOF | 26 DOF |
-| **Battery** | 50 V, 25 Ah (1,250 Wh) | 50 V, 50 Ah (2,500 Wh) |
-| **Mobile Base Speed** | 1.5 m/s | — |
-| **Arm Payload** | 3 kg (per arm) | 3 kg (per arm) |
-| **Arm Reach** | 600 mm (to wrist) + hand | 600 mm (to wrist) + hand |
-| **Arm Repeatability** | < ±0.05 mm | < ±0.05 mm |
-| **Power Supply Voltage** | 48 VDC | 48 VDC |
-| **Ambient Operating Temperature** | Up to 40 °C | Up to 40 °C |
-| **Exterior Materials** | Aluminum | Aluminum |
-| **Joint Range and Speed Limits** | See [Joint Range and Speed Limits](#joint-range-and-speed-limits) | See [Joint Range and Speed Limits](#joint-range-and-speed-limits) |
+| **Attribute** | **Model A** | **Model M** | **Model UB** |
+| --- | --- | --- | --- |
+| **Size (W x D x H)** | 600 x 690 x 1,400 mm | — | — |
+| **Weight** | 131 kg | 170 kg | — |
+| **Degrees of Freedom** | 24 DOF | 26 DOF | 18 DOF |
+| **Battery** | 50 V, 25 Ah (1,250 Wh) | 50 V, 50 Ah (2,500 Wh) | — |
+| **Mobile Base Speed** | 1.5 m/s | — | No mobile base |
+| **Arm Payload** | 3 kg (per arm) | 3 kg (per arm) | — |
+| **Arm Reach** | 600 mm (to wrist) + hand | 600 mm (to wrist) + hand | — |
+| **Arm Repeatability** | < ±0.05 mm | < ±0.05 mm | — |
+| **Power Supply Voltage** | 48 VDC | 48 VDC | — |
+| **Ambient Operating Temperature** | Up to 40 °C | Up to 40 °C | — |
+| **Exterior Materials** | Aluminum | Aluminum | — |
+| **Joint Range and Speed Limits** | See [Joint Range and Speed Limits](#joint-range-and-speed-limits) | See [Joint Range and Speed Limits](#joint-range-and-speed-limits) | See [Joint Range and Speed Limits](#joint-range-and-speed-limits) |
 
 The battery voltage is the marked voltage; the nominal voltage is 51.7 V. See [Battery](battery.md) for the battery packs.
 

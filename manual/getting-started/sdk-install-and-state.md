@@ -70,7 +70,7 @@ info = robot.get_robot_info()
 # The robot reports its own joint count; a wrong MODEL gives a different count.
 if info.degree_of_freedom != robot.model().robot_dof:
     raise SystemExit(f"Wrong model '{MODEL}': the robot has {info.degree_of_freedom} joints")
-print("Robot software:", info.robot_version)
+print("Robot software:", info.version)  # robot_version is deprecated (it holds the model name)
 
 state = robot.get_state()
 print("Time:", state.timestamp)

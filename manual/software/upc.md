@@ -42,7 +42,7 @@ The UPC is not on the robot hotspot or on your Wi‑Fi network by itself. Check 
 - **Through the RPC** (robot software 0.11.0 and later): in the Web UI, **Settings** → **UPC Network (NAT)**:
   - **Port forwarding**: **Add SSH (2222 → 22)** adds a rule. Then connect from a PC on the robot hotspot or your Wi‑Fi network with
     `ssh -p 2222 <user>@<RPC address>`, where `<user>` is the account on your UPC.
-    New connections are limited to 10 per minute per rule; **Allow from** limits the clients that may connect.
+    New connections are limited to 10 per minute per rule and per wireless interface (Wi‑Fi and hotspot); **Allow from** limits the clients that may connect.
   - **Share RPC WiFi internet with UPC**: lets the UPC use the RPC Wi‑Fi connection for internet access.
     On the UPC, set the default route and a DNS server, for example `sudo ip route add default via 192.168.30.1`.
 
@@ -54,5 +54,5 @@ The UPC is not on the robot hotspot or on your Wi‑Fi network by itself. Check 
 Verified against: rby1-sdk v0.10.1 `include/rby1-sdk/upc/device.h` (`/dev/rby1_gripper`, `/dev/rby1_leader_arm`), `python/upc.cpp`,
 `python/rby1_sdk/upc.py`, `examples/python/*.py` (address `192.168.30.1:50051`); robot core `core/base/system.h` (`192.168.30.1/24`),
 Web UI v0.11.0 `rby1-web/rby1-frontend/src/components/SettingComponents/PortForward.vue` (SSH rule, rate limit, internet sharing, default route),
-`rby1-web/system_files/rby1-portfwd` (reserved ports, default UPC target `192.168.30.2`); manual pages Electrical Part (UPC hardware) and
+`rby1-web/system_files/rby1-portfwd` (reserved ports, default UPC target `192.168.30.2`, 10/min limit per rule on `wlp0s20f3` and `ap0`); manual pages Electrical Part (UPC hardware) and
 UPC Topic Bridge.

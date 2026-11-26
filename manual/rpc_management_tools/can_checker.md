@@ -13,6 +13,18 @@ Turn on the robot power (48 V) before you run the check. Without it, the motor d
 
 ## Usage
 
+::: tip Accept the RPC host key first
+The tool logs in with `ssh` but cannot answer the host key question. On a PC that has never connected to this RPC, the login fails. Connect once by hand before you run the tool:
+
+```bash
+ssh root@<RPC IP address>
+# Answer "yes" to the host key question. Then press Ctrl+C at the password prompt.
+```
+
+If `ssh` reports `REMOTE HOST IDENTIFICATION HAS CHANGED` (for example after the RPC software was reinstalled), remove the old key with `ssh-keygen -R <RPC IP address>` and connect once again.
+The source code and the released binary were not compared, so this step is based on the source code.
+:::
+
 ```bash
 # The tool uses sshpass for the SSH login
 sudo apt-get install -y sshpass
@@ -27,7 +39,7 @@ chmod +x can_checker
 ./can_checker 192.168.30.1
 ```
 
-If `sshpass` is not installed or the RPC cannot be reached, the tool reports every channel as `[FAILURE]`.
+If `sshpass` is not installed, the RPC cannot be reached, or the host key of the RPC was not accepted, the tool reports every channel as `[FAILURE]`.
 
 ## Results
 
@@ -50,6 +62,6 @@ The channel labels in the output are short names. For the devices on each channe
 |---|---|---|
 | `[SUCCESS] ... is communicating!` | The RPC received data on the channel. | Nothing. |
 | `[ERROR] ... has error packets!` | The RPC received data, but some frames look like error frames. | Save the output and back up the logs (see [Log Backup](log_backup.md)). Contact the support team. |
-| `[FAILURE] ... has no communication.` | The RPC received no data on the channel. | Check that `sshpass` is installed, that the RPC address is correct, and that the 48 V power is on. Then run the tool again. If the failure stays, save the output and contact the support team. |
+| `[FAILURE] ... has no communication.` | The RPC received no data on the channel. | Check that `sshpass` is installed, that the RPC address is correct, that the RPC host key was accepted (see [Usage](#usage)), and that the 48 V power is on. Then run the tool again. If the failure stays, save the output and contact the support team. |
 
 Support: <a href="mailto:rby.support@rainbow-robotics.com" target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>

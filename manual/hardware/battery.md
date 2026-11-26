@@ -60,6 +60,19 @@ The charger drawing is shown below.
 <br><br>
 <img :src="$withBase('/images/hardware/battery/battery_charger_drawing.png')" alt="Battery charger drawing" class="center rounded-img" style="width:600px">
 
+## Charge the Battery
+
+1. Stop the mobile base. Do not drive it while the charger is connected.
+2. Connect the charger plug to the charging port on the mobile base (see [Connect the Charger](../getting-started/unboxing.md#connect-the-charger)), and connect the charger to AC power. The robot can stay powered on while it charges.
+3. Check the battery level on the Web UI **Dashboard**, or read `battery_state.level_percent` (and `voltage`, `current`) from the robot state in the SDK.
+4. Disconnect the charger before you drive the mobile base again.
+
+The charger first charges with a constant current and then holds the voltage (see [Charging Curve](#charging-curve)).
+
+::: info Not listed in this manual
+This manual does not list the battery operating and storage temperatures, the charging time, or how the charger shows a full charge. Contact the support team (<a href="mailto:rby.support@rainbow-robotics.com" target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>) for these values.
+:::
+
 ## Battery Pack Specifications
 
 The battery pack depends on the robot model. The capacity in Wh is based on the marked voltage (50 V).

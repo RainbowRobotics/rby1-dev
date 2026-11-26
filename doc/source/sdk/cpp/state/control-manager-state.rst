@@ -70,9 +70,11 @@ check it again whenever a fault or execution transition is suspected.
 
 .. warning::
 
-   In unlimited mode the robot skips the joint position limit check when the
-   Control Manager is enabled, and jog commands are not clamped to the joint
-   limits. Use it only to recover a joint that is outside its limits, with slow
+   In unlimited mode the Control Manager is enabled even when a joint is
+   outside its position limits; the robot only logs a warning for that joint.
+   Whether later commands, such as jog commands, are still clamped to the
+   joint limits depends on the robot software version. Do not rely on it. Use
+   it only to recover a joint that is outside its limits, with slow
    motions and the E-Stop within reach. See
    `E-Stop Basics <../../../getting-started/estop-basics.md>`_.
 

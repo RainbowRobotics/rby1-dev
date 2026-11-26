@@ -4,7 +4,9 @@ The `ft_zeroset` tool checks the force/torque (F/T) sensors in both wrists and s
 You run it on the user PC (UPC) or on another Linux PC that can reach the robot PC (RPC) over SSH.
 
 ::: info Applies to
-Robots with wrist F/T sensors: Model A and Model M v1.0 to v1.2. Model M v1.3 has no F/T sensor (see [Robot Model Version](../sdk/models/generated/model_version.md)).
+Robots with wrist F/T sensors. The robot core reads a right (`can0`) and a left (`can1`) F/T sensor on Model A, Model M and Model UB.
+The original hardware version table lists no F/T sensor for Model M v1.3. If a sensor is not fitted or does not answer, the tool reports `[FAILURE] ...: hardware detection failed.` for that side.
+To check the model and version of your robot, see [Hardware Versions](../sdk/models/hardware-versions.md).
 :::
 
 ## What the tool does

@@ -24,7 +24,7 @@ See [Precautions](../precautions/index.md) before you operate the robot.
 1. Power on the robot PC (RPC) and the user PC (UPC).
 2. Check that the UPC can reach the RPC: `ping 192.168.30.1`.
 3. Connect the leader arm and check the device (see [Connect the leader arm](leader_arm.md#connect-the-leader-arm)).
-4. If you use the grippers, check `/dev/rby1_gripper` (see [Gripper](gripper.md)).
+4. Check that both grippers are connected and that `/dev/rby1_gripper` exists (see [Gripper](gripper.md)). The teleoperation example needs both grippers.
 5. Install the SDK on the UPC and get the examples from an rby1-sdk checkout (see [SDK Installation](../getting-started/sdk-install-and-state.md)). The leader arm examples load `models/leader_arm/model.urdf` from the checkout.
 
 ## Leader arm teleoperation (SDK example)
@@ -50,12 +50,14 @@ The example runs in five steps:
 2. It initializes the leader arm and checks that all its devices answer.
 3. **It moves the robot to the ready pose.**
 4. It initializes the grippers and finds their limits (homing). The grippers open and close.
+   If `/dev/rby1_gripper` or one of the gripper motors (Dynamixel ID 0 or 1) does not answer, the example logs `Failed to initialize gripper` and stops. The robot has already moved to the ready pose at this point, and the example does not turn off the servos or disable the Control Manager.
 5. **It moves the leader arm to the ready pose.**
 
 Then teleoperation starts:
 
 - While you hold the button on a handle, the robot arm on that side follows the leader arm.
 - When you release the button, the robot arm holds its position.
+- If the commanded pose brings two robot links closer than 2 cm, the example sends no arm command and logs `[COLLISION BLOCK] Robot command blocked.` The robot arms then hold their position. Move the leader arm back to a pose with more clearance.
 - The trigger controls the gripper on that side.
 
 Press `Ctrl+C` to stop. The example ramps the leader arm torque down, stops the robot control, disables the Control Manager and turns off the 12 V power.

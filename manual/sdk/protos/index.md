@@ -42,9 +42,14 @@ A robot command runs only after these steps, in this order. The SDK does the sam
 `power_on`, `servo_on` and `enable_control_manager`.
 
 1. `PowerService.PowerCommand` with `COMMAND_POWER_ON`: turn on the power outputs.
+   Set `name` to a regex for the outputs: `.*` for all, or for example `12v` or `24v`.
 2. `PowerService.JointCommand` with `COMMAND_SERVO_ON`: turn on the joint servos.
+   Set `name` to a regex for the joints: `.*` for all, or for example `right_arm_.*`.
 3. `ControlManagerService.ControlManagerCommand` with `COMMAND_ENABLE`: enable the Control Manager.
 4. `RobotCommandService.RobotCommand` (one command) or `RobotCommandStream` (a stream of commands).
+
+`name` is required in steps 1 and 2. The whole name must match the regex. An empty `name`
+matches nothing, so nothing is turned on. `PowerCommand` still returns `STATUS_SUCCESS` in that case.
 
 ::: warning
 Step 4 moves the robot. Keep the area around the robot clear and keep the E-Stop within reach.

@@ -24,9 +24,10 @@ An unknown channel name is refused.
   The `mobile` channel gets no such command. A channel whose servo is off cannot be opened; the call then fails and opens nothing.
 - **Not during gravity compensation.** Opening is refused while gravity compensation is on (`Failed to activate stream control: Gravity compensation is active.`).
 - **A command needs its channel.** With any channel open, a command for a part whose channel is closed is refused, and the answer names the channel to open.
-  This applies to trajectories, `robot_joint` / `robot_cartesian`, `stream_joint` / `stream_cartesian` and `cmd_vel` alike.
+  This applies to trajectories, `robot_joint` / `robot_cartesian` and `stream_joint` / `stream_cartesian` alike.
   A trajectory uses the channels of the parts it names: a right-arm trajectory needs `right_arm` only.
   With no channel open at all, the stream commands are refused (`Stream is not active`).
+- **`cmd_vel` needs the `mobile` channel.** `cmd_vel` is a topic, so there is no answer. Without an open `mobile` channel the driver ignores each message and logs `cmd_vel received but stream channel 'mobile' is not open` (at most once per second).
 - **A commanded channel stays open.** A channel that got no command within 60 s of being opened is closed again with `[STREAM TIMEOUT]`.
   A channel that was commanded once stays open until `stream_control` closes it, or until `cancel_control`, a fault, power off or servo off closes it.
   Its last command holds its part (control hold time 1e6 s) until then.

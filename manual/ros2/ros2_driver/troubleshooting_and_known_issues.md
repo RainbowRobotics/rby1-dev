@@ -34,12 +34,13 @@
   source ~/.bashrc
   ```
 
-  Or set `ROS_LOCALHOST_ONLY=1` when everything runs on one PC. `ros2 node list` must show `/rby1/rby1_ros2_driver` from every terminal you use.
+  Or keep discovery on one PC when everything runs on it: `ROS_LOCALHOST_ONLY=1` on Humble, `ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST` on Jazzy (`ROS_LOCALHOST_ONLY` is deprecated there). `ros2 node list` must show `/rby1/rby1_ros2_driver` from every terminal you use.
 
 ## Issue: A command toward the robot is refused
 
 * **Resolution**: The answer says why. The common causes:
-  - The Control Manager is not enabled: `control_manager_command` with `command: 1`.
+  - Power or servo is off (`Robot is disabled (power/servo is off)`): switch them on with `robot_power` and `robot_servo`. The driver resets a Control Manager fault and enables the Control Manager by itself.
+  - The fault reset or the enable failed (`Control Manager Error`): read the driver log for the reason, and find the cause of the fault before you send another motion command.
   - A stream channel the command needs is closed: open it with `stream_control`, or close every channel ([Command Streams](command_streams.md)).
   - The `ros2_control` hardware plugin holds the control right: stop its controller manager, or call `/rby1/hardware_control` with `state: false`.
   - A trajectory's first point cannot be reached in its time.

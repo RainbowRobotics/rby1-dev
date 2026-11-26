@@ -9,10 +9,16 @@
 - **Mobile Base + Upper Body Simultaneous Control**: While `cmd_vel` drives the base, the `robot_joint` action can move the arms and head. Set `priority = 1` on the upper-body goal to match the mobile base's default priority (example `12_mobile_base_control`).
 
 ## Safety & Fault Management
-- Motion commands are rejected if the Control Manager is not in `ENABLE` or `EXECUTING` state.
-- A minor fault during a command is reset by the driver and control resumes. A major fault needs `control_manager_command` `CMD_RESET`.
+- A `robot_joint` or `robot_cartesian` goal is rejected (`Robot is disabled (power/servo is off)`) when power or servo is off and the Control Manager is not enabled.
+- Otherwise the driver gets the Control Manager ready by itself. If it is in a fault, major or minor, the driver resets the fault, enables the Control Manager and runs the command. Trajectories and servo on do the same. The goal fails with `Control Manager Error` only when the reset or the enable fails.
 - The driver stops when it cannot read the robot state for 1 s.
-- At shutdown, on `cancel_control` and on servo off, the driver cancels the running control, closes its streams and disables the Control Manager.
+- `cancel_control` cancels the running control and closes the streams. It leaves the Control Manager enabled.
+- At shutdown, on servo off and on `control_manager_command` `CMD_DISABLE`, the driver cancels the running control, closes its streams and disables the Control Manager.
+
+::: danger
+A major fault does not block the next motion command. The driver resets it and the robot moves again on the next goal.
+After a major fault, find and remove its cause before you send any motion command.
+:::
 
 ### Predictive Collision Checking
 The driver checks the **target pose** for collisions *before* it executes a `robot_joint` or `robot_cartesian` command:

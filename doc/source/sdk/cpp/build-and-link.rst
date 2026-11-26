@@ -60,7 +60,7 @@ Build options (``-D<option>=ON|OFF``):
      - Effect
    * - ``BUILD_EXAMPLES``
      - ``OFF``
-     - Build the programs in ``examples/cpp`` (for example ``01_hello_rby1``).
+     - Build the programs in ``examples/cpp`` (for example ``example_01_hello_rby1`` from ``01_hello_rby1.cpp``).
    * - ``BUILD_LIB_STATIC``
      - ``OFF``
      - Build a static library instead of a shared one. The installed CMake

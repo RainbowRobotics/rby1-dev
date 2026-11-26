@@ -73,8 +73,10 @@ In SDK v0.10.1 a whole-body command can only hold a stop command or a real-time 
 The Control Manager compares the joints of the new command with the joints of the commands that are running:
 
 - **No shared joints:** the new command starts and runs at the same time as the running commands.
-- **Shared joints, higher priority:** the new command is accepted. The running command that uses those joints is asked to stop and finishes with the finish code `Preempted`. Then the new command starts.
-- **Shared joints, same or lower priority:** the new command is refused and finishes with the finish code `Preempted`.
+- **Shared joints, higher priority:** the new command is accepted. The running command that uses those joints is asked to stop and is preempted. Then the new command starts.
+- **Shared joints, same or lower priority:** the new command is refused and is preempted.
+
+In SDK v0.10.1 a preempted command shows the finish code `Canceled`, not `Preempted`. See [Command finish codes](../fault-diagnosis.md#finish-codes).
 
 The priority is an integer from 0 to 999; values outside this range are clamped. A higher number is a higher priority.
 The default priority of `send_command()` and `create_command_stream()` is 1.
@@ -118,8 +120,8 @@ For examples, see [03_robot_state.py](https://github.com/RainbowRobotics/rby1-sd
 **A:**
 This example runs on the user PC (UPC) and does not run in simulation. Check the following:
 
-- The leader arm is connected to the UPC with its cable.
-- The jumper is installed on the UPC bypass port (see [Bypass Connection](../../../hardware/electrical_part.md#bypass-connection)).
+- The leader arm is connected to the UPC with its cable, as in [Connect the leader arm](../../../options/leader_arm.md#connect-the-leader-arm).
+- The wiring on the UPC bypass port matches your leader arm kit. This manual does not document the jumper position for that port. Ask [support](../../../support.md) for it.
 - The program can open the USB serial devices. Run it with `sudo`, or set the udev rule below.
 
 The SDK opens the leader arm at `/dev/rby1_leader_arm`. If that device does not exist, it uses the older name `/dev/rby1_master_arm`. The gripper is at `/dev/rby1_gripper`.
@@ -135,51 +137,51 @@ Back up the rules file before you change it.
 
 1. **Back up the existing udev rules file**:
 
-```bash
-sudo cp /etc/udev/rules.d/99-u2d2.rules /etc/udev/rules.d/99-u2d2.rules.bak
-```
+   ```bash
+   sudo cp /etc/udev/rules.d/99-u2d2.rules /etc/udev/rules.d/99-u2d2.rules.bak
+   ```
 
 2. **Open the udev rules file**:
 
-```bash
-sudo nano /etc/udev/rules.d/99-u2d2.rules
-```
+   ```bash
+   sudo nano /etc/udev/rules.d/99-u2d2.rules
+   ```
 
 3. **The file looks like this**. Keep the serial numbers and the link names that are already in your file. Older UPC images use `rby1_master_arm` instead of `rby1_leader_arm`.
 
-```bash
-SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_gripper"
-SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_leader_arm"
-```
+   ```bash
+   SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_gripper"
+   SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_leader_arm"
+   ```
 
 4. **Add `MODE` and `RUN` to each line** to allow access without `sudo`:
 
-```bash
-SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_gripper", MODE="0666", RUN+="/bin/chmod 666 /sys/bus/usb-serial/devices/%k/latency_timer"
-SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_leader_arm", MODE="0666", RUN+="/bin/chmod 666 /sys/bus/usb-serial/devices/%k/latency_timer"
-```
+   ```bash
+   SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_gripper", MODE="0666", RUN+="/bin/chmod 666 /sys/bus/usb-serial/devices/%k/latency_timer"
+   SUBSYSTEM=="tty", ATTRS{serial}=="your_serial_number", SYMLINK+="rby1_leader_arm", MODE="0666", RUN+="/bin/chmod 666 /sys/bus/usb-serial/devices/%k/latency_timer"
+   ```
 
 5. **Reload the udev rules**:
 
-```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
+   ```bash
+   sudo udevadm control --reload-rules
+   sudo udevadm trigger
+   ```
 
 6. **Check that the devices are listed**:
 
-```bash
-ls -l /dev/rby1_*
-```
+   ```bash
+   ls -l /dev/rby1_*
+   ```
 
-You should see `rby1_gripper` and `rby1_leader_arm` (or `rby1_master_arm`).
+   You should see `rby1_gripper` and `rby1_leader_arm` (or `rby1_master_arm`).
 
 7. **If the devices do not show up, restore the backup**:
 
-```bash
-sudo cp /etc/udev/rules.d/99-u2d2.rules.bak /etc/udev/rules.d/99-u2d2.rules
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
+   ```bash
+   sudo cp /etc/udev/rules.d/99-u2d2.rules.bak /etc/udev/rules.d/99-u2d2.rules
+   sudo udevadm control --reload-rules
+   sudo udevadm trigger
+   ```
 
 Verified against: rby1-sdk v0.10.1 `protos/rb/api/whole_body_command.proto`, `python/robot_command_builder.cpp`, `python/robot.cpp` (`send_command`, `create_command_stream`, `start_state_update`), `include/rby1-sdk/upc/device.h`, `examples/python/31_multi_controls.py`, `37_mobile_test.py`, `35_leader_arm_teleop_with_monitor.py`; robot core `core/control/control_manager.cpp` (`SetControl`, priority clamp and joint mask check), `core/control/control_manager.h` (`kDummyControlPriority`).

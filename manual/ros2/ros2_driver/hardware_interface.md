@@ -42,7 +42,7 @@ ros2 launch rby1_hardware rby1_hardware.launch.py model:=m version:=1.2 use_fake
 
 | Argument | Default | Description |
 |---|---|---|
-| `model`, `version` | required | Robot model (`a`, `m`) and version (`1.2`). They pick `rby1_moveit_<model>_<version>`, whose URDF and `config/ros2_controllers.yaml` are used |
+| `model`, `version` | required | Robot model (`a`, `m`) and version (the robot's: `1.0` to `1.2` for `a`, `1.0` to `1.3` for `m`). They pick `rby1_moveit_<model>_<version>`, whose URDF and `config/ros2_controllers.yaml` are used |
 | `robot_ip` | `127.0.0.1:50051` | Robot address and gRPC port, the same as the driver's |
 | `driver_namespace` | `rby1` | Namespace of the running driver |
 | `use_fake_hardware` | `false` | `true`: `mock_components/GenericSystem` instead of the robot |

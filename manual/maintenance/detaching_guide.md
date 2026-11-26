@@ -35,7 +35,7 @@ If the tool flange connector is damaged, replace it with these guides:
 ## Detach the F/T Sensor and Gripper
 
 Use these steps to replace the F/T sensor and the gripper with your own devices.
-Model M v1.3 has no F/T sensor (see [Hardware Versions](../sdk/models/hardware-versions.md)).
+The original hardware version table lists no F/T sensor for Model M v1.3.
 
 Tools: 3 mm L-wrench and an extension bar.
 

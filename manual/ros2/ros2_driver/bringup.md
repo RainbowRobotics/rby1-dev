@@ -27,6 +27,11 @@ With `colcon build --symlink-install` you edit both files in the source tree; re
 Check the flags and `bringup.yaml` before you launch on a real robot, and keep the E-Stop within reach.
 :::
 
+::: warning Set `driver.robot_ip` for `ROS2_CONTROL` and `MOVEIT_DEMO`
+With `ROS2_CONTROL` or `MOVEIT_DEMO`, set `driver.robot_ip` in `bringup.yaml` (for example `192.168.30.1:50051`).
+With it empty, the driver uses the address in its params file, but the hardware plugin connects to `127.0.0.1:50051`.
+:::
+
 Before anything starts, the launch checks the combination and stops with one line when it is wrong:
 a missing section, a bad model or address, planner and demo together, a demo package that is not built or is for the other model,
 an M v1.3 (`moveit_executor.version: 1.3`) with the gripper's model or scene on, or nothing switched on at all.

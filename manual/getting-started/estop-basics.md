@@ -7,8 +7,8 @@ enable its servos and move it.
 
 | Control | What it does | Depends on the network |
 | --- | --- | --- |
-| **E-Stop button** (EMO) on the robot | Cuts the 48 V power to the actuators in hardware | No |
-| **Remote controller** (wireless E-Stop), button 1 | Same as the E-Stop button | No |
+| **E-Stop button (EMO)** on the robot | Cuts the 48 V power to the actuators in hardware | No |
+| **Remote E-Stop** (wireless remote controller), button 1 | Same as the E-Stop button | No |
 | Web UI **ESTOP** (top bar) | Software stop: cancels the running command, then sends a power-off command for all power rails | Yes |
 | Web UI **CANCEL CONTROL** (top bar), or `robot.cancel_control()` in the SDK | Cancels the running command. The power stays on; the robot holds its position while the Control Manager is enabled. The command does not resume. | Yes |
 
@@ -24,7 +24,7 @@ software respond. Always keep the E-Stop button or the remote controller within 
 
 <div>
 
-<img :src="$withBase('/images/getting-started/remote_emo.jpg')" alt="Remote controller (wireless E-Stop)" class="white-bg">
+<img :src="$withBase('/images/getting-started/remote_emo.jpg')" alt="Remote E-Stop (wireless remote controller)" class="white-bg">
 
 </div>
 
@@ -50,7 +50,8 @@ See also [Safety](../precautions/index.md) and [Shutdown Methods](../hardware/el
 
 - The 48 V power to the actuators is cut. The robot PC (RPC) keeps running, so the Web UI and the SDK stay connected.
 - The brakes engage on the torso and arm joints that have brakes.
-- `right_arm_6`, `left_arm_6` and the wheels have **no brakes**. The wrists can turn under load,
+- `right_arm_6`, `left_arm_6` and the wheels have **no brakes**. On v1.0 and v1.1, `head_0` and `head_1`
+  also have no brakes (from v1.2 the head joints have brakes). The wrists and the head can turn under load,
   and the mobile base can roll on a slope. See the brake tables in [Model A](../sdk/models/generated/model_a.md)
   and [Model M](../sdk/models/generated/model_m.md).
 - If the Control Manager was enabled, it goes to **Major Fault**.
@@ -68,8 +69,6 @@ See also [Safety](../precautions/index.md) and [Shutdown Methods](../hardware/el
 
 ---
 
-Verified against: robot core `core/robots/rby1a/robot_hardware.cpp` (E-Stop: brakes closed on torso and arm motors,
-48 V off; `EMO Error` message), `core/control/control_manager.cpp` (power change while enabled → Major Fault);
-Web UI `NavigatorDrawer.vue` (**CANCEL CONTROL**, **ESTOP**, Control Enable / Reset), `rby1-backend` `routers/power.py`
-(`estop`: `cancel_control` then `power_off(".*")`; `soft_stop`: `cancel_control`), `UnpackingStepper.vue`
-(remote button 1, Power orange), `RpcStatusCards.vue`; `sdk/models/generated/model_a.md`, `model_m.md` (joints without brakes).
+Verified against: robot software (core) v0.11.0 E-Stop and Control Manager behavior, Web UI v0.11.0 top bar,
+**Unpacking** steps and status cards; [Model A](../sdk/models/generated/model_a.md) and
+[Model M](../sdk/models/generated/model_m.md) (joints without brakes).

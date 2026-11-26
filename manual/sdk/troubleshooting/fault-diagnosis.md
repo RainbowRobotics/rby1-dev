@@ -7,10 +7,10 @@ This page explains the states, the causes of each fault, where to find the reaso
 
 | State | Meaning | Motion commands | Default LED |
 | --- | --- | --- | --- |
-| `Idle` | Not enabled. This is the state after boot and after a fault reset. | Refused (finish code `ControlManagerIdle`) | White, blinking until all power is on |
+| `Idle` | Not enabled. This is the state after boot and after a fault reset. | Refused (the SDK shows finish code `InitializationFailed`, see [Command finish codes](#finish-codes)) | White, blinking until all power is on |
 | `Enabled` | Ready. Holds the joints and runs commands. | Accepted | Blue; green while a command runs |
-| `MinorFault` | A command or the hardware readiness failed. All commands were stopped; the power stays on. | Refused (finish code `ControlManagerFault`) | Red, blinking |
-| `MajorFault` | A motor, power or state error. All commands were stopped and the robot software turned the power off. | Refused (finish code `ControlManagerFault`) | Red |
+| `MinorFault` | A command or the hardware readiness failed. All commands were stopped; the power stays on. | Refused (the SDK shows finish code `ControlManagerIdle`) | Red, blinking |
+| `MajorFault` | A motor, power or state error. All commands were stopped and the robot software turned the power off. | Refused (the SDK shows finish code `ControlManagerIdle`) | Red |
 
 `Unknown` appears in the SDK only when no state has been received.
 
@@ -165,19 +165,25 @@ Other notes:
 - `reset_fault_control_manager()` is refused while the state is `Enabled` (`Reset denied: system is currently in 'Enabled' state.`).
 - `disable_control_manager()` is refused while a command is running (`There are still active controls`). Cancel the command first with `cancel_control()` or `handler.cancel()`.
 
-## Command finish codes
+## Command finish codes {#finish-codes}
 
-When a command ends, its feedback has a finish code (`rby1_sdk.RobotCommandFeedback.FinishCode`):
+When a command ends, its feedback has a finish code (`rby1_sdk.RobotCommandFeedback.FinishCode`).
 
-| Finish code | Meaning |
+::: warning The SDK shows a shifted finish code
+The robot software (checked up to version 0.11.0) has no `Canceled` code. It sends its own code number, and the SDK reads that number with its own list, which has `Canceled` at position 2.
+From `Preempted` on, every code is shifted by one. Use the first column of the table below, not the name alone, to find the reason.
+The table was derived by reading the code. It was not checked on a robot or a simulator.
+:::
+
+| Finish code in the SDK | Reason in the robot software |
 | --- | --- |
 | `Ok` | The command finished normally. |
-| `Preempted` | Another command with a higher priority took over the same joints; the new command was refused because a running command on the same joints has the same or a higher priority (see the [FAQ](./generated/faq.md)); or the command was canceled with `cancel_control()` or `handler.cancel()`. |
-| `Canceled` | Defined in the SDK. The robot software reports canceled commands as `Preempted`. |
-| `InitializationFailed` | The command could not be initialized. The robot log has the details (`Control initialization failed`). |
-| `ControlManagerIdle` | The Control Manager is `Idle`. Enable it first. |
-| `ControlManagerFault` | The Control Manager is in `MinorFault` or `MajorFault`. Recover first. |
+| `Canceled` | The command was preempted or canceled: another command with a higher priority took over the same joints; the new command was refused because a running command on the same joints has the same or a higher priority (see the [FAQ](./generated/faq.md)); or the command was canceled with `cancel_control()` or `handler.cancel()`. |
+| `Preempted` | The command could not be initialized. The robot log has the details (`Control initialization failed`). |
+| `InitializationFailed` | The Control Manager is `Idle`. Enable it first. |
+| `ControlManagerIdle` | The Control Manager is in `MinorFault` or `MajorFault`. Recover first. |
+| `ControlManagerFault` | The command was still open when the Control Manager was no longer `Enabled`. |
 | `Unknown` | The Control Manager stopped all commands because of a fault. Check the Control Manager state and the log. |
-| `UnexpectedState` | The command was still open when the Control Manager was no longer `Enabled`. |
+| `UnexpectedState` | Not sent by the robot software. |
 
-Verified against: robot core `core/control/control_manager.cpp` (`Enable`, `Disable`, `ResetFault`, `SetControl`, fault checks in the control loop), `core/control/control_manager.h` (states, `kTemperatureErrorThreshold`), `core/robots/robot_app_base.cpp` (major fault reaction and fault CSV format), `core/modules/default_led.cpp` (LED colors); rby1-sdk v0.10.1 `include/rby1-sdk/control_manager_state.h`, `python/robot.cpp` (`get_control_manager_state`, `reset_fault_control_manager`, `get_fault_log_list`, `download_file`, `start_state_update`, `get_last_log`), `python/robot_command_feedback.cpp` (finish codes), `examples/python/00_helper.py`, `examples/python/17_fault_log.py`.
+Verified against: robot core `core/control/control_manager.cpp` (`Enable`, `Disable`, `ResetFault`, `SetControl`, fault checks in the control loop), `core/control/control_manager.h` (states, `kTemperatureErrorThreshold`), `core/robots/robot_app_base.cpp` (major fault reaction and fault CSV format), `core/modules/default_led.cpp` (LED colors); rby1-sdk v0.10.1 `include/rby1-sdk/control_manager_state.h`, `python/robot.cpp` (`get_control_manager_state`, `reset_fault_control_manager`, `get_fault_log_list`, `download_file`, `start_state_update`, `get_last_log`), `python/robot_command_feedback.cpp` (finish codes), `protos/rb/api/robot_command.proto` (`FinishCode`), `src/robot_command_feedback.cpp` (cast of the received code), `examples/python/00_helper.py`, `examples/python/17_fault_log.py`; robot core v0.11.0 `core/control/control_interface.h` (`FinishCode`), `core/service/srv_robot_command.cpp` (cast to the protocol code).

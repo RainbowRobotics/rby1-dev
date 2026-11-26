@@ -18,7 +18,7 @@ Terms used across this manual, in alphabetical order.
 | **E-Stop** (EMO) | The emergency stop button on the robot. Pressing it cuts the 48 V power to the actuators in hardware. See [E‑Stop Basics](../getting-started/estop-basics.md). |
 | **`ee_right`, `ee_left`** | The end-effector links of the right and left arm. |
 | **Finish code** | Why a command ended: `Ok`, `Preempted`, `ControlManagerIdle`, ... See [Fault Diagnosis](../sdk/troubleshooting/fault-diagnosis.md#command-finish-codes). |
-| **F/T sensor** | Force/torque sensor at the wrist. Model M v1.3 has none. |
+| **F/T sensor** | Force/torque sensor at the wrist. Whether Model M v1.3 has one is not confirmed; see [Hardware Versions](../sdk/models/hardware-versions.md#differences-between-versions). |
 | **gRPC** | The protocol of the robot software API, on port 50051. The SDK uses it. See the [Protobuf API Reference](../sdk/protos/index.md). |
 | **Gripper** | Optional two-finger gripper controlled from the UPC. See [Gripper](../options/gripper.md). |
 | **Hardware version** | Build version of a model (v1.0 to v1.3). See [Hardware Versions](../sdk/models/hardware-versions.md). |
@@ -41,7 +41,7 @@ Terms used across this manual, in alphabetical order.
 | **Servo** | A joint motor that is on and holds or moves the joint. `servo_on()` turns servos on. |
 | **Simulator** | The robot software running with a simulated robot (MuJoCo or Isaac Sim). See [Simulation](../simulators/index.md). |
 | **Tool flange** | The interface at the end of each arm, with switchable 12 V / 24 V output. |
-| **Unlimit** | A Control Manager mode without the joint range check. Use it only to bring a joint back into its range. |
+| **Unlimit** | Enables the Control Manager even when a joint is outside its range (the range check at enable is skipped). Use it only to bring a joint back into its range. |
 | **URDF / MJCF** | Robot model files: URDF for kinematics and dynamics, MJCF for MuJoCo. They are in the `models` folder of rby1-sdk. |
 | **User PC (UPC)** | The computer inside the robot for your own programs (Jetson AGX Orin). See [User PC (UPC)](upc.md). |
 | **Web UI** | The browser interface on the RPC at port 5173. See [Web UI](web-ui.md). |

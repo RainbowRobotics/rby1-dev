@@ -142,8 +142,10 @@ a command, and wait for its feedback.
 .. warning::
 
    ``EnableControlManager(true)`` enables **unlimited mode**. In this mode the
-   robot skips the joint position limit check when the Control Manager is
-   enabled, and jog commands are not clamped to the joint limits. Use it only
+   Control Manager is enabled even when a joint is outside its position
+   limits; the robot only logs a warning for that joint. Whether later
+   commands, such as jog commands, are still clamped to the joint limits
+   depends on the robot software version. Do not rely on it. Use it only
    to recover a joint that is outside its limits, with slow motions and the
    E-Stop within reach. Use the default ``EnableControlManager()`` (``false``)
    for normal operation. ``ControlManagerState::unlimited_mode_enabled``
@@ -183,8 +185,13 @@ a command, and wait for its feedback.
      - Callback frequency requested from the robot.
    * - ``Control(..., port, priority)``
      - Port number, priority
-     - ``port`` is a UDP port number. ``priority`` is an integer scheduling
-       priority/command priority, not a physical unit.
+     - ``port`` is a UDP port number. ``priority`` is the command priority
+       (no unit), the same as in ``SendCommand()`` and
+       ``CreateCommandStream()``. The default is ``1``. The robot clamps it to
+       ``0`` to ``999``, and a higher number is a higher priority. A new
+       command that shares joints with a running command starts only if its
+       priority is higher. See the priority question in the
+       `FAQ <../../troubleshooting/generated/faq.md>`_.
    * - ``ResetOdometry(angle, position)``
      - ``rad``, ``m``
      - ``angle`` is the planar heading reset. ``position`` carries ``[x, y]``

@@ -62,15 +62,16 @@ A 3D view of the robot model that follows the joint positions of the real robot.
 | --- | --- |
 | **Powers** | Select power rails (for example `5v`, `12v`, `24v`, `48v`) and turn them **On** or **Off**. |
 | **Servos** | Select joint groups (Torso, Right Arm, Left Arm, Head, Wheel) or single joints and turn their servos **On**. |
-| **Control Manager** | **Enable**, **Reset** (after a fault), **Disable**, and **Unlimit** (enable without the joint range check). |
-| **Navigation** | Two on-screen joysticks drive the mobile base: linear velocity (up to 0.4 m/s) and rotation (up to 10°/s). **Turbo** doubles the speeds; **Smoothing** softens acceleration. |
+| **Control Manager** | **Enable**, **Reset** (after a fault), **Disable**, and **Unlimit** (enable even when a joint is outside its range). |
+| **Navigation** | Two on-screen joysticks drive the mobile base: linear velocity up to 0.2 m/s and rotation up to 10°/s. **Turbo** doubles both (0.4 m/s, 20°/s) and always turns on **Smoothing**; **Smoothing** softens acceleration. |
 | **Samples** | Move the robot to the **ZERO**, **READY** or **PACKING** pose. |
 | **Tool Flange Power** | Turn the tool flange output of the right and/or left arm on at **12V** or **24V**, or off. |
 | **Brake** | **ENGAGE** or **RELEASE** the brakes of selected joints. Release asks for confirmation. |
 | **Send Position** | Per-joint table with the measured position, the reference and jog buttons. **Jog Step (deg)** sets the step size. |
 
 ::: warning
-- **Unlimit** skips the joint range check, so a joint can move outside its limits. Use it only to bring a joint back into its range
+- **Unlimit** skips the joint range check at enable, so the Control Manager is enabled even when a joint is outside its limits.
+  Whether commands still respect the joint limits in this mode is not verified on a robot. Use it only to bring a joint back into its range
   (for example during unpacking), then **Disable** and **Enable** again in the standard mode.
 - **RELEASE** on the **Brake** card can let the selected joints fall under gravity. Support the robot first.
 - **Navigation**, **Samples** and **Send Position** move the robot. Keep the area clear and the E-Stop within reach.
@@ -105,7 +106,8 @@ Notes on **Import**:
 - Robot-specific values (`battery_config`, `gravity`, `hotspot.ssid`, `hotspot.password`, `model_name`) are not selected by default
   when the file comes from another robot.
 - `model_name`, `boot.power_on_target` and `major_fault_power_off_target` take effect after the robot software restarts; the preview tells you.
-- If an import fails, the values already applied are restored.
+- If a parameter or model fails to import, the parameters and models already applied are restored.
+  The port-forwarding rules are applied last and are reported separately; they are not restored.
 
 ::: warning
 The exported file contains the hotspot password. Store and share it like a password.
@@ -127,8 +129,9 @@ See [Hotspot & Web UI](../getting-started/hotspot-and-webui.md#unpacking-wizard)
 Verified against: robot core v0.11.0 Web UI `rby1-web/rby1-frontend/src/components/NavigatorDrawer.vue` (menu, top bar, ⋮ menu, servo warning),
 `pages/index.vue`, `pages/viewer.vue`, `pages/control-pannel.vue`, `pages/settings.vue`, `DashboardComponents/RpcStatusCards.vue`,
 `RobotStatusTable.vue` (columns and flags), `SensorsCard.vue`, `ControlComponents/Power.vue`, `Servo.vue`, `ControlManager.vue`, `Joystick.vue`
-(0.4 m/s, π/18 rad/s, turbo), `TemplatePosture.vue`, `Toolflange.vue`, `Break.vue`, `SendPosition.vue`, `SettingComponents/WiFi.vue`, `Hotspot.vue`,
+(stick range 0.4 m/s, π/18 rad/s, turbo), `TemplatePosture.vue`, `Toolflange.vue`, `Break.vue`, `SendPosition.vue`, `SettingComponents/WiFi.vue`, `Hotspot.vue`,
 `PortForward.vue`, `Utilities.vue`, `ParamTables.vue` (`parseTarget`), `ConfigImportDialog.vue`; back end `rby1_web/core/routers/params.py`, `rby1-web/rby1-backend/rby1_web/core/routers/power.py`
 (`estop`: cancel control and power off `.*`; `soft_stop`: cancel control), `rby1_web/operator/routers/config.py`, `config_backup.py`
-(identity, robot-specific and restart-required parameters); `rby1-web/docker-compose.web.yaml` (ports 5173, 8000, 8001);
-`CHANGELOG.md` (v0.10.7: JupyterLab disabled).
+(identity, robot-specific and restart-required parameters; `apply`: parameters and models restored on failure, port forward written last),
+`rby1_web/core/routers/joystick.py` (normal and turbo scales, turbo forces smoothing); `rby1-web/docker-compose.web.yaml` (ports 5173, 8000, 8001);
+`CHANGELOG.md` (v0.10.7: JupyterLab disabled); robot core `core/control/control_manager.cpp` (`Enable`: unlimited mode skips the joint range check at enable).

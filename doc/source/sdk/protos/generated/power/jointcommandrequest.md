@@ -12,5 +12,5 @@ COMMAND_BRAKE_RELEASE can let a joint fall under gravity, and COMMAND_HOME_OFFSE
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | request_header | [RequestHeader](../header/requestheader.md) |  | Request header |
-| name | [string](../scalar-value-types.md) |  | Motor ID |
+| name | [string](../scalar-value-types.md) |  | Required. Regex for the joint names, for example `right_arm_2`, `right_arm_.*` or `.*` for all joints. The whole name must match. An empty name matches no joint. |
 | command | [JointCommandRequest.Command](jointcommandrequest-command.md) |  |  |

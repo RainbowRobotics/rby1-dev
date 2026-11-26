@@ -1,6 +1,6 @@
 # Control Hold Time and Minimum Time
 
-### Control State Transition
+## Control State Transition
 
 <img :src="$withBase('/images/sdk/control_hold_time_and_minimum_time/robot_control_state_transitions.png')" alt="robot_control_state_transitions.png" class="center rounded-img" style="width:600px">
 
@@ -17,7 +17,7 @@ The diagram calls the end state *ControlFinished*; in the SDK it is the status `
 All finish codes are listed in [Fault Diagnosis](../../troubleshooting/fault-diagnosis.md#command-finish-codes).
 
 ---
-### Control Hold Time
+## Control Hold Time
 
 Control Hold Time defines the duration for which the robot maintains the target (position/velocity) after reaching it.
 
@@ -31,18 +31,18 @@ If your program stops sending commands (crash, network loss), the robot keeps mo
 Keep the hold time for velocity commands short: a few times the stream period.
 :::
 
-#### How It Works (Control Hold Time)
+### How It Works (Control Hold Time)
 
 - When a control command is sent, the robot moves toward the target while considering constraints such as speed and acceleration limits.
 - Once the target is reached, the robot maintains the target state for the duration of the Control Hold Time.
 - After the Control Hold Time expires, the control ends, and the command status becomes `Finished`.
 
 ---
-### Minimum Time
+## Minimum Time
 
 Minimum Time represents the minimum duration required for the robot to reach the target state.
 
-#### How It Works (Minimum Time)
+### How It Works (Minimum Time)
 
 - Larger values: The robot reaches the target more slowly.
 - Smaller values: The robot reaches the target more quickly.

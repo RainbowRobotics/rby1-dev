@@ -62,10 +62,11 @@ by ``GetLastLog()`` and the callback passed into ``StartLogStream()``.
 
 .. note::
 
-   In the generated declarations below, ``timestamp`` and
-   ``robot_system_timestamp`` appear as nested ``struct`` entries. They are
-   plain ``timespec`` members (``struct timespec timestamp{}`` in ``log.h``),
-   not types of their own.
+   In the generated declarations below, ``robot_system_timestamp`` appears
+   as a heading ``struct robot_system_timestamp``. It is a plain ``timespec``
+   member (``struct timespec robot_system_timestamp {}`` in ``log.h``), not a
+   type of its own. ``timestamp`` is shown correctly as
+   ``struct timespec timestamp``.
 
 .. rubric:: Detailed Reference
 

@@ -30,7 +30,7 @@ ros2 launch rby1_tools camera.launch.py camera_name:=desk mount:=none   # a seco
 | Topic / frame | Type | When |
 |---|---|---|
 | `/<camera_name>/rgb/raw` (or `/rgb/compressed`) | `sensor_msgs/Image` (`CompressedImage`) | colour, by default |
-| `/<camera_name>/rgb/info` | `sensor_msgs/CameraInfo` | always |
+| `/<camera_name>/rgb/info` | `sensor_msgs/CameraInfo` | `use_rgb` (with the image) |
 | `/<camera_name>/depth/raw`, `/depth/info` | `Image`, `CameraInfo` | `use_depth` (depth `16UC1` in mm) |
 | `/<camera_name>/ir_left/...`, `/ir_right/...` | `Image`, `CameraInfo` | `use_ir` |
 | `/<camera_name>/point_cloud` | `sensor_msgs/PointCloud2` | `use_point_cloud` |

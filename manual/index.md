@@ -1,5 +1,6 @@
 ---
 layout: home
+description: Manual, SDK and API reference for the RB-Y1 dual-arm mobile manipulator from Rainbow Robotics.
 
 hero:
   name: RB-Y1

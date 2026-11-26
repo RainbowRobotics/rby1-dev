@@ -172,7 +172,17 @@
       "ToolFlangePowerCommand": "Sets the tool flange power: off, 12 V or 24 V."
     }
   },
+  "PowerCommandRequest": {
+    "_source": "core service/service.cpp PowerServiceImpl::PowerCommand, robots/rby1a/robot_hardware.cpp ExecutePowerCommand (std::regex_match over 5v, 12v, 24v, 48v); rby1-sdk v0.10.1 src/robot.cpp PowerOn sets name",
+    "fields": {
+      "name": "Required. Regex for the power outputs: `5v`, `12v`, `24v` and `48v`. The whole name must match. Use `.*` for all outputs, as the SDK examples do. An empty name matches no output, so nothing changes, and the call still returns STATUS_SUCCESS."
+    }
+  },
   "JointCommandRequest": {
+    "_source": "core service/service.cpp PowerServiceImpl::JointCommand, robots/rby1a/robot_hardware.cpp ServoOn (std::regex_match over the joint names); rby1-sdk v0.10.1 src/robot.cpp ServoOn sets name",
+    "fields": {
+      "name": "Required. Regex for the joint names, for example `right_arm_2`, `right_arm_.*` or `.*` for all joints. The whole name must match. An empty name matches no joint."
+    },
     "admonitions": [
       {
         "kind": "danger",

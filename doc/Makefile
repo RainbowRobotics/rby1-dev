@@ -84,9 +84,11 @@ protoc-doc: sdk-pin
 	
 
 clean-proto:
-	@echo "[clean-proto] Removing $(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
-	@rm -f "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
+	@echo "[clean-proto] Removing generated files in $(PROTO_OUT_DIR)"
+	@rm -f "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)" "$(PROTO_OUT_DIR)/proto_types.md"
 	@rm -f "$(PROTO_OUT_DIR)/proto_types.rst" "$(PROTO_OUT_DIR)/protos.json" "$(PROTO_OUT_DIR)/SDK_TAG"
+	@# Per-module pages (one folder per .proto file) and the scalar type page come from protos.json.
+	@rm -rf "$(PROTO_OUT_DIR)"/*/ "$(PROTO_OUT_DIR)/scalar-value-types.md"
 
 # ------------------------------------------------------------------------------
 # Doxygen (C++) via container
