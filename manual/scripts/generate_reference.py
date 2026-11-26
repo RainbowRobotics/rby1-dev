@@ -87,7 +87,10 @@ def export_api(tmp: Path) -> None:
         for md in (out / "sdk" / lang).rglob("*.md"):
             target = dst / md.relative_to(out / "sdk" / lang)
             target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(vue_safe(md.read_text()))
+            text = md.read_text()
+            # Breathe target ids (#rby1-sdkclass...) are not exported; link to the page instead.
+            text = re.sub(r"\]\(([^)#\s]*)#rby1-sdk[^)]*\)", lambda m: f"]({m.group(1) or '#'})", text)
+            target.write_text(vue_safe(text))
         print(f"[api] {lang}: {sum(1 for _ in dst.rglob('*.md'))} pages")
 
     raw = DOC / "build" / "doxygen" / "html"
@@ -111,7 +114,12 @@ def import_protos() -> None:
     for md in src.rglob("*.md"):
         target = dst / md.relative_to(src)
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(convert(md.read_text()))
+        # Proto anchors are lower case; links in the generated tables use the type's case.
+        text = re.sub(r"\(#(rb-api-[^)]+)\)", lambda m: f"(#{m.group(1).lower()})", convert(md.read_text()))
+        # Well-known protobuf types are documented on protobuf.dev, not in these pages.
+        text = re.sub(r"\(#google-protobuf-(\w+)\)",
+                      lambda m: f"(https://protobuf.dev/reference/protobuf/google.protobuf/#{m.group(1).lower()})", text)
+        target.write_text(text)
         pages += 1
     for rst in src.rglob("*.rst"):
         if rst.name == "proto_types.rst":

@@ -158,5 +158,5 @@ This error occurs when the current firmware version is too old to be supported b
 [FAIL] unsupported firmware version for this bootloader
 ```
 
-If FAIL is displayed, please save the terminal output and contact our CS team(<a href="rby.support@rainbow-robotics.com"
+If FAIL is displayed, please save the terminal output and contact our CS team(<a href="mailto:rby.support@rainbow-robotics.com"
    target="_blank" rel="noopener noreferrer">rby.support@rainbow-robotics.com</a>).

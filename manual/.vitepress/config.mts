@@ -203,6 +203,8 @@ export default defineConfig({
   description: 'RB-Y1 dual-arm mobile manipulator: manual, SDK and API reference',
   // Keep the .html page URLs of the previous site so existing links keep working.
   cleanUrls: false,
+  // Generated fragments pulled in with <!--@include-->, not pages of their own.
+  srcExclude: ['hardware/generated/**'],
   lastUpdated: true,
   // The Doxygen HTML is a static folder in public/, not a VitePress page.
   ignoreDeadLinks: [/raw-api\//, /^https?:\/\/localhost/],
@@ -210,7 +212,16 @@ export default defineConfig({
   // Large generated API tables: keep the search index small and the build quick.
   // MathJax for the controller formulas ($$ blocks converted from MyST {math}).
   // pycon: interactive Python sessions in the API docstrings.
-  markdown: { math: true, languageAlias: { pycon: 'python' } },
+  markdown: {
+    math: true,
+    languageAlias: { pycon: 'python' },
+    // Same heading ids as the previous (MyST) site, so existing #anchors keep working:
+    // lower case, keep letters, digits, "_" and "-", spaces to "-".
+    anchor: {
+      slugify: (s: string) =>
+        s.trim().toLowerCase().replace(/[^\p{L}\p{N}\s_-]/gu, '').replace(/\s/g, '-'),
+    },
+  },
 
   locales: {
     root: { label: 'English', lang: 'en', themeConfig: { nav: nav(false), sidebar: sidebarFor() } },
@@ -228,6 +239,9 @@ export default defineConfig({
   },
 
   themeConfig: {
+    // Only a few pages are translated: the language menu goes to the Korean home page,
+    // not to /ko/<same page>, which usually does not exist.
+    i18nRouting: false,
     logo: '/rb_logo.png',
     search: { provider: 'local' },
     socialLinks: [
