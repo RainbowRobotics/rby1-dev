@@ -25,17 +25,17 @@ and clear the space around the robot.
 
 4. Open the Web UI in a browser: `http://192.168.12.1:5173`. The dashboard shows the robot’s current status (power, joint angles, etc.).
 
-   ![dashboard](/images/getting-started/webui_dashboard.png)
+   <img :src="$withBase('/images/getting-started/webui_dashboard.png')" alt="dashboard" class="center white-bg" style="width:800px">
 
 5. From the left sidebar, select **Unpacking** to open the setup tab.
 
-   ![sidebar](/images/getting-started/webui_sidebar.png)
+   <img :src="$withBase('/images/getting-started/webui_sidebar.png')" alt="sidebar" class="center white-bg" style="width:800px">
 
    - **Step 1.** Turn Power On 
    
       Click the **POWER ON** button to supply power to the robot.
 
-      ![step1](/images/getting-started/webui_unpacking_step1.png)
+      <img :src="$withBase('/images/getting-started/webui_unpacking_step1.png')" alt="step1" class="center white-bg" style="width:800px">
 
    - **Step 2.** Activate Servo
 
@@ -43,7 +43,7 @@ and clear the space around the robot.
       This enables all joints defined in the model.
       If some joints (e.g., the head or mobile base wheels) are removed, enable servos only for the remaining joints in the **Control Panel**.
 
-      ![step2](/images/getting-started/webui_unpacking_step2.png)
+      <img :src="$withBase('/images/getting-started/webui_unpacking_step2.png')" alt="step2" class="center white-bg" style="width:800px">
 
    - **Step 3.** Enable Control Manager
 
@@ -56,7 +56,7 @@ and clear the space around the robot.
       Use it only for unpacking, and switch to the standard mode in Step 5.
       :::
 
-      ![step3](/images/getting-started/webui_unpacking_step3.png)
+      <img :src="$withBase('/images/getting-started/webui_unpacking_step3.png')" alt="step3" class="center white-bg" style="width:800px">
 
    - **Step 4.** Move to Zero Pose
 
@@ -65,7 +65,7 @@ and clear the space around the robot.
       Keep the remote controller in your hand and make sure the path is clear.
       To pause the motion, press **SOFT STOP** at the top of the screen. To cut power immediately, press button 1 on the remote controller.
 
-      ![step4](/images/getting-started/webui_unpacking_step4.png)
+      <img :src="$withBase('/images/getting-started/webui_unpacking_step4.png')" alt="step4" class="center white-bg" style="width:800px">
 
    - **Step 5.** Switch to the standard mode (required)
 

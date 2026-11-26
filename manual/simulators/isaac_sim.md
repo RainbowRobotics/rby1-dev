@@ -4,7 +4,7 @@ This page explains how to run the RB-Y1 Isaac Sim environment and connect it to 
 
 - Related repository: <a href="https://github.com/RainbowRobotics/rby1-sim-isaac" target="_blank" rel="noopener noreferrer">RBY1 Isaac Sim on GitHub</a>
 
-![](/images/simulator/isaac_sim/isaac_sim.png)
+<img :src="$withBase('/images/simulator/isaac_sim/isaac_sim.png')" alt="" class="center white-bg" style="width:80%">
 
 ## Requirements
 

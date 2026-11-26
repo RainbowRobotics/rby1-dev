@@ -2,7 +2,7 @@
 
 These steps follow the README of [rby1-ros2 v1.0.0](https://github.com/RainbowRobotics/rby1-ros2).
 
-::: info
+::: info Note
 Install in the system environment. With conda or miniforge, Python and CMake path conflicts break the build.
 :::
 

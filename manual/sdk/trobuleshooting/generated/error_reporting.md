@@ -22,6 +22,6 @@ We are continuously working to gather and address various runtime errors and iss
 - Email for Sensitive Inquiries: If you have more sensitive or private questions, feel free to reach out directly via email at
 rby.support@rainbow-robotics.com
 
-::: warning We are actively collecting diverse user scenarios to improve the SDK. Your feedback and issue reports are invaluable in helping us improve the Rainbow Robotics SDK. Thank you for your continued support.
-
+::: warning Important
+We are actively collecting diverse user scenarios to improve the SDK. Your feedback and issue reports are invaluable in helping us improve the Rainbow Robotics SDK. Thank you for your continued support.
 :::

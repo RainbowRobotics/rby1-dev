@@ -1,6 +1,6 @@
 # Overview
 
-![robot joint configuration](/images/hardware/overview/robot-joint-configuration.png)
+<img :src="$withBase('/images/hardware/overview/robot-joint-configuration.png')" alt="robot joint configuration" class="center white-bg" style="width:400px">
 
 ---
 ## Technical Specifications

@@ -2,13 +2,15 @@
 
 Here is a list of available Python example programs for the Rainbow Robotics SDK. Explore each example by clicking on the corresponding link.
 
-``` {Warning} This documentation is based on the main branch of the SDK repository. The dev branch may include additional features that are currently in development. However, since these features are not fully tested, we are not responsible for any issues arising from using the dev branch. Use it with caution.
-```
+::: warning
+This documentation is based on the main branch of the SDK repository. The dev branch may include additional features that are currently in development. However, since these features are not fully tested, we are not responsible for any issues arising from using the dev branch. Use it with caution.
+:::
 
-``` {Note} Unfortunately, there is no teleoperation example provided in the Python examples. If you are looking for a teleoperation example, please refer to the C++ examples.
+::: info Note
+Unfortunately, there is no teleoperation example provided in the Python examples. If you are looking for a teleoperation example, please refer to the C++ examples.
 Keep in mind that the Master Arm and Gripper are controlled primarily by Dynamixel, not through our SDK, and most of the code used is from ROBOTIS.
 A simple example for the gripper is available in the dev branch under `examples/python/module_test`. However, this example has not been officially released and is not recommended for use (as of October 17, 2024).
-```
+:::
 
 ---
 ## Available Python Examples
@@ -48,8 +50,9 @@ target="_blank" rel="noopener noreferrer">
 </a> 
 : Basic robot motion control example.
 
-``` {Warning} This demo executes large and faster movements compared to the C++ version. Ensure the surroundings are clear and secure before running this example.
-```
+::: warning
+This demo executes large and faster movements compared to the C++ version. Ensure the surroundings are clear and secure before running this example.
+:::
 
 - <a href="https://github.com/RainbowRobotics/rby1-sdk/blob/main/examples/python/command_stream.py"
 target="_blank" rel="noopener noreferrer">

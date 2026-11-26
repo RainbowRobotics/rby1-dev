@@ -1,13 +1,13 @@
 # Software Architecture
 
 ## System Overview
-::: info Future updates to the SDK will include official support for **ROS** integration, as well as **SLAM** and **Navigation** modules for autonomous operation. These features are currently in development and will be available in a future release.
-
+::: info Note
+Future updates to the SDK will include official support for **ROS** integration, as well as **SLAM** and **Navigation** modules for autonomous operation. These features are currently in development and will be available in a future release.
 :::
 
 The software architecture ensures stable performance and safety while providing scalability for the robot. It is designed to cover various application needs and enables quick and efficient development of custom solutions through its scalable structure.
 
-![rby-software-stack-white](/images/software/architecture/rby-software-stack-white.png)
+<img :src="$withBase('/images/software/architecture/rby-software-stack-white.png')" alt="rby-software-stack-white" class="center white-bg" style="width:600px">
 
 <p style="text-align:center;">
 [ Software architecture of RB-Y1 ]
@@ -47,8 +47,9 @@ This architecture is composed as follows:
 
 The SDK currently offers **URDF** and **MJCF** files, which allow users to perform simulations without physical hardware. These models enable testing of robot movements and strategies in a virtual environment.
 
-```{Note} These models are included in the SDK, and detailed setup instructions are available in the documentation.
-```
+::: info Note
+These models are included in the SDK, and detailed setup instructions are available in the documentation.
+:::
 
 ---
 ## Simulation Tools
@@ -67,15 +68,15 @@ A **MuJoCo-based simulator** for the Rainbow Robotics RBY series is now publicly
    rainbowroboticsofficial/rby1-sim
    </a>
 
-::: info X11 forwarding (xhost+) is required for the GUI. Lower-spec devices may experience performance limitations. Although profiling hasn't been conducted, it is recommended to use a system with at least Intel i5 or equivalent CPU and 16GB RAM for optimal performance.
-
+::: info Note
+X11 forwarding (xhost+) is required for the GUI. Lower-spec devices may experience performance limitations. Although profiling hasn't been conducted, it is recommended to use a system with at least Intel i5 or equivalent CPU and 16GB RAM for optimal performance.
 :::
 
 ---
 
 ## Actuator List and Robot State Data
 
-![hardware-overview](/images/software/architecture/hardware-overview.png)
+<img :src="$withBase('/images/software/architecture/hardware-overview.png')" alt="hardware-overview" class="center white-bg" style="width:600px">
 
 The **RobotState/position** provides position data for all 24 actuators in the robot, processed in the following order:
 
@@ -89,4 +90,4 @@ The **torso actuators (torso_0 to torso_5)** are listed from bottom to top, whil
 
 For more detailed information about RobotState, please refer to the RobotState section on this site.
 
-![actuator-list](/images/software/architecture/actuator-list.png)
+<img :src="$withBase('/images/software/architecture/actuator-list.png')" alt="actuator-list" class="center white-bg" style="width:600px">

@@ -3,7 +3,7 @@
 
 ### Control State Transition
 
-![robot_control_state_transitions.png](/images/sdk/control_hold_time_and_minimum_time/robot_control_state_transitions.png)
+<img :src="$withBase('/images/sdk/control_hold_time_and_minimum_time/robot_control_state_transitions.png')" alt="robot_control_state_transitions.png" class="center rounded-img" style="width:600px">
 
 ---
 ### Control Hold Time

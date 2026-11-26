@@ -1,12 +1,14 @@
 # Mechanical Part
 
-::: info This robot is a research platform, and rapid improvements are constantly being made. While most of the information provided is accurate, we recommend double-checking for the most up-to-date details. For further inquiries, feel free to contact us at rby.support@rainbow-robotics.com or discuss on our GitHub Discussions page at 
+::: info Note
+This robot is a research platform, and rapid improvements are constantly being made. While most of the information provided is accurate, we recommend double-checking for the most up-to-date details. For further inquiries, feel free to contact us at rby.support@rainbow-robotics.com or discuss on our GitHub Discussions page at 
 <a href="https://github.com/RainbowRobotics/rby1-sdk/discussions"
    target="_blank" rel="noopener noreferrer">
    rby1-sdk Discussions
 </a>
 .
 :::
+
 ---
 
 ## Motor Specifications
@@ -52,7 +54,8 @@ This table details the torque performance of various motor types. It includes co
 
 The diagrams show the front and side views of the robot with detailed measurements. The total height of the robot is 1400 mm, and the width is 600 mm. These measurements provide an understanding of the physical space the robot occupies, as well as its potential reach and movement range.
 
-::: info Physical limits and control limits may differ. For detailed operation ranges, please refer to the 
+::: info Note
+Physical limits and control limits may differ. For detailed operation ranges, please refer to the 
 <a href="https://github.com/RainbowRobotics/rby1-sdk/tree/main/models/rby1a/urdf"
    target="_blank" rel="noopener noreferrer">
    URDF files

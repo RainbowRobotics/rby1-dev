@@ -37,6 +37,14 @@ DOCSTRING_SECTION = re.compile(
     r"(?m)^#{3,6} (Examples?|Notes?|Parameters|Returns?|Raises|Yields|See Also|Warnings?|References|Attributes)\s*$")
 
 
+SPHINX_ADMONITION = {"NOTE": ("info", "Note"), "SEE ALSO": ("info", "See also"), "TIP": ("tip", "Tip"),
+                     "WARNING": ("warning", ""), "IMPORTANT": ("warning", "Important"),
+                     "CAUTION": ("warning", "Caution"), "DEPRECATED": ("danger", "Deprecated"),
+                     "DANGER": ("danger", "Danger")}
+SPHINX_ADMONITION_HEADING = re.compile(r"^#{3,6} (NOTE|SEE ALSO|TIP|WARNING|IMPORTANT|CAUTION|DANGER|Deprecated.*)\s*$", re.I)
+MATH = re.compile(r"(\$\$.+?\$\$|\$[^$\s][^$]*?\$)")
+
+
 def _escape_text(segment: str) -> str:
     out, i = [], 0
     while i < len(segment):
@@ -48,30 +56,115 @@ def _escape_text(segment: str) -> str:
     return "".join(out)
 
 
+def _escape_line(line: str) -> str:
+    """Escape "<" in text, leaving inline code and $math$ untouched."""
+    parts = re.split(r"(`+[^`]*`+)", line)
+    out = []
+    for p in parts:
+        if p.startswith("`"):
+            out.append(p)
+        else:
+            out.append("".join(q if MATH.fullmatch(q) else _escape_text(q) for q in MATH.split(p)))
+    return "".join(out)
+
+
+def _admonitions(lines: list[str]) -> list[str]:
+    """Sphinx note/warning boxes come out as "#### NOTE" + paragraphs; make them VitePress containers."""
+    out, open_box = [], False
+    for line in lines:
+        m = SPHINX_ADMONITION_HEADING.match(line)
+        ends_box = open_box and (line.startswith("#") or line.startswith("<a id=") or line.startswith("**"))
+        if ends_box or (open_box and m):
+            out.extend([":::", ""])
+            open_box = False
+        if m:
+            key = m.group(1).upper()
+            kind, title = SPHINX_ADMONITION.get(key, ("danger", m.group(1)))
+            out.append(f"::: {kind}{(' ' + title) if title else ''}")
+            open_box = True
+            continue
+        out.append(line)
+    if open_box:
+        out.append(":::")
+    return out
+
+
+def _summary_table_headers(lines: list[str]) -> list[str]:
+    """Autosummary tables have no header row; the first member would become the header."""
+    out, i = [], 0
+    while i < len(lines):
+        line = lines[i]
+        out.append(line)
+        if re.match(r"^#{2,6} (Methods|Attributes)\s*$", line) or line in ("**Attributes**",):
+            j = i + 1
+            while j < len(lines) and not lines[j].strip():
+                out.append(lines[j])
+                j += 1
+            if j + 1 < len(lines) and lines[j].startswith("|") and re.match(r"^\|[-| :]+\|$", lines[j + 1]):
+                out.extend(["| Member | Description |", lines[j + 1], lines[j]])
+                i = j + 2
+                continue
+            i = j
+            continue
+        i += 1
+    return out
+
+
 def vue_safe(markdown: str) -> str:
     """Escape text that the Vue template compiler would read as elements; mark the page v-pre."""
-    lines, in_fence = [], False
+    lines, in_fence, in_math = [], False, False
     for line in markdown.splitlines():
         if FENCE.match(line):
             in_fence = not in_fence
             lines.append(line)
             continue
-        if in_fence:
+        if line.strip() == "$$":
+            in_math = not in_math
+        if in_fence or in_math or line.strip() == "$$":
             lines.append(line)
             continue
         if line.startswith("#"):
             # Links inside headings (e.g. template arguments) confuse heading anchors and the
             # search index (duplicate ids); keep only the link text there.
             line = re.sub(r"\[([^\]]+)\]\(#[^)]*\)", r"\1", line)
-        parts = re.split(r"(`+[^`]*`+)", line)  # keep inline code untouched (markdown-it escapes it)
-        lines.append("".join(p if p.startswith("`") else _escape_text(p) for p in parts))
+            # "{...}" at the end of a heading would be read as attributes (markdown-it-attrs).
+            line = line.replace("{", "&#123;")
+            # template<...>class  ->  template<...> class
+            line = re.sub(r">(class|struct|static|inline|constexpr|virtual|explicit)\b", r"> \1", line)
+        lines.append(_escape_line(line))
+    lines = _summary_table_headers(_admonitions(lines))
     body = "\n".join(lines)
     # Docstring sections (Examples, Notes, ...) are headings in the export; as headings they would fill
     # the page outline with repeated entries, so they become bold paragraphs.
     body = DOCSTRING_SECTION.sub(r"**\1**", body)
     # `{{ }}` would be evaluated by Vue; v-pre turns interpolation off for the whole page.
-    # Outline: classes (###) and their members (####).
-    return f"---\noutline: [2, 4]\n---\n\n::: v-pre\n{body}\n:::\n"
+    # Five colons so that the ::: containers inside do not close it. Outline: classes and members.
+    return f"---\noutline: [2, 4]\n---\n\n::::: v-pre\n{body}\n:::::\n"
+
+
+def constexpr_members() -> set[str]:
+    """Qualified names of constexpr members (the Markdown export drops the keyword)."""
+    names = set()
+    for xml in (DOC / "build" / "doxygen" / "xml").glob("*.xml"):
+        text = xml.read_text(errors="ignore")
+        for m in re.finditer(r'<memberdef [^>]*constexpr="yes"[^>]*>.*?<qualifiedname>([^<]+)</qualifiedname>', text, re.S):
+            names.add(m.group(1))
+    return names
+
+
+def restore_constexpr(markdown: str, names: set[str]) -> str:
+    out, current = [], None
+    for line in markdown.splitlines():
+        m = re.match(r'<a id="((?:[A-Za-z_]\w*::)+[A-Za-z_]\w*)(?:__[^"]*)?"></a>', line)
+        if m:
+            current = m.group(1)
+        elif line.startswith("#") and current in names and "constexpr" not in line:
+            head, sep, rest = line.partition(" ")
+            rest = re.sub(r"^((?:template&lt;.*?>\s*|template<.*?>\s*)?(?:static\s+)?)", r"\1constexpr ", rest, count=1)
+            line = f"{head}{sep}{rest}"
+            current = None
+        out.append(line)
+    return "\n".join(out)
 
 
 def export_api(tmp: Path) -> None:
@@ -80,6 +173,7 @@ def export_api(tmp: Path) -> None:
            "-d", str(tmp / "doctrees"), str(DOC / "source"), str(out)]
     print("[api]", " ".join(cmd))
     subprocess.run(cmd, check=True)
+    constexpr = constexpr_members()
     for lang in ("python", "cpp"):
         dst = MANUAL / "sdk" / lang
         if dst.exists():
@@ -90,6 +184,10 @@ def export_api(tmp: Path) -> None:
             text = md.read_text()
             # Breathe target ids (#rby1-sdkclass...) are not exported; link to the page instead.
             text = re.sub(r"\]\(([^)#\s]*)#rby1-sdk[^)]*\)", lambda m: f"]({m.group(1) or '#'})", text)
+            if lang == "cpp":
+                text = restore_constexpr(text, constexpr)
+                # The Doxygen HTML is a static folder: load it as a normal page, not through the router.
+                text = re.sub(r"\]\((raw-api/[^)]+)\)", r'](\1){target="_self"}', text)
             target.write_text(vue_safe(text))
         print(f"[api] {lang}: {sum(1 for _ in dst.rglob('*.md'))} pages")
 

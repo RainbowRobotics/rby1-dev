@@ -14,7 +14,7 @@ Please use the provided `updater` program to update your RPC. During the update,
 - Download the appropriate RPC update file for your robot model from the release page.
 - Place the downloaded update file into the extracted updater directory.
 
-![](/images/rpc_management_tools/updater.png)
+<img :src="$withBase('/images/rpc_management_tools/updater.png')" alt="" class="center white-bg" style="width:100%">
 
 ### Usage (Updater)
 
@@ -42,4 +42,4 @@ chmod +x updater
     - Check the version at the bottom of the **Dashboard** page in the Web UI
     - Check the version displayed on the **backpack OLED**
 
-![](/images/rpc_management_tools/update_result.png)
+<img :src="$withBase('/images/rpc_management_tools/update_result.png')" alt="" class="center white-bg" style="width:100%">

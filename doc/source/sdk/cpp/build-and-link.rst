@@ -99,4 +99,4 @@ If the SDK is installed to a non-default prefix, pass it to your project with
 
 - :doc:`client/robot` for the client API.
 - ``examples/cpp`` in rby1-sdk for runnable programs.
-- :doc:`/sdk/trobuleshooting/generated/build_issue` if the build fails.
+- `Build Issues <../trobuleshooting/generated/build_issue.md>`_ if the build fails.

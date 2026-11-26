@@ -14,7 +14,7 @@ See [Overview](overview.md#namespace).
 | `tool_flange/left/wrench`, `tool_flange/right/wrench` | `geometry_msgs/WrenchStamped` | ⚙️ `publish_tool_flange_state` | Tool flange force/torque sensor |
 | `odom` | `nav_msgs/Odometry` | ✅ | High-rate robot odometry and TF broadcast relative to node namespace |
 
-::: info
+::: info Note
 Since rby1-ros2 v1.0.0, `joint_states` is `rby1_msgs/PartJointStates`, no longer `sensor_msgs/JointState`,
 and the per-part topics `joint_states/torso`, `joint_states/right_arm`, `joint_states/left_arm` and `joint_states/head` are removed.
 Subscribe to `joint_overall_states` if your node expects `sensor_msgs/JointState`.
@@ -26,7 +26,7 @@ Subscribe to `joint_overall_states` if your node expects `sensor_msgs/JointState
 |-------|------|-------------|
 | `cmd_vel` | `geometry_msgs/Twist` | Velocity command for driving base wheels (linear x, y and angular z) |
 
-::: warning
+::: warning Important
 **Mobile base control (`cmd_vel`) needs the command stream.**
 Since `cmd_vel` acts as a high-frequency publisher, you must enable persistent stream control before publishing base velocity commands.
 - Call `/rby1/stream_control` with `state: true` before sending `cmd_vel` commands.

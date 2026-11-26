@@ -129,6 +129,21 @@ def _strip_bindings_in_docstring(app, what, name, obj, options, lines):
         lines[i] = line.replace("._bindings", "")
 
 
+def _keep_signature_keywords():
+    """sphinx-markdown-builder drops some signature nodes (e.g. the C++ `constexpr` keyword); keep their text."""
+    try:
+        from sphinx_markdown_builder import translator
+    except ImportError:
+        return
+    for element in ("desc_sig_keyword", "desc_sig_keyword_type", "desc_sig_space", "desc_sig_name",
+                    "desc_sig_punctuation", "desc_sig_operator", "desc_sig_literal_number",
+                    "desc_sig_literal_string", "desc_sig_literal_char"):
+        translator.PREDEFINED_ELEMENTS.setdefault(element, None)  # None: render the node's text
+
+
+_keep_signature_keywords()
+
+
 def setup(app):
     app.connect("autodoc-process-signature", _strip_bindings_in_signature)
     app.connect("autodoc-process-docstring", _strip_bindings_in_docstring)

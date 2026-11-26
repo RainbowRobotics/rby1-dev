@@ -10,7 +10,7 @@ It wraps the RBY1 C++ SDK into a ROS 2 node, providing state monitoring and mult
 
 To install and build the packages, see [Install & Build](install_and_build.md).
 
-![](/images/ros2/system_architecture.png)
+<img :src="$withBase('/images/ros2/system_architecture.png')" alt="" class="center" style="width:100%">
 
 The system operates using two primary pipelines to interface with the robot:
 1. **Direct Control Mode (`rby1_ros2_driver`)**: A standalone C++ ROS 2 node that communicates directly with the RBY1 robot or simulator via gRPC. User applications/scripts send standard ROS 2 topics, services, and actions (e.g. `robot_joint`, `robot_cartesian`) to command movements and monitor status.

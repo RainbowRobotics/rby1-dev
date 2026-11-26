@@ -7,9 +7,9 @@ The `ft_zeroset` tool allows you to check the FT sensor status and perform initi
 ### Downloads (FT zeroset)
 - ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a>
 
-```{Warning}
+::: warning
 Ensure that the robot’s main power is **turned on** before proceeding.
-```
+:::
 
 ### Usage (FT zeroset)
 

@@ -39,13 +39,13 @@ Select the bootloader executable that matches the architecture of the system whe
 | `upc_firmware_bootloader_jetson` | ARM-based systems, such as Jetson |
 | `upc_firmware_bootloader_x86` | x86_64 systems |
 
-::: info
+::: info Note
 Use the HEX file that matches the target module. Using an incorrect HEX file may erase or flash the wrong actuator.
 :::
 
-```{Warning}
+::: warning
 Ensure that the robot’s main power is **turned off** before proceeding.
-```
+:::
 
 ### Usage (Bootloader)
 

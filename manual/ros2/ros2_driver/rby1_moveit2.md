@@ -5,7 +5,7 @@
 The `rby1_hardware` package provides a `ros2_control` `SystemInterface` plugin (`rby1_hardware/RBY1SystemHardware`) that bridges the RBY1 SDK to MoveIt 2 via the standard `ros2_control` pipeline.  
 Each `rby1_moveit_*` package contains the complete MoveIt 2 configuration (SRDF, kinematics, joint limits, controller configs) for a specific model and version.
 
-![](/images/ros2/moveit_gui.png)
+<img :src="$withBase('/images/ros2/moveit_gui.png')" alt="" class="center white-bg" style="width:100%">
 
 ## Available MoveIt Packages
 

@@ -8,7 +8,7 @@
 
 - Torso & Dual-Arm Manipulation: If you press the buttons on both wrists simultaneously, the Torso will also be unlocked and move along with the arms.​
 
-![](/images/saftey_and_precautions/operations_safety/direct_teaching.png)
+<img :src="$withBase('/images/saftey_and_precautions/operations_safety/direct_teaching.png')" alt="" class="center white-bg" style="width:60%">
 
 ---
 ### ⚠️Caution When Releasing the Torso Brake
@@ -17,9 +17,21 @@
 
 - This may result in unexpected movement or tipping over, especially if the center of gravity is not properly aligned.
 
-![](/images/saftey_and_precautions/operations_safety/brake_webui.png)
+<div class="media-grid" style="--cols:2">
 
-![](/images/saftey_and_precautions/operations_safety/brake_button.png)
+<div>
+
+<img :src="$withBase('/images/saftey_and_precautions/operations_safety/brake_webui.png')" alt="" class="white-bg">
+
+</div>
+
+<div>
+
+<img :src="$withBase('/images/saftey_and_precautions/operations_safety/brake_button.png')" alt="" class="white-bg">
+
+</div>
+
+</div>
 
 ---
 ### ⚠️Risk of Hand Injury During Leader Arm Operation
@@ -30,4 +42,4 @@
 
 - Always maintain a safe distance and avoid placing hands near moving parts while the robot is active.
 
-![](/images/saftey_and_precautions/operations_safety/leader_arm.png)
+<img :src="$withBase('/images/saftey_and_precautions/operations_safety/leader_arm.png')" alt="" class="white-bg" style="width:100%">

@@ -4,11 +4,11 @@
 
 The RB-Y1 battery charger model is **HEP-600C-48**.
 
-::: info
+::: info Note
 This content is to prevent damage to the user’s safety and property in advance. Please read the following carefully and use it correctly.
 :::
 
-![battery_charger1](/images/hardware/battery/battery_charger1.png)
+<img :src="$withBase('/images/hardware/battery/battery_charger1.png')" alt="battery_charger1" class="center rounded-img" style="width:600px">
 
 ---
 ### Battery charger Specifications
@@ -29,13 +29,25 @@ This content is to prevent damage to the user’s safety and property in advance
 ---
 ### Charging Curve
 
-![charging_curve](/images/hardware/battery/charging_curve.png)
+<div class="media-grid" style="--cols:2">
+
+<div>
+
+<img :src="$withBase('/images/hardware/battery/charging_curve.png')" alt="charging_curve" class="rounded-img" style="width:800px">
+
+</div>
+
+<div>
 
 | Parameter  | Value |
 | ---------- | ----- |
 | `Constant Current`| 10.5A |
 | `V_boost`  | 57.6V |
 | `V_float`  | 54.4V |
+
+</div>
+
+</div>
 
 ---
 ### Mechanical Specifications
@@ -46,9 +58,10 @@ This content is to prevent damage to the user’s safety and property in advance
    Download
    </a>
 
-![battery_charger3](/images/hardware/battery/battery_charger3.png)
+<img :src="$withBase('/images/hardware/battery/battery_charger3.png')" alt="battery_charger3" class="center rounded-img" style="width:600px">
+
 <br><br>
-![battery_charger_drawing](/images/hardware/battery/battery_charger_drawing.png)
+<img :src="$withBase('/images/hardware/battery/battery_charger_drawing.png')" alt="battery_charger_drawing" class="center rounded-img" style="width:600px">
 
 ## Battery Pack Specifications
 
@@ -57,7 +70,7 @@ The RB-Y1 uses different battery packs depending on robot model.
 ---
 ### Model A Battery
 
-![battery_charger_drawing](/images/hardware/battery/battery_A.png)
+<img :src="$withBase('/images/hardware/battery/battery_A.png')" alt="battery_charger_drawing" class="center rounded-img" style="width:600px">
 
 | Property | Value |
 | ---------- | ----- |
@@ -73,7 +86,7 @@ The RB-Y1 uses different battery packs depending on robot model.
 ---
 ### Model B Battery
 
-![battery_charger_drawing](/images/hardware/battery/battery_M.png)
+<img :src="$withBase('/images/hardware/battery/battery_M.png')" alt="battery_charger_drawing" class="center rounded-img" style="width:600px">
 
 | Property | Value |
 | ---------- | ----- |

@@ -3,13 +3,14 @@
 
 Model UB is the upper-body configuration of RB-Y1: a two-joint torso, two 7-DoF arms and a 2-DoF head, without a mobile base.
 
-::: info The most accurate information about the model is in the
+::: info Note
+The most accurate information about the model is in the
 <a href="https://github.com/RainbowRobotics/rby1-sdk/blob/v0.10.1/models/rby1ub/urdf/model.urdf"
 target="_blank" rel="noopener noreferrer">URDF file (`models/rby1ub/urdf/model.urdf`)</a>
 and in `rb::y1_model::UB` (`include/rby1-sdk/model.h`) of the rby1-sdk repository.
 :::
 
-![Model UB](/images/model/model_ub/model_ub.png)
+<img :src="$withBase('/images/model/model_ub/model_ub.png')" alt="Model UB" class="center" style="width:400px">
 
 ---
 ### Using the model in the SDK

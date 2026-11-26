@@ -19,18 +19,18 @@ Before operating the robot, the first step is to reconnect the power cables.
 
 Unscrew the two bolts near the head to open the body's front cover.
 
-![Open the front body cover](/images/getting-started/unboxing_body_cover.png)
+<img :src="$withBase('/images/getting-started/unboxing_body_cover.png')" alt="Open the front body cover" class="center white-bg" style="width:400px">
 
 ### Connect the Cables
 
 Connect the two connectors as shown below.
 Make sure the connector orientation is correct before mating; do not force the connection if it does not align.
 
-::: warning
+::: warning Caution
 Sparks may occur during connection. This is normal.
 :::
 
-![connect the cables](/images/getting-started/unboxing_connector.png)
+<img :src="$withBase('/images/getting-started/unboxing_connector.png')" alt="connect the cables" class="center white-bg" style="width:400px">
 
 ### (Optional) Connect the Charger
 
@@ -38,6 +38,18 @@ The robot normally operates on battery power. It can also be powered while conne
 
 Please connect the charger to the robot as shown below.
 
-![charger1](/images/getting-started/charger1.jpg)
+<div class="media-grid" style="--cols:2">
 
-![charger2](/images/getting-started/charger2.jpg)
+<div>
+
+<img :src="$withBase('/images/getting-started/charger1.jpg')" alt="charger1" class="white-bg">
+
+</div>
+
+<div>
+
+<img :src="$withBase('/images/getting-started/charger2.jpg')" alt="charger2" class="white-bg">
+
+</div>
+
+</div>

@@ -7,8 +7,9 @@ The can_checker tool allows you to verify whether the CAN communication is funct
 ### Downloads (CAN Checker)
 - can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a>
 
-``` {Warning} Ensure that the robot’s main power is **turned on** before proceeding.
-```
+::: warning
+Ensure that the robot’s main power is **turned on** before proceeding.
+:::
 
 ### Usage (CAN Checker)
  

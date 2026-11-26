@@ -1,7 +1,8 @@
 # Model M
 ##
 
-::: info The most accurate information regarding the model can be found in the 
+::: info Note
+The most accurate information regarding the model can be found in the 
 <a href="https://github.com/RainbowRobotics/rby1-sdk/blob/v0.4.1/models/rby1m/urdf/model.urdf"
 target="_blank" rel="noopener noreferrer">
 URDF files under the models directory
@@ -9,11 +10,11 @@ URDF files under the models directory
 of the Rainbow Robotics SDK repository. It is highly recommended to refer to this source for the latest updates and details.
 :::
 
-![Model M](/images/model/model_m/model_m.png)
+<img :src="$withBase('/images/model/model_m/model_m.png')" alt="Model M" class="center white-bg" style="width:400px">
 
 - Mecanum Wheel
 
-![Mecanum Wheel](/images/model/model_m/mecanum_wheel.png)
+<img :src="$withBase('/images/model/model_m/mecanum_wheel.png')" alt="Mecanum Wheel" class="center white-bg" style="width:400px">
 
 ---
 ### Degrees of Freedom (DOF)

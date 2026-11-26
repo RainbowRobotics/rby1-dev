@@ -8,7 +8,7 @@
 - Direct contact with these areas may cause cuts or puncture injuries.
 - It is recommended to wear protective gloves when handling the robot.
 
-![](/images/saftey_and_precautions/general_safety/mecanum_wheel.png)
+<img :src="$withBase('/images/saftey_and_precautions/general_safety/mecanum_wheel.png')" alt="" class="center white-bg" style="width:40%">
 
 ---
 ### ⚠️No External Obstacle Collision Detection
@@ -25,6 +25,18 @@
 - Simulation allows you to verify motions in advance and helps prevent unexpected or unsafe behavior.
 - Please refer to the simulator setup guide for installation and usage instructions. ([Explore the RBY1 Simulator!](/simulators/simulators))
 
-![](/images/saftey_and_precautions//general_safety/model_a.png)
+<div class="media-grid" style="--cols:2">
 
-![](/images/saftey_and_precautions/general_safety/model_m.png)
+<div>
+
+<img :src="$withBase('/images/saftey_and_precautions/general_safety/model_a.png')" alt="" class="white-bg">
+
+</div>
+
+<div>
+
+<img :src="$withBase('/images/saftey_and_precautions/general_safety/model_m.png')" alt="" class="white-bg">
+
+</div>
+
+</div>

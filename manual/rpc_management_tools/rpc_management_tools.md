@@ -14,7 +14,7 @@ Please use the provided `updater` program to update your RPC. During the update,
 - Download the appropriate RPC update file for your robot model from the release page.
 - Place the downloaded update file into the extracted updater directory.
 
-![](/images/rpc_management_tools/updater.png)
+<img :src="$withBase('/images/rpc_management_tools/updater.png')" alt="" class="center white-bg" style="width:100%">
 
 ### Usage (Updater)
 
@@ -42,7 +42,7 @@ chmod +x updater
     - Check the version at the bottom of the **Dashboard** page in the Web UI
     - Check the version displayed on the **backpack OLED**
 
-![](/images/rpc_management_tools/update_result.png)
+<img :src="$withBase('/images/rpc_management_tools/update_result.png')" alt="" class="center white-bg" style="width:100%">
 
 ---
 ## How to Extract Logs
@@ -78,8 +78,9 @@ The can_checker tool allows you to verify whether the CAN communication is funct
 ### Downloads (CAN Checker)
 - can_checker(for UPC): <a href="https://rainbowco-my.sharepoint.com/:u:/g/personal/rby_support_rainbow-robotics_com/IQDOSVuMntx0S55M8w0DHOmcAQFTMNjy0P95BOTpcdbwJt4?e=T0Gu3j" target="_blank" rel="noopener noreferrer">Download</a>
 
-``` {Warning} Ensure that the robot’s main power is **turned on** before proceeding.
-```
+::: warning
+Ensure that the robot’s main power is **turned on** before proceeding.
+:::
 
 ### Usage (CAN Checker)
  
@@ -117,9 +118,9 @@ The `ft_zeroset` tool allows you to check the FT sensor status and perform initi
 ### Downloads (FT zeroset)
 - ft_initialization: <a href="https://rainbowco-my.sharepoint.com/:f:/g/personal/support_rainbow-robotics_com/IgC4sTyb4l6dQppcrBiLWBJtAbmd1wpmB5SQgJTZlQCCKiE?e=bWRSl4">Download</a>
 
-```{Warning}
+::: warning
 Ensure that the robot’s main power is **turned on** before proceeding.
-```
+:::
 
 ### Usage (FT zeroset)
 
@@ -216,13 +217,13 @@ Select the bootloader executable that matches the architecture of the system whe
 | `upc_firmware_bootloader_jetson` | ARM-based systems, such as Jetson |
 | `upc_firmware_bootloader_x86` | x86_64 systems |
 
-::: info
+::: info Note
 Use the HEX file that matches the target module. Using an incorrect HEX file may erase or flash the wrong actuator.
 :::
 
-```{Warning}
+::: warning
 Ensure that the robot’s main power is **turned off** before proceeding.
-```
+:::
 
 ### Usage (Bootloader)
 

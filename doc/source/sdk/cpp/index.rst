@@ -18,8 +18,8 @@ generated Doxygen block.
 
 To build the C++ SDK and link it into your project, start with
 :doc:`build-and-link`. For first-connection checks with the robot, see
-:doc:`/getting-started/sdk-install-and-state`. When you want runnable entry
-points before reading declarations, open :doc:`/examples/c++_ex`.
+`SDK Installation and Read State <../../getting-started/sdk-install-and-state.md>`_. When you want runnable entry
+points before reading declarations, open `C++ Examples <../../examples/c++_ex.md>`_.
 
 .. list-table::
    :header-rows: 1

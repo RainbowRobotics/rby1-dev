@@ -3,16 +3,28 @@
 ## E-Stop
 - E‑Stop types: E-Stop button, Remote E‑Stop
 
-::: warning
+::: warning Important
 The package includes both an E-Stop button and a remote controller.  
 Both are safety tools that cut off power. For details, see [Shutdown Methods](../hardware/electrical_part.md#shutdown-methods).
 
 Before operation, make sure the E-Stop button is reset to its normal position if it has been pressed.
 :::
 
-![Remote E-Stop](/images/getting-started/remote_emo.jpg)
+<div class="media-grid" style="--cols:2">
 
-![E-Stop button](/images/getting-started/emo.jpg)
+<div>
+
+<img :src="$withBase('/images/getting-started/remote_emo.jpg')" alt="Remote E-Stop" class="white-bg">
+
+</div>
+
+<div>
+
+<img :src="$withBase('/images/getting-started/emo.jpg')" alt="E-Stop button" class="white-bg">
+
+</div>
+
+</div>
 
 ## Before the first power‑on
 Read this page before you power the robot on for the first time. The next pages power the robot, enable its servos and move it.

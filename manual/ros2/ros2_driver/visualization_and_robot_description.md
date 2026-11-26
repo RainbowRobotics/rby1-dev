@@ -17,20 +17,20 @@ ros2 launch rby1_description rby1_state_publisher.launch.py model:=a version:=1_
 
 1. If you launch this command, you can see the following window:
 
-![](/images/ros2/state_checker_guide_1.png)
+<img :src="$withBase('/images/ros2/state_checker_guide_1.png')" alt="" class="center white-bg" style="width:100%">
 
 2. Click 'Add', and add plugins `TF` and `RobotModel`:
 
-![](/images/ros2/state_checker_guide_2.png)
+<img :src="$withBase('/images/ros2/state_checker_guide_2.png')" alt="" class="center white-bg" style="width:100%">
 
 3. Click 'Fixed Frame' and set to `base`:
 
-![](/images/ros2/state_checker_guide_3.png)
+<img :src="$withBase('/images/ros2/state_checker_guide_3.png')" alt="" class="center white-bg" style="width:100%">
 
 4. Click 'RobotModel', and select Topics -> `/robot_description`:
 
-![](/images/ros2/state_checker_guide_4.png)
+<img :src="$withBase('/images/ros2/state_checker_guide_4.png')" alt="" class="center white-bg" style="width:100%">
 
 5. You can now control the robot model using the joint state publisher GUI:
 
-![](/images/ros2/state_checker_guide_5.png)
+<img :src="$withBase('/images/ros2/state_checker_guide_5.png')" alt="" class="center white-bg" style="width:100%">

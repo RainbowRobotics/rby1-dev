@@ -2,7 +2,7 @@
 
 ## Power System
 
-![power-system1](/images/hardware/electronical_part/power-system1.png)
+<img :src="$withBase('/images/hardware/electronical_part/power-system1.png')" alt="power-system1" class="center white-bg" style="width:200px">
 
 ### Input Source
 
@@ -24,21 +24,21 @@
 - **Remote control**
    - Functions like the emergency stop button.
 
-::: warning
+::: warning Important
 Both the Emergency Stop Button (EMO) and Remote Control cut off the power supplied from the PDU to the terminal board, providing a hardware-level safety shutdown.
 :::
 
-::: warning
+::: warning Caution
 Disconnect the input power source by accessing the front panel.
 This method is ideal for packaging or long-term storage.
 This method forcibly shuts down power. Use it with caution and only when necessary.
 :::
 
-![power_system2](/images/hardware/electronical_part/power_system2.png)
+<img :src="$withBase('/images/hardware/electronical_part/power_system2.png')" alt="power_system2" class="center rounded-img" style="width:600px">
 
 ### Power System (SCB Installed)
 
-::: warning
+::: warning Important
 SCB (Safety Control Board) is installed only in KC-certified version 1.2 robots.
 :::
 
@@ -48,7 +48,7 @@ The robot power system is structured as follows:
 
 The SCB is responsible for safety-related power control, including emergency stop handling.
 
-![emo_shutdown](/images/hardware/electronical_part/power_system3.png)
+<img :src="$withBase('/images/hardware/electronical_part/power_system3.png')" alt="emo_shutdown" class="center rounded-img" style="width:600px">
 
 ### shutdown methods (SCB Installed)
 
@@ -59,7 +59,7 @@ The SCB is responsible for safety-related power control, including emergency sto
       - The 48V power from SCB to the Terminal Board is cut off
       - As a result, all downstream modules lose power immediately
 
-![emo_shutdown](/images/hardware/electronical_part/emo_shutdown.png)
+<img :src="$withBase('/images/hardware/electronical_part/emo_shutdown.png')" alt="emo_shutdown" class="center rounded-img" style="width:600px">
 
 - **Remote control**
    - A wireless emergency stop device that performs a similar function as the EMO button.
@@ -69,7 +69,7 @@ The SCB is responsible for safety-related power control, including emergency sto
       - The PDU cuts off the 48V power supplied to the SCB
       - As a result, all downstream modules lose power immediately
 
-![remote_control_shutdown](/images/hardware/electronical_part/remote_control_shutdown.png)
+<img :src="$withBase('/images/hardware/electronical_part/remote_control_shutdown.png')" alt="remote_control_shutdown" class="center rounded-img" style="width:600px">
 
 ---
 ### Backpack
@@ -84,7 +84,7 @@ The **Backpack** section explains the internal structure and layout of the robot
 | 12V     |	8A               |
 | 5V      |	8A               |
 
-![backpack](/images/hardware/electronical_part/backpack.png)
+<img :src="$withBase('/images/hardware/electronical_part/backpack.png')" alt="backpack" class="center white-bg" style="width:600px">
 
 The robot's body is designed to distribute power and communication to each critical module for smooth operation.
 
@@ -105,7 +105,7 @@ The robot's body is designed to distribute power and communication to each criti
 
 - The **R-PC** consists of an **Up Xtreme i12** equipped with a **12th Gen Intel® Core™** processor. This serves as the processing hub for robotic actions.
 
-![rpc-upc](/images/hardware/electronical_part/rpc-upc.png)
+<img :src="$withBase('/images/hardware/electronical_part/rpc-upc.png')" alt="rpc-upc" class="center white-bg" style="width:600px">
 
 #### R-PC [Robot PC]
 The R-PC, specifically the UP Xtreme i12, receives its input power via a DC-DC converter embedded in the PDU. The power switch for the R-PC is easily accessible on the robot's top section. Additionally, the R-PC is equipped with a 4-channel M.2 CAN module, serving as the primary interface for CAN communication with each joint.
@@ -118,11 +118,11 @@ The U-PC is the Jetson AGX Orin, which can be swapped for another PC if necessar
 
 The PDU has around 20 connectors, and incorrect wiring can lead to operational issues. Special caution is necessary when handling the PDU, particularly around its DC-DC converters, as they can become very hot during operation.
 
-::: warning Be cautious not to touch the DC-DC converters while the power is on, as they can become hot.
-
+::: warning Important
+Be cautious not to touch the DC-DC converters while the power is on, as they can become hot.
 :::
 
-![pdu](/images/hardware/electronical_part/pdu.png)
+<img :src="$withBase('/images/hardware/electronical_part/pdu.png')" alt="pdu" class="center rounded-img" style="width:400px">
 
 ---
 ### Terminal Board and Fuse Information
@@ -134,31 +134,31 @@ The Terminal Board inside the robot contains four fuses:
 
 Correctly configuring the fuses ensures the smooth functioning of connected modules.
 
-![terminal-fuse](/images/hardware/electronical_part/terminal-fuse.png)
+<img :src="$withBase('/images/hardware/electronical_part/terminal-fuse.png')" alt="terminal-fuse" class="center white-bg" style="width:400px">
 
 - 
 
-![terminal_board](/images/hardware/electronical_part/terminal_board.png)
+<img :src="$withBase('/images/hardware/electronical_part/terminal_board.png')" alt="terminal_board" class="center white-bg" style="width:400px">
 
 ---
 ### Cable Connection Board
 
 This board manages the power and signal connections between the robot's modules.
 
-![cable-connection-board](/images/hardware/electronical_part/cable-connection-board.png)
+<img :src="$withBase('/images/hardware/electronical_part/cable-connection-board.png')" alt="cable-connection-board" class="center white-bg" style="width:600px">
 
 ---
 ### Tool Flange Connection
 
 The robot's tool flange includes Connector A for users, which provides a 6-line bypass connected to the U-PC. Connector B is linked to the tool flange board and routed to the R-PC for robot control. The tool flange also features an I/O interface, supporting direct connections to the robot’s force/torque (F/T) sensor or gripper. Additionally, the Direct Teaching Button allows users to manually guide the robot’s movements.
 
-![connection-info](/images/hardware/electronical_part/connection-info.png)
+<img :src="$withBase('/images/hardware/electronical_part/connection-info.png')" alt="connection-info" class="center white-bg" style="width:600px">
 
 ---
 ### Communication System Overview [CAN]
 
-::: info These CAN channels are not accessible to users. They are exclusively managed by the R-PC (Robot-PC).
-
+::: info Note
+These CAN channels are not accessible to users. They are exclusively managed by the R-PC (Robot-PC).
 :::
 
 **CAN channels**:
@@ -179,12 +179,12 @@ Command Flow:
 - The user sends commands to the R-PC via U-PC over an **Ethernet link**.
 - The R-PC processes these commands and communicates with the joints and CAN system through its embedded program.
 
-![can](/images/hardware/electronical_part/can.png)
+<img :src="$withBase('/images/hardware/electronical_part/can.png')" alt="can" class="center rounded-img" style="width:600px">
 
 ---
 ### Communication System Overview [LAN & BYPASS]
 
-![communication_system](/images/hardware/electronical_part/communication_system.png)
+<img :src="$withBase('/images/hardware/electronical_part/communication_system.png')" alt="communication_system" class="center rounded-img" style="width:200px">
 
 #### Access through U-PC:
 - The user communicates with the R-PC via LAN.

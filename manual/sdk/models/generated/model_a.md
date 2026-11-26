@@ -1,7 +1,8 @@
 # Model A
 ##
 
-::: info The most accurate information regarding the model can be found in the 
+::: info Note
+The most accurate information regarding the model can be found in the 
 <a href="https://github.com/RainbowRobotics/rby1-sdk/blob/v0.4.1/models/rby1a/urdf/model.urdf"
 target="_blank" rel="noopener noreferrer">
 URDF files under the models directory
@@ -9,7 +10,7 @@ URDF files under the models directory
 of the Rainbow Robotics SDK repository. It is highly recommended to refer to this source for the latest updates and details.
 :::
 
-![Model A](/images/model/model_a/model_a.png)
+<img :src="$withBase('/images/model/model_a/model_a.png')" alt="Model A" class="center white-bg" style="width:400px">
 
 - Differential Wheel
 

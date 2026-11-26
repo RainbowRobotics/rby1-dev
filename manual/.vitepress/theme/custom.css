@@ -53,3 +53,26 @@
 .vp-doc .link-cards li:hover {
   border-color: var(--vp-c-brand-1);
 }
+
+/* Side-by-side media from MyST grids: <div class="media-grid" style="--cols:N">. */
+.vp-doc .media-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin: 16px 0;
+}
+.vp-doc .media-grid > div > p:first-child { margin-top: 0; }
+.vp-doc .media-grid img { width: 100%; max-height: 420px; object-fit: contain; }
+@media (max-width: 640px) {
+  .vp-doc .media-grid { grid-template-columns: 1fr; }
+}
+
+/* Image options kept from the MyST pages. */
+.vp-doc img.center { display: block; margin-left: auto; margin-right: auto; }
+.vp-doc img.white-bg { background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+.vp-doc img.rounded-img { border-radius: 16px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+.vp-doc img { max-width: 100%; height: auto; }
+
+/* Embedded videos keep 16:9 at any width. */
+.vp-doc iframe { width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0; border-radius: 12px; }

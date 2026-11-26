@@ -1,7 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, normalize, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { defineConfig, type DefaultTheme } from 'vitepress'
+import { type DefaultTheme } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
+import deflist from 'markdown-it-deflist'
 
 // Site root on GitHub Pages; override with VP_BASE for local previews.
 const base = process.env.VP_BASE ?? '/rby1-dev/'
@@ -107,12 +109,14 @@ const software: Item[] = [
       page('Model UB', 'sdk/models/generated/model_ub'),
     ], true),
     group('Controllers', [
+      page('Controllers', 'sdk/controllers/index'),
       page('Command and Control Architecture', 'sdk/controllers/generated/command_and_control_architecture'),
       page('Control Hold Time and Minimum Time', 'sdk/controllers/generated/control_hold_time_and_minimum_time'),
       page('Parameter Reference', 'sdk/controllers/generated/parameter'),
     ], true),
     page('Examples', 'examples/ex'),
     group('Troubleshooting', [
+      page('Troubleshooting', 'sdk/trobuleshooting/index'),
       page('Build Issues', 'sdk/trobuleshooting/generated/build_issue'),
       page('Error Reporting', 'sdk/trobuleshooting/generated/error_reporting'),
       page('FAQ', 'sdk/trobuleshooting/generated/faq'),
@@ -184,7 +188,7 @@ const nav = (ko: boolean): DefaultTheme.NavItem[] => {
     },
     {
       text: t('API Reference', 'API 레퍼런스'),
-      activeMatch: '/sdk/(index|python|cpp|protos)',
+      activeMatch: '^/sdk/(index|python/|cpp/|protos/)',
       items: [
         { text: 'Python API', link: '/sdk/python/index' },
         { text: 'C++ API', link: '/sdk/cpp/index' },
@@ -193,11 +197,15 @@ const nav = (ko: boolean): DefaultTheme.NavItem[] => {
     },
     { text: t('Download', '다운로드'), link: 'https://github.com/RainbowRobotics/rby1-release/releases' },
     { text: t('Support', '기술지원'), link: 'https://github.com/RainbowRobotics/rby1-sdk/discussions' },
-    { text: SDK_VERSION, items: [{ text: `${SDK_VERSION} (latest)`, link: ko ? '/ko/' : '/' }] },
+    {
+      text: SDK_VERSION,
+      items: [{ text: t(`${SDK_VERSION} release notes`, `${SDK_VERSION} 릴리스 노트`), link: `https://github.com/RainbowRobotics/rby1-sdk/releases/tag/${SDK_VERSION}` }],
+    },
   ]
 }
 
-export default defineConfig({
+// withMermaid: renders ```mermaid blocks (architecture diagrams in the ROS 2 pages).
+export default withMermaid({
   base,
   title: 'RB-Y1',
   description: 'RB-Y1 dual-arm mobile manipulator: manual, SDK and API reference',
@@ -215,6 +223,10 @@ export default defineConfig({
   markdown: {
     math: true,
     languageAlias: { pycon: 'python' },
+    // Definition lists: enum members in the generated Python API pages.
+    config: (md) => {
+      md.use(deflist)
+    },
     // Same heading ids as the previous (MyST) site, so existing #anchors keep working:
     // lower case, keep letters, digits, "_" and "-", spaces to "-".
     anchor: {

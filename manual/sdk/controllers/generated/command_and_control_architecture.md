@@ -9,21 +9,21 @@ The robot commands are divided into three main types:
 2. **ComponentBasedCommand**: Sends commands to the robot's `head`, `body`, or `mobility` components individually.
 3. **JogCommand**: Controls smaller, individual movements, typically used for fine adjustments.
 
-![mermaid_robot_command](/images/sdk/command_and_control_architecture/mermaid_robot_command.png)
+<img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_robot_command.png')" alt="mermaid_robot_command" class="center rounded-img" style="width:600px">
 
 ---
 ### WholeBodyCommand
 
 This command controls all the major components of the robot, including arms, torso, and legs. It supports various controllers for managing the full body of the robot. The primary use case is for synchronized movements where multiple parts of the robot are involved. This command sends a **24 DOF** control signal all at once.
 
-![mermaid_wholebody_command](/images/sdk/command_and_control_architecture/mermaid_wholebody_command.png)
+<img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_wholebody_command.png')" alt="mermaid_wholebody_command" class="center rounded-img" style="width:400px">
 
 ---
 ### ComponentBasedCommand
 
 The **ComponentBasedCommand** is responsible for controlling the core components of the robot, such as the **Mobility**, **Body**, and **Head**. It provides a flexible architecture for handling different sections of the robot individually. Each of these components can be controlled using specialized commands, allowing precise control over the robot's movement and actions. This structure typically supports multiple controllers to handle specific parts of the robot efficiently.
 
-![mermaid_component_based](/images/sdk/command_and_control_architecture/mermaid_component_based.png)
+<img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_component_based.png')" alt="mermaid_component_based" class="center rounded-img" style="width:600px">
 
 ---
 ### BodyCommand Structure
@@ -32,7 +32,7 @@ The **BodyCommand** allows for detailed control of the robot's body and arms. It
 
 In the diagram below, the Controller nodes follow the structure defined in the Controllers section, where each Controller node represents the available controllers for joint position, Cartesian motion, impedance control, gravity compensation, and optimal control.
 
-![mermaid_body_component](/images/sdk/command_and_control_architecture/mermaid_body_component.png)
+<img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_body_component.png')" alt="mermaid_body_component" class="center rounded-img" style="width:600px">
 
 ---
 ### Controllers
@@ -73,7 +73,7 @@ $$
 W_{3} = \text{constant small value}
 $$
 
-![mermaid_controller](/images/sdk/command_and_control_architecture/mermaid_controller.png)
+<img :src="$withBase('/images/sdk/command_and_control_architecture/mermaid_controller.png')" alt="mermaid_controller" class="center rounded-img" style="width:600px">
 
 ---
 ### Examples

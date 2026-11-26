@@ -14,4 +14,4 @@
 - Always keep the EMO remote controller within reach when running control code.
 - In case of unexpected behavior, use the EMO remote to immediately stop the robot.
 
-![](/images/saftey_and_precautions/control_and_system/emo.jpg)
+<img :src="$withBase('/images/saftey_and_precautions/control_and_system/emo.jpg')" alt="" class="center white-bg" style="width:40%">

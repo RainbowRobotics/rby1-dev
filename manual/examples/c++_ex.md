@@ -2,8 +2,9 @@
 
 Here is a list of available C++ example programs for the Rainbow Robotics SDK. Some examples are not fully listed here for simplicity.
 
-``` {Warning} This documentation is based on the **main branch** of the SDK repository. The **dev branch** may include additional features that are currently in development. However, since these features are not fully tested, we are not responsible for any issues arising from using the dev branch. Use it with caution.
-```
+::: warning
+This documentation is based on the **main branch** of the SDK repository. The **dev branch** may include additional features that are currently in development. However, since these features are not fully tested, we are not responsible for any issues arising from using the dev branch. Use it with caution.
+:::
 
 ---
 ## Available C++ Examples
@@ -20,8 +21,9 @@ demo_motion.cpp
 </a>
 : Basic robot motion control demo.
 
-``` {Warning} This demo executes large movements. Ensure the surroundings are clear and secure before running this example.
-```
+::: warning
+This demo executes large movements. Ensure the surroundings are clear and secure before running this example.
+:::
 
 - ...
 

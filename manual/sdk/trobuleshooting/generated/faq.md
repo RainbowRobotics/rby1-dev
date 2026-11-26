@@ -108,7 +108,8 @@ If you don't want to use
 <span style="color:red;"><code>`sudo`</code></span>
  every time you execute the command, follow the steps below:
 
-::: warning Modifying the udev rules for 
+::: warning
+Modifying the udev rules for 
 <span style="color:red;"><code>`u2d2`</code></span>
  is entirely at the user's own risk. Any issues resulting from changes to these settings, including losing the serial number, will be considered user fault. Please ensure that you back up the original settings before making any modifications. If issues arise and the serial number is lost, it will be treated as customer negligence. Proceed with caution.
 :::

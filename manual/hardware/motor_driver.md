@@ -2,7 +2,7 @@
 
 ## Actuator System Overview
 
-![actuator_system](/images/hardware/motor_driver/actuator_system.png)
+<img :src="$withBase('/images/hardware/motor_driver/actuator_system.png')" alt="actuator_system" class="center rounded-img" style="width:800px">
 
 ---
 ## Actuator Detail Specifications 
