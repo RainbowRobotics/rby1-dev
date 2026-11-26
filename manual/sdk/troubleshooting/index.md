@@ -3,9 +3,9 @@
 Start here when something does not work. The sections below cover connection problems from the SDK side. For hotspot and Web UI problems, see also [Connection Troubleshooting](../../getting-started/connection-troubleshooting.md). Addresses and ports are listed in [Network and Ports](../../getting-started/network-and-ports.md). The other pages cover the rest:
 
 - [Fault Diagnosis](./fault-diagnosis.md): the Control Manager does not enable, goes to a fault, or a command fails.
-- [Build Issues](./generated/build_issue.md): building the SDK from source fails.
-- [FAQ](./generated/faq.md): commands, priorities, streams and the leader arm.
-- [Error Reporting](./generated/error_reporting.md): what to send when you ask for help.
+- [Build Issues](./build_issue.md): building the SDK from source fails.
+- [FAQ](./faq.md): commands, priorities, streams and the leader arm.
+- [Error Reporting](./error_reporting.md): what to send when you ask for help.
 
 ## SDK cannot connect
 
@@ -54,7 +54,7 @@ print("SDK on this PC:", rby.__version__)
 print("Robot software:", info.version, "| SDK on the robot:", info.sdk_version)
 ```
 
-If a function of the SDK fails although the connection works, a version difference can be the cause. Update the SDK on your PC or the robot software ([RPC Updater](../../rpc_management_tools/rpc_updater.md)) so that they match, and include both versions when you [report the problem](./generated/error_reporting.md).
+If a function of the SDK fails although the connection works, a version difference can be the cause. Update the SDK on your PC or the robot software ([RPC Updater](../../rpc_management_tools/rpc_updater.md)) so that they match, and include both versions when you [report the problem](./error_reporting.md).
 
 ## Cannot reach the Web UI
 

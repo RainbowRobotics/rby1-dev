@@ -38,7 +38,7 @@ To watch the state continuously, pass a callback with two parameters to `start_s
 | `The current state is in fault mode (Minor or Major Fault). Expected state is Idle` | A fault was not reset. | Reset the fault first (see [Recover](#recover)). |
 | `Not ready for send command, check hardware state` | The hardware is not ready for commands, for example the power or the servos are off. | Turn the power and the servos on, then try again. |
 | `Robot state check exceeded the timeout limit of 500ms` | The robot software did not receive a recent robot state. | Check the power, then restart the robot if it repeats. |
-| `Joint <index> (<name>) position <value> is below the lower limit` or `exceeds the upper limit` | A joint is outside its position limit. | Move the joint back into its range. See the [FAQ](./generated/faq.md). |
+| `Joint <index> (<name>) position <value> is below the lower limit` or `exceeds the upper limit` | A joint is outside its position limit. | Move the joint back into its range. See the [FAQ](./faq.md). |
 
 Only the joints whose servos are on when you enable are controlled. Turn on the servos of all joints you want to command before you enable.
 
@@ -79,7 +79,7 @@ Then the robot software:
 
 ::: warning
 JAM, CUR, BIG, INPUT and TEMPERATURE errors can mean a hardware problem or a collision.
-Find the cause before you enable the robot again. If the same error repeats, stop using the robot and contact support with the fault log (see [Error Reporting](./generated/error_reporting.md)).
+Find the cause before you enable the robot again. If the same error repeats, stop using the robot and contact support with the fault log (see [Error Reporting](./error_reporting.md)).
 :::
 
 ## Read the logs
@@ -178,7 +178,7 @@ The table was derived by reading the code. It was not checked on a robot or a si
 | Finish code in the SDK | Reason in the robot software |
 | --- | --- |
 | `Ok` | The command finished normally. |
-| `Canceled` | The command was preempted or canceled: another command with a higher priority took over the same joints; the new command was refused because a running command on the same joints has the same or a higher priority (see the [FAQ](./generated/faq.md)); or the command was canceled with `cancel_control()` or `handler.cancel()`. |
+| `Canceled` | The command was preempted or canceled: another command with a higher priority took over the same joints; the new command was refused because a running command on the same joints has the same or a higher priority (see the [FAQ](./faq.md)); or the command was canceled with `cancel_control()` or `handler.cancel()`. |
 | `Preempted` | The command could not be initialized. The robot log has the details (`Control initialization failed`). |
 | `InitializationFailed` | The Control Manager is `Idle`. Enable it first. |
 | `ControlManagerIdle` | The Control Manager is in `MinorFault` or `MajorFault`. Recover first. |

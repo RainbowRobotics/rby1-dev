@@ -65,6 +65,12 @@ git add external/rby1-sdk && git commit
 
 이후의 `make -C doc html`은 서브모듈의 현재 태그를 그대로 씁니다.
 
+직접 쓴 페이지에는 이전 태그로 고정된 SDK 링크가 있습니다. 새 태그에서 내용이 맞는지 확인한 뒤 링크를 바꿉니다.
+
+```bash
+grep -rln 'blob/v0.10.1\|tree/v0.10.1' manual --include=*.md | grep -v generated
+```
+
 proto가 바뀐 경우에는 `make -C doc protoc-doc`(Docker, sudo 불필요)으로 proto 페이지를 다시 만들고, `doc/source/sdk/protos/generated`와 `manual/sdk/protos/index.md`를 커밋합니다.
 설명·경고·단위 같은 추가 문구는 생성된 페이지가 아니라 `doc/source/sdk/protos/command_descriptions.json` 또는 `type_notes.json`에 씁니다.
 CI는 같은 명령으로 다시 생성해 커밋본과 다르면 실패합니다.

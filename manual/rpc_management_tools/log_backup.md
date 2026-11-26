@@ -1,6 +1,6 @@
 # Log Backup
 
-The robot PC (RPC) keeps its logs in `/root/.rby1/logs`. Attach these logs when you report a problem to the support team (see [Error Reporting](../sdk/troubleshooting/generated/error_reporting.md)).
+The robot PC (RPC) keeps its logs in `/root/.rby1/logs`. Attach these logs when you report a problem to the support team (see [Error Reporting](../sdk/troubleshooting/error_reporting.md)).
 
 ## Download logs from the Web UI (recommended)
 

@@ -88,7 +88,7 @@ When the E-Stop cuts the power, `right_arm_6`, `left_arm_6`, the wheels and, on 
 :::
 
 If the robot does not stop, or the E-Stop is not reported, do not continue. Contact Rainbow Robotics support
-([Error Reporting](../sdk/troubleshooting/generated/error_reporting.md)).
+([Error Reporting](../sdk/troubleshooting/error_reporting.md)).
 
 ## 4. Demo motion: `24_demo_motion.py`
 

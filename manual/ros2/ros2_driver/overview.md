@@ -18,7 +18,7 @@ The driver, the examples and MoveIt move the real robot. Before you run anything
 
 To install and build the packages, see [Install & Build](install_and_build.md).
 
-<img :src="$withBase('/images/ros2/system_architecture.png')" alt="" class="center" style="width:100%">
+<img :src="$withBase('/images/ros2/system_architecture.png')" alt="RB-Y1 ROS 2 driver system architecture" class="center" style="width:100%">
 
 Two paths lead to the robot. The robot takes commands from one owner at a time.
 1. **The driver (`rby1_ros2_driver`)**: a C++ node connected to the robot or the simulator over gRPC. It publishes the robot state at 100 Hz and takes commands as services and actions (e.g. `robot_joint`, `robot_cartesian`), plus `cmd_vel` for the base. The examples, the [MoveIt planner](moveit_planner.md) and the tools all go through it.

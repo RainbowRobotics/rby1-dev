@@ -4,7 +4,7 @@
 
 **A:**
 This issue may occur when the robot is near a joint limit. If a joint is beyond its limit when you turn the servos on, the Control Manager cannot switch to `Enabled`.
-For other reasons, see [Fault Diagnosis](../fault-diagnosis.md#enable-fails).
+For other reasons, see [Fault Diagnosis](./fault-diagnosis.md#enable-fails).
 
 To resolve this:
 
@@ -17,7 +17,7 @@ To resolve this:
 ::: warning
 When a brake is released, the joint is free and the links above it can fall under their own weight.
 Before you press the brake release button, support the link by hand (two people for the torso joints `torso_*` and for `right_arm_0`–`right_arm_2` and `left_arm_0`–`left_arm_2`),
-release the button before you let go, and keep hands out of pinch points. See [Precautions](../../../precautions/hardware_handling.md).
+release the button before you let go, and keep hands out of pinch points. See [Precautions](../../precautions/hardware_handling.md).
 :::
 
 ---
@@ -76,7 +76,7 @@ The Control Manager compares the joints of the new command with the joints of th
 - **Shared joints, higher priority:** the new command is accepted. The running command that uses those joints is asked to stop and is preempted. Then the new command starts.
 - **Shared joints, same or lower priority:** the new command is refused and is preempted.
 
-In SDK v0.10.1 a preempted command shows the finish code `Canceled`, not `Preempted`. See [Command finish codes](../fault-diagnosis.md#finish-codes).
+In SDK v0.10.1 a preempted command shows the finish code `Canceled`, not `Preempted`. See [Command finish codes](./fault-diagnosis.md#finish-codes).
 
 The priority is an integer from 0 to 999; values outside this range are clamped. A higher number is a higher priority.
 The default priority of `send_command()` and `create_command_stream()` is 1.
@@ -120,8 +120,8 @@ For examples, see [03_robot_state.py](https://github.com/RainbowRobotics/rby1-sd
 **A:**
 This example runs on the user PC (UPC) and does not run in simulation. Check the following:
 
-- The leader arm is connected to the UPC with its cable, as in [Connect the leader arm](../../../options/leader_arm.md#connect-the-leader-arm).
-- The wiring on the UPC bypass port matches your leader arm kit. This manual does not document the jumper position for that port. Ask [support](../../../support.md) for it.
+- The leader arm is connected to the UPC with its cable, as in [Connect the leader arm](../../options/leader_arm.md#connect-the-leader-arm).
+- The wiring on the UPC bypass port matches your leader arm kit. This manual does not document the jumper position for that port. Ask [support](../../support.md) for it.
 - The program can open the USB serial devices. Run it with `sudo`, or set the udev rule below.
 
 The SDK opens the leader arm at `/dev/rby1_leader_arm`. If that device does not exist, it uses the older name `/dev/rby1_master_arm`. The gripper is at `/dev/rby1_gripper`.

@@ -1,6 +1,6 @@
 # Error Reporting
 
-Report problems so that we can fix them. Which channel to use depends on the problem; the [Support](../../../support.md) page has the full list.
+Report problems so that we can fix them. Which channel to use depends on the problem; the [Support](../../support.md) page has the full list.
 
 | Problem | Where to report |
 | --- | --- |
@@ -29,9 +29,9 @@ Collect this information. It lets us reproduce the problem without asking you ag
   ```
 
 - **Steps:** what you did, what you expected and what happened. Attach the smallest code that shows the problem.
-- **Control Manager state and log:** the state when the problem happened and the related log lines. See [Fault Diagnosis](../fault-diagnosis.md).
-- **Fault log:** if the Control Manager went to `MajorFault`, the fault log file (`fault-*.csv`) of that time. Download it with the [17_fault_log](../../../examples/ex.md) example.
-- **Robot logs:** for problems that are hard to describe, the logs from [Log Backup](../../../rpc_management_tools/log_backup.md).
+- **Control Manager state and log:** the state when the problem happened and the related log lines. See [Fault Diagnosis](./fault-diagnosis.md).
+- **Fault log:** if the Control Manager went to `MajorFault`, the fault log file (`fault-*.csv`) of that time. Download it with the [17_fault_log](../../examples/ex.md) example.
+- **Robot logs:** for problems that are hard to describe, the logs from [Log Backup](../../rpc_management_tools/log_backup.md).
 
 ::: tip
 Your reports help us improve the SDK and the robot software. Thank you.

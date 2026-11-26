@@ -136,6 +136,10 @@ def tidy_python(markdown: str) -> str:
         text = re.sub(r"\s+", " ", m.group(0).replace("*", "")).replace(" ,", ",").replace("( ", "(").strip()
         return f"*{text}*"
     markdown = re.sub(r"(?:\*{1,2}[^*\n]+?\*{1,2}[ ]?){3,}", merge, markdown)
+    markdown = re.sub(r"\*\(([^*\n]*)\* \*\)\*", r"*(\1)*", markdown)  # short shapes: "*(14,* *)*"
+    markdown = re.sub(r"\*([^*\n\[\]]*\()\*(\w+)\* \*,\* \*\)\*", r"*\1\2,)*", markdown)  # "*, shape (*DOF* *,* *)*"
+    # napoleon's ":ivar name (type):" fields come out as "  *name (type) -- text" (an unclosed emphasis).
+    markdown = re.sub(r"^  \*(\w+) \((.*)\)( -- .*)?$", r"  - **\1** (\2)\3", markdown, flags=re.M)
     # The private module name leaks into "See Also" entries of some docstrings.
     return markdown.replace("rby1_sdk._bindings.", "rby1_sdk.")
 
@@ -146,15 +150,17 @@ def tidy_cpp(markdown: str) -> str:
     for line in markdown.splitlines():
         if line.startswith("### ") and prev.startswith("<a id="):
             decl = line[4:]
-            if not re.match(r"^(template\s*<.*?>\s*)?(class|struct)\s+[\w:]+(\s*[:{]|\s*$|\s+final)", decl) or decl == "struct timestamp":
+            # Breathe writes `struct timespec` members as "struct <member>", which looks like a class heading.
+            timespec = re.fullmatch(r"struct (timestamp|robot_system_timestamp|time_since_last_update)", decl)
+            if timespec:
+                line = f"#### struct timespec {timespec.group(1)}"
+            elif not re.match(r"^(template\s*<.*?>\s*)?(class|struct)\s+[\w:]+(\s*[:{]|\s*$|\s+final)", decl):
                 line = "#" + line
-            # Breathe drops the type of `struct timespec` members (Log::timestamp, RobotState::timestamp).
-            if decl == "struct timestamp":
-                line = "#### struct timespec timestamp"
         out.append(line)
         if line.strip():
             prev = line
-    return "\n".join(out)
+    # Doxygen links the product name in "Robot A/M/UB" to the class rb::Robot.
+    return re.sub(r"\[Robot\]\([^)]*client/robot\.md\) (A|M|UB)\b", r"Robot \1", "\n".join(out))
 
 
 def vue_safe(markdown: str) -> str:
@@ -238,6 +244,8 @@ def export_api(tmp: Path) -> None:
                           lambda m: f"[{m.group(1)}]({m.group(2)})" if m.group(2) else m.group(1), text)
             if lang == "python":
                 text = tidy_python(text)
+                if leftover := re.search(r"^  \*\w+ \(.*$", text, flags=re.M):
+                    raise SystemExit(f"[api] {target}: unconverted variable field: {leftover.group(0)}")
             if lang == "cpp":
                 text = tidy_cpp(restore_constexpr(text, constexpr))
                 # The Doxygen HTML is a static folder: load it as a normal page, not through the router.

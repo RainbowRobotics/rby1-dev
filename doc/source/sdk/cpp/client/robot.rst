@@ -191,7 +191,7 @@ a command, and wait for its feedback.
        ``0`` to ``999``, and a higher number is a higher priority. A new
        command that shares joints with a running command starts only if its
        priority is higher. See the priority question in the
-       `FAQ <../../troubleshooting/generated/faq.md>`_.
+       `FAQ <../../troubleshooting/faq.md>`_.
    * - ``ResetOdometry(angle, position)``
      - ``rad``, ``m``
      - ``angle`` is the planar heading reset. ``position`` carries ``[x, y]``

@@ -132,15 +132,6 @@ smaller state records that appear inside the top-level snapshot.
      - ``CollisionResult::position1``, ``position2``, and ``distance`` are all
        in meters. Signed distance becomes negative on penetration.
 
-.. note::
-
-   In the generated declarations below, ``time_since_last_update`` of
-   ``JointState``, ``ToolFlangeState``, and ``FTSensorData`` appears as a
-   heading ``struct time_since_last_update``. It is a plain ``timespec``
-   member (``struct timespec time_since_last_update{}`` in
-   ``robot_state.h``), not a type of its own. ``RobotState::timestamp`` is
-   shown correctly as ``struct timespec timestamp``.
-
 .. rubric:: Detailed Reference
 
 .. doxygenstruct:: rb::RobotState

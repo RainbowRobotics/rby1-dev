@@ -43,7 +43,7 @@ The gripper connects to the body's I/O port through the bypass port on the wrist
 
 <img :src="$withBase('/images/options/gripper/rby_gripper_io_connection.png')" alt="Gripper wiring from the wrist bypass port to the U2D2 in the PDU" class="center white-bg" style="width:600px">
 
-The device name `/dev/rby1_gripper` comes from a udev rule on the UPC (see the udev steps in the [FAQ](../sdk/troubleshooting/generated/faq.md)).
+The device name `/dev/rby1_gripper` comes from a udev rule on the UPC (see the udev steps in the [FAQ](../sdk/troubleshooting/faq.md)).
 
 ## Control from the SDK
 

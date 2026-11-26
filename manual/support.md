@@ -16,4 +16,4 @@ Send what we need to reproduce the problem:
 
 - Robot model and hardware version (for example, Model A v1.2), robot software version, SDK version (`pip show rby1-sdk`).
 - What you did, what you expected, and what happened, step by step.
-- Robot logs from the time of the problem: see [Error Reporting](sdk/troubleshooting/generated/error_reporting.md) and [Log Backup](rpc_management_tools/log_backup.md).
+- Robot logs from the time of the problem: see [Error Reporting](sdk/troubleshooting/error_reporting.md) and [Log Backup](rpc_management_tools/log_backup.md).
