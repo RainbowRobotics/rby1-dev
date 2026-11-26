@@ -219,14 +219,14 @@ const nav: DefaultTheme.NavItem[] = [
 ]
 
 // ── Edit links: generated pages point to their source ──────────────
-const REPO = 'https://github.com/RainbowRobotics/rby1-dev'
-const SDK_REPO = 'https://github.com/RainbowRobotics/rby1-sdk'
-function editUrl(filePath: string): string {
+// VitePress serializes this function into the page bundle, so it must not use outside variables.
+function editUrl({ filePath }: { filePath: string }): string {
+  const repo = 'https://github.com/RainbowRobotics/rby1-dev'
   let m: RegExpMatchArray | null
-  if ((m = filePath.match(/^sdk\/python\/generated\//))) return `${SDK_REPO}/tree/${SDK_VERSION}/python` // docstrings
-  if ((m = filePath.match(/^sdk\/(python|cpp)\/(.+)\.md$/))) return `${REPO}/edit/dev/doc/source/sdk/${m[1]}/${m[2]}.rst`
-  if ((m = filePath.match(/^sdk\/protos\/generated\//))) return `${REPO}/tree/dev/doc/source/sdk/protos` // generator input
-  return `${REPO}/edit/dev/manual/${filePath}`
+  if (/^sdk\/python\/generated\//.test(filePath)) return 'https://github.com/RainbowRobotics/rby1-sdk/tree/main/python' // docstrings
+  if ((m = filePath.match(/^sdk\/(python|cpp)\/(.+)\.md$/))) return `${repo}/edit/dev/doc/source/sdk/${m[1]}/${m[2]}.rst`
+  if (/^sdk\/protos\/generated\//.test(filePath)) return `${repo}/tree/dev/doc/source/sdk/protos` // generator input
+  return `${repo}/edit/dev/manual/${filePath}`
 }
 
 // ── Page metadata: description from the first paragraph, canonical URL, Open Graph ──
@@ -302,7 +302,7 @@ export default withMermaid({
     ],
     editLink: {
       // Generated pages are edited at their source (see README, "Generated pages").
-      pattern: ({ filePath }) => editUrl(filePath),
+      pattern: editUrl,
       text: 'Edit this page on GitHub',
     },
     outline: { level: [2, 3] },

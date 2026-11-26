@@ -167,8 +167,11 @@ def vue_safe(markdown: str) -> str:
             continue
         if line.strip() == "$$":
             in_math = not in_math
-        if in_fence or in_math or line.strip() == "$$":
+        if in_fence or line.strip() == "$$":
             lines.append(line)
+            continue
+        if in_math:  # display math: only undo the Markdown escapes
+            lines.append(_unescape_math(line))
             continue
         if line.startswith("#"):
             # Links inside headings (e.g. template arguments) confuse heading anchors and the
