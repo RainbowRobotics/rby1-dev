@@ -27,7 +27,7 @@ MANUAL = HERE.parent
 REPO = MANUAL.parent
 DOC = REPO / "doc"
 sys.path.insert(0, str(HERE))
-from migrate_from_sphinx import rst_title, rst_toctree_index, title_of  # noqa: E402
+from rst_index import rst_toctree_index, title_of  # noqa: E402
 from myst_to_vitepress import convert  # noqa: E402
 
 # HTML the API Markdown may contain on purpose; any other "<" outside code is text (e.g. Robot<T>).
@@ -56,6 +56,11 @@ def _escape_text(segment: str) -> str:
     return "".join(out)
 
 
+def _unescape_math(math: str) -> str:
+    """The Markdown export escapes "*", "_" and "\\" inside formulas (q^\\*, ^\\\\top); MathJax needs them raw."""
+    return re.sub(r"\\([*_\\])", r"\1", math)
+
+
 def _escape_line(line: str) -> str:
     """Escape "<" in text, leaving inline code and $math$ untouched."""
     parts = re.split(r"(`+[^`]*`+)", line)
@@ -64,16 +69,18 @@ def _escape_line(line: str) -> str:
         if p.startswith("`"):
             out.append(p)
         else:
-            out.append("".join(q if MATH.fullmatch(q) else _escape_text(q) for q in MATH.split(p)))
+            out.append("".join(_unescape_math(q) if MATH.fullmatch(q) else _escape_text(q) for q in MATH.split(p)))
     return "".join(out)
 
 
 def _admonitions(lines: list[str]) -> list[str]:
     """Sphinx note/warning boxes come out as "#### NOTE" + paragraphs; make them VitePress containers."""
-    out, open_box = [], False
+    out, open_box, has_text = [], False, False
     for line in lines:
         m = SPHINX_ADMONITION_HEADING.match(line)
-        ends_box = open_box and (line.startswith("#") or line.startswith("<a id=") or line.startswith("**"))
+        # The box holds one paragraph: it ends at the first blank line after its text,
+        # or earlier at a heading/anchor.
+        ends_box = open_box and (line.startswith(("#", "<a id=", "**")) or (has_text and not line.strip()))
         if ends_box or (open_box and m):
             out.extend([":::", ""])
             open_box = False
@@ -81,8 +88,10 @@ def _admonitions(lines: list[str]) -> list[str]:
             key = m.group(1).upper()
             kind, title = SPHINX_ADMONITION.get(key, ("danger", m.group(1)))
             out.append(f"::: {kind}{(' ' + title) if title else ''}")
-            open_box = True
+            open_box, has_text = True, False
             continue
+        if open_box and line.strip():
+            has_text = True
         out.append(line)
     if open_box:
         out.append(":::")
@@ -108,6 +117,35 @@ def _summary_table_headers(lines: list[str]) -> list[str]:
             continue
         i += 1
     return out
+
+
+def tidy_python(markdown: str) -> str:
+    """Fix two artifacts of the Markdown export of the Python docstrings."""
+    # ":pyattr:`X`" wrongly written roles come out as one-line code blocks inside a sentence.
+    markdown = re.sub(r"\n*```\n:py\w+:`([^`]+)`\n```\n*", r" `\1`", markdown)
+    markdown = re.sub(r":py\w+:`([^`]+)`", r"`\1`", markdown)
+    # Types like "*shape* *(**N* *,* *)*" (one emphasis per token) -> "*shape (N, )*".
+    def merge(m: re.Match) -> str:
+        text = re.sub(r"\s+", " ", m.group(0).replace("*", "")).replace(" ,", ",").replace("( ", "(").strip()
+        return f"*{text}*"
+    return re.sub(r"(?:\*{1,2}[^*\n]+?\*{1,2}[ ]?){3,}", merge, markdown)
+
+
+def tidy_cpp(markdown: str) -> str:
+    """C++ pages: member declarations one level below the class and section headings."""
+    out, prev = [], ""
+    for line in markdown.splitlines():
+        if line.startswith("### ") and prev.startswith("<a id="):
+            decl = line[4:]
+            if not re.match(r"^(template\s*<.*?>\s*)?(class|struct)\s+[\w:]+(\s*[:{]|\s*$|\s+final)", decl) or decl == "struct timestamp":
+                line = "#" + line
+            # Breathe drops the type of `struct timespec` members (Log::timestamp, RobotState::timestamp).
+            if decl == "struct timestamp":
+                line = "#### struct timespec timestamp"
+        out.append(line)
+        if line.strip():
+            prev = line
+    return "\n".join(out)
 
 
 def vue_safe(markdown: str) -> str:
@@ -139,7 +177,8 @@ def vue_safe(markdown: str) -> str:
     body = DOCSTRING_SECTION.sub(r"**\1**", body)
     # `{{ }}` would be evaluated by Vue; v-pre turns interpolation off for the whole page.
     # Five colons so that the ::: containers inside do not close it. Outline: classes and members.
-    return f"---\noutline: [2, 4]\n---\n\n::::: v-pre\n{body}\n:::::\n"
+    # Generated pages have no git history of their own.
+    return f"---\noutline: [2, 4]\nlastUpdated: false\n---\n\n::::: v-pre\n{body}\n:::::\n"
 
 
 def constexpr_members() -> set[str]:
@@ -184,8 +223,10 @@ def export_api(tmp: Path) -> None:
             text = md.read_text()
             # Breathe target ids (#rby1-sdkclass...) are not exported; link to the page instead.
             text = re.sub(r"\]\(([^)#\s]*)#rby1-sdk[^)]*\)", lambda m: f"]({m.group(1) or '#'})", text)
+            if lang == "python":
+                text = tidy_python(text)
             if lang == "cpp":
-                text = restore_constexpr(text, constexpr)
+                text = tidy_cpp(restore_constexpr(text, constexpr))
                 # The Doxygen HTML is a static folder: load it as a normal page, not through the router.
                 text = re.sub(r"\]\((raw-api/[^)]+)\)", r'](\1){target="_self"}', text)
             target.write_text(vue_safe(text))

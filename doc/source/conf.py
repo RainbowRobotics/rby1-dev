@@ -2,7 +2,7 @@
 
 The web manual is the VitePress site in manual/. Sphinx is used only because the API pages are
 generated from the SDK (autodoc for the pybind11 module, breathe for the Doxygen XML of the C++
-headers). `manual/scripts/export_api_markdown.py` runs this with the `markdown` builder and copies
+headers). `manual/scripts/generate_reference.py` runs this with the `markdown` builder and copies
 the result into manual/sdk/python and manual/sdk/cpp.
 """
 from __future__ import annotations

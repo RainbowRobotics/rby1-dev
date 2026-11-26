@@ -1,17 +1,17 @@
 # Build of the RB-Y1 web manual: VitePress site in ../manual, API reference generated with Sphinx.
 
 # ------------------------------------------------------------------------------
-# Sphinx 기본 설정
+# Paths
 # ------------------------------------------------------------------------------
-SPHINXOPTS    ?=
-SPHINXBUILD   ?= sphinx-build
 SOURCEDIR      = source
 BUILDDIR       = build
 
 # ------------------------------------------------------------------------------
-# SDK 버전별 빌드 설정 (버전 폴더 출력 + external SDK 태그 고정)
+# SDK version the API reference is generated from
 # ------------------------------------------------------------------------------
-SDK_TAG ?= v0.10.1
+# Defaults to the tag the SDK submodule is checked out at, so a rebuild never moves the submodule back.
+# To document another release: make -C doc html SDK_TAG=v0.11.0, then commit external/rby1-sdk.
+SDK_TAG ?= $(shell git -C "$(CURDIR)/../external/rby1-sdk" describe --tags --exact-match 2>/dev/null || echo v0.10.1)
 
 REPO_ROOT        := $(abspath $(CURDIR)/..)
 EXTERNAL_SDK_DIR := $(REPO_ROOT)/external/rby1-sdk
@@ -60,7 +60,7 @@ help:
 	@echo "  clean-doxygen     Remove Doxygen outputs"
 	@echo
 	@echo "Variables:"
-	@echo "  SDK_TAG=v0.10.1 (default)"
+	@echo "  SDK_TAG=<tag>             # default: the tag of external/rby1-sdk ($(SDK_TAG))"
 	@echo "  PROTO_SRC=...             # Path to rby1-sdk/protos"
 	@echo "  PROTO_GLOB=rb/api/*.proto # Which protos to include"
 
@@ -71,7 +71,7 @@ protoc-doc:
 	@mkdir -p "$(PROTO_OUT_DIR)"
 	@echo "[protoc-doc] Using PROTO_SRC=$(PROTO_SRC)"
 	@echo "[protoc-doc] Writing to $(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
-	@$(DOCKER) run --rm \
+	@$(DOCKER) run --rm -u "$$(id -u):$$(id -g)" \
 	  -v "$(PROTO_OUT_DIR):/out" \
 	  -v "$(PROTO_SRC):/protos" \
 	  --entrypoint '' \
@@ -81,9 +81,9 @@ protoc-doc:
 	      --doc_out=/out \
 	      --doc_opt=markdown,$(PROTO_DOC_NAME) \
 	      /protos/$(PROTO_GLOB)'
-	@sudo python3 scripts/patch_protos_md.py "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
-	@sudo python3 scripts/generate_proto_type_pages.py
-	@sudo python3 scripts/generate_proto_catalog.py
+	@$(PYTHON) scripts/patch_protos_md.py "$(PROTO_OUT_DIR)/$(PROTO_DOC_NAME)"
+	@$(PYTHON) scripts/generate_proto_type_pages.py
+	@$(PYTHON) scripts/generate_proto_catalog.py
 	
 
 clean-proto:

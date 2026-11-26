@@ -13,7 +13,10 @@ const SRC = join(dirname(fileURLToPath(import.meta.url)), '..')
 type Item = DefaultTheme.SidebarItem
 
 // ── Sidebar helpers ───────────────────────────────────────────────────
-const page = (text: string, path: string): Item => ({ text, link: `/${path}` })
+// Section landing pages are linked as "/section/" (what VitePress uses as their route), so that
+// the sidebar highlight and the previous/next links work on them.
+const route = (path: string) => `/${path.replace(/(^|\/)index$/, '$1')}`
+const page = (text: string, path: string): Item => ({ text, link: route(path) })
 const group = (text: string, items: Item[], collapsed = false): Item => ({ text, items, collapsed })
 
 /** First "# " heading of a page (Markdown escapes removed). */
@@ -27,30 +30,32 @@ function titleOf(file: string): string {
  * Sidebar tree that follows the links of generated index pages, like a Sphinx toctree:
  * an index page lists its children; children inside the same folder tree become nested items.
  */
-function linkTree(indexPath: string, depth = 3, seen = new Set<string>()): Item {
+function linkTree(indexPath: string, depth = 3, seen = new Set<string>(), sectionRoot?: string): Item {
   const file = join(SRC, indexPath)
   seen.add(normalize(file))
   const text = readFileSync(file, 'utf8')
   const root = dirname(file)
+  // Children may live in sibling folders of the section (e.g. sdk/python/client/index.md -> ../generated/*.md).
+  const section = sectionRoot ?? root
   const children: Item[] = []
   for (const m of text.matchAll(/\]\(((?!https?:|#)[^)#\s]+\.md)(?:#[^)]*)?\)/g)) {
     const target = normalize(join(root, m[1]))
-    if (seen.has(target) || !existsSync(target) || !target.startsWith(root)) continue
+    if (seen.has(target) || !existsSync(target) || !target.startsWith(section)) continue
     seen.add(target)
     const rel = relative(SRC, target)
     if (depth > 1 && /index\.md$/.test(rel)) {
-      children.push({ ...linkTree(rel, depth - 1, seen), collapsed: true })
+      children.push({ ...linkTree(rel, depth - 1, seen, section), collapsed: true })
     } else {
       children.push(page(titleOf(target), rel.replace(/\.md$/, '')))
     }
   }
-  return { text: titleOf(file), link: `/${indexPath.replace(/\.md$/, '')}`, items: children }
+  return { text: titleOf(file), link: route(indexPath.replace(/\.md$/, '')), items: children }
 }
 
 const safeTree = (indexPath: string, depth?: number): Item =>
   existsSync(join(SRC, indexPath))
     ? linkTree(indexPath, depth)
-    : { text: `${indexPath} (run scripts/generate_reference.py)`, link: '/sdk/index' }
+    : { text: `${indexPath} (run scripts/generate_reference.py)`, link: '/sdk/' }
 
 // ── Sidebars per top menu ─────────────────────────────────────────────
 const quickStart: Item[] = [
@@ -148,60 +153,83 @@ const apiReference: Item[] = [
   { ...safeTree('sdk/protos/index.md', 1), collapsed: true },
 ]
 
-const sidebarFor = (estopLink = '/getting-started/estop-basics'): DefaultTheme.SidebarMulti => {
-  const qs = quickStart.map((g) => ({
-    ...g,
-    items: g.items?.map((i) => (i.link === '/getting-started/estop-basics' ? { ...i, link: estopLink } : i)),
-  }))
-  const s: DefaultTheme.SidebarMulti = {}
-  for (const p of ['/getting-started/', '/ko/getting-started/']) s[p] = qs
-  for (const p of ['/precautions/', '/hardware/', '/options/', '/maintenance/', '/rpc_management_tools/', '/legal/']) s[p] = manual
-  for (const p of ['/software/', '/sdk/models/', '/sdk/controllers/', '/sdk/trobuleshooting/', '/examples/', '/ros2/', '/simulators/']) s[p] = software
-  for (const p of ['/sdk/index', '/sdk/python/', '/sdk/cpp/', '/sdk/protos/']) s[p] = apiReference
-  return s
-}
+const sidebar: DefaultTheme.SidebarMulti = {}
+for (const p of ['/getting-started/']) sidebar[p] = quickStart
+for (const p of ['/precautions/', '/hardware/', '/options/', '/maintenance/', '/rpc_management_tools/', '/legal/']) sidebar[p] = manual
+for (const p of ['/software/', '/sdk/models/', '/sdk/controllers/', '/sdk/trobuleshooting/', '/examples/', '/ros2/', '/simulators/']) sidebar[p] = software
+for (const p of ['/sdk/python/', '/sdk/cpp/', '/sdk/protos/']) sidebar[p] = apiReference
+// The API landing page (/sdk/) shares its folder prefix with the guide pages above, so match it exactly.
+sidebar['/sdk/index'] = apiReference
 
 // ── Top menu (same pattern as the RBQ manual) ────────────────────────
-const nav = (ko: boolean): DefaultTheme.NavItem[] => {
-  const t = (en: string, kr: string) => (ko ? kr : en)
-  return [
-    { text: t('Home', '홈'), link: ko ? '/ko/' : '/' },
-    { text: t('Quick Start', '빠른 시작'), link: ko ? '/ko/getting-started/estop-basics' : '/getting-started/index', activeMatch: '/getting-started/' },
-    {
-      text: t('Manual', '매뉴얼'),
-      activeMatch: '/(precautions|hardware|options|maintenance|rpc_management_tools|legal)/',
-      items: [
-        { text: t('Safety', '안전'), link: '/precautions/index' },
-        { text: t('Hardware', '하드웨어'), link: '/hardware/index' },
-        { text: t('Options', '옵션'), link: '/options/gripper' },
-        { text: t('Maintenance & Tools', '유지보수·도구'), link: '/maintenance/index' },
-      ],
-    },
-    {
-      text: t('Software', '소프트웨어'),
-      activeMatch: '/(software|sdk/models|sdk/controllers|sdk/trobuleshooting|examples|ros2|simulators)/',
-      items: [
-        { text: t('SDK Guide', 'SDK 가이드'), link: '/software/index' },
-        { text: 'ROS 2', link: '/ros2/index' },
-        { text: t('Simulation', '시뮬레이션'), link: '/simulators/index' },
-      ],
-    },
-    {
-      text: t('API Reference', 'API 레퍼런스'),
-      activeMatch: '^/sdk/(index|python/|cpp/|protos/)',
-      items: [
-        { text: 'Python API', link: '/sdk/python/index' },
-        { text: 'C++ API', link: '/sdk/cpp/index' },
-        { text: 'Protobuf (gRPC) API', link: '/sdk/protos/index' },
-      ],
-    },
-    { text: t('Download', '다운로드'), link: 'https://github.com/RainbowRobotics/rby1-release/releases' },
-    { text: t('Support', '기술지원'), link: 'https://github.com/RainbowRobotics/rby1-sdk/discussions' },
-    {
-      text: SDK_VERSION,
-      items: [{ text: t(`${SDK_VERSION} release notes`, `${SDK_VERSION} 릴리스 노트`), link: `https://github.com/RainbowRobotics/rby1-sdk/releases/tag/${SDK_VERSION}` }],
-    },
-  ]
+const nav: DefaultTheme.NavItem[] = [
+  { text: 'Home', link: '/' },
+  { text: 'Quick Start', link: '/getting-started/', activeMatch: '^/getting-started/' },
+  {
+    text: 'Manual',
+    activeMatch: '^/(precautions|hardware|options|maintenance|rpc_management_tools|legal)/',
+    items: [
+      { text: 'Safety', link: '/precautions/' },
+      { text: 'Hardware', link: '/hardware/' },
+      { text: 'Options', link: '/options/gripper' },
+      { text: 'Maintenance & Tools', link: '/maintenance/' },
+    ],
+  },
+  {
+    text: 'Software',
+    activeMatch: '^/(software|sdk/models|sdk/controllers|sdk/trobuleshooting|examples|ros2|simulators)/',
+    items: [
+      { text: 'SDK Guide', link: '/software/' },
+      { text: 'ROS 2', link: '/ros2/' },
+      { text: 'Simulation', link: '/simulators/' },
+    ],
+  },
+  {
+    text: 'API Reference',
+    activeMatch: '^/sdk/($|index|python/|cpp/|protos/)',
+    items: [
+      { text: 'Python API', link: '/sdk/python/' },
+      { text: 'C++ API', link: '/sdk/cpp/' },
+      { text: 'Protobuf (gRPC) API', link: '/sdk/protos/' },
+    ],
+  },
+  { text: 'Download', link: '/downloads' },
+  { text: 'Support', link: '/support' },
+  {
+    // One version is published (the latest); older releases are on GitHub (see README, "Versions").
+    text: SDK_VERSION,
+    items: [
+      { text: 'Supported platforms & compatibility', link: '/getting-started/supported-platforms' },
+      { text: `rby1-sdk ${SDK_VERSION} release notes`, link: `https://github.com/RainbowRobotics/rby1-sdk/releases/tag/${SDK_VERSION}` },
+      { text: 'Robot software releases', link: 'https://github.com/RainbowRobotics/rby1-release/releases' },
+      { text: 'rby1-ros2 releases', link: 'https://github.com/RainbowRobotics/rby1-ros2/releases' },
+    ],
+  },
+]
+
+// ── Edit links: generated pages point to their source ──────────────
+const REPO = 'https://github.com/RainbowRobotics/rby1-dev'
+const SDK_REPO = 'https://github.com/RainbowRobotics/rby1-sdk'
+function editUrl(filePath: string): string {
+  let m: RegExpMatchArray | null
+  if ((m = filePath.match(/^sdk\/python\/generated\//))) return `${SDK_REPO}/tree/${SDK_VERSION}/python` // docstrings
+  if ((m = filePath.match(/^sdk\/(python|cpp)\/(.+)\.md$/))) return `${REPO}/edit/dev/doc/source/sdk/${m[1]}/${m[2]}.rst`
+  if ((m = filePath.match(/^sdk\/protos\/generated\//))) return `${REPO}/tree/dev/doc/source/sdk/protos` // generator input
+  return `${REPO}/edit/dev/manual/${filePath}`
+}
+
+// ── Page metadata: description from the first paragraph, canonical URL, Open Graph ──
+const SITE_URL = `https://rainbowrobotics.github.io${base}`
+function firstParagraph(relativePath: string): string | undefined {
+  const file = join(SRC, relativePath)
+  if (!existsSync(file)) return undefined
+  const body = readFileSync(file, 'utf8').replace(/^---[\s\S]*?---/, '')
+  for (const block of body.split(/\n\s*\n/)) {
+    const t = block.trim()
+    if (!t || /^(#|<|:::|!\[|\||```|-|\$\$)/.test(t)) continue
+    return t.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').slice(0, 200)
+  }
+  return undefined
 }
 
 // withMermaid: renders ```mermaid blocks (architecture diagrams in the ROS 2 pages).
@@ -217,6 +245,22 @@ export default withMermaid({
   // The Doxygen HTML is a static folder in public/, not a VitePress page.
   ignoreDeadLinks: [/raw-api\//, /^https?:\/\/localhost/],
   head: [['link', { rel: 'icon', href: `${base}rb_logo.png` }]],
+  sitemap: { hostname: SITE_URL },
+  transformPageData(pageData) {
+    const desc = pageData.frontmatter.description ?? firstParagraph(pageData.relativePath)
+    if (desc) pageData.description = desc
+  },
+  transformHead({ pageData }) {
+    const url = SITE_URL + pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '.html')
+    const title = pageData.title ? `${pageData.title} | RB-Y1` : 'RB-Y1'
+    return [
+      ['link', { rel: 'canonical', href: url }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: pageData.description || 'RB-Y1 manual' }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { property: 'og:image', content: `${SITE_URL}hero-image.png` }],
+    ]
+  },
   // Large generated API tables: keep the search index small and the build quick.
   // MathJax for the controller formulas ($$ blocks converted from MyST {math}).
   // pycon: interactive Python sessions in the API docstrings.
@@ -235,25 +279,9 @@ export default withMermaid({
     },
   },
 
-  locales: {
-    root: { label: 'English', lang: 'en', themeConfig: { nav: nav(false), sidebar: sidebarFor() } },
-    ko: {
-      label: '한국어',
-      lang: 'ko',
-      link: '/ko/',
-      themeConfig: {
-        nav: nav(true),
-        sidebar: sidebarFor('/ko/getting-started/estop-basics'),
-        outline: { label: '이 페이지', level: [2, 3] },
-        docFooter: { prev: '이전', next: '다음' },
-      },
-    },
-  },
-
   themeConfig: {
-    // Only a few pages are translated: the language menu goes to the Korean home page,
-    // not to /ko/<same page>, which usually does not exist.
-    i18nRouting: false,
+    nav,
+    sidebar,
     logo: '/rb_logo.png',
     search: { provider: 'local' },
     socialLinks: [
@@ -261,7 +289,8 @@ export default withMermaid({
       { icon: 'youtube', link: 'https://www.youtube.com/@rainbowrobotics' },
     ],
     editLink: {
-      pattern: 'https://github.com/RainbowRobotics/rby1-dev/edit/dev/manual/:path',
+      // Generated pages are edited at their source (see README, "Generated pages").
+      pattern: ({ filePath }) => editUrl(filePath),
       text: 'Edit this page on GitHub',
     },
     outline: { level: [2, 3] },

@@ -14,17 +14,14 @@ on:
         description: "Publish this build to the live site (new-gh-pages)"
         type: boolean
         default: false
-      archive_previous:
-        description: "Keep the previous latest version under /<version>/"
-        type: boolean
-        default: true
 
 permissions:
   contents: read
 
+# A new push cancels an older build of the same branch, but never a manual (publishing) run.
 concurrency:
-  group: docs-${{ github.ref }}
-  cancel-in-progress: true
+  group: docs-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 jobs:
   build:
@@ -35,6 +32,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+          fetch-depth: 0  # full history: per-page "Last updated" dates
 
       - uses: astral-sh/setup-uv@v6
         with:
@@ -58,6 +56,9 @@ jobs:
 
       - name: Build the site (API reference + VitePress)
         run: make -C doc html SDK_TAG=${{ steps.version.outputs.sdk_version }} PYTHON=python
+
+      - name: Check links and anchors inside the site
+        run: python manual/scripts/check_links.py manual/.vitepress/dist /rby1-dev/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -87,11 +88,10 @@ jobs:
           name: docs-html
           path: build
 
-      - name: Place the build and update versions.json
+      - name: Place the build at the site root
         run: |
           python3 src/doc/scripts/publish_site.py --build build --site site \
-            --version "${{ needs.build.outputs.sdk_version }}" --latest \
-            ${{ inputs.archive_previous && '--archive-previous' || '' }}
+            --version "${{ needs.build.outputs.sdk_version }}"
 
       - name: Commit and push
         working-directory: site
