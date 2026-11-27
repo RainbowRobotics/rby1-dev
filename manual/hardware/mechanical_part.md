@@ -45,9 +45,11 @@ This table lists the torque ratings in newton-meters (Nm), the gear ratio, the o
 | Motor Encoder Resolution (bit) | 14 | 14 | 14 | 14 | 14 | 12 (Model M v1.3: 14) |
 | Transmission Error (arcsec) | ~50 | ~50 | ~50 | ~50 | ~50 | ~50 |
 | Stiffness (Nm/rad) | 110,000 | 50,000 | 14,000 | 6,100 | 6,100 | 6,100 |
-| Motor Torque Constant (Nm/A) | 0.15 | 0.10 | 0.10 | 0.10 | 0.055 | 0.0837 |
+| Motor Torque Constant (Nm/A) | 0.15 | 0.10 | 0.10 | 0.10 | 0.055 | 0.0414 (Model M v1.3: 0.0837) |
 
 The gear ratios, the arm_6 encoder resolution and the torque constants are the values that the robot PC uses for each joint. The other WY2 values are the ratings published for the wrist actuators.
+
+Robot PC software released before the arm_6 correction used 0.0837 Nm/A for arm_6 on every model. With it the robot reports arm_6 torque at twice the real value and an arm_6 torque or impedance command produces half the commanded torque.
 
 ---
 ## Robot Dimensions
